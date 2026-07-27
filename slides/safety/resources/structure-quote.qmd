@@ -1,0 +1,12 @@
+```{=html}
+<div style="width:84%;margin:0 auto;text-align:left;">
+
+ <div style="position:relative;background:rgba(93,212,188,0.1);border-left:5px solid #5DD4BC;border-radius:0 14px 14px 0;padding:1.5em 1.8em 1.6em;">
+  <div style="position:absolute;top:0.4em;left:0.7em;font-family:'Georgia',serif;font-size:5em;color:#5DD4BC;line-height:0.7;opacity:0.18;user-select:none;">"</div>
+  <div style="position:relative;font-size:0.92em;line-height:1.55;color:#F8F7F0;font-style:italic;font-family:'Georgia','TsangerJinKai',serif;">
+   Give the agent your <span style="color:#5DD4BC;font-style:normal;font-weight:700;">structure</span>. Never your <span style="color:#FF6F8E;font-style:normal;font-weight:700;">content</span>.<br>The pipeline transfers. The rows do not.
+  </div>
+ </div>
+
+</div>
+```

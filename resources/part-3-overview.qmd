@@ -1,19 +1,19 @@
 <div class="section-outer section-purple">
  <div class="section-header">
-  <span class="section-header-text">In this section, we will discuss how to keep AI assistance safe for data-science work.</span>
+  <span class="section-header-text">In this section, we will discuss how to keep data safe and stay in command when working with AI agents.</span>
  </div>
  <div class="section-grid section-grid-3">
   <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="gauge"></i></div>
-   <div class="section-label">Counter-productivity of AI</div>
-  </div>
-  <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="git-fork"></i></div>
-   <div class="section-label">The Data-Science Dilemma</div>
+   <div class="section-card-icon"><i data-lucide="file-code"></i></div>
+   <div class="section-label">Scripts, Not Results</div>
   </div>
   <div class="section-card">
    <div class="section-card-icon"><i data-lucide="shield-check"></i></div>
-   <div class="section-label">A Successful Workflow</div>
+   <div class="section-label">Keep Real Data Out</div>
+  </div>
+  <div class="section-card">
+   <div class="section-card-icon"><i data-lucide="plane"></i></div>
+   <div class="section-label">You Are the Pilot</div>
   </div>
  </div>
 </div>

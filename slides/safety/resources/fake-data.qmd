@@ -1,0 +1,32 @@
+```{=html}
+<div style="width:70%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.3em 1.2em;border-radius:18px;">
+
+ <div style="display:flex;flex-direction:column;gap:0.5em;text-align:left;">
+
+  <div style="background:#FFFFFF;border-radius:10px;padding:0.62em 0.8em;display:grid;grid-template-columns:1.5em 1fr;gap:0.6em;align-items:center;box-shadow:0 3px 10px rgba(44,132,117,0.08);">
+   <div style="width:1.5em;height:1.5em;border-radius:50%;background:linear-gradient(135deg,#3DA890,#2C8475);display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-family:'Maple Mono',monospace;font-size:0.62em;font-weight:700;">1</div>
+   <div style="font-size:0.6em;font-weight:700;color:#2C3E50;line-height:1.3;display:flex;align-items:center;gap:0.4em;"><i data-lucide="layout-grid" style="width:1.1em;height:1.1em;stroke-width:1.9;color:#2C8475;flex-shrink:0;"></i>Fake the content, keep the structure: same columns, fabricated rows</div>
+  </div>
+
+  <div style="display:flex;justify-content:center;color:#BCDFC0;line-height:0;"><i data-lucide="chevron-down" style="width:0.9em;height:0.9em;stroke-width:2.4;"></i></div>
+
+  <div style="background:#FFFFFF;border-radius:10px;padding:0.62em 0.8em;display:grid;grid-template-columns:1.5em 1fr;gap:0.6em;align-items:center;box-shadow:0 3px 10px rgba(44,132,117,0.08);">
+   <div style="width:1.5em;height:1.5em;border-radius:50%;background:linear-gradient(135deg,#3DA890,#2C8475);display:flex;align-items:center;justify-content:center;color:#FFFFFF;font-family:'Maple Mono',monospace;font-size:0.62em;font-weight:700;">2</div>
+   <div style="font-size:0.6em;font-weight:700;color:#2C3E50;line-height:1.3;display:flex;align-items:center;gap:0.4em;"><i data-lucide="bot" style="width:1.1em;height:1.1em;stroke-width:1.9;color:#2C8475;flex-shrink:0;"></i>The agent plans, writes, and tests the whole pipeline on fake data</div>
+  </div>
+
+  <div style="display:flex;justify-content:center;color:#BCDFC0;line-height:0;"><i data-lucide="chevron-down" style="width:0.9em;height:0.9em;stroke-width:2.4;"></i></div>
+
+  <div style="background:linear-gradient(135deg,#3DA890,#2C8475);border-radius:10px;padding:0.62em 0.8em;display:grid;grid-template-columns:1.5em 1fr;gap:0.6em;align-items:center;box-shadow:0 5px 14px rgba(44,132,117,0.32);">
+   <div style="width:1.5em;height:1.5em;border-radius:50%;background:rgba(255,255,255,0.22);display:flex;align-items:center;justify-content:center;color:#FFFFFF;"><i data-lucide="shield-check" style="width:0.85em;height:0.85em;stroke-width:2.1;"></i></div>
+   <div style="font-size:0.6em;font-weight:700;color:#FFFFFF;line-height:1.3;">You run the real data yourself: same scripts, offline, no agent</div>
+  </div>
+
+ </div>
+
+ <div style="margin-top:0.9em;background:#FFFFFF;border:1px solid #BCDFC0;border-radius:12px;padding:0.55em 1em;text-align:center;box-shadow:0 4px 14px rgba(44,132,117,0.1);">
+  <div style="font-size:0.58em;color:#2C3E50;line-height:1.5;">The agent got the <span style="color:#2C8475;font-weight:700;">structure</span>. It never saw <span style="color:#D45F47;font-weight:700;">a single real row</span>.</div>
+ </div>
+
+</div>
+```

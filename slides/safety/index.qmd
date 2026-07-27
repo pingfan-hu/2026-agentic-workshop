@@ -11,75 +11,73 @@ title-slide-attributes:
 
 {{< include resources/recap.qmd >}}
 
-## [Section 1]{.amber}<br>Counter-productivity of AI {.dark-centered .center}
+## Today {.dark-centered .center}
 
-## Fast [≠]{.coral} Better {.light-centered .center}
+{{< include resources/roadmap.qmd >}}
 
-{{< include resources/fast-not-better.qmd >}}
+## You [will]{.teal} use agents {.light-centered .center}
 
-## The reviewer's question {.dark-centered .center}
+{{< include resources/inevitable.qmd >}}
 
-{{< include resources/reviewer-test.qmd >}}
+## The [script]{.teal}, not the [result]{.coral} {.light-centered .center}
 
-## Three failure modes {.light-centered .center}
+{{< include resources/scripts-not-results.qmd >}}
 
-{{< include resources/failure-modes.qmd >}}
+## What the agent hands back {.light-centered .center}
 
-## The [reasoning]{.teal} is the analysis {.light-centered .center}
+{{< include resources/deliverables.qmd >}}
 
-{{< include resources/lost-reasoning.qmd >}}
+## A structure you can audit {.light-centered .center}
 
-## Where AI [clearly]{.teal} helps {.light-centered .center}
+{{< include resources/file-structure.qmd >}}
 
-{{< include resources/where-helps.qmd >}}
+## Every stage, same rule {.light-centered .center}
 
-## [Section 2]{.amber}<br>The dilemma in data science {.dark-centered .center}
+{{< include resources/every-stage.qmd >}}
 
-## Missing values — [it depends why]{.purple} {.light-centered .center}
+## Some data can [never]{.coral} leave {.light-centered .center}
 
-{{< include resources/missing-values.qmd >}}
+{{< include resources/sensitive-data.qmd >}}
 
-## Every interesting decision {.light-centered .center}
+## Leaks happen [quietly]{.coral} {.light-centered .center}
 
-{{< include resources/decisions.qmd >}}
+{{< include resources/leak-paths.qmd >}}
 
-## Why a [harness loop]{.coral} fails here {.light-centered .center}
+## The [fake-data]{.teal} workflow {.light-centered .center}
 
-{{< include resources/harness-fails.qmd >}}
+{{< include resources/fake-data.qmd >}}
 
-## The credibility question {.dark-centered .center}
+## Same structure, [fake]{.teal} content {.light-centered .center}
 
-{{< include resources/credibility.qmd >}}
+{{< include resources/fake-vs-real.qmd >}}
 
-## [Section 3]{.amber}<br>A successful workflow {.dark-centered .center}
+## More shields {.light-centered .center}
 
-## Human as [gatekeeper]{.teal} {.light-centered .center}
+{{< include resources/more-shields.qmd >}}
 
-{{< include resources/gatekeeper.qmd >}}
+## The principle {.dark-centered .center}
 
-## Two non-negotiables {.light-centered .center}
+{{< include resources/structure-quote.qmd >}}
 
-{{< include resources/non-negotiables.qmd >}}
+## [Co-pilot]{.teal}, not [autopilot]{.coral} {.light-centered .center}
 
-## Delegation map {.light-centered .center}
+{{< include resources/copilot.qmd >}}
 
-{{< include resources/delegation.qmd >}}
+## Your name on the results {.light-centered .center}
 
-## Pin the decisions in code {.light-centered .center}
+{{< include resources/own-everything.qmd >}}
 
-{{< include resources/pin-decisions.qmd >}}
+## The hand-craft test {.light-centered .center}
 
-## Verify against an [independent]{.teal} check {.light-centered .center}
+{{< include resources/handcraft-test.qmd >}}
 
-{{< include resources/verify.qmd >}}
+## How it goes [wrong]{.coral} {.light-centered .center}
 
-## Two issues data science makes worse {.light-centered .center}
+{{< include resources/bad-example.qmd >}}
 
-{{< include resources/repro-disclosure.qmd >}}
+## Three violations, one chat {.light-centered .center}
 
-## [Verify]{.amber}, then trust {.dark-centered .center}
-
-{{< include resources/mindset.qmd >}}
+{{< include resources/violations.qmd >}}
 
 ## Three takeaways {.light-centered .center}
 

@@ -4,10 +4,7 @@
  <div style="position:relative;background:rgba(255,184,77,0.08);border-left:5px solid #FFB84D;border-radius:0 14px 14px 0;padding:1.4em 1.7em 1.5em;margin-bottom:1em;">
   <div style="position:absolute;top:0.4em;left:0.7em;font-family:'Georgia',serif;font-size:5em;color:#FFB84D;line-height:0.7;opacity:0.18;user-select:none;">"</div>
   <div style="position:relative;font-size:0.85em;line-height:1.6;color:#F8F7F0;font-style:italic;font-family:'Georgia','TsangerJinKai',serif;">
-   AI is a powerful <span style="color:#FFB84D;font-style:normal;font-weight:700;">collaborator</span>. It is not a competent <span style="color:#FFB84D;font-style:normal;font-weight:700;">analyst</span>.<br>The difference is <span style="color:#FFB84D;font-style:normal;font-weight:700;">who signs the paper</span>.
-  </div>
-  <div style="margin-top:0.7em;text-align:right;font-family:'Maple Mono',monospace;font-size:0.55em;color:#9B8EA0;">
-   — closing thought
+   AI is a brilliant <span style="color:#5DD4BC;font-style:normal;font-weight:700;">co-pilot</span>: it makes the whole flight faster.<br>But the destination, the judgment calls, and the landing<br>belong to the <span style="color:#FFB84D;font-style:normal;font-weight:700;">pilot</span>. That is <span style="color:#FFB84D;font-style:normal;font-weight:700;">you</span>.
   </div>
  </div>
 

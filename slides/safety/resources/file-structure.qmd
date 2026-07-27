@@ -1,0 +1,58 @@
+```{=html}
+<div style="width:76%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.1em 1.2em 1.2em;border-radius:18px;">
+
+ <div style="background:#FFFFFF;border:1px solid #D4D3EE;border-radius:14px;overflow:hidden;box-shadow:0 10px 28px rgba(86,84,162,0.14);text-align:left;">
+
+  <div style="background:#EEEDF8;border-bottom:1px solid #D4D3EE;padding:0.5em 0.9em;display:flex;align-items:center;gap:0.5em;">
+   <i data-lucide="folder-open" style="width:0.8em;height:0.8em;color:#5654A2;stroke-width:1.9;"></i>
+   <span style="font-family:'Maple Mono',monospace;font-size:0.52em;color:#5654A2;font-weight:700;">project/</span>
+  </div>
+
+  <div style="padding:0.55em 0.9em 0.35em;display:flex;flex-direction:column;gap:0.28em;">
+   <div style="display:flex;align-items:center;gap:0.55em;padding:0.28em 0.5em;border-radius:8px;background:#FCEEEC;">
+    <i data-lucide="lock" style="width:0.75em;height:0.75em;color:#D45F47;stroke-width:1.9;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#2C3E50;">data/raw/</span>
+    <span style="margin-left:auto;font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#D45F47;background:#FFFFFF;border:1px solid #F0C5BA;padding:0.2em 0.6em;border-radius:999px;">source · read-only</span>
+   </div>
+  </div>
+
+  <div style="height:1px;background:#EDEBF5;margin:0.15em 0.9em;"></div>
+
+  <div style="padding:0.35em 0.9em;display:flex;flex-direction:column;gap:0.28em;">
+   <div style="display:flex;align-items:center;gap:0.55em;padding:0.28em 0.5em;border-radius:8px;background:#EEEDF8;">
+    <i data-lucide="file-code" style="width:0.75em;height:0.75em;color:#5654A2;stroke-width:1.9;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#2C3E50;">scripts/01-wrangle.R</span>
+    <span style="margin-left:auto;font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#FFFFFF;background:linear-gradient(135deg,#6462B4,#5654A2);padding:0.2em 0.6em;border-radius:999px;">the product</span>
+   </div>
+   <div style="display:flex;align-items:center;gap:0.55em;padding:0.28em 0.5em;border-radius:8px;background:#EEEDF8;">
+    <i data-lucide="file-code" style="width:0.75em;height:0.75em;color:#5654A2;stroke-width:1.9;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#2C3E50;">scripts/02-visualize.R</span>
+   </div>
+   <div style="display:flex;align-items:center;gap:0.55em;padding:0.28em 0.5em;border-radius:8px;background:#EEEDF8;">
+    <i data-lucide="file-code" style="width:0.75em;height:0.75em;color:#5654A2;stroke-width:1.9;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#2C3E50;">scripts/03-model.R</span>
+   </div>
+  </div>
+
+  <div style="height:1px;background:#EDEBF5;margin:0.15em 0.9em;"></div>
+
+  <div style="padding:0.35em 0.9em 0.6em;display:flex;flex-direction:column;gap:0.28em;">
+   <div style="display:flex;align-items:center;gap:0.55em;padding:0.28em 0.5em;border-radius:8px;">
+    <i data-lucide="folder" style="width:0.75em;height:0.75em;color:#3DA18A;stroke-width:1.9;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#7A8C86;">data/derived/</span>
+    <span style="margin-left:auto;font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#2C8475;background:#E5F2EE;border:1px solid #BCDFC0;padding:0.2em 0.6em;border-radius:999px;">generated</span>
+   </div>
+   <div style="display:flex;align-items:center;gap:0.55em;padding:0.28em 0.5em;border-radius:8px;">
+    <i data-lucide="folder" style="width:0.75em;height:0.75em;color:#3DA18A;stroke-width:1.9;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#7A8C86;">output/figures/ &nbsp;·&nbsp; output/tables/</span>
+   </div>
+  </div>
+
+ </div>
+
+ <div style="margin-top:0.9em;background:#FFFFFF;border:1px solid #BCDFC0;border-radius:12px;padding:0.55em 1em;text-align:center;box-shadow:0 4px 14px rgba(44,132,117,0.1);">
+  <div style="font-size:0.58em;color:#2C3E50;line-height:1.5;">The test: delete everything <span style="color:#2C8475;font-weight:700;">generated</span>. Can the <span style="color:#5654A2;font-weight:700;">scripts</span> rebuild it all?</div>
+ </div>
+
+</div>
+```

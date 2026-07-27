@@ -1,260 +1,243 @@
-# Data Safety with AI — Speaker Script
+# Data Safety with AI: Speaker Script
 
 Speaking script for **Part 3: Data Safety with AI** of the 2026 Agentic Engineering Workshop.
 
 Organized into the three sections defined in `resources/part-3-overview.qmd`:
 
-1. **Counter-productivity of AI**
-2. **The dilemma in data science**
-3. **A successful workflow**
+1. **Scripts, Not Results**
+2. **Keep Real Data Out**
+3. **You Are the Pilot**
 
-Audience note: this workshop is presented to attendees with a **data science background** but not necessarily heavy AI tooling experience. Parts 1 and 2 deliberately stop short of full automation. Part 3 explains *why*, and what a responsible AI-assisted data-science workflow looks like.
+After the three sections, one worked **bad example** shows a researcher violating all three rules in a single chat, then the deck closes with takeaways.
 
-Pacing target: ~25 minutes, ~25–29 slides — matching Parts 1 and 2.
+Audience note: attendees have a **data science background**. Parts 1 and 2 taught them to conduct agents and encapsulate skills. Part 3 is where that power meets real data, and the message shifts from "delegate more" to "delegate deliberately."
 
----
-
-## Opening: a deliberate pivot
-
-_[~1 minute — set the tone, defuse the whiplash]_
-
-We just spent fifty minutes selling agentic workflows. Stop handcrafting, start conducting. Let agents handle execution.
-
-I want to be honest with you: that argument works because in software engineering there is usually a **definite right answer**. The tests pass or they fail. The build is green or it is not. The API returns 200 or it does not. When the answer is checkable, agents and harnesses converge on it, and the productivity gains are real.
-
-> Data science is not that. Most of the interesting decisions in our work have **no objectively right answer**.
-
-So Part 3 is the part where we slow down and ask the harder question. Where does AI help a data-science workflow? Where does it quietly hurt it? And how do we keep the productivity wins from Parts 1 and 2 without losing what makes our analyses *credible*?
-
-Three sections:
-
-1. **Counter-productivity of AI** — the visible cost. Speed without supervision is a trap.
-2. **The dilemma in data science** — the structural reason. No ground truth means no verifier.
-3. **A successful workflow** — what to actually do. Two non-negotiables, plus a delegation map.
+Pacing target: ~25 minutes, ~21 slides, matching Parts 1 and 2. No section divider slides; the roadmap previews the three parts once and every content slide self-explains.
 
 ---
 
-## 1. Counter-productivity of AI
+## Opening
 
-### Speed is not the win we think it is
+### Recap _(slide: Recap)_
 
-_[~1 minute]_
+_[~1 min]_
 
-The pitch for AI tooling is almost always speed. *Ship faster. Iterate faster. Less typing.* For many tasks that is true. For data science it can be deeply misleading.
+Quick recap. In Part 1 you learned to conduct an agent instead of handcrafting every step. In Part 2 you learned to wrap workflows into skills you can summon by name. You now have real leverage.
 
-A short test you can apply to any AI-assisted output:
+Part 3 asks the question that leverage raises: what happens when the agent meets your **actual data**? Data science is not a website demo. The data may be confidential, and the results may end up in a paper or a policy decision with your name on it.
 
-> If a reviewer asked me, *"why did you do it that way?"*, could I answer in a sentence — without re-reading the AI's explanation?
+### Today _(slide: Today)_
 
-If no, the AI just lowered the **quality** of the analysis, even if it raised the **speed**. That gap is what we mean by counter-productivity.
+_[~1 min]_
 
-### Three failure modes you will recognize
+Three habits keep AI-assisted data science safe, and they are the three parts of today:
 
-_[~3 minutes — make these concrete]_
+1. **Scripts, not results.** Ask the agent how the answer is made, never for the answer itself.
+2. **Keep real data out.** The agent can learn your data's structure without ever seeing its content.
+3. **You are the pilot.** AI is the co-pilot. Every result still answers to you.
 
-Patterns I see when data scientists hand work to AI without supervision:
+### Agents are inevitable _(slide: Agents are now part of the job)_
 
-1. **Plausible code, wrong assumptions.** The model writes a `pandas` pipeline that runs cleanly, returns a dataframe of the expected shape, and quietly makes the wrong choice about how to join, group, or filter. The output looks fine. The conclusion is wrong.
-2. **Confident summaries of noisy results.** Asked to "summarize the regression," the model returns a paragraph that sounds like a paper abstract — even when the model fit is poor or the assumptions are violated. Confidence is not calibrated to evidence.
-3. **Velocity that hides the error.** Because each step is fast, errors compound across a notebook before anyone notices. By the time a coefficient looks weird, you have to retrace ten cells of generated code that no human ever read.
+_[~1.5 min]_
 
-The common thread: each failure is *invisible at the moment it happens*. You only catch it later, often during review, sometimes never.
+Let me start with the honest premise: you **will** use agents for data work. Doing every step of wrangling, visualization, and modeling by hand no longer makes sense, any more than refusing a calculator. The productivity gap is too large to ignore, and pretending otherwise just means falling behind.
 
-### The deeper cost: lost reasoning
-
-_[~2 minutes — the load-bearing argument]_
-
-Speed is the visible cost. The invisible cost is bigger.
-
-When a data scientist writes code by hand, they are *thinking*. They are deciding which observations to drop, which transformation to apply, which test to run, and **why**. That reasoning is the actual product of the analysis. The code is just its trace.
-
-When the same data scientist accepts AI-generated code without working through it, the reasoning step is skipped. You still get a result. You no longer know **why** it is the right result, or whether it is.
-
-The artifact looks like work. The understanding that gives the artifact its value is missing.
-
-> AI can write the analysis. It cannot defend it.
-
-### Where AI clearly helps
-
-_[~1 minute — keep it balanced]_
-
-This is not an argument against AI in data science. It is an argument for being **deliberate**. AI clearly accelerates work where you would catch a wrong answer in seconds:
-
-- **Boilerplate and ceremony** — `library()` blocks, themes, axis labels, file I/O.
-- **Translation between languages** — R → Python, Stata → R, SQL dialect A → dialect B.
-- **Documentation, naming, and writing** — variable names, docstrings, README sections.
-- **Searching unfamiliar libraries** — *"how do I do X in `polars`?"*, faster than skimming docs.
-
-The rule of thumb: **delegate where the right answer is checkable in five seconds.** Be careful everywhere else.
+But data work is different from the website you built in Part 1 in two ways. First, the **input** can be sensitive: government records, patient data, proprietary business data. Second, the **output** carries your name: a finding, a figure, a coefficient someone will act on. So the question is never "should I use agents?" It is "how do I use them without leaking the input or losing ownership of the output?" That is the whole talk.
 
 ---
 
-## 2. The dilemma in data science
+## 1. Scripts, Not Results
 
-### The example that frames the section: missing values
+### Ask for the script, not the result _(slide: The script, not the result)_
 
-_[~3 minutes — the load-bearing example]_
+_[~2 min]_
 
-Pick the simplest possible case. A column in your dataset has missing values. What should you do?
+Here is the single most important habit change. The tempting prompt is: "Here is my data. Clean it and show me the table. What is the effect of X on Y?" The agent will answer. It will be fast, confident, and formatted. And you will have **no idea how the number was made**.
 
-There is no universal answer. It depends on **why** the values are missing.
+The better prompt costs ten more seconds: "Plan the cleaning steps and write an R script that does them. I will run it and read it." Same agent, same speed advantage. But now the deliverable is not a number, it is a **pipeline**. You can read the script, question the script, rerun the script. When a number comes out, you can point at the exact lines that produced it.
 
-| Pattern | Right move | Wrong move |
-|---|---|---|
-| Missing at random (sensor blip, forgot to record) | Impute, drop, or model the missingness | Treat as zero, or as a category |
-| Missing systematically (the question was skipped on purpose) | The missingness *is* the signal — encode it as a category | Impute, especially with the column mean |
-| Structurally undefined (e.g., "spouse income" for unmarried respondents) | Filter to the relevant subgroup | Impute or drop case-wise |
-| Unit changed mid-collection | Investigate, then split along the change point | Treat the column as one column |
+Rather than asking what the answer is, ask **how the answer is made**. That is the entire section in one sentence.
 
-A general-purpose AI agent does not know which row of this table applies to your data. It picks a default — usually mean imputation or row-drop — because that is what is most common in its training data. The default is plausible. It is also, in three out of four cases above, **wrong**.
+### What the agent should hand back _(slide: What the agent hands back)_
 
-This is not really a missing-values story. This is a story about **every interesting decision in a data-science workflow**:
+_[~1.5 min]_
 
-- Which observations are outliers vs. the actual phenomenon?
-- Is the deviation from a model assumption fatal or tolerable for *this* question?
-- Should you drop a covariate that is collinear, or keep it for theoretical reasons?
-- Is a 0.04 p-value evidence of an effect, or evidence that you ran enough tests?
+Concretely, a good data-work session with an agent produces three things:
 
-In each of these, **two competent analysts can disagree** and both be doing real science. There is no test suite that says one of them is wrong.
+1. **The scripts.** Python or R, readable, rerunnable. The plan turned into code you can step through.
+2. **The file structure.** Which files are sources, which are generated, which are support. You should be able to tell at a glance what feeds what.
+3. **The judgment.** And this one is yours, not the agent's: read the pipeline and decide whether the processing is *reasonable*. The agent proposes; you evaluate.
 
-### Why a harness-style loop fails here
+If a session ends and you cannot point to these three things, you got a result, not an analysis.
 
-_[~2 minutes — the structural argument]_
+### A structure you can audit _(slide: A structure you can audit)_
 
-A modern AI harness — generator agent, reviewer agent, verifier agent, all running in a loop — works extremely well when the verifier has access to **ground truth**. Tests pass or fail. Builds compile or do not. The loop converges because there is something to converge to.
+_[~1.5 min]_
 
-In the data-science cases above there is no verifier. **The reviewer agent is just another generator agent with a different prompt.** Two LLMs agreeing that the missing-value strategy looks fine is not evidence that it is fine — they will both default to the same statistical convention from the same training data.
+The file structure deserves its own slide because it is the cheapest audit tool you have. A healthy project separates three kinds of files: **source** (the raw data, read-only, never edited in place), **scripts** (the numbered pipeline: wrangle, visualize, model), and **generated** (derived data, figures, tables, all reproducible by rerunning the scripts).
 
-So the failure mode of a fully-automated harness in data science is:
+The test: could you delete every generated file and rebuild them all by running the scripts in order? If yes, the how of your analysis is fully captured. If no, somewhere a result exists that nothing can explain.
 
-- Generator picks a plausible default.
-- Reviewer agrees, because it would have picked the same default.
-- Verifier checks that the code *runs*, not that the *decision* was right.
-- The output ships.
-- The conclusion is wrong, and you cannot tell from the artifact.
+### The rule covers every stage _(slide: Every stage, same rule)_
 
-Every layer of automation we add multiplies the same blind spot. More agents do not fix it; they hide it.
+_[~1.5 min]_
 
-### The credibility question
+This is not just a data-cleaning rule. It covers the whole workflow:
 
-_[~1 minute]_
+- **Wrangling:** scripts, not pasted-back tables.
+- **Visualization:** scripts, not one-off images. A figure you cannot regenerate is a screenshot, not a result.
+- **Modeling:** scripts, not quoted coefficients. If the model spec lives only inside a chat transcript, you do not have a model, you have an anecdote.
 
-Step back: as a data scientist, your output is not the code or the figure. **Your output is a claim about the world.** That a drug works. That a policy change had this effect. That this group is at higher risk.
-
-The credibility of that claim depends on you being able to defend every choice that led to it. A workflow that cannot survive the question *"why did you do it that way?"* is not a workflow — it is a liability.
-
-> Reproducible code is not the same as a defensible analysis.
+At every stage the question is the same: **can I trace how this was made?** If the answer lives in a script in your repo, yes. If it lives in the agent's reply bubble, no.
 
 ---
 
-## 3. A successful workflow
+## 2. Keep Real Data Out
 
-### The principle: human as gatekeeper
+### Some data can never leave _(slide: Some data can never leave)_
 
-_[~1 minute]_
+_[~1.5 min]_
 
-The fix is not to stop using AI. The fix is to **decide which steps a human must own**, and enforce that boundary. Two non-negotiables:
+Now the input side. Some datasets are simply not yours to share, with anyone, including an AI service: **government records** (say you work for an agency and the microdata is classified or restricted), **health and personal data** (HIPAA, IRB protocols), **proprietary business data** (contracts, NDAs), **human subjects research** (consent forms that never mentioned a model provider).
 
-> 1. **You own every decision about the data.**
->    What to keep, drop, transform, impute, model, exclude — and *why*.
->
-> 2. **You write the methods section.**
->    The audit trail of your analysis is the one piece you should never delegate.
+For these, "the model provider promises not to train on it" is not a policy. The safe assumption is brutal and simple: **anything that enters the chat has left the building.** Design your workflow so it never has to enter.
 
-Everything else can flex.
+### Leaks happen quietly _(slide: Leaks happen quietly)_
 
-### A delegation map
+_[~1.5 min]_
 
-_[~3 minutes — the practical slide]_
+Nobody leaks a database on purpose. Leaks look like this:
 
-A simple matrix you can use to decide what to hand to AI and what to keep:
+- Pasting "just a few sample rows so the agent understands the format."
+- Letting the agent read files freely in a directory that contains the real data.
+- Uploading the CSV "just this once" to debug a parsing error.
+- Screenshotting a spreadsheet to ask about a weird value.
 
-| Task | Delegate to AI? | Why |
-|---|---|---|
-| Boilerplate, syntax, library lookup | **Yes** | Right answer checkable instantly |
-| First draft of transformation code | **Yes, then read every line** | Speed up, but reason yourself |
-| Choosing how to handle missing values | **No** | No ground truth — your call |
-| Picking a model specification | **No** | Theory + judgment, not pattern-match |
-| Interpreting model output | **No** | This *is* the analysis |
-| Drafting the methods section | **No** | This is how you defend the work |
-| Reformatting the methods section | **Yes** | Mechanics, not decisions |
+Each one feels harmless in the moment. Each one is the whole leak. The fix is not more willpower in the moment; it is a workflow where the real data is never within reach.
 
-The boundary moves over time as you learn what the model is reliable at. The principle does not move: **the data scientist signs off on every decision that affects the conclusion**.
+### The fake-data workflow _(slide: The fake-data workflow)_
 
-### Pin the decisions in the code
+_[~2 min]_
 
-_[~1 minute]_
+Here is the workflow I use, and it is the centerpiece of this section:
 
-For every non-trivial decision, leave a comment that captures *why*:
+1. **Keep the structure, fake the content.** Build a stand-in dataset with the same columns, same types, same shape, same quirks (missing values, weird codes), but entirely fabricated rows. A small script or even the agent itself can generate it from the schema.
+2. **Build the pipeline on fake data.** The agent plans, writes, and tests the whole pipeline: wrangling, visualization, modeling, on the stand-in. It iterates freely because nothing it touches is sensitive.
+3. **Run the real data yourself, offline.** When the pipeline is done, you swap the file path and run the scripts on the real data, on your machine, with no agent in the loop.
 
-```python
-# Drop respondents who skipped the income question.
-# Structural skip (only employed respondents see it),
-# not a refusal — see codebook §4.2.
-df = df[df["employed"] == 1]
-```
+The agent got everything it needed, which was the structure. It never saw a single real row. And notice how this depends on Section 1: this handoff only works because the deliverable was **scripts**. You cannot swap the input of an answer bubble.
 
-These comments are what make the analysis defensible six months later. They are also what stops the next AI session from "helpfully" rewriting the filter the wrong way.
+### Same structure, fake content _(slide: Same structure, fake content)_
 
-### Verify against an independent check
+_[~1 min]_
 
-_[~1 minute]_
+This is what the split looks like side by side. Two files, identical columns, identical types. The real one stays on your disk and is read only by scripts you run. The fake one is the only file the agent ever opens. The pipeline transfers perfectly between them because pipelines run on structure, not on content.
 
-Before believing a headline number, check it against something AI did not generate:
+### More ways to keep data out _(slide: More shields)_
 
-- A summary statistic from the codebook or a published paper.
-- A back-of-envelope calculation you do by hand.
-- A second analysis run by a colleague who did not use the same chat session.
+_[~1.5 min]_
 
-If the AI-assisted pipeline and the independent check disagree, the **AI-assisted pipeline is wrong** until you can explain the gap.
+Fake data is one shield. Depending on how sensitive the data is and what your policies allow, you can layer more:
 
-### Two issues data science makes worse
+- **De-identify first.** Strip names, IDs, exact dates and locations before anything is shared. (Careful: de-identification is harder than it looks; rare combinations can still re-identify someone.)
+- **Share schema, not rows.** Often the agent needs only column names, types, and a description. Text, no data.
+- **Deny by configuration.** Use your agent's permission settings to block the data directory outright, so even a careless prompt cannot expose it. Guardrails beat willpower.
+- **Keep the model local.** For the most restricted settings, run models on hardware you control, so nothing leaves the machine.
 
-_[~2 minutes — the topics no one talks about]_
+These stack. A schema-only prompt inside a sandboxed agent working on a fake dataset is defense in depth.
 
-**Reproducibility.** AI sessions are not deterministic. Different model versions, different system prompts, even different times of day can produce different code. If you do not capture *which model and which session* produced a given step, you have weakened the reproducibility of your work. Practical move: paste the model name and date into a comment when the AI's contribution is non-trivial.
+### The principle _(slide: dark pull-quote)_
 
-**Disclosure.** Increasingly, journals, conferences, and funders ask whether AI was used in preparing an analysis. The honest answer is almost always *yes, in some form*. A short, accurate methods-section sentence — *"Code drafts were generated with [model name] and reviewed and modified by the authors before use"* — costs nothing and protects you from later challenges.
+_[~0.5 min]_
 
-### The mindset
-
-_[~1 minute — the close]_
-
-Two sayings to leave with:
-
-- **Old**: *"Trust, but verify."*
-- **New**: *"Verify, then trust."*
-
-AI assistance flips the default. The output is plausible by default. **Plausible is not the same as correct.** In data science, that gap is the whole game.
-
-> Use AI to write the analysis. Be the one who decides what it means.
+The whole section in two lines: **give the agent your structure, never your content. The pipeline transfers. The rows do not.**
 
 ---
 
-## Closing & transition
+## 3. You Are the Pilot
 
-_[Slide: recap]_
+### Co-pilot, not autopilot _(slide: Co-pilot, not autopilot)_
 
-Three takeaways from Part 3:
+_[~1.5 min]_
 
-1. **Counter-productivity of AI.** Speed without supervision lowers quality even when it raises throughput. The lost reasoning is what gives an analysis its credibility — skip it and the artifact is just code.
-2. **The data-science dilemma.** The decisions that matter most have no ground truth. A harness loop with no verifier does not converge — it hides the blind spot behind more layers. Two LLMs agreeing is not evidence.
-3. **A successful workflow.** Two non-negotiables: **you own the data decisions, you write the methods section.** Everything else can be delegated, but every decision goes through you. Pin decisions in comments, verify against independent checks, disclose AI use.
+Last section, and it is the foundation under the other two. The metaphor that gets AI right is the **co-pilot**. A co-pilot is genuinely capable: handles the radio, watches the instruments, flies stretches of the route, and makes everything faster and safer. But a co-pilot does not choose the destination, and when something is at stake, it is not the co-pilot's landing.
 
-Closing line: *"AI is a powerful collaborator. It is not a competent analyst. The difference is who signs the paper."*
+Calling AI a co-pilot implies the other half: **you are the pilot.** You set the course, you make the judgment calls, you sign off. The moment that flips, when the agent decides and you just accept, you are not doing data science faster. You have stopped doing it at all.
+
+### Your name on the results _(slide: Your name on the results)_
+
+_[~1.5 min]_
+
+Being the pilot means full responsibility across the whole pipeline: the original data, the wrangling, the visualization, the modeling and simulation, the conclusions. Every step must survive your questions. When a reviewer, a colleague, or your future self asks "why did you do it that way?", the answer has to come from you, not from a chat log. AI made the pipeline fast. It did not sign it. You did.
+
+### The hand-craft test _(slide: The hand-craft test)_
+
+_[~1.5 min]_
+
+A litmus test for every delegated step: **could you do this step yourself, without AI?**
+
+- If yes: delegate freely. You are delegating the typing, not the thinking. You can verify the output because you know what correct looks like.
+- If no: stop. Do not ship what you cannot check. Learn the method first, then let the agent accelerate it.
+
+AI changes the speed of your work. It does not change what you are responsible for understanding. If you could not have crafted it, you cannot verify it, and if you cannot verify it, it should not ship under your name.
 
 ---
 
-## Speaker notes & open questions
+## The bad example
 
-_(Working notes for the speaker — not slide content.)_
+### How it goes wrong _(slide: How it goes wrong)_
 
-- **Tone:** sympathetic to AI use (we just spent two parts on it), serious about the failure modes. Avoid "AI is bad for data science" — the message is *"AI is for the mechanics, you are for the decisions."*
-- **Pacing:** Section 1 ~7 min, Section 2 ~6 min, Section 3 ~9 min, opening + closing ~3 min = ~25 min total.
-- **Open question — live demo:** A 60-second demo of an AI confidently proposing a bad missing-values strategy on a real dataset would land harder than any slide. Could open Section 2 with it. Decide closer to the day based on time and tooling on stage.
-- **Open question — domain examples:** Are there examples from John's energy/transportation work or your own PhD area that would resonate more than the generic survey-data example? Worth swapping in if the audience is GW-heavy.
-- **Section card icons** (already wired in `resources/part-3-overview.qmd`):
-  - Section 1 — `gauge` (counter-productivity / speed without control)
-  - Section 2 — `git-fork` (the branching dilemma)
-  - Section 3 — `shield-check` (gatekeeper)
-- **Cut from earlier draft:** the "missing third stage" meta-framing about how Part 3 was originally going to be Harness Engineering. Audience does not need to know the planning history — moved into this notes section for context only.
+_[~2 min]_
+
+Now that you have the three rules, watch one researcher break all of them in ninety seconds, without ever feeling like they did anything wrong. Friday, 4:55 pm, report due Monday:
+
+They paste two hundred real rows from a restricted benefits database into the chat, "so the agent understands the data." They ask: "what is the effect of the program on income? Just give me the number." The agent answers, confident and tidy: +$1,240, p = 0.03. They say thanks and paste the number into the report.
+
+Walk through it slowly and every step feels reasonable. Deadline pressure, a helpful agent, a plausible number. That is exactly why this fails quietly: nothing errored, nothing warned, and the work looks done.
+
+### Three violations in one chat _(slide: Three violations, one chat)_
+
+_[~1.5 min]_
+
+Score it against the three sections:
+
+1. **Real rows left the building.** Restricted microdata is now in a third-party context window. Rule 2, gone, in one paste.
+2. **They asked for the number, not the pipeline.** No script exists. Nobody, including them, can say how the estimate was produced, or reproduce it.
+3. **They shipped a result they cannot defend.** The number is in the report; the first hard question ends the story. The co-pilot flew, and nobody was piloting.
+
+The fix costs minutes: generate a fake dataset with the same columns, have the agent write the pipeline against it, run it on the real data locally, read the scripts, then decide whether to believe the number. Same deadline. Same agent. A defensible result.
+
+---
+
+## Closing
+
+### Three takeaways _(slide: Three takeaways)_
+
+_[~1 min]_
+
+1. **Scripts, not results.** Ask how the answer is made. Keep the scripts and the file structure; judge the reasonableness yourself.
+2. **Keep real data out.** Structure goes to the agent, content stays home. Fake data, schema-only prompts, deny rules, local models.
+3. **You are the pilot.** AI expedites the work; it does not own it. Everything ships under your name, so everything must survive your questions.
+
+### Closing quote _(slide: dark pull-quote)_
+
+_[~0.5 min]_
+
+AI is a brilliant co-pilot: it makes the whole flight faster. But the destination, the judgment calls, and the landing belong to the pilot. **That is you.**
+
+Thank the audience; hand back to the workshop wrap-up.
+
+---
+
+## Speaker notes
+
+_(Working notes for the speaker, not slide content.)_
+
+- **Tone:** pro-AI throughout. Parts 1 and 2 sold delegation; Part 3 is not a retraction, it is the operating manual. The message is "delegate the mechanics, own the decisions and the data."
+- **Pacing:** opening ~3.5 min, Section 1 ~6.5 min, Section 2 ~8 min, Section 3 ~4.5 min, bad example ~3.5 min, closing ~1.5 min. Total ~27 min; trim the leak-paths or hand-craft slides if running long.
+- **The fake-data workflow is the demo-able moment.** If live tooling allows, a 60-second demo (agent generates a fake CSV from a schema, writes a wrangling script, you run it on the "real" file) would land harder than the slides. Decide on the day.
+- **Government example:** the narration frames Section 2 with "suppose I work for the government and the data is seriously sensitive." Keep that framing verbal; it makes the stakes concrete for a DC-area audience.
+- **Section card icons** (wired in `resources/part-3-overview.qmd`):
+  - Section 1: `file-code` (scripts as the deliverable)
+  - Section 2: `shield-check` (data protection)
+  - Section 3: `plane` (the pilot)

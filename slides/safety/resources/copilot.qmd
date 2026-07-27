@@ -1,0 +1,26 @@
+```{=html}
+<div style="width:90%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.5em 1em;border-radius:18px;">
+
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9em;align-items:center;">
+
+  <div class="assistant-card" style="background:#FFFFFF;border:1px solid #BCDFC0;border-radius:16px;padding:1.1em 1.2em 1.15em;box-shadow:0 6px 22px rgba(44,132,117,0.1);text-align:center;">
+   <div style="display:flex;align-items:center;justify-content:center;gap:0.55em;margin-bottom:0.6em;">
+    <div style="width:2.2em;height:2.2em;border-radius:0.55em;background:#E5F2EE;border:1px solid #BCDFC0;display:flex;align-items:center;justify-content:center;color:#2C8475;"><i data-lucide="bot" style="width:1em;height:1em;stroke-width:1.8;"></i></div>
+    <div style="font-size:0.78em;font-weight:700;color:#2C8475;">The co-pilot: AI</div>
+   </div>
+   <div style="font-size:0.58em;color:#564232;line-height:1.6;">Drafts the scripts. Remembers the syntax. Flies fast.</div>
+  </div>
+
+  <div class="agent-card" style="background:#FFFBF3;border:1.5px solid #FAE9C8;border-radius:16px;padding:1.1em 1.2em 1.15em;box-shadow:0 10px 30px rgba(196,136,26,0.2);text-align:center;">
+   <div class="agent-badge"><i data-lucide="crown" style="width:1em;height:1em;stroke-width:2.2;"></i>in command</div>
+   <div style="display:flex;align-items:center;justify-content:center;gap:0.55em;margin-bottom:0.6em;">
+    <div style="width:2.2em;height:2.2em;border-radius:0.55em;background:#FEF5E7;border:1px solid #F0DDB4;display:flex;align-items:center;justify-content:center;color:#C4881A;"><i data-lucide="user-round" style="width:1em;height:1em;stroke-width:1.8;"></i></div>
+    <div style="font-size:0.78em;font-weight:700;color:#C4881A;">The pilot: you</div>
+   </div>
+   <div style="font-size:0.58em;color:#564232;line-height:1.6;">Sets the course. Makes the calls. Owns the landing.</div>
+  </div>
+
+ </div>
+
+</div>
+```
