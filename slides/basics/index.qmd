@@ -75,6 +75,14 @@ title-slide-attributes:
 
 {{< include resources/claude-md.qmd >}}
 
+## Four modes of Claude Code {.light-centered .center}
+
+{{< include resources/four-modes.qmd >}}
+
+## Basic commands {.light-centered .center}
+
+{{< include resources/basic-commands.qmd >}}
+
 ## Skills {.light-centered .center}
 
 {{< include resources/skills.qmd >}}
