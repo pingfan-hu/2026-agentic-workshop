@@ -1,0 +1,10 @@
+---
+title: "Recommended Software"
+description: "Optional software beyond the essentials that rounds out an agentic workflow."
+toc: false
+grid:
+  sidebar-width: 0px
+  margin-width: 0px
+---
+
+{{< include resources/recommended-software.qmd >}}

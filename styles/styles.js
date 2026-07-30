@@ -231,7 +231,7 @@ document.addEventListener('click', function (e) {
 // Quarto's native `menu:` would turn the whole Installation item into a
 // dropdown toggle, killing its link. Instead, inject a small caret button to
 // the right of the pill; clicking it opens a floating pill linking to the
-// recommended (full list) page. The Installation link itself keeps working.
+// recommended software page. The Installation link itself keeps working.
 (function () {
   function init() {
     var link = document.querySelector('nav.navbar .navbar-nav .nav-link[href$="installation.html"]');
@@ -256,8 +256,8 @@ document.addEventListener('click', function (e) {
     var item = document.createElement('a');
     item.className = 'nav-flyout-item';
     // Derive from the Installation href so it resolves under any deploy subpath.
-    item.href = link.getAttribute('href').replace('installation.html', 'recommended.html');
-    item.textContent = 'Full List';
+    item.href = link.getAttribute('href').replace('installation.html', 'software.html');
+    item.textContent = 'Software';
     menu.appendChild(item);
 
     li.appendChild(btn);

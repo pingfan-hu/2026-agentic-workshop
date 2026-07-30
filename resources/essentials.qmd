@@ -6,6 +6,7 @@
   </span>
   <span class="esscard-name">Claude Code</span>
   <span class="esscard-desc">The AI coding agent we use throughout the workshop.</span>
+  <span class="esscard-foot">See more agent options below</span>
  </a>
 
  <a class="esscard" href="https://positron.posit.co" target="_blank" rel="noopener">

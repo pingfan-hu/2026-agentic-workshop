@@ -51,7 +51,7 @@
     <span class="swtbl-software-name">Spokenly</span>
    </a>
   </div>
-  <div class="swtbl-desc"><div>(Requires subscription) AI powered voice-to-text application.</div></div>
+  <div class="swtbl-desc"><div>(Requires subscription) AI powered voice-to-text app.</div></div>
  </div>
 
  <div class="swtbl-row swtbl-subrow">
@@ -64,7 +64,7 @@
     <span class="swtbl-software-name">Ghost Pepper</span>
    </a>
   </div>
-  <div class="swtbl-desc"><div>Free, open source replacement for Spokenly.</div></div>
+  <div class="swtbl-desc"><div>Free, open source lightweight voice-to-text app.</div></div>
  </div>
 
  <div class="swtbl-row">

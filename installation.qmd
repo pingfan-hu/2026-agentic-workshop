@@ -1,20 +1,28 @@
 ---
 title: "Installation"
-description: "Two essential apps for the workshop."
+description: "The essential apps and CLI agents to install before the workshop."
 toc: false
 grid:
   sidebar-width: 0px
   margin-width: 0px
 ---
 
+## Essentials
+
+The bare minimum needed to follow the workshop hands-on.
+
 {{< include resources/essentials.qmd >}}
+
+## Agents
+
+Install one of these 3 AI agents (or all of them if you want to collaborate across platforms):
+
+{{< include resources/agents.qmd >}}
 
 ```{=html}
 <div class="soft-divider"></div>
 ```
 
-See more recommended agents and apps here:
-
 ::: {.intro-links}
-[More Agents and Software](recommended.qmd){.intro-btn}
+[Some More Recommended Software](software.qmd){.intro-btn .intro-btn-wide}
 :::

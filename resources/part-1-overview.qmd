@@ -5,15 +5,15 @@
  <div class="section-grid section-grid-3">
   <div class="section-card">
    <div class="section-card-icon"><i data-lucide="git-compare-arrows"></i></div>
-   <div class="section-label">Assistants vs Agents</div>
+   <div class="section-label">What is an Agent?</div>
   </div>
   <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="layers"></i></div>
-   <div class="section-label">Architecture</div>
+   <div class="section-card-icon"><i data-lucide="globe"></i></div>
+   <div class="section-label">Website Example</div>
   </div>
   <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="wrench"></i></div>
-   <div class="section-label">Handy Tools</div>
+   <div class="section-card-icon"><i data-lucide="terminal"></i></div>
+   <div class="section-label">Basic Agentic Commands</div>
   </div>
  </div>
 </div>
