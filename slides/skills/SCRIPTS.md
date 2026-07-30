@@ -1,6 +1,6 @@
 # Skill Usage and Design: Speaker Script
 
-Speaking script for **Part 2: Skill Usage and Design** of the 2026 Agentic Engineering Workshop.
+Speaking script for **Part 2: Skill Usage and Design** of the 2026 Agentic Workflows with Claude Code Workshop.
 
 Organized into the three sections defined in `resources/part-2-overview.qmd`:
 

@@ -1,6 +1,6 @@
 <div class="section-outer section-green">
  <div class="section-header">
-  <span class="section-header-text">In this section, we will discuss the basics of agentic engineering.</span>
+  <span class="section-header-text">In this section, we will discuss the basics of agentic workflows.</span>
  </div>
  <div class="section-grid section-grid-3">
   <div class="section-card">

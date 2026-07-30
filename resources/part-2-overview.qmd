@@ -1,6 +1,6 @@
 <div class="section-outer section-orange">
  <div class="section-header">
-  <span class="section-header-text">In this section, we will discuss how to use, install, and author skills for agentic engineering.</span>
+  <span class="section-header-text">In this section, we will discuss how to use, install, and author skills for agentic workflows.</span>
  </div>
  <div class="section-grid section-grid-3">
   <div class="section-card">

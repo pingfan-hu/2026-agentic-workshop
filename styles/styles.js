@@ -227,6 +227,67 @@ document.addEventListener('click', function (e) {
   document.body.appendChild(btn);
 })();
 
+// ---- Navbar: Installation split dropdown ("Full List" flyout) ----
+// Quarto's native `menu:` would turn the whole Installation item into a
+// dropdown toggle, killing its link. Instead, inject a small caret button to
+// the right of the pill; clicking it opens a floating pill linking to the
+// recommended (full list) page. The Installation link itself keeps working.
+(function () {
+  function init() {
+    var link = document.querySelector('nav.navbar .navbar-nav .nav-link[href$="installation.html"]');
+    if (!link) return;
+    var li = link.closest('.nav-item');
+    if (!li || li.querySelector('.nav-flyout-toggle')) return;
+    li.classList.add('nav-split');
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'nav-flyout-toggle';
+    btn.setAttribute('aria-label', 'More installation pages');
+    btn.setAttribute('aria-expanded', 'false');
+    // Inline Lucide "chevron-down" SVG so it does not depend on lucide.createIcons() timing.
+    btn.innerHTML =
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"' +
+      ' stroke="currentColor" stroke-width="2.4" stroke-linecap="round"' +
+      ' stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+
+    var menu = document.createElement('div');
+    menu.className = 'nav-flyout';
+    var item = document.createElement('a');
+    item.className = 'nav-flyout-item';
+    // Derive from the Installation href so it resolves under any deploy subpath.
+    item.href = link.getAttribute('href').replace('installation.html', 'recommended.html');
+    item.textContent = 'Full List';
+    menu.appendChild(item);
+
+    li.appendChild(btn);
+    li.appendChild(menu);
+
+    function close() {
+      li.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var open = li.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (!open) btn.blur();
+    });
+    document.addEventListener('click', function (e) {
+      if (!li.contains(e.target)) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
 // ---- GW Seal Logo (navbar far-right) ----
 // Inject directly into .navbar-container so `order: 9999` (in CSS) pushes it
 // past the search/toggle group, matching how quarto.org places its Posit logo.

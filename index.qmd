@@ -1,12 +1,19 @@
 ---
-title: "2026 Summer Workshop - Agentic Engineering"
+pagetitle: "2026 Summer Workshop"
 open-graph:
   image: images/card.png
 toc: false
-grid:                                  
+grid:
   sidebar-width: 0px
   margin-width: 0px
 ---
+
+```{=html}
+<header class="home-hero">
+ <p class="home-hero-kicker">2026 Summer Workshop</p>
+ <h1 class="home-hero-title">Agentic Workflows with <span class="home-hero-accent">Claude Code</span></h1>
+</header>
+```
 
 {{< include resources/authors.qmd >}}
 

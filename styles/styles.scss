@@ -76,6 +76,65 @@ main.content h2 {
   font-size: 1.05em;
 }
 
+// ---- Home Hero ----
+
+// The home page sets pagetitle (not title), so Quarto emits an empty
+// title-block-header that still carries margin. Collapse it so the hero
+// controls its own spacing.
+#title-block-header:empty {
+  display: none;
+}
+
+.home-hero {
+  text-align: center;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.home-hero-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 0.4rem;
+  font-family: 'Maple Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #5B7C93;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 1px;
+    width: 52px;
+    background: #C8DAE8;
+  }
+}
+
+.home-hero-title {
+  margin: 0;
+  font-size: 2.3rem;
+  line-height: 1.25;
+  color: #013D5B;
+}
+
+.home-hero-accent {
+  color: #ED6D46;
+}
+
+@media (max-width: 640px) {
+  .home-hero-kicker {
+    gap: 10px;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+
+    &::before,
+    &::after { width: 28px; }
+  }
+
+  .home-hero-title { font-size: 1.6rem; }
+}
+
 // ---- Authors ----
 
 .auth-row {
@@ -414,13 +473,17 @@ table {
   text-decoration: none;
   white-space: nowrap;
   text-align: center;
-  transition: background 0.15s ease, color 0.15s ease;
+  // Pre-promote so the :active press creates its layer up front.
+  will-change: transform;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
 
   &:hover {
     background: #013D5B;
     color: #F8F7F0;
     text-decoration: none;
   }
+
+  &:active { transform: scale(0.96); }
 }
 
 // ---- Link Table ----
@@ -873,6 +936,122 @@ nav.navbar {
   padding: 0.2rem 0.55rem !important;
 }
 
+// ---- Navbar: Installation split dropdown ("Full List" flyout) ----
+// The caret button and flyout are injected by styles.js next to the
+// Installation nav link (see "Installation split dropdown" there).
+.navbar-nav .nav-item.nav-split {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-flyout-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  // Fixed width + stretch: matches the pill's height, and gives the flyout a
+  // known offset (see .nav-flyout right) so it can align to the pill exactly.
+  width: 22px;
+  align-self: stretch;
+  margin-left: 2px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.30);
+    transform: scale(0.92);
+  }
+
+  svg {
+    width: 14px;
+    height: 14px;
+    display: block;
+    transition: transform 0.15s ease;
+  }
+}
+
+.nav-split.open .nav-flyout-toggle {
+  background-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+
+  svg { transform: rotate(180deg); }
+}
+
+// Drawer flyout: a second pill the full width of the nav item, styled like the
+// nav pill itself, sliding out from beneath it. The container clips (overflow
+// hidden) so the pill appears drawn out of the original button; bottom padding
+// leaves room for the shadow inside the clip.
+.nav-flyout {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  // Stop short of the caret (22px + 2px margin) so the drawer pill has exactly
+  // the width and position of the original nav pill.
+  right: 24px;
+  padding-bottom: 12px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1080;
+  white-space: nowrap;
+}
+
+.nav-flyout-item {
+  display: block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  background: #013D5B;
+  // Same navy as the navbar, so a light border marks the pill's edge where it
+  // overlaps the bar (matches the navbar's divider tint).
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+  visibility: hidden;
+  transform: translateY(calc(-100% - 8px));
+  transition:
+    transform 0.28s cubic-bezier(0.33, 1, 0.36, 1),
+    visibility 0s linear 0.28s;
+
+  // Hover sits between the navy base and the navbar's pale active tint.
+  &:hover {
+    background: #1F546F;
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+
+.nav-split.open .nav-flyout { pointer-events: auto; }
+
+.nav-split.open .nav-flyout-item {
+  visibility: visible;
+  transform: translateY(0);
+  transition:
+    transform 0.28s cubic-bezier(0.33, 1, 0.36, 1),
+    visibility 0s;
+
+  // Shrink press. translateY is 0 while open, so scale alone is safe here; the
+  // quick transition override keeps the press snappy despite the slow drawer.
+  &:active {
+    transform: scale(0.96);
+    transition: transform 0.15s ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-flyout-item { transition: none; }
+}
+
 .quarto-navbar-tools > a,
 .quarto-navbar-tools > .quarto-navbar-tool {
   padding: 0.2rem 0.45rem !important;
@@ -1058,7 +1237,7 @@ div.quarto-about-trestles .about-entity .description {
   padding: 22px 16px;
   text-align: center;
   border-right: 1px solid #C8DAE8;
-  transition: background 0.15s ease, transform 0.06s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
 
   &:last-child { border-right: none; }
 
@@ -1083,7 +1262,7 @@ a.section-card {
   &:hover .section-label { text-decoration: none; }
 
   &:active {
-    transform: translateY(1px);
+    transform: scale(0.98);
     background: #E0EDF5;
 
     .section-card-icon { background: #FFFFFF; }
@@ -1246,6 +1425,88 @@ $section-themes: (
   }
 }
 
+// ---- Soft Divider ----
+// 1px horizontal rule fading out at both ends, same design as the slide-deck
+// dividers, in the site's divider blue.
+
+.soft-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C8DAE8, transparent);
+  margin: 1.8rem 0;
+}
+
+// ---- Essential Cards ----
+// The two-app essentials grid: side-by-side cards with a large icon tile on
+// top, the app name, and a small description beneath.
+
+.esscard-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 1.5rem 0;
+}
+
+.esscard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px 24px 26px;
+  border: 1.5px solid #013D5B;
+  border-radius: 14px;
+  background: #F8F7F0;
+  text-decoration: none;
+  // Pre-promote so the :active press doesn't repaint siblings on first click
+  // (see CLAUDE.md hover-shake note). No hover transform for the same reason.
+  will-change: transform;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    background: #EDF2F6;
+    box-shadow: 0 6px 16px rgba(1, 61, 91, 0.14);
+    text-decoration: none;
+  }
+
+  &:active { transform: scale(0.97); }
+}
+
+.esscard-icon {
+  width: 88px;
+  height: 88px;
+  border-radius: 22px;
+  background: #E5E7EB;
+  // Hairline keeps the tile edge crisp against any surface behind it.
+  border: 1px solid rgba(1, 61, 91, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img,
+  svg {
+    width: 52px;
+    height: 52px;
+    display: block;
+  }
+}
+
+.esscard-name {
+  margin-top: 14px;
+  font-family: 'Maple Mono', monospace;
+  font-size: 1.05em;
+  color: #013D5B;
+}
+
+.esscard-desc {
+  margin-top: 6px;
+  font-size: 0.88em;
+  line-height: 1.5;
+  color: #2A2A2A;
+}
+
+@media (max-width: 640px) {
+  .esscard-row { grid-template-columns: 1fr; }
+}
+
 // ---- Software Table ----
 
 .swtbl-outer {
@@ -1313,7 +1574,7 @@ $section-themes: (
   // Pre-promote so the :active press creates its layer up front instead of
   // repainting siblings on first click (see CLAUDE.md hover-shake note).
   will-change: transform;
-  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.06s ease;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 // Hover raises the button with shadow + a brighter surface only — no hover
@@ -1334,7 +1595,7 @@ $section-themes: (
 
 // Momentary press transform is fine (CLAUDE.md).
 .swtbl-software-link:active {
-  transform: translateY(1px);
+  transform: scale(0.96);
   box-shadow: 0 1px 4px rgba(1, 61, 91, 0.12);
 }
 
@@ -1371,7 +1632,7 @@ $section-themes: (
 }
 
 // ---- Sub-row: a secondary entry nested under the row above it ----
-// (e.g. Ghost Pepper as the open-source alternative to Spokenly). Same row
+// (e.g. Spokenly and Ghost Pepper as alternatives under FluidVoice). Same row
 // markup, but smaller and connected to its parent: no top divider, an elbow
 // connector, and a tighter, lighter treatment.
 .swtbl-subrow {
@@ -1418,6 +1679,8 @@ $section-themes: (
 .swtbl-subrow .swtbl-desc {
   padding-top: 9px;
   padding-bottom: 9px;
+  // Indent to mirror the elbow-indented icon+name in the left column.
+  padding-left: 44px;
   font-size: 0.84em;
 }
 
@@ -1558,8 +1821,11 @@ $section-themes: (
   // it. Smaller sizing + no divider already mark the sub-row as nested.
   .swtbl-subrow-elbow { display: none; }
 
+  // No elbow to mirror on mobile, so drop the description indent too.
+  .swtbl-subrow .swtbl-desc { padding-left: 20px; }
+
   // Columns stack on mobile, so the per-column inset dividers would land in the
-  // wrong places (e.g. between Ghost Pepper's name and its own description).
+  // wrong places (e.g. between a sub-row's name and its own description).
   .swtbl-subrow .swtbl-software::before,
   .swtbl-subrow .swtbl-desc::before { display: none; }
 
@@ -1641,6 +1907,25 @@ body.quarto-dark {
 
   .navbar-nav a { color: #ffffff; }
 
+  .home-hero-kicker {
+    color: #7DA5BD;
+
+    &::before,
+    &::after { background: #384A57; }
+  }
+  .home-hero-title { color: var(--bs-body-color); }
+
+  .intro-btn {
+    background: transparent;
+    border-color: #7DA5BD;
+    color: #7DA5BD;
+
+    &:hover {
+      background: #7DA5BD;
+      color: #111;
+    }
+  }
+
   .auth-card:hover { background-color: rgba(125, 165, 189, 0.12); }
   .auth-image { border-color: #384A57; }
   .auth-name { color: #A4C9DC; }
@@ -1712,6 +1997,25 @@ body.quarto-dark {
       box-shadow: 0 8px 24px rgba(125, 165, 189, 0.2);
     }
   }
+
+  .soft-divider { background: linear-gradient(90deg, transparent, #384A57, transparent); }
+
+  // Essential cards
+  .esscard {
+    background: #1e2433;
+    border-color: #7DA5BD;
+
+    &:hover {
+      background: #232b3e;
+      box-shadow: 0 6px 16px rgba(125, 165, 189, 0.2);
+    }
+  }
+  .esscard-icon {
+    background: #2A4055;
+    border-color: #384A57;
+  }
+  .esscard-name { color: #A4C9DC; }
+  .esscard-desc { color: var(--bs-body-color); }
 
   // Section grid
   .section-outer { border-color: #7DA5BD; }

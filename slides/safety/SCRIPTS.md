@@ -1,6 +1,6 @@
 # Data Safety with AI: Speaker Script
 
-Speaking script for **Part 3: Data Safety with AI** of the 2026 Agentic Engineering Workshop.
+Speaking script for **Part 3: Data Safety with AI** of the 2026 Agentic Workflows with Claude Code Workshop.
 
 Organized into the three sections defined in `resources/part-3-overview.qmd`:
 

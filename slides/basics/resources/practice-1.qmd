@@ -35,12 +35,12 @@
     <div style="font-size:0.46em;color:#C9C4BC;line-height:1.5;">Data science IDE by Posit.</div>
    </a>
 
-   <a class="tool-card" href="https://spokenly.app" target="_blank" rel="noopener" style="background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.55em 0.7em;">
+   <a class="tool-card" href="https://altic.dev/fluid" target="_blank" rel="noopener" style="background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.55em 0.7em;">
     <div style="display:flex;align-items:center;gap:0.35em;margin-bottom:0.3em;">
      <div class="tool-icon">
-      <img src="figs/spokenly-logo.png" alt="Spokenly" style="width:1.7em;height:1.7em;object-fit:contain;display:block;margin:0;" />
+      <img src="figs/fluidvoice-icon.png" alt="FluidVoice" style="width:1.7em;height:1.7em;object-fit:contain;display:block;margin:0;" />
      </div>
-     <div style="font-size:0.55em;font-weight:700;white-space:nowrap;color:#6FC2B0;">Spokenly</div>
+     <div style="font-size:0.55em;font-weight:700;white-space:nowrap;color:#6FC2B0;">FluidVoice</div>
     </div>
     <div style="font-size:0.46em;color:#C9C4BC;line-height:1.5;">Voice-to-text app.</div>
    </a>

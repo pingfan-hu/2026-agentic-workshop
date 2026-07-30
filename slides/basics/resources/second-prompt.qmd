@@ -1,7 +1,7 @@
 ```{=html}
 <div style="width:88%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.4em 1em;border-radius:18px;">
 
- <div style="font-size:0.5em;color:#6F6470;margin-bottom:0.7em;text-align:center;">Talk using Spokenly, or copy the text below and paste to Claude Code.</div>
+ <div style="font-size:0.5em;color:#6F6470;margin-bottom:0.7em;text-align:center;">Talk using FluidVoice, or copy the text below and paste to Claude Code.</div>
 
  <div style="background:#FFFFFF;border:2px solid #3A7DC9;border-radius:14px;padding:1em 1.15em;box-shadow:0 6px 22px rgba(58,125,201,0.15);text-align:left;">
 
