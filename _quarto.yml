@@ -14,8 +14,8 @@ website:
   image: images/card.png
   favicon: images/favicon.png
   description: 2026 Agentic Workflows with Claude Code workshop by John Helveston and Pingfan Hu, George Washington University
-  site-url: https://pingfan-hu.github.io/2026-agentic-engineering-workshop
-  repo-url: https://github.com/pingfan-hu/2026-agentic-engineering-workshop
+  site-url: https://pingfan-hu.github.io/2026-agentic-workshop
+  repo-url: https://github.com/pingfan-hu/2026-agentic-workshop
   back-to-top-navigation: false
   twitter-card:
     image: images/card.png
@@ -49,7 +49,7 @@ website:
 
     tools:
       - icon: github
-        href: https://github.com/pingfan-hu/2026-agentic-engineering-workshop
+        href: https://github.com/pingfan-hu/2026-agentic-workshop
         target: _blank
 
 format:
