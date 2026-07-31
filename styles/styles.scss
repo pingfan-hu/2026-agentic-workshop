@@ -1913,6 +1913,25 @@ $section-themes: (
   .swtbl-row:hover .swtbl-software-icon { background: #E5E7EB; }
 }
 
+// ---- Agents Disclaimer ----
+// Small muted note under the agents table on the installation page, linking
+// to GW IT's approved-AI-tools list.
+
+.agents-disclaimer {
+  margin-top: 0.6rem;
+  font-size: 0.82em;
+  color: #5B7C93;
+
+  p { margin: 0; }
+
+  a {
+    color: #5B7C93;
+    text-decoration: underline;
+
+    &:hover { color: #013D5B; }
+  }
+}
+
 // ---- Scroll Animations ----
 
 @media (prefers-reduced-motion: no-preference) {
@@ -2129,6 +2148,10 @@ body.quarto-dark {
   .swtbl-row:hover .swtbl-software-icon { background: #3A5570; }
   .swtbl-desc { color: #C9D4DD; }
 
+  // Cursor's brand mark is black; flip it light so it stays visible on the
+  // dark icon tile.
+  .swtbl-cursor svg { fill: #DCE6EE; }
+
   .swtbl-maker,
   .swtbl-tag {
     background: #243845;
@@ -2136,6 +2159,16 @@ body.quarto-dark {
     color: #A4C9DC;
   }
   .swtbl-excels-label { color: #A4C9DC; }
+
+  .agents-disclaimer {
+    color: #7DA5BD;
+
+    a {
+      color: #7DA5BD;
+
+      &:hover { color: #DCE6EE; }
+    }
+  }
 
   @media (max-width: 640px) {
     .swtbl-desc { background: #1F3340; }

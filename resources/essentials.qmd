@@ -15,6 +15,7 @@
   </span>
   <span class="esscard-name">Positron</span>
   <span class="esscard-desc">Data-science IDE built on VS Code, with side-by-side source and rendered output.</span>
+  <span class="esscard-foot">See more IDE options below</span>
  </a>
 </div>
 ```

@@ -19,6 +19,16 @@ Install one of these 3 AI agents (or all of them if you want to collaborate acro
 
 {{< include resources/agents.qmd >}}
 
+::: {.agents-disclaimer}
+Note: See GW IT's list of [approved AI tools](https://it.gwu.edu/ai-tools-status){target="_blank" rel="noopener"} for more information.
+:::
+
+## IDEs
+
+Install an IDE based on your preference:
+
+{{< include resources/ides.qmd >}}
+
 ```{=html}
 <div class="soft-divider"></div>
 ```

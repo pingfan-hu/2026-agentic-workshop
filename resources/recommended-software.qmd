@@ -7,30 +7,6 @@
 
  <div class="swtbl-row">
   <div class="swtbl-software">
-   <a class="swtbl-software-link" href="https://positron.posit.co" target="_blank" rel="noopener">
-    <span class="swtbl-software-icon">
-     <img src="images/software/positron-icon.png" alt="Positron" />
-    </span>
-    <span class="swtbl-software-name">Positron</span>
-   </a>
-  </div>
-  <div class="swtbl-desc"><div>Data-science IDE built on VS Code, with side-by-side source and rendered output.</div></div>
- </div>
-
- <div class="swtbl-row">
-  <div class="swtbl-software">
-   <a class="swtbl-software-link" href="https://www.r-project.org" target="_blank" rel="noopener">
-    <span class="swtbl-software-icon">
-     <img src="images/software/r-icon.svg" alt="R" />
-    </span>
-    <span class="swtbl-software-name">R</span>
-   </a>
-  </div>
-  <div class="swtbl-desc"><div>The statistical programming language we use for the hands-on data work.</div></div>
- </div>
-
- <div class="swtbl-row">
-  <div class="swtbl-software">
    <a class="swtbl-software-link" href="https://altic.dev/fluid" target="_blank" rel="noopener">
     <span class="swtbl-software-icon">
      <img src="images/software/fluidvoice-icon.png" alt="FluidVoice" />
@@ -81,6 +57,18 @@
 
  <div class="swtbl-row">
   <div class="swtbl-software">
+   <a class="swtbl-software-link" href="https://www.r-project.org" target="_blank" rel="noopener">
+    <span class="swtbl-software-icon">
+     <img src="images/software/r-icon.svg" alt="R" />
+    </span>
+    <span class="swtbl-software-name">R</span>
+   </a>
+  </div>
+  <div class="swtbl-desc"><div>The statistical programming language we use for the hands-on data work.</div></div>
+ </div>
+
+ <div class="swtbl-row">
+  <div class="swtbl-software">
    <a class="swtbl-software-link" href="https://quarto.org" target="_blank" rel="noopener">
     <span class="swtbl-software-icon">
      <img src="images/software/quarto-icon.svg" alt="Quarto" />
@@ -105,7 +93,7 @@
 
  <div class="swtbl-row">
   <div class="swtbl-software">
-   <a class="swtbl-software-link" href="https://github.com/tw93/Kaku" target="_blank" rel="noopener">
+   <a class="swtbl-software-link" href="https://kaku.fun" target="_blank" rel="noopener">
     <span class="swtbl-software-icon">
      <img src="images/software/kaku-logo.png" alt="Kaku" />
     </span>
