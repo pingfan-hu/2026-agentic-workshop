@@ -16,7 +16,7 @@
    <a href="https://www.jhelvy.com" style="color:#F8F7F0;text-decoration:none;border-bottom:1px solid #FFB84D;">Dr. John Helveston</a>
   </div>
   <div style="margin-top:0.45em;font-family:'Maple Mono',monospace;font-size:0.5em;color:#9B8EA0;">
-   2026 Agentic Workflows with Claude Code Workshop &nbsp;·&nbsp; The George Washington University
+   Agentic Workflows with Claude Code &nbsp;·&nbsp; The George Washington University
   </div>
  </div>
 
