@@ -197,36 +197,6 @@ document.addEventListener('click', function (e) {
   poll(120); // in case the lazy iframe already finished loading
 })();
 
-// ---- Full-bleed deck: home button (jump to the first slide) ----
-// A small icon button pinned at the deck's top-left corner. Since positions are
-// remembered for the tab session, this lets a student restart the deck at slide
-// one on demand. Same-origin iframe, so we drive its Reveal instance directly.
-(function () {
-  var iframe = document.querySelector('.slide-embed iframe');
-  if (!iframe) return;
-  var btn = document.createElement('button');
-  btn.type = 'button';
-  btn.className = 'deck-home-btn';
-  btn.setAttribute('aria-label', 'Go to the first slide');
-  btn.title = 'First slide';
-  // Inline Lucide "house" SVG so it does not depend on lucide.createIcons() timing.
-  btn.innerHTML =
-    '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"' +
-    ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"' +
-    ' stroke-linejoin="round" aria-hidden="true">' +
-    '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>' +
-    '<polyline points="9 22 9 12 15 12 15 22"/></svg>';
-  btn.addEventListener('click', function () {
-    try {
-      var R = iframe.contentWindow && iframe.contentWindow.Reveal;
-      if (R && R.slide) R.slide(0, 0, 0);   // slidechanged then persists position 0
-      if (iframe.contentWindow) iframe.contentWindow.focus(); // keep keyboard on deck
-    } catch (e) { /* same-origin; ignore */ }
-    btn.blur(); // drop the focus ring after a mouse click
-  });
-  document.body.appendChild(btn);
-})();
-
 // ---- Navbar: Installation split dropdown ("Full List" flyout) ----
 // Quarto's native `menu:` would turn the whole Installation item into a
 // dropdown toggle, killing its link. Instead, inject a small caret button to

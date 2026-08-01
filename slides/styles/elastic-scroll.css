@@ -1,0 +1,35 @@
+/*
+ * elastic-scroll: native rubber-band (bounce) scrolling for embedded pages.
+ *
+ * WebKit never rubber-bands an iframe's ROOT scroller, which is why pages
+ * embedded in the slides (the Tom Hanks pages, the structure examples) had a
+ * dead stop at their scroll edges. It DOES rubber-band inner overflow
+ * scrollers: the deck's overview grid gets its bounce exactly this way. So
+ * this module pins the root and makes <body> the scroller, turning the whole
+ * page into an inner scroller that bounces natively. No JS, no emulation.
+ *
+ * Canonical location: slides/styles/elastic-scroll.css (this file). Decks
+ * that embed such pages get a build-time copy into their resources/ dir via
+ * scripts/render-slides.sh (gitignored) so Quarto ships it into that deck's
+ * _site; Quarto cannot copy symlinked resources.
+ *
+ * Usage: link it BEFORE the page's own stylesheet in any embedded page that
+ * has a scrollbar:
+ *
+ *     <link rel="stylesheet" href="elastic-scroll.css">
+ *
+ * Notes: position:sticky elements keep working (they stick within the body
+ * scroller). Pages that style scrollbars on `html` should target `body` (or
+ * the bare pseudo-elements) instead, since body owns the scrollbar here.
+ */
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+  overflow-y: auto;
+  margin: 0;
+}

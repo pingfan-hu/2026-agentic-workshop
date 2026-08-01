@@ -4,6 +4,7 @@ project:
     - index.qmd
   resources:
     - figs/
+    - resources/elastic-scroll.css
     - resources/s2-html-example.html
     - resources/s2-html-example.css
     - resources/s2-html-example-1.html
@@ -26,3 +27,5 @@ format:
     include-in-header:
       - resources/_header.html
       - ../styles/practice-timer.html
+    include-after-body:
+      - ../styles/home-button.html

@@ -11,3 +11,6 @@ slides/*/.quarto/
 .env
 /.luarc.json
 **/*.quarto_ipynb
+
+# Build-time copy of slides/styles/elastic-scroll.css (see scripts/render-slides.sh)
+slides/basics/resources/elastic-scroll.css

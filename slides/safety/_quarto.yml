@@ -13,3 +13,5 @@ format:
     include-in-header:
       - resources/_header.html
       - ../styles/practice-timer.html
+    include-after-body:
+      - ../styles/home-button.html

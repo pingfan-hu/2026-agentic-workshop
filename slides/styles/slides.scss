@@ -266,10 +266,14 @@ th { font-size: 24px; }
   // .pt-main (play/pause + time) toggles start / pause / resume on click or
   // Enter/Space; .pt-reset restarts the clock to its initial time. Counts down
   // in 1s steps. The time display has a FIXED width so the pill never resizes as
-  // the digits change. Fixed positioning anchors it to the scaled .slides stage;
-  // it only renders while its slide is the active section.
+  // the digits change. Absolute positioning anchors it to its slide SECTION
+  // (the timer div is a direct child of the section), so it stays with the
+  // practice slide in every mode: live view, overview thumbnails, and the PDF
+  // export pages. (It was position:fixed before, which pinned it to the
+  // viewport: correct-looking live, but floating loose in export mode and
+  // impossible to show in overview thumbnails.)
   .practice-timer {
-    position: fixed;
+    position: absolute;
     top: 22px;
     right: 30px;
     z-index: 30;
@@ -358,17 +362,20 @@ th { font-size: 24px; }
     }
   }
 
-  // Countdown scrubber — a draggable bar pinned to the slide's bottom edge.
+  // Countdown scrubber, a draggable bar pinned to the slide's bottom edge.
   // Always visible: full opacity while running (.pt-visible), gently faded when
   // paused / idle / done. Spans the full countdown (max = TOTAL). The input uses
   // step = 1 so the thumb tracks the live 1s countdown smoothly (matching the
-  // --fill amber fill); the timer script snaps *user* drags to 5s. Fixed
-  // positioning anchors it to the scaled .slides stage, so it only renders while
-  // its slide is the active section.
+  // --fill amber fill); the timer script snaps *user* drags to 5s. Absolute
+  // positioning anchors it to its slide SECTION (injected as the timer's next
+  // sibling, also a direct child), same reasoning as .practice-timer above.
+  // Pinned via top, not bottom: the section's box height follows its content,
+  // so only a top offset (700px slide height - 16px bar - 16px inset = 668px)
+  // lands on the slide's bottom edge in every mode.
   .practice-scrub {
-    position: fixed;
+    position: absolute;
     left: 50%;
-    bottom: 16px;
+    top: 668px;
     transform: translateX(-50%);
     width: 72%;
     max-width: 920px;
@@ -773,6 +780,335 @@ th { font-size: 24px; }
   }
 
   &:active { background: rgba(44, 132, 117, 0.26); }
+}
+
+// ---- Deck home button (jump to the first slide) ----
+// Injected into every deck by ../styles/home-button.html (include-after-body in
+// each deck's _quarto.yml), so it belongs to the slide document itself: it
+// survives fullscreen and shows on standalone deck views too. It floats over
+// slide content (navy title or light body), so it is styled to read on either:
+// frosted surface, subtle border, soft shadow. Per the repo's hover rule there
+// is no hover translate (avoids the retina layer-promotion shake); hover
+// changes surface/shadow/color only, and the press lives on :active. The
+// injector script toggles .is-hidden while overview mode is active.
+.deck-home-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 40;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+
+  border: 1px solid rgba(1, 61, 91, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: #013D5B;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(1, 61, 91, 0.18);
+
+  // Pre-promote so the :active scale does not spin up its compositor layer on
+  // the fly (same shake-avoidance reason as the hover rule above).
+  will-change: transform;
+  transition:
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    color 150ms ease,
+    transform 100ms ease;
+
+  svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+  }
+
+  // Invert on hover: static is a light surface + navy stroke, hover flips to
+  // the deck's purple fill + white stroke. Purple harmonizes with both the
+  // light (cream) and dark (navy) slides while staying distinct from the navy
+  // title slide. Border matches the fill so the swatch reads as one tile.
+  &:hover {
+    background: $purple;
+    border-color: $purple;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(1, 61, 91, 0.30);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $purple;
+    outline-offset: 2px;
+  }
+
+  // Momentary press; a transform on :active is fine (no sibling shake).
+  &:active {
+    transform: scale(0.92);
+    box-shadow: 0 1px 4px rgba(1, 61, 91, 0.22);
+  }
+
+  &.is-hidden { display: none; }
+}
+
+// Hide the home button on the PDF export view (the "E" shortcut reloads with
+// ?print-pdf, which puts reveal-print on the html element): it is a live
+// control, meaningless on paper, and position:fixed would stamp it over the
+// first page.
+html.reveal-print .deck-home-btn {
+  display: none !important;
+}
+
+// ---- Jump-to-slide input: frosted pill next to the home button ----
+// Reveal's jump-to-slide box (the "G" shortcut) defaults to top:15px/left:15px
+// (under the 42px home button) with a bare transparent input. Move it right of
+// the button and restyle it as a pill in the deck's design language: same
+// frosted surface, border, and shadow as .deck-home-btn, TsangerJinKai type,
+// and a purple focus accent.
+.reveal .jump-to-slide {
+  left: 64px;
+  top: 12px;
+  font-size: 20px;
+}
+
+.reveal .jump-to-slide-input {
+  font-family: 'TsangerJinKai', sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  box-sizing: border-box;
+  height: 42px;
+  // Snug fit around the "Jump to slide" placeholder plus the side padding.
+  width: 7.5em;
+  padding: 0 14px;
+  text-align: left;
+
+  // !important: reveal's .has-dark-background rule otherwise flips the text
+  // to white on dark slides, invisible on this always-light pill surface.
+  color: #2C3E50 !important;
+  caret-color: $purple;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(1, 61, 91, 0.14);
+  // Same corner radius as .deck-home-btn so the two read as one control group.
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(1, 61, 91, 0.18);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+
+  &::placeholder {
+    color: rgba(44, 62, 80, 0.45);
+    opacity: 1;
+  }
+
+  // While empty (placeholder showing), hide the caret so it never overlaps
+  // the centered hint text; it reappears with the first typed digit.
+  &:placeholder-shown {
+    caret-color: transparent;
+  }
+
+  // The injector flips the input to type=number (kills contact autofill);
+  // hide the spinner arrows that come with that type.
+  -moz-appearance: textfield;
+  appearance: textfield;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: rgba(86, 84, 162, 0.55);
+    box-shadow: 0 4px 14px rgba(1, 61, 91, 0.22), 0 0 0 3px rgba(86, 84, 162, 0.16);
+  }
+}
+
+// The overview injector (home-button.html) focuses .slides so scrolling
+// targets the grid. WebKit draws a focus ring even for programmatic focus,
+// and the ring must ALSO stay suppressed after exiting overview onto a slide
+// (the container can briefly keep focus), so this is global, not
+// overview-scoped.
+.reveal .slides:focus,
+.reveal .slides:focus-visible {
+  outline: none !important;
+}
+
+// ---- Overview mode (the "O" shortcut): scrollable grid instead of a strip ----
+// Reveal lays overview slides in one long horizontal strip via inline
+// translate3d transforms on each section plus a pan/scale transform on the
+// .slides container. These rules neutralize all of that (!important beats the
+// inline styles) and rebuild the layout as a scrollable thumbnail grid:
+// - .slides becomes the scroll container, a centered auto-fill grid.
+// - Each section keeps its design size (1050x700, so content renders exactly
+//   like the live slide) and is shrunk to thumbnail size with
+//   `transform: scale()` plus NEGATIVE right/bottom margins that shrink the
+//   layout box to the scaled footprint. The margins matter: transforms do not
+//   affect layout, so without them the untransformed 1050x700 boxes inflate
+//   the scrollable area (a huge dead zone after the last row). `zoom` was
+//   tried instead and rejected: WebKit and Blink disagree on how it interacts
+//   with grid sizing (Orion/Safari rendered oversized, cropped thumbnails).
+// - Reveal's own click handling still works: it reads data-index-h off the
+//   clicked section, so clicking any thumbnail jumps to that slide. Arrow keys
+//   still move the .present highlight and Esc/Enter exit as usual.
+$overview-scale: 0.24;
+
+.reveal.overview {
+  // The 3D perspective is pointless once the strip transforms are gone.
+  perspective: none;
+
+  .slides {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    transform: none !important;
+    zoom: 1 !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, calc(1050px * #{$overview-scale}));
+    grid-auto-rows: calc(700px * #{$overview-scale});
+    // Tall row gap hosts the slide-number labels. Each number hangs just below
+    // its own thumbnail (see the ::after below), so most of this gap reads as
+    // space ABOVE the next row, visually binding each number to its slide.
+    gap: 60px 28px;
+    justify-content: center;
+    align-content: start;
+    box-sizing: border-box;
+    // Bottom padding leaves room for the last row's slide numbers (the fixed
+    // footer is hidden while overview is open, see the chrome rules below).
+    padding: 30px 30px 45px;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    // Reveal gives .slides pointer-events:none (only sections opt back in), so
+    // wheel events over the grid's empty space fell through to nothing and
+    // scrolling died once no thumbnail sat under the cursor (e.g. at the very
+    // bottom). The scroll container must accept pointer events everywhere.
+    pointer-events: auto !important;
+    // No overscroll-behavior here: WebKit suppresses the native rubber-band
+    // on a scroller carrying `contain`, killing the bounce when a gesture
+    // starts at an edge. Native elastic overscroll needs the default.
+    // Number the thumbnails in deck order (matches reveal's 1-based slide numbers).
+    counter-reset: ov-slide;
+  }
+
+  .slides > section {
+    // Grid items must be in normal flow; reveal's default is position:absolute.
+    position: relative !important;
+    // Beats the inline display:none reveal puts on slides beyond its lazy-load
+    // view distance, so every slide shows in the grid.
+    display: block !important;
+    width: 1050px !important;
+    height: 700px !important;
+    // Replaces reveal's inline translate3d strip placement with a plain scale;
+    // the negative margins collapse the layout box from 1050x700 down to the
+    // scaled 252x168 footprint so the grid and scroll height see thumbnails,
+    // not full-size slides.
+    transform: scale($overview-scale) !important;
+    transform-origin: top left !important;
+    margin: 0 calc(-1050px * (1 - #{$overview-scale})) calc(-700px * (1 - #{$overview-scale})) 0 !important;
+    // Reveal clips overview sections (overflow:hidden); un-clip so the slide
+    // number can hang below the box. Safe here: slides are authored within the
+    // 1050x700 stage (normal presentation mode never clips them either).
+    overflow: visible !important;
+    // Light slides have no background of their own (the cream comes from the
+    // viewport); give thumbnails an explicit one so they read as cards. The
+    // .dark-centered navy fill still wins via its own !important.
+    background-color: $light-bg;
+    border-radius: 6px;
+    outline: 10px solid rgba(44, 62, 80, 0.15);
+    outline-offset: 6px;
+    counter-increment: ov-slide;
+    // A thumbnail is one big click target, nothing more: kill interaction with
+    // the slide's own content. Without this, embedded iframes swallow the
+    // click before reveal's overview handler sees it (so clicking one never
+    // navigates), links stay clickable, and text can be drag-selected.
+    user-select: none !important;
+    -webkit-user-select: none !important;
+
+    * {
+      pointer-events: none !important;
+    }
+
+    // Transparent overlay ABOVE all slide content. pointer-events:none alone
+    // is not enough: WebKit does not reliably honor it on iframes (iframe
+    // scrolling is composited in a separate process), so wheel over an
+    // embedded iframe kept scrolling the iframe's page. A real overlay
+    // occludes the iframe in the hit test, which WebKit does respect, so
+    // every click and wheel lands on the section itself. display must
+    // out-!important reveal's blanket `section:before{display:none}`; same
+    // specificity, and this theme loads after reveal.css, so this wins.
+    &::before {
+      content: '';
+      display: block !important;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1050px;
+      height: 700px;
+      z-index: 99;
+    }
+
+    // Outline widths render scaled by $overview-scale, hence the large values.
+    &:hover { outline: 14px solid rgba(255, 184, 77, 0.9); }
+    &.present { outline: 14px solid rgba(86, 84, 162, 0.9); }
+
+    // Slide number BELOW the thumbnail, hanging into the row gap. Lives in the
+    // section's scaled coordinate space, so the px values are design-size and
+    // shrink by $overview-scale: top 742px renders 10px under the slide's
+    // bottom edge (700px), and the 60px row gap leaves ~36px between the
+    // number and the next row, so the number reads as belonging to its slide.
+    // display must out-!important reveal's blanket `section:after{display:none}`;
+    // same specificity, and this theme loads after reveal.css, so this wins.
+    &::after {
+      content: counter(ov-slide);
+      display: block !important;
+      position: absolute;
+      top: 742px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: 'Maple Mono', monospace;
+      font-size: 58px;
+      font-weight: 700;
+      line-height: 1;
+      color: rgba(44, 62, 80, 0.6);
+    }
+  }
+
+  // Centered slides (the title slide has Reveal's .center class) are normally
+  // pushed down by an inline top offset that reveal's overview CSS zeroes out,
+  // so their thumbnails rendered top-flattened instead of matching the live
+  // slide. Emulate the vertical centering with flex.
+  .slides > section.center {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  // Overview shows the slide grid and NOTHING else: hide all deck chrome (the
+  // footer, slide number, hamburger menu button, progress bar, nav controls,
+  // and the jump-to-slide input). The home button is hidden separately by its
+  // injector script. All of these live inside .reveal, so scoping on
+  // .reveal.overview restores them automatically on exit.
+  .footer,
+  .slide-number,
+  .slide-menu-button,
+  .progress,
+  .controls,
+  .jump-to-slide {
+    display: none !important;
+  }
+
+  // The backgrounds layer still carries the old strip transforms; hide it. The
+  // only slide that relies on it is the title slide (transparent section over a
+  // navy data-background-color), so give that section a navy fill of its own
+  // while in overview. Higher specificity than the transparent override above.
+  .backgrounds { display: none !important; }
+  #title-slide { background-color: $navy !important; }
 }
 
 // ---- Footer + slide number: scale with reveal's stage ----
