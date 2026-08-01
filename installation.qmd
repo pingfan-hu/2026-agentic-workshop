@@ -13,6 +13,10 @@ The bare minimum needed to follow the workshop hands-on.
 
 {{< include resources/essentials.qmd >}}
 
+```{=html}
+<div class="soft-divider"></div>
+```
+
 ## Agents
 
 Install one of these 3 AI agents (or all of them if you want to collaborate across platforms):
