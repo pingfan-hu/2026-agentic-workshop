@@ -1,7 +1,7 @@
 ```{=html}
-<div class="practice-timer" data-minutes="10"></div>
+<div style="width:92%;margin:0 auto;text-align:left;position:relative;">
 
-<div style="width:92%;margin:0 auto;text-align:left;">
+ <div class="practice-timer" data-minutes="10"></div>
 
  <div style="background:rgba(255,184,77,0.08);border-left:6px solid #FFB84D;border-radius:0 16px 16px 0;padding:1.5em 2em 1.6em;">
 

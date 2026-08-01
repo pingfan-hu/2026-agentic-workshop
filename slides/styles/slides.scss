@@ -262,20 +262,29 @@ th { font-size: 24px; }
     box-shadow: 0 5px 16px rgba(44, 132, 117, 0.4);
   }
 
-  // Practice countdown timer pinned to the slide's top-right corner. Two parts:
-  // .pt-main (play/pause + time) toggles start / pause / resume on click or
-  // Enter/Space; .pt-reset restarts the clock to its initial time. Counts down
-  // in 1s steps. The time display has a FIXED width so the pill never resizes as
-  // the digits change. Absolute positioning anchors it to its slide SECTION
-  // (the timer div is a direct child of the section), so it stays with the
-  // practice slide in every mode: live view, overview thumbnails, and the PDF
-  // export pages. (It was position:fixed before, which pinned it to the
-  // viewport: correct-looking live, but floating loose in export mode and
-  // impossible to show in overview thumbnails.)
+  // Practice slides carry the .practice class on their "## &nbsp;" header.
+  // The blank placeholder heading still renders as a 66px line above the box,
+  // and Reveal's vertical centering counts it, sinking the box below true
+  // center. Hide it so the box wrapper is the section's only in-flow content
+  // and the centering measures the box alone.
+  section.practice > h2 { display: none; }
+
+  // Practice countdown timer straddling the practice box's top-right corner.
+  // Two parts: .pt-main (play/pause + time) toggles start / pause / resume on
+  // click or Enter/Space; .pt-reset restarts the clock to its initial time.
+  // Counts down in 1s steps. The time display has a FIXED width so the pill
+  // never resizes as the digits change. The timer div lives INSIDE the
+  // position:relative box wrapper (the width:92% div in each practice
+  // partial), so the absolute offsets anchor it to the BOX, not the section:
+  // it keeps the same spot relative to the box in every mode — live view,
+  // overview thumbnails, and the PDF export pages — even though the section's
+  // own height differs across those modes. The negative top lifts the pill
+  // above the box's top edge; the negative right pushes it into the section's
+  // side gutter (the wrapper leaves 4% each side).
   .practice-timer {
     position: absolute;
-    top: 22px;
-    right: 30px;
+    top: -44px;
+    right: -12px;
     z-index: 30;
     display: inline-flex;
     align-items: center;
@@ -366,16 +375,16 @@ th { font-size: 24px; }
   // Always visible: full opacity while running (.pt-visible), gently faded when
   // paused / idle / done. Spans the full countdown (max = TOTAL). The input uses
   // step = 1 so the thumb tracks the live 1s countdown smoothly (matching the
-  // --fill amber fill); the timer script snaps *user* drags to 5s. Absolute
-  // positioning anchors it to its slide SECTION (injected as the timer's next
-  // sibling, also a direct child), same reasoning as .practice-timer above.
-  // Pinned via top, not bottom: the section's box height follows its content,
-  // so only a top offset (700px slide height - 16px bar - 16px inset = 668px)
-  // lands on the slide's bottom edge in every mode.
+  // --fill amber fill); the timer script snaps *user* drags to 5s. Injected as
+  // the timer's next sibling, so it also lives inside the position:relative
+  // box wrapper: the bottom inset anchors it to the BOX's bottom edge (the
+  // wrapper's bottom IS the box's bottom), landing the bar inside the box's
+  // bottom padding in every mode (live, overview thumbnails, PDF export),
+  // same reasoning as .practice-timer above.
   .practice-scrub {
     position: absolute;
     left: 50%;
-    top: 668px;
+    bottom: 20px;
     transform: translateX(-50%);
     width: 72%;
     max-width: 920px;

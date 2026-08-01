@@ -31,7 +31,7 @@ title-slide-attributes:
 
 {{< include resources/read-demo.qmd >}}
 
-## &nbsp; {.dark-centered .center}
+## &nbsp; {.dark-centered .center .practice}
 
 {{< include resources/practice-1.qmd >}}
 
@@ -63,7 +63,7 @@ title-slide-attributes:
 
 {{< include resources/case-subsections.qmd >}}
 
-## &nbsp; {.dark-centered .center}
+## &nbsp; {.dark-centered .center .practice}
 
 {{< include resources/practice-2.qmd >}}
 

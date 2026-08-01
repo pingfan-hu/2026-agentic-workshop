@@ -23,7 +23,7 @@ title-slide-attributes:
 
 {{< include resources/agent-equation.qmd >}}
 
-## &nbsp; {.dark-centered .center}
+## &nbsp; {.dark-centered .center .practice}
 
 {{< include resources/practice-1.qmd >}}
 
@@ -67,7 +67,7 @@ title-slide-attributes:
 
 {{< include resources/know-the-basics.qmd >}}
 
-## &nbsp; {.dark-centered .center}
+## &nbsp; {.dark-centered .center .practice}
 
 {{< include resources/practice-2.qmd >}}
 
@@ -95,7 +95,7 @@ title-slide-attributes:
 
 {{< include resources/website-to-skill.qmd >}}
 
-## &nbsp; {.dark-centered .center}
+## &nbsp; {.dark-centered .center .practice}
 
 {{< include resources/practice-3.qmd >}}
 
