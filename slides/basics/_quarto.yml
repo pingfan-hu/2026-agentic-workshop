@@ -29,3 +29,4 @@ format:
       - ../styles/practice-timer.html
     include-after-body:
       - ../styles/home-button.html
+      - ../styles/print-footer.html

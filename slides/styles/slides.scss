@@ -870,6 +870,35 @@ html.reveal-print .deck-home-btn {
   display: none !important;
 }
 
+// ---- PDF export footer: one per page ----
+// The export view ("E" / ?print-pdf) lays slides out as block-flow .pdf-page
+// boxes, but Quarto's footer stays a single position:fixed overlay: it floats
+// over the scrolled viewport, belongs to no page, and lands on at most one
+// page of the printed PDF. On paper the footer is just text, so every page
+// stamps its own copy as a ::after pseudo-element on the .pdf-page box
+// (position:relative, so the text anchors to that page's bottom edge). The
+// text itself is per-deck: print-footer.html reads the deck's rendered
+// footer (whatever `footer:` in the YAML produced, links flattened to plain
+// text) and injects the matching `content:` rule, so this block carries only
+// the styling. No content rule ever fires without that text, so a missing
+// footer degrades to a blank band, never a broken box. Font, size, and color
+// match the live footer's computed style (tan #AE8D73, links excepted).
+html.reveal-print .reveal > .footer {
+  display: none;
+}
+
+html.reveal-print .pdf-page::after {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'TsangerJinKai', sans-serif;
+  font-size: 18px;
+  color: #AE8D73;
+  z-index: 2;
+}
+
 // ---- Jump-to-slide input: frosted pill next to the home button ----
 // Reveal's jump-to-slide box (the "G" shortcut) defaults to top:15px/left:15px
 // (under the 42px home button) with a bare transparent input. Move it right of
@@ -933,6 +962,105 @@ html.reveal-print .deck-home-btn {
     border-color: rgba(86, 84, 162, 0.55);
     box-shadow: 0 4px 14px rgba(1, 61, 91, 0.22), 0 0 0 3px rgba(86, 84, 162, 0.16);
   }
+}
+
+// ---- Slide-menu (hamburger) button: match the home button tile ----
+// Quarto's reveal-menu plugin ships its open button as a bare purple hamburger
+// in the bottom-left corner. Restyle it as the same frosted 42px tile as
+// .deck-home-btn so the two floating deck controls read as one family. The
+// plugin CSS (menu.css, quarto-menu.css, footer.css) loads AFTER the compiled
+// theme, so the selectors here carry an extra `html` prefix to outrank the
+// plugin rules at equal source order. The stock icon is a data-URI background
+// image with its purple fill baked in, so it cannot recolor on hover; it is
+// replaced by a mask over currentColor so the glyph follows the button color
+// (navy at rest, white on the purple hover fill), mirroring .deck-home-btn.
+html .reveal .slide-menu-button {
+  left: 12px;
+  bottom: 12px;
+  z-index: 40;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(1, 61, 91, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: #013D5B;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(1, 61, 91, 0.18);
+
+  // Pre-promote so the :active scale does not spin up its compositor layer on
+  // the fly (same shake-avoidance reason as .deck-home-btn).
+  will-change: transform;
+  transition:
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    color 150ms ease,
+    transform 100ms ease;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    // !important: the deck's global link color (`.reveal a`, with !important)
+    // otherwise paints the glyph teal. inherit follows the button color, so
+    // the hover flip to white keeps working.
+    color: inherit !important;
+  }
+
+  // Flex-center the glyph: the plugin renders it as an inline-block ::before
+  // sitting on the <i>'s text baseline, which lands it a hair off-center in
+  // the tile. Making the <i> a flex box and the ::before a block removes the
+  // baseline from the equation entirely.
+  .fa-bars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fa-bars::before {
+    display: block;
+    width: 22px;
+    height: 22px;
+    vertical-align: 0;
+    background: currentColor;
+    -webkit-mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>');
+    mask-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg>');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: 22px 22px;
+    mask-size: 22px 22px;
+  }
+
+  &:hover {
+    background: $purple;
+    border-color: $purple;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(1, 61, 91, 0.30);
+  }
+
+  &:active {
+    transform: scale(0.92);
+    box-shadow: 0 1px 4px rgba(1, 61, 91, 0.22);
+  }
+}
+
+// Hide it on the PDF export view for the same reason as .deck-home-btn: a
+// live control stamped over the first printed page. The plugin's own hide
+// rules key on print-pdf classes this reveal version does not set.
+html.reveal-print .slide-menu-button {
+  display: none !important;
 }
 
 // The overview injector (home-button.html) focuses .slides so scrolling
