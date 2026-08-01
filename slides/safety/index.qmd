@@ -15,6 +15,18 @@ title-slide-attributes:
 
 {{< include resources/roadmap.qmd >}}
 
+## Use agents [wisely]{.teal} {.light-centered .center}
+
+{{< include resources/use-wisely.qmd >}}
+
+## Use <a class="brand-pill brand-pill--github" href="https://github.com" target="_blank" rel="noopener">GitHub</a> {.light-centered .center}
+
+{{< include resources/github-basics.qmd >}}
+
+## <a class="brand-pill brand-pill--github" href="https://github.com" target="_blank" rel="noopener">GitHub</a> Extensive Features {.light-centered .center}
+
+{{< include resources/github-advanced.qmd >}}
+
 ## You [will]{.teal} use agents {.light-centered .center}
 
 {{< include resources/inevitable.qmd >}}

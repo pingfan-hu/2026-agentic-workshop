@@ -1,0 +1,37 @@
+```{=html}
+<div style="width:96%;margin:0 auto;font-size:0.94em;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.1em 1em 1em;border-radius:18px;">
+
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.7em;align-items:stretch;margin-top:0.6em;">
+
+  <div style="position:relative;background:#EFF6FD;border:1px solid rgba(58,125,201,0.22);border-radius:14px;padding:1em 0.6em 0.8em;box-shadow:0 8px 24px rgba(58,125,201,0.14);display:flex;flex-direction:column;align-items:center;gap:0.5em;">
+   <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:0.35em;font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;background:linear-gradient(135deg,#5A94D6,#3A7DC9);padding:0.45em 1em;border-radius:999px;box-shadow:0 5px 16px rgba(58,125,201,0.4);white-space:nowrap;z-index:2;"><i data-lucide="users" style="width:0.95em;height:0.95em;stroke-width:2.2;"></i>Mentors</div>
+   <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#3A7DC9;letter-spacing:0.08em;margin-top:0.3em;">instructors · managers</div>
+   <div style="position:relative;background:#FFFFFF;border-radius:10px;padding:0.3em 1.9em;box-sizing:border-box;display:flex;align-items:center;justify-content:center;min-height:1.5em;box-shadow:0 3px 10px rgba(58,125,201,0.08);width:100%;">
+    <div style="position:absolute;left:0;top:0;bottom:0;aspect-ratio:1;border-radius:10px;background:#DCE9FA;border:1px solid rgba(58,125,201,0.22);display:flex;align-items:center;justify-content:center;color:#3A7DC9;"><i data-lucide="ban" style="width:0.8em;height:0.8em;stroke-width:1.8;"></i></div>
+    <div style="font-size:0.52em;font-weight:700;color:#2C3E50;line-height:1.25;text-align:center;">"Please do not use AI"</div>
+   </div>
+   <div style="font-size:0.5em;font-weight:700;color:#D45F47;line-height:1.2;">Impossible to enforce</div>
+  </div>
+
+  <div style="position:relative;background:#FEF5E7;border:1px solid rgba(196,136,26,0.22);border-radius:14px;padding:1em 0.6em 0.8em;box-shadow:0 8px 24px rgba(196,136,26,0.14);display:flex;flex-direction:column;align-items:center;gap:0.5em;">
+   <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:0.35em;font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;background:linear-gradient(135deg,#D89A2B,#C4881A);padding:0.45em 1em;border-radius:999px;box-shadow:0 5px 16px rgba(196,136,26,0.4);white-space:nowrap;z-index:2;"><i data-lucide="hammer" style="width:0.95em;height:0.95em;stroke-width:2.2;"></i>Makers</div>
+   <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#C4881A;letter-spacing:0.08em;margin-top:0.3em;">students · engineers</div>
+   <div style="position:relative;background:#FFFFFF;border-radius:10px;padding:0.3em 1.9em;box-sizing:border-box;display:flex;align-items:center;justify-content:center;min-height:1.5em;box-shadow:0 3px 10px rgba(196,136,26,0.08);width:100%;">
+    <div style="position:absolute;left:0;top:0;bottom:0;aspect-ratio:1;border-radius:10px;background:#FEF5E7;border:1px solid rgba(196,136,26,0.22);display:flex;align-items:center;justify-content:center;color:#C4881A;"><i data-lucide="sparkles" style="width:0.8em;height:0.8em;stroke-width:1.8;"></i></div>
+    <div style="font-size:0.52em;font-weight:700;color:#2C3E50;line-height:1.25;text-align:center;white-space:nowrap;">Already using AI in learning and work</div>
+   </div>
+   <div style="font-size:0.5em;font-weight:700;color:#2C8475;line-height:1.2;">Engaging is the smart move</div>
+  </div>
+
+ </div>
+
+ <div style="display:flex;justify-content:center;margin:0.5em 0;"><i data-lucide="chevron-down" style="width:1em;height:1em;color:#9B8EA0;stroke-width:2;"></i></div>
+
+ <div style="display:flex;align-items:center;justify-content:center;gap:0.7em;">
+  <div style="background:#FFFFFF;border:1px solid #D8D4DC;border-radius:999px;padding:0.45em 1.1em;font-size:0.55em;font-weight:700;color:#9B8EA0;text-decoration:line-through;">How to avoid AI?</div>
+  <div style="font-family:'Maple Mono',monospace;font-size:0.6em;color:#9B8EA0;">→</div>
+  <div style="background:linear-gradient(135deg,#6B69B8,#5654A2);border-radius:999px;padding:0.45em 1.1em;font-size:0.55em;font-weight:700;color:#FFFFFF;box-shadow:0 6px 18px rgba(86,84,162,0.35);">How to use AI wisely?</div>
+ </div>
+
+</div>
+```
