@@ -795,8 +795,12 @@ th { font-size: 24px; }
 // Injected into every deck by ../styles/home-button.html (include-after-body in
 // each deck's _quarto.yml), so it belongs to the slide document itself: it
 // survives fullscreen and shows on standalone deck views too. It floats over
-// slide content (navy title or light body), so it is styled to read on either:
-// frosted surface, subtle border, soft shadow. Per the repo's hover rule there
+// the viewport corner, which is the cream viewport background on every body
+// slide and full navy only on the title slide (its data-background-color fills
+// the viewport). The tile is a quiet frosted "ghost" surface (faint navy tint,
+// hairline border) so it never reads as a stark white square; on the title
+// slide a .has-dark-background override flips it to faint light glass with a
+// light glyph (see below). Per the repo's hover rule there
 // is no hover translate (avoids the retina layer-promotion shake); hover
 // changes surface/shadow/color only, and the press lives on :active. The
 // injector script toggles .is-hidden while overview mode is active.
@@ -813,14 +817,14 @@ th { font-size: 24px; }
   height: 42px;
   padding: 0;
 
-  border: 1px solid rgba(1, 61, 91, 0.14);
+  border: 1px solid rgba(44, 62, 80, 0.15);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(44, 62, 80, 0.07);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   color: #013D5B;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(1, 61, 91, 0.18);
+  box-shadow: 0 1px 4px rgba(1, 61, 91, 0.08);
 
   // Pre-promote so the :active scale does not spin up its compositor layer on
   // the fly (same shake-avoidance reason as the hover rule above).
@@ -860,6 +864,27 @@ th { font-size: 24px; }
   }
 
   &.is-hidden { display: none; }
+}
+
+// Dark-viewport variant. Reveal bubbles has-dark-background onto the .reveal
+// element for slides that declare a dark data-background-color (here: the
+// navy title slide, whose background layer fills the whole viewport). The
+// button is appended to <body> as a later sibling of .reveal, hence the ~
+// combinator. Faint light glass plus a light glyph keeps it just as quiet on
+// navy as the default tile is on cream. The hover flip to purple is restated
+// because this selector outranks the base :hover rule.
+.reveal.has-dark-background ~ .deck-home-btn {
+  border-color: rgba(248, 247, 240, 0.22);
+  background: rgba(248, 247, 240, 0.12);
+  color: #F8F7F0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
+
+  &:hover {
+    background: $purple;
+    border-color: $purple;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.30);
+  }
 }
 
 // Hide the home button on the PDF export view (the "E" shortcut reloads with
@@ -923,16 +948,17 @@ html.reveal-print .pdf-page::after {
   text-align: left;
 
   // !important: reveal's .has-dark-background rule otherwise flips the text
-  // to white on dark slides, invisible on this always-light pill surface.
+  // to white on dark slides; the dark-viewport variant below re-flips it with
+  // its own !important so the color is always explicit.
   color: #2C3E50 !important;
   caret-color: $purple;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(44, 62, 80, 0.07);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(1, 61, 91, 0.14);
+  border: 1px solid rgba(44, 62, 80, 0.15);
   // Same corner radius as .deck-home-btn so the two read as one control group.
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(1, 61, 91, 0.18);
+  box-shadow: 0 1px 4px rgba(1, 61, 91, 0.08);
   transition: border-color 150ms ease, box-shadow 150ms ease;
 
   &::placeholder {
@@ -964,6 +990,26 @@ html.reveal-print .pdf-page::after {
   }
 }
 
+// Dark-viewport variant of the pill, matching the buttons: faint light glass
+// with light text on the navy title slide.
+.reveal.has-dark-background .jump-to-slide-input {
+  color: #F8F7F0 !important;
+  background: rgba(248, 247, 240, 0.12);
+  border-color: rgba(248, 247, 240, 0.22);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
+
+  &::placeholder {
+    color: rgba(248, 247, 240, 0.55);
+  }
+
+  // Restated: this selector ties the base :focus rule on specificity and
+  // would otherwise drop the purple accent while focused.
+  &:focus {
+    border-color: rgba(86, 84, 162, 0.75);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 0 3px rgba(86, 84, 162, 0.28);
+  }
+}
+
 // ---- Slide-menu (hamburger) button: match the home button tile ----
 // Quarto's reveal-menu plugin ships its open button as a bare purple hamburger
 // in the bottom-left corner. Restyle it as the same frosted 42px tile as
@@ -985,14 +1031,14 @@ html .reveal .slide-menu-button {
   width: 42px;
   height: 42px;
 
-  border: 1px solid rgba(1, 61, 91, 0.14);
+  border: 1px solid rgba(44, 62, 80, 0.15);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(44, 62, 80, 0.07);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   color: #013D5B;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(1, 61, 91, 0.18);
+  box-shadow: 0 1px 4px rgba(1, 61, 91, 0.08);
 
   // Pre-promote so the :active scale does not spin up its compositor layer on
   // the fly (same shake-avoidance reason as .deck-home-btn).
@@ -1053,6 +1099,23 @@ html .reveal .slide-menu-button {
   &:active {
     transform: scale(0.92);
     box-shadow: 0 1px 4px rgba(1, 61, 91, 0.22);
+  }
+}
+
+// Dark-viewport variant, mirroring the .deck-home-btn one above (the menu
+// button lives INSIDE .reveal, so plain descent instead of the ~ combinator).
+// The hover flip is restated because this selector outranks the base :hover.
+html .reveal.has-dark-background .slide-menu-button {
+  border-color: rgba(248, 247, 240, 0.22);
+  background: rgba(248, 247, 240, 0.12);
+  color: #F8F7F0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
+
+  &:hover {
+    background: $purple;
+    border-color: $purple;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.30);
   }
 }
 
