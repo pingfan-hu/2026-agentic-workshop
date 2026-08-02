@@ -872,28 +872,97 @@ th { font-size: 24px; }
   &:active { background: rgba(44, 132, 117, 0.26); }
 }
 
-// ---- Deck home button (jump to the first slide) ----
-// Injected into every deck by ../styles/home-button.html (include-after-body in
-// each deck's _quarto.yml), so it belongs to the slide document itself: it
-// survives fullscreen and shows on standalone deck views too. It floats over
-// the viewport corner, which is the cream viewport background on every body
-// slide and full navy only on the title slide (its data-background-color fills
-// the viewport). The tile is a quiet frosted "ghost" surface (faint navy tint,
-// hairline border) so it never reads as a stark white square; on the title
-// slide a .has-dark-background override flips it to faint light glass with a
-// light glyph (see below). Per the repo's hover rule there
-// is no hover translate (avoids the retina layer-promotion shake); hover
-// changes surface/shadow/color only, and the press lives on :active. The
-// injector script toggles .is-hidden while overview mode is active.
-.deck-home-btn {
+// ---- Deck corner controls (bottom-left group) ----
+// Injected into every deck by ../styles/control-buttons.html (include-after-body
+// in each deck's _quarto.yml), so the group belongs to the slide document
+// itself: it survives fullscreen and shows on standalone deck views too. One
+// fixed wrapper in the bottom-left corner holds, bottom to top: the hamburger
+// menu button (relocated from the reveal-menu plugin, always visible), then
+// an up-arrow handle whose collapsible tray carries a Full Screen button (the
+// "F" key), a Slide Overview button ("O"), and the home button. Collapsed,
+// only the hamburger and the arrow show; hovering the arrow or tray (or
+// focusing a button, or tapping the arrow) expands the tray, and it stays
+// open while the cursor is over the buttons because they live inside the same
+// flyout. Hovering the hamburger expands nothing: it sits in the wrapper (for
+// the shared tile look and the shared hiding) but outside the flyout that
+// triggers expansion. Every button shares the .deck-ctrl ghost-tile look; the
+// injector script toggles .is-hidden on the wrapper while overview mode is
+// active, and the export view hides it below, so the controls exist only on
+// the normal slide layout.
+.deck-controls {
   position: fixed;
-  top: 12px;
   left: 12px;
+  bottom: 12px;
   z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  width: 42px;
 
+  &.is-hidden { display: none; }
+}
+
+// The arrow plus its tray: the hover/focus surface that expands the stack.
+// The hamburger sits outside it, so it never triggers the flyout.
+.deck-controls-flyout {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+// The tray collapses via the grid 0fr -> 1fr trick so the hidden buttons take
+// no space (and no hover area) at all; the inner stack clips inside the row.
+.deck-controls-tray {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 200ms ease;
+}
+
+.deck-controls-stack {
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  // The gap between the tray and the arrow lives INSIDE the stack, and only
+  // in the open state: the 0fr row clamps content but not padding, so a
+  // constant padding would leave a phantom 8px hover strip above the arrow
+  // while collapsed. Transitioning it keeps the collapsed wrapper exactly
+  // the arrow tile, nothing more.
+  padding-bottom: 0;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 160ms ease, transform 200ms ease, padding-bottom 200ms ease;
+}
+
+// Open state. No :hover selector here on purpose: hovering is wired in JS
+// (mouseenter/mouseleave toggling .is-open), so a click on the arrow can
+// genuinely close the tray while the cursor is still over it. A CSS :hover
+// rule would force it open again and make the click toggle a no-op.
+// :focus-within keeps the tray open for keyboard users tabbing the buttons.
+.deck-controls-flyout:focus-within,
+.deck-controls-flyout.is-open {
+  .deck-controls-tray { grid-template-rows: 1fr; }
+  .deck-controls-stack { opacity: 1; transform: none; padding-bottom: 8px; }
+  .deck-controls-arrow svg { transform: rotate(180deg); }
+}
+
+// Shared ghost tile for every control in the group. The corner sits on the
+// cream viewport background on body slides and on navy only for the title
+// slide (its data-background-color fills the viewport), so the tile is a
+// quiet frosted surface (faint navy tint, hairline border) with a
+// .has-dark-background flip to light glass below. Per the repo's hover rule
+// there is no hover translate (avoids the retina layer-promotion shake);
+// hover changes surface/shadow/color only, and the press lives on :active.
+.deck-ctrl {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
+  // The adopted plugin button computes content-box (44px with the border);
+  // pin the model so every tile in the column is exactly 42px.
+  box-sizing: border-box;
   width: 42px;
   height: 42px;
   padding: 0;
@@ -920,6 +989,7 @@ th { font-size: 24px; }
     display: block;
     width: 22px;
     height: 22px;
+    transition: transform 200ms ease;
   }
 
   // Invert on hover: static is a light surface + navy stroke, hover flips to
@@ -943,18 +1013,16 @@ th { font-size: 24px; }
     transform: scale(0.92);
     box-shadow: 0 1px 4px rgba(1, 61, 91, 0.22);
   }
-
-  &.is-hidden { display: none; }
 }
 
 // Dark-viewport variant. Reveal bubbles has-dark-background onto the .reveal
 // element for slides that declare a dark data-background-color (here: the
 // navy title slide, whose background layer fills the whole viewport). The
-// button is appended to <body> as a later sibling of .reveal, hence the ~
+// wrapper is appended to <body> as a later sibling of .reveal, hence the ~
 // combinator. Faint light glass plus a light glyph keeps it just as quiet on
 // navy as the default tile is on cream. The hover flip to purple is restated
 // because this selector outranks the base :hover rule.
-.reveal.has-dark-background ~ .deck-home-btn {
+.reveal.has-dark-background ~ .deck-controls .deck-ctrl {
   border-color: rgba(248, 247, 240, 0.22);
   background: rgba(248, 247, 240, 0.12);
   color: #F8F7F0;
@@ -968,11 +1036,11 @@ th { font-size: 24px; }
   }
 }
 
-// Hide the home button on the PDF export view (the "E" shortcut reloads with
-// ?print-pdf, which puts reveal-print on the html element): it is a live
-// control, meaningless on paper, and position:fixed would stamp it over the
-// first page.
-html.reveal-print .deck-home-btn {
+// Hide the whole group on the PDF export view (the "E" shortcut reloads with
+// ?print-pdf, which puts reveal-print on the html element): live controls,
+// meaningless on paper, and position:fixed would stamp them over the first
+// page.
+html.reveal-print .deck-controls {
   display: none !important;
 }
 
@@ -1005,14 +1073,14 @@ html.reveal-print .pdf-page::after {
   z-index: 2;
 }
 
-// ---- Jump-to-slide input: frosted pill next to the home button ----
-// Reveal's jump-to-slide box (the "G" shortcut) defaults to top:15px/left:15px
-// (under the 42px home button) with a bare transparent input. Move it right of
-// the button and restyle it as a pill in the deck's design language: same
-// frosted surface, border, and shadow as .deck-home-btn, TsangerJinKai type,
-// and a purple focus accent.
+// ---- Jump-to-slide input: frosted pill in the top-left corner ----
+// Reveal's jump-to-slide box (the "G" shortcut) ships as a bare transparent
+// input at top:15px/left:15px. Restyle it as a pill in the deck's design
+// language: same frosted surface, border, and shadow as .deck-ctrl,
+// TsangerJinKai type, and a purple focus accent. The corner itself is free
+// (the home button moved into the bottom-left .deck-controls group).
 .reveal .jump-to-slide {
-  left: 64px;
+  left: 12px;
   top: 12px;
   font-size: 20px;
 }
@@ -1037,7 +1105,7 @@ html.reveal-print .pdf-page::after {
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(44, 62, 80, 0.15);
-  // Same corner radius as .deck-home-btn so the two read as one control group.
+  // Same corner radius as .deck-ctrl so it reads as part of the same family.
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(1, 61, 91, 0.08);
   transition: border-color 150ms ease, box-shadow 150ms ease;
@@ -1091,44 +1159,22 @@ html.reveal-print .pdf-page::after {
   }
 }
 
-// ---- Slide-menu (hamburger) button: match the home button tile ----
+// ---- Slide-menu (hamburger) button inside the controls group ----
 // Quarto's reveal-menu plugin ships its open button as a bare purple hamburger
-// in the bottom-left corner. Restyle it as the same frosted 42px tile as
-// .deck-home-btn so the two floating deck controls read as one family. The
-// plugin CSS (menu.css, quarto-menu.css, footer.css) loads AFTER the compiled
-// theme, so the selectors here carry an extra `html` prefix to outrank the
-// plugin rules at equal source order. The stock icon is a data-URI background
-// image with its purple fill baked in, so it cannot recolor on hover; it is
-// replaced by a mask over currentColor so the glyph follows the button color
-// (navy at rest, white on the purple hover fill), mirroring .deck-home-btn.
-html .reveal .slide-menu-button {
-  left: 12px;
-  bottom: 12px;
-  z-index: 40;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-
-  border: 1px solid rgba(44, 62, 80, 0.15);
-  border-radius: 10px;
-  background: rgba(44, 62, 80, 0.07);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  color: #013D5B;
-  cursor: pointer;
-  box-shadow: 0 1px 4px rgba(1, 61, 91, 0.08);
-
-  // Pre-promote so the :active scale does not spin up its compositor layer on
-  // the fly (same shake-avoidance reason as .deck-home-btn).
-  will-change: transform;
-  transition:
-    background-color 150ms ease,
-    box-shadow 150ms ease,
-    color 150ms ease,
-    transform 100ms ease;
+// pinned to the bottom-left corner inside .reveal. The controls injector
+// (control-buttons.html) moves the node into .deck-controls and tags it with
+// .deck-ctrl, so the ghost-tile look comes from the shared class and every
+// plugin positioning rule (all scoped under `.reveal`) stops matching. What
+// remains here: neutralize the fixed positioning as a fallback for the brief
+// window before the move, and rebuild the glyph. The stock icon is a data-URI
+// background image with its purple fill baked in, so it cannot recolor on
+// hover; it is replaced by a mask over currentColor so the glyph follows the
+// button color (navy at rest, white on the purple hover fill). The `html`
+// prefix outranks the plugin CSS, which loads after the compiled theme.
+html .deck-controls .slide-menu-button {
+  position: static;
+  left: auto;
+  bottom: auto;
 
   a {
     display: flex;
@@ -1155,6 +1201,10 @@ html .reveal .slide-menu-button {
   }
 
   .fa-bars::before {
+    // The plugin's own ::before rules (which carried the content) are all
+    // scoped under .reveal and stop matching after the move, so the
+    // pseudo-element is declared from scratch here.
+    content: "";
     display: block;
     width: 22px;
     height: 22px;
@@ -1169,45 +1219,24 @@ html .reveal .slide-menu-button {
     -webkit-mask-size: 22px 22px;
     mask-size: 22px 22px;
   }
-
-  &:hover {
-    background: $purple;
-    border-color: $purple;
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(1, 61, 91, 0.30);
-  }
-
-  &:active {
-    transform: scale(0.92);
-    box-shadow: 0 1px 4px rgba(1, 61, 91, 0.22);
-  }
 }
 
-// Dark-viewport variant, mirroring the .deck-home-btn one above (the menu
-// button lives INSIDE .reveal, so plain descent instead of the ~ combinator).
-// The hover flip is restated because this selector outranks the base :hover.
-html .reveal.has-dark-background .slide-menu-button {
-  border-color: rgba(248, 247, 240, 0.22);
-  background: rgba(248, 247, 240, 0.12);
-  color: #F8F7F0;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.20);
-
-  &:hover {
-    background: $purple;
-    border-color: $purple;
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.30);
-  }
+// Before the injector relocates it (and on any page where the injector never
+// runs), keep the stock button invisible so the bare purple hamburger never
+// flashes in the corner.
+html .reveal .slide-menu-button {
+  visibility: hidden;
 }
 
-// Hide it on the PDF export view for the same reason as .deck-home-btn: a
-// live control stamped over the first printed page. The plugin's own hide
-// rules key on print-pdf classes this reveal version does not set.
+// Hide it on the PDF export view like the rest of the group: a live control
+// stamped over the first printed page. The plugin's own hide rules key on
+// print-pdf classes this reveal version does not set. Kept selector-wide (not
+// scoped to .deck-controls) so it applies whether or not the move happened.
 html.reveal-print .slide-menu-button {
   display: none !important;
 }
 
-// The overview injector (home-button.html) focuses .slides so scrolling
+// The overview injector (control-buttons.html) focuses .slides so scrolling
 // targets the grid. WebKit draws a focus ring even for programmatic focus,
 // and the ring must ALSO stay suppressed after exiting overview onto a slide
 // (the container can briefly keep focus), so this is global, not
@@ -1371,13 +1400,13 @@ $overview-scale: 0.24;
   }
 
   // Overview shows the slide grid and NOTHING else: hide all deck chrome (the
-  // footer, slide number, hamburger menu button, progress bar, nav controls,
-  // and the jump-to-slide input). The home button is hidden separately by its
-  // injector script. All of these live inside .reveal, so scoping on
+  // footer, slide number, progress bar, nav controls, and the jump-to-slide
+  // input). The bottom-left .deck-controls group (which now also contains the
+  // hamburger) is hidden separately by its injector script, since it lives
+  // outside .reveal. All of these live inside .reveal, so scoping on
   // .reveal.overview restores them automatically on exit.
   .footer,
   .slide-number,
-  .slide-menu-button,
   .progress,
   .controls,
   .jump-to-slide {

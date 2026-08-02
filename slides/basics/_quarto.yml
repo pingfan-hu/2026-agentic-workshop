@@ -28,5 +28,5 @@ format:
       - resources/_header.html
       - ../styles/practice-timer.html
     include-after-body:
-      - ../styles/home-button.html
+      - ../styles/control-buttons.html
       - ../styles/print-footer.html

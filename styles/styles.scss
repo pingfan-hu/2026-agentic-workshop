@@ -2335,6 +2335,7 @@ body:has(.slide-embed) .footer {
   }
 }
 
-// The deck home button moved INTO the decks themselves (see
-// slides/styles/home-button.html + .deck-home-btn in slides/styles/slides.scss)
-// so it survives fullscreen and shows on standalone deck views.
+// The deck corner controls (home, overview, full screen, hamburger) live
+// INSIDE the decks themselves (see slides/styles/control-buttons.html +
+// .deck-controls in slides/styles/slides.scss) so they survive fullscreen and
+// show on standalone deck views.
