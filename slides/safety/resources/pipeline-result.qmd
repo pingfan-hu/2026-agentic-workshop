@@ -1,0 +1,66 @@
+```{=html}
+<div style="width:92%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.3em 1em;border-radius:18px;">
+
+ <div style="display:grid;grid-template-columns:minmax(0,1fr) 5em minmax(0,1fr);gap:0.6em 0.7em;">
+
+  <div style="grid-column:1;grid-row:1;display:flex;justify-content:center;">
+   <div style="display:flex;align-items:center;gap:0.4em;background:#FFFFFF;border:1px solid #F0C5BA;border-radius:999px;padding:0.3em 0.7em;box-shadow:0 3px 10px rgba(212,95,71,0.12);">
+    <i data-lucide="file-text" style="width:0.7em;height:0.7em;color:#D45F47;stroke-width:1.9;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.48em;font-weight:700;color:#D45F47;">survey.csv</span>
+   </div>
+  </div>
+
+  <div style="grid-column:3;grid-row:1;display:flex;justify-content:center;">
+   <div style="display:flex;align-items:center;gap:0.4em;background:#FFFFFF;border:1px solid #BCDFC0;border-radius:999px;padding:0.3em 0.7em;box-shadow:0 3px 10px rgba(44,132,117,0.12);">
+    <i data-lucide="image" style="width:0.7em;height:0.7em;color:#2C8475;stroke-width:1.9;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.48em;font-weight:700;color:#2C8475;">choices.png</span>
+   </div>
+  </div>
+
+  <div style="grid-column:1;grid-row:2;background:#FFFFFF;border:1px solid #D4D3EE;border-radius:12px;padding:0.7em 0.8em;box-shadow:0 8px 24px rgba(86,84,162,0.12);display:flex;flex-direction:column;justify-content:center;">
+   <table style="width:100%;border-collapse:collapse;font-size:0.56em;text-align:left;">
+    <thead>
+     <tr>
+      <th style="font-family:'Maple Mono',monospace;font-size:0.85em;font-weight:700;color:#5654A2;background:#EEEDF8;padding:0.6em 1.2em;border-bottom:2px solid #C7C1E5;border-radius:8px 0 0 0;">group</th>
+      <th style="font-family:'Maple Mono',monospace;font-size:0.85em;font-weight:700;color:#5654A2;background:#EEEDF8;padding:0.6em 1.2em;border-bottom:2px solid #C7C1E5;border-radius:0 8px 0 0;">choice</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td style="font-family:'Maple Mono',monospace;color:#2C3E50;padding:0.5em 1.1em;border-bottom:1px solid #EDEBF5;">A</td>
+      <td style="font-family:'Maple Mono',monospace;color:#2C3E50;padding:0.5em 1.1em;border-bottom:1px solid #EDEBF5;">yes</td>
+     </tr>
+     <tr>
+      <td style="font-family:'Maple Mono',monospace;color:#2C3E50;padding:0.5em 1.1em;border-bottom:1px solid #EDEBF5;background:#FAFAFD;">A</td>
+      <td style="font-family:'Maple Mono',monospace;color:#2C3E50;padding:0.5em 1.1em;border-bottom:1px solid #EDEBF5;background:#FAFAFD;">maybe</td>
+     </tr>
+     <tr>
+      <td style="font-family:'Maple Mono',monospace;color:#2C3E50;padding:0.5em 1.1em;border-bottom:1px solid #EDEBF5;">B</td>
+      <td style="font-family:'Maple Mono',monospace;color:#2C3E50;padding:0.5em 1.1em;border-bottom:1px solid #EDEBF5;">no</td>
+     </tr>
+     <tr>
+      <td colspan="2" style="font-family:'Maple Mono',monospace;color:#9B8EA0;padding:0.45em 1.1em;">&#8942;</td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+
+  <div style="grid-column:2;grid-row:2;align-self:center;display:flex;flex-direction:column;align-items:center;gap:0.35em;">
+   <div style="display:flex;align-items:center;gap:0.35em;background:#FFFFFF;border:1px solid #C7C1E5;border-radius:999px;padding:0.3em 0.6em;box-shadow:0 3px 10px rgba(86,84,162,0.12);">
+    <i data-lucide="file-code" style="width:0.65em;height:0.65em;color:#5654A2;stroke-width:1.9;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.44em;font-weight:700;color:#5654A2;">script.R</span>
+   </div>
+   <svg viewBox="0 0 100 16" style="width:100%;height:auto;display:block;" xmlns="http://www.w3.org/2000/svg">
+    <line x1="4" y1="8" x2="82" y2="8" stroke="#5654A2" stroke-width="3" stroke-linecap="round"/>
+    <path d="M82,1.5 L96,8 L82,14.5 Z" fill="#5654A2"/>
+   </svg>
+  </div>
+
+  <div style="grid-column:3;grid-row:2;background:#FFFFFF;border:1px solid #BCDFC0;border-radius:12px;padding:0.5em;box-shadow:0 8px 24px rgba(44,132,117,0.12);display:flex;align-items:center;">
+   <img src="figs/choices.png" alt="Bar chart of responses by group" style="width:100%;height:auto;display:block;border-radius:8px;"/>
+  </div>
+
+ </div>
+
+</div>
+```

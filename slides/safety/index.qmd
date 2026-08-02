@@ -27,6 +27,18 @@ title-slide-attributes:
 
 {{< include resources/github-advanced.qmd >}}
 
+## Pipeline: [Data Viz]{.teal} based on [raw data]{.coral} {.light-centered .center}
+
+{{< include resources/pipeline-example.qmd >}}
+
+## Pipeline: [Data Viz]{.teal} based on [raw data]{.coral} {.light-centered .center}
+
+{{< include resources/pipeline-result.qmd >}}
+
+## Same workflow, [with]{.teal} or [without]{.coral} AI {.light-centered .center}
+
+{{< include resources/pipeline-ai.qmd >}}
+
 ## You [will]{.teal} use agents {.light-centered .center}
 
 {{< include resources/inevitable.qmd >}}

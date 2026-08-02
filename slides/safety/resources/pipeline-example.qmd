@@ -1,0 +1,69 @@
+```{=html}
+<div style="width:86%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.5em 1.1em 1.3em;border-radius:18px;">
+
+ <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1em;align-items:stretch;">
+
+  <div style="position:relative;background:#F1F0F9;border:1px solid rgba(86,84,162,0.22);border-radius:14px;padding:1em 0.85em 0.85em;text-align:left;display:flex;flex-direction:column;">
+   <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;background:linear-gradient(135deg,#6462B4,#5654A2);padding:0.45em 1em;border-radius:999px;box-shadow:0 5px 16px rgba(86,84,162,0.4);white-space:nowrap;z-index:2;">The structure</div>
+   <div style="background:#FFFFFF;border:1px solid #D4D3EE;border-radius:11px;overflow:hidden;margin-top:0.25em;flex:1;display:flex;flex-direction:column;">
+    <div style="background:#EEEDF8;border-bottom:1px solid #D4D3EE;padding:0.45em 0.8em;display:flex;align-items:center;gap:0.45em;">
+     <i data-lucide="folder-open" style="width:0.75em;height:0.75em;color:#5654A2;stroke-width:1.9;"></i>
+     <span style="font-family:'Maple Mono',monospace;font-size:0.52em;color:#5654A2;font-weight:700;">project/</span>
+    </div>
+    <div style="padding:0.6em 0.8em 0.7em;display:flex;flex-direction:column;gap:0.45em;justify-content:center;flex:1;">
+     <div style="display:flex;flex-direction:column;padding:0.45em 0.6em;border-radius:8px;background:#FCEEEC;">
+      <div style="display:flex;align-items:center;gap:0.45em;">
+       <i data-lucide="folder" style="width:0.75em;height:0.75em;color:#D45F47;stroke-width:1.9;flex-shrink:0;"></i>
+       <span style="font-family:'Maple Mono',monospace;font-size:0.52em;color:#2C3E50;">data/</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.4em;margin-left:0.36em;">
+       <span style="width:0.5em;height:0.9em;border-left:2px solid #E9B9AC;border-bottom:2px solid #E9B9AC;border-bottom-left-radius:4px;margin-bottom:0.55em;flex-shrink:0;"></span>
+       <i data-lucide="file-text" style="width:0.7em;height:0.7em;color:#D45F47;stroke-width:1.9;flex-shrink:0;"></i>
+       <span style="font-family:'Maple Mono',monospace;font-size:0.52em;color:#2C3E50;">survey.csv</span>
+      </div>
+     </div>
+     <div style="display:flex;align-items:center;gap:0.45em;padding:0.45em 0.6em;border-radius:8px;background:#EEEDF8;">
+      <i data-lucide="file-code" style="width:0.75em;height:0.75em;color:#5654A2;stroke-width:1.9;flex-shrink:0;"></i>
+      <span style="font-family:'Maple Mono',monospace;font-size:0.52em;color:#2C3E50;">script.R</span>
+     </div>
+     <div style="display:flex;flex-direction:column;padding:0.45em 0.6em;border-radius:8px;background:#E5F2EE;">
+      <div style="display:flex;align-items:center;gap:0.45em;">
+       <i data-lucide="folder" style="width:0.75em;height:0.75em;color:#2C8475;stroke-width:1.9;flex-shrink:0;"></i>
+       <span style="font-family:'Maple Mono',monospace;font-size:0.52em;color:#2C3E50;">output/</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.4em;margin-left:0.36em;">
+       <span style="width:0.5em;height:0.9em;border-left:2px solid #AAD4C4;border-bottom:2px solid #AAD4C4;border-bottom-left-radius:4px;margin-bottom:0.55em;flex-shrink:0;"></span>
+       <i data-lucide="image" style="width:0.7em;height:0.7em;color:#2C8475;stroke-width:1.9;flex-shrink:0;"></i>
+       <span style="font-family:'Maple Mono',monospace;font-size:0.52em;color:#2C3E50;">choices.png</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <div style="position:relative;background:#EFF7F4;border:1px solid rgba(44,132,117,0.22);border-radius:14px;padding:1em 0.85em 0.85em;text-align:left;display:flex;flex-direction:column;">
+   <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;background:linear-gradient(135deg,#3DA890,#2C8475);padding:0.45em 1em;border-radius:999px;box-shadow:0 5px 16px rgba(44,132,117,0.4);white-space:nowrap;z-index:2;">The script</div>
+   <div style="background:#2C3E50;border-radius:11px;margin-top:0.25em;box-shadow:0 8px 20px rgba(44,62,80,0.25);flex:1;display:flex;flex-direction:column;overflow:hidden;">
+    <div style="background:#243342;border-bottom:1px solid #3D5166;padding:0.45em 0.8em;display:flex;align-items:center;gap:0.45em;">
+     <i data-lucide="file-code" style="width:0.75em;height:0.75em;color:#B4B2E0;stroke-width:1.9;"></i>
+     <span style="font-family:'Maple Mono',monospace;font-size:0.52em;color:#B4B2E0;font-weight:700;">script.R</span>
+    </div>
+    <div style="padding:0.7em 0.8em;flex:1;display:flex;align-items:center;">
+    <div style="font-family:'Maple Mono',monospace;font-size:0.44em;line-height:1.8;color:#E8ECF0;white-space:pre;">library(tidyverse)
+
+data &lt;- <span style="color:#FFB84D;">"data/survey.csv"</span> %&gt;%
+  read_csv() %&gt;%
+  count(group, choice)
+
+data %&gt;%
+  ggplot(aes(group, n)) +
+  geom_col(aes(fill = choice))
+ggsave(<span style="color:#FFB84D;">"output/choices.png"</span>)</div>
+    </div>
+   </div>
+  </div>
+
+ </div>
+
+</div>
+```
