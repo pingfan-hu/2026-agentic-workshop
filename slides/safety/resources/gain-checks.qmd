@@ -1,0 +1,36 @@
+```{=html}
+<div style="width:80%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.1em 1.1em 1.2em;border-radius:18px;">
+
+ <div style="background:#FFFFFF;border:1px solid #D4D3EE;border-radius:14px;overflow:hidden;box-shadow:0 10px 28px rgba(86,84,162,0.14);text-align:left;">
+
+  <div style="background:#EEEDF8;border-bottom:1px solid #D4D3EE;padding:0.5em 0.9em;display:flex;align-items:center;gap:0.5em;">
+   <i data-lucide="terminal" style="width:0.78em;height:0.78em;color:#5654A2;stroke-width:1.9;"></i>
+   <span style="font-family:'Maple Mono',monospace;font-size:0.52em;color:#5654A2;font-weight:700;">sanity-checks.R</span>
+  </div>
+
+  <div style="padding:0.7em 0.8em;display:flex;flex-direction:column;gap:0.45em;">
+   <div style="display:flex;align-items:center;gap:0.55em;background:#F4FBF8;border-radius:8px;padding:0.45em 0.7em;">
+    <i data-lucide="check" style="width:0.72em;height:0.72em;color:#2C8475;stroke-width:2.6;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#2C3E50;flex:1;">rows in = rows out</span>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.44em;font-weight:700;color:#2C8475;white-space:nowrap;">1,200</span>
+   </div>
+   <div style="display:flex;align-items:center;gap:0.55em;background:#F4FBF8;border-radius:8px;padding:0.45em 0.7em;">
+    <i data-lucide="check" style="width:0.72em;height:0.72em;color:#2C8475;stroke-width:2.6;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#2C3E50;flex:1;">join key unique</span>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.44em;font-weight:700;color:#2C8475;white-space:nowrap;">no dupes</span>
+   </div>
+   <div style="display:flex;align-items:center;gap:0.55em;background:#FEF5E7;border-radius:8px;padding:0.45em 0.7em;">
+    <i data-lucide="triangle-alert" style="width:0.72em;height:0.72em;color:#C4881A;stroke-width:2.2;flex-shrink:0;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#2C3E50;flex:1;">share column in 0 to 1</span>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.44em;font-weight:700;color:#C4881A;white-space:nowrap;">runs 0 to 100</span>
+   </div>
+  </div>
+
+ </div>
+
+ <div style="margin-top:1em;background:#FFFFFF;border:1px solid #D4D3EE;border-radius:12px;padding:0.55em 1em;text-align:center;box-shadow:0 4px 14px rgba(86,84,162,0.08);">
+  <div style="font-size:0.58em;color:#2C3E50;line-height:1.5;">Written and run in <span style="color:#2C8475;font-weight:700;">seconds</span>. You decide what is <span style="color:#C4881A;font-weight:700;">plausible</span>.</div>
+ </div>
+
+</div>
+```

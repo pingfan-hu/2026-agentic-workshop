@@ -6,14 +6,14 @@
   <div style="grid-column:1;grid-row:1;display:flex;justify-content:center;">
    <div style="display:flex;align-items:center;gap:0.4em;background:#FFFFFF;border:1px solid #F0C5BA;border-radius:999px;padding:0.3em 0.7em;box-shadow:0 3px 10px rgba(212,95,71,0.12);">
     <i data-lucide="file-text" style="width:0.7em;height:0.7em;color:#D45F47;stroke-width:1.9;flex-shrink:0;"></i>
-    <span style="font-family:'Maple Mono',monospace;font-size:0.48em;font-weight:700;color:#D45F47;">survey.csv</span>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.48em;font-weight:700;color:#D45F47;">data.csv</span>
    </div>
   </div>
 
   <div style="grid-column:3;grid-row:1;display:flex;justify-content:center;">
    <div style="display:flex;align-items:center;gap:0.4em;background:#FFFFFF;border:1px solid #BCDFC0;border-radius:999px;padding:0.3em 0.7em;box-shadow:0 3px 10px rgba(44,132,117,0.12);">
     <i data-lucide="image" style="width:0.7em;height:0.7em;color:#2C8475;stroke-width:1.9;flex-shrink:0;"></i>
-    <span style="font-family:'Maple Mono',monospace;font-size:0.48em;font-weight:700;color:#2C8475;">choices.png</span>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.48em;font-weight:700;color:#2C8475;">figure.png</span>
    </div>
   </div>
 
@@ -57,7 +57,7 @@
   </div>
 
   <div style="grid-column:3;grid-row:2;background:#FFFFFF;border:1px solid #BCDFC0;border-radius:12px;padding:0.5em;box-shadow:0 8px 24px rgba(44,132,117,0.12);display:flex;align-items:center;">
-   <img src="figs/choices.png" alt="Bar chart of responses by group" style="width:100%;height:auto;display:block;border-radius:8px;"/>
+   <img src="figs/figure.png" alt="Bar chart of responses by group" style="width:100%;height:auto;display:block;border-radius:8px;"/>
   </div>
 
  </div>

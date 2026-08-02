@@ -39,6 +39,18 @@ title-slide-attributes:
 
 {{< include resources/pipeline-ai.qmd >}}
 
+## Enhanced by agents: [writing code]{.teal} {.light-centered .center}
+
+{{< include resources/gain-code.qmd >}}
+
+## Enhanced by agents: [organizing files]{.teal} {.light-centered .center}
+
+{{< include resources/gain-files.qmd >}}
+
+## Enhanced by agents: [sanity checks]{.teal} {.light-centered .center}
+
+{{< include resources/gain-checks.qmd >}}
+
 ## You [will]{.teal} use agents {.light-centered .center}
 
 {{< include resources/inevitable.qmd >}}

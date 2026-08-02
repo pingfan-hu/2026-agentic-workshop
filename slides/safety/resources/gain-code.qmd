@@ -1,0 +1,33 @@
+```{=html}
+<div style="width:88%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.1em 1.1em 1.2em;border-radius:18px;">
+
+ <div style="background:#E5F2EE;border:1px solid #BCDFC0;border-radius:12px;padding:0.6em 0.9em;display:flex;align-items:center;justify-content:center;gap:0.7em;box-shadow:0 4px 16px rgba(44,132,117,0.12);text-align:center;">
+  <div style="width:1.8em;height:1.8em;border-radius:0.45em;background:#FFFFFF;border:1px solid #BCDFC0;display:flex;align-items:center;justify-content:center;color:#2C8475;flex-shrink:0;"><i data-lucide="spell-check" style="width:0.95em;height:0.95em;stroke-width:1.8;"></i></div>
+  <div style="font-size:0.66em;font-weight:700;color:#2C3E50;line-height:1.25;">Agents rarely make a syntax mistake.</div>
+ </div>
+
+ <div style="display:flex;justify-content:center;gap:0.55em;margin-top:1em;">
+  <div style="display:flex;align-items:center;gap:0.4em;background:#FFFFFF;border:1px solid #BCDFC0;border-radius:999px;padding:0.35em 0.85em;box-shadow:0 3px 10px rgba(44,132,117,0.1);">
+   <i data-lucide="check" style="width:0.65em;height:0.65em;color:#2C8475;stroke-width:2.6;flex-shrink:0;"></i>
+   <span style="font-family:'Maple Mono',monospace;font-size:0.48em;color:#2C3E50;">no typos</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:0.4em;background:#FFFFFF;border:1px solid #BCDFC0;border-radius:999px;padding:0.35em 0.85em;box-shadow:0 3px 10px rgba(44,132,117,0.1);">
+   <i data-lucide="check" style="width:0.65em;height:0.65em;color:#2C8475;stroke-width:2.6;flex-shrink:0;"></i>
+   <span style="font-family:'Maple Mono',monospace;font-size:0.48em;color:#2C3E50;">no missing brackets</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:0.4em;background:#FFFFFF;border:1px solid #BCDFC0;border-radius:999px;padding:0.35em 0.85em;box-shadow:0 3px 10px rgba(44,132,117,0.1);">
+   <i data-lucide="check" style="width:0.65em;height:0.65em;color:#2C8475;stroke-width:2.6;flex-shrink:0;"></i>
+   <span style="font-family:'Maple Mono',monospace;font-size:0.48em;color:#2C3E50;">instant setup scripts</span>
+  </div>
+ </div>
+
+ <div style="height:1px;background:linear-gradient(90deg,transparent,#C4C3E8,transparent);margin:1.1em 0 0;"></div>
+
+ <div style="position:relative;background:#FCEEEC;border:1px solid #F0C5BA;border-radius:12px;padding:0.85em 0.9em 0.7em;margin-top:1.5em;display:flex;align-items:center;justify-content:center;gap:0.7em;box-shadow:0 4px 16px rgba(212,95,71,0.12);text-align:center;">
+  <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#FFFFFF;background:linear-gradient(135deg,#E07257,#D45F47);padding:0.45em 1.1em;border-radius:999px;box-shadow:0 5px 16px rgba(212,95,71,0.4);white-space:nowrap;z-index:2;">but...</div>
+  <div style="width:1.8em;height:1.8em;border-radius:0.45em;background:#FFFFFF;border:1px solid #F0C5BA;display:flex;align-items:center;justify-content:center;color:#D45F47;flex-shrink:0;"><i data-lucide="shield-check" style="width:0.95em;height:0.95em;stroke-width:1.8;"></i></div>
+  <div style="font-size:0.66em;font-weight:700;color:#2C3E50;line-height:1.25;">You are the gatekeeper for the coding results.</div>
+ </div>
+
+</div>
+```
