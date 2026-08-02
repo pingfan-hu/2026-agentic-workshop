@@ -23,7 +23,7 @@ title-slide-attributes:
 
 {{< include resources/what-skill.qmd >}}
 
-## Skill usage example: the <a class="waza-btn" role="link" tabindex="0" onclick="window.open('https://github.com/tw93/Waza','_blank','noopener')">Waza</a> plugin {.light-centered .center}
+## Skill usage example: the <a class="brand-pill brand-pill--waza" href="https://github.com/tw93/Waza" target="_blank" rel="noopener">Waza</a> plugin {.light-centered .center}
 
 {{< include resources/waza-skills.qmd >}}
 
