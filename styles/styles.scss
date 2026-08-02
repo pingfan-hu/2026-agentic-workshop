@@ -2311,29 +2311,13 @@ body:has(.slide-embed) .footer {
   display: none;
 }
 
-// Portrait: rotate the whole page (navbar + deck) 90deg clockwise so the
-// landscape composition fills a taller-than-wide screen. The body is sized to the
-// swapped viewport (100vh wide x 100vw tall) and shifted back into view.
-// #quarto-header and .slide-embed are position:fixed, so the transformed body
-// becomes their containing block and both ride along on the rotated page.
-@media (orientation: portrait) {
-  body:has(.slide-embed) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    // The body width becomes the screen's vertical extent after rotation. iOS
-    // Safari's `vh` is the LARGE viewport (toolbar hidden), so `100vh` would push
-    // the deck's far edge behind the bottom toolbar. `svh` is the visible height
-    // with the toolbar shown, which is stable here since the page never scrolls.
-    // `vh` stays as the fallback for browsers without small-viewport units; on
-    // desktop svh == vh, so there is no change there.
-    width: 100vh;
-    width: 100svh;
-    height: 100vw;
-    transform-origin: top left;
-    transform: translateX(100vw) rotate(90deg);
-  }
-}
+// Portrait is handled INSIDE the deck, not here. The touhou-revealjs extension
+// rotates its own <body> 90deg on a portrait viewport (see "=== Orientation ==="
+// in slides/_extensions/touhou/touhou.scss), so every deck presents landscape on
+// its own, standalone or embedded. This page therefore stays upright: the navbar
+// keeps its normal position at the top of the phone and only the slide area
+// inside the iframe turns. Rotating the page here as well would double up and
+// land the deck back in portrait.
 
 // The deck corner controls (home, overview, full screen, hamburger) live
 // INSIDE the decks themselves (see slides/styles/control-buttons.html +
