@@ -1,13 +1,8 @@
 <script>
 // ---- Embedded-site iframes ----
-// Scrolling inside the embedded sites is fully NATIVE. Each embedded page
-// links resources/elastic-scroll.css, which makes its <body> the scroller (an
-// inner overflow scroller): that sidesteps the stale wheel hit-testing that
-// transform-scaled root-scrolling iframes used to suffer, and gives the pages
-// the browser's own rubber-band bounce. The old manual wheel interception
-// (scrollBy + preventDefault on the iframe window) is gone: it targeted the
-// root scroller, which no longer moves, and its preventDefault both killed
-// the native bounce and hijacked wheel events during overview mode.
+// Scrolling inside the embedded sites is fully NATIVE — no manual wheel
+// interception (scrollBy + preventDefault hijacked wheel events during
+// overview mode and killed native scrolling behaviors).
 
 // Real filename -> display name shown in the fake address bar, so navigating the
 // embedded site updates the URL to the educational page name.
