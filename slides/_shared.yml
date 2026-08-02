@@ -1,18 +1,10 @@
 author: "<br>**Pingfan Hu** & **Dr. John Helveston**<br>George Washington University<br><br>Agentic Workflows with Claude Code"
 
 format:
-  revealjs:
-    smaller: false
-    theme: ../styles/slides.scss
-    slide-number: true
-    embed-resources: false
-    auto-stretch: false
+  touhou-revealjs:
     footer: "<a href='http://pingfanhu.com'>Pingfan Hu</a> &amp; <a href='https://www.jhelvy.com'>Dr. John Helveston</a> - Agentic Workflows with Claude Code"
-    preview-links: false
-    link-external-newwindow: true
-    link-external-icon: false
-    center-title-slide: true
-    code-block-height: 650px
+    # The format no longer forces a title-slide look; this deck opts in to the
+    # navy title slide it has always had.
     title-slide-attributes:
       data-background-color: "#2C3E50"
       class: dark-centered

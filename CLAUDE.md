@@ -36,6 +36,8 @@ The only non-obvious part of the repo. Read this before touching any `_quarto.ym
 
 **Quarto's `_metadata.yml` cascade does NOT cross nested project boundaries.** Shared deck config lives in `slides/_shared.yml` and is pulled in via `metadata-files: [../_shared.yml]` in each deck's `_quarto.yml` — the documented way to share metadata across nested projects.
 
+**The deck theme is a custom Quarto format: `touhou-revealjs`.** The single real copy lives in `slides/_extensions/touhou/` (`_extension.yml` with all revealjs format options, `touhou.scss` theme, `lucide.html` icon loader, `practice-timer.html`, `control-buttons.html`, `print-footer.html`; asset paths in `_extension.yml` resolve relative to the extension dir). Quarto only searches for `_extensions` inside each project, and the decks are separate nested projects, so each deck has a symlink `slides/<deck>/_extensions -> ../_extensions` (tracked in git). A new deck needs only that symlink plus `format: touhou-revealjs`. Theme identity (fonts, colors, control buttons, timer, print footer, default navy title-slide attributes) belongs in the extension; workshop-specific content (author, footer text, execute defaults) stays in `slides/_shared.yml`.
+
 ## Top-level pages
 
 Navbar order is the source of truth (`_quarto.yml` → `website.navbar.left`):
@@ -56,9 +58,9 @@ Slide page filenames and their deck directories under `slides/` share the same s
 
 ## Shared assets
 
-- `slides/_shared.yml` — every revealjs format option, footer, author, default `title-slide-attributes`, execute settings. Edit here to change all three decks at once.
-- `slides/styles/slides.scss` — single shared SCSS for all decks (TsangerJinKai font, color utility classes like `.amber` `.teal`, slide-variant classes like `.dark-centered` `.light-centered`). Decks reference it as `../styles/slides.scss`.
-- `slides/<deck>/_quarto.yml` — `project:` + `resources: figs/` + `metadata-files: [../_shared.yml]`. ~6 lines.
+- `slides/_extensions/touhou/` — the `touhou-revealjs` custom format: every shared revealjs format option (`_extension.yml`), the deck SCSS (`touhou.scss`: TsangerJinKai font, color utility classes like `.amber` `.teal`, slide-variant classes like `.dark-centered` `.light-centered`), the Lucide loader, practice timer, control buttons, and print footer. Edit here to change all decks at once.
+- `slides/_shared.yml` — workshop-level metadata shared across decks: author, footer text (under `format: touhou-revealjs:`), execute settings.
+- `slides/<deck>/_quarto.yml` — `project:` + `resources: figs/` + `metadata-files: [../_shared.yml]` + `format: touhou-revealjs`. ~10 lines (basics adds `include-in-header: resources/_header.html` for its deck-specific embedded-site JS).
 - `slides/<deck>/index.qmd` — front matter (`pagetitle`, `title`, **per-deck** `title-slide-attributes` for the banner image), then slide content.
 - `slides/<deck>/figs/banner.png` — round PNG (transparent corners) used as the title slide's `data-background-image`. See "Title slide & banner mechanics".
 - `slides/<deck>/SCRIPTS.md` — speaker script for the deck, organized into the same three sections as `resources/part-N-overview.qmd`. Source for slide content. Present for the `skills` and `safety` decks; the `basics` deck currently has none.
@@ -91,7 +93,7 @@ Hover effects on cards or in-card links must not visibly shift the surrounding c
 1. **`transform: translateY(-Npx)` on hover.** On retina displays the transform promotes the hovered element to a new GPU compositor layer, which forces a subpixel repaint of its siblings inside the same card. The whole card appears to "shake" for a frame. Fix: drop the hover transform — use only `box-shadow` and/or `background-color` changes to signal hover. A press transform on `:active` is fine (momentary).
 2. **First-time layer promotion on `opacity` transition.** Same root cause: when the opacity transition starts, the browser creates the layer on the fly. Pre-promote with `will-change: opacity, transform;` (and optionally `backface-visibility: hidden;`) so the layer exists before hover.
 
-Both `.instructor-link` (about slide) and `.tool-link` (s1-three-tools slide) in `slides/styles/slides.scss` follow this pattern. When adding a new hoverable element, default to: no hover transform, `box-shadow`/`background`/`color` changes only, `will-change` pre-set, `:active` for the click press.
+Both `.instructor-link` (about slide) and `.tool-link` (s1-three-tools slide) in `slides/_extensions/touhou/touhou.scss` follow this pattern. When adding a new hoverable element, default to: no hover transform, `box-shadow`/`background`/`color` changes only, `will-change` pre-set, `:active` for the click press.
 
 ## Quarto theme overrides
 
@@ -103,9 +105,9 @@ Each deck has a navy title slide with a circular banner image on the right. Thre
 
 1. **The banner is a CSS background on the `#title-slide` section, NOT Reveal's `data-background` layer.** Each deck's `index.qmd` `title-slide-attributes` sets the image inline per-deck via `style: "text-align:left; background-image: url(figs/banner.png);"` (the url resolves relative to that deck's index.html). Reveal's `data-background-image` was deliberately dropped: that layer fills the whole unscaled iframe, so the banner drifted off-position and stayed huge when the viewport got short. As a CSS background on the section, the banner lives INSIDE the scaled `.slides` stage, so it sizes and positions relative to the slide content and scales with it, exactly like a body slide. The `title-slide-attributes` block must still include `data-background-color` and `class: dark-centered`.
 2. **The banner PNGs are circularly masked** (transparent outside the circle). Generated by `/ph-image` skill, then post-processed with PIL ellipse mask. If you regenerate a banner, re-apply the mask or it'll show as a square.
-3. **Two rules in `slides/styles/slides.scss` finish the job.** `#title-slide.dark-centered { background-color: transparent !important; }` keeps the section transparent so the navy `data-background-color` layer shows behind the circular banner (without it, `.dark-centered`'s opaque navy fill would cover the area). Scoped to `#title-slide` so other `.dark-centered` slides keep their solid navy fill. `#title-slide { background-size: 24%; background-position: right 20% center; background-repeat: no-repeat; }` sets the banner's size and placement (percentages relative to the 1050x700 stage).
+3. **Two rules in `slides/_extensions/touhou/touhou.scss` finish the job.** `#title-slide.dark-centered { background-color: transparent !important; }` keeps the section transparent so the navy `data-background-color` layer shows behind the circular banner (without it, `.dark-centered`'s opaque navy fill would cover the area). Scoped to `#title-slide` so other `.dark-centered` slides keep their solid navy fill. `#title-slide { background-size: 24%; background-position: right 20% center; background-repeat: no-repeat; }` sets the banner's size and placement (percentages relative to the 1050x700 stage).
 
-The banner image path lives in each deck's `index.qmd` (inline `style`); the shared size/position live once in `slides/styles/slides.scss` under `#title-slide`. To resize or reposition the banner for all decks, edit that `#title-slide` rule; to swap the image for one deck, edit that deck's inline `style`.
+The banner image path lives in each deck's `index.qmd` (inline `style`); the shared size/position live once in `slides/_extensions/touhou/touhou.scss` under `#title-slide`. To resize or reposition the banner for all decks, edit that `#title-slide` rule; to swap the image for one deck, edit that deck's inline `style`.
 
 ## Speaker scripts → slide content
 
@@ -122,13 +124,13 @@ There are **no project-level hooks**. `.claude/settings.local.json` is an empty 
 
 **Do not delete `_site/`** as a cleanup step. The user may have a live `quarto preview` build there; removing it wipes their served output. If you need Quarto's compiled output to inspect (e.g. the generated CSS), render into a throwaway location or leave the existing `_site/` in place, and never `rm -rf _site` in this repo.
 
-## Stale `.quarto/idx` after editing `slides/_shared.yml`
+## Stale `.quarto/idx` after editing shared format config
 
-Changes to **format-level** options in `slides/_shared.yml` (the shared revealjs config) may not take effect on the next render, because Quarto bakes those values into each deck's `.quarto/idx` cache and reuses it for fast incremental rebuilds. The compiled `_site/index.html` then keeps re-emitting the old value no matter how many times you restart `quarto preview` — the source config looks right but the behavior doesn't change.
+Changes to **format-level** options in `slides/_shared.yml` or `slides/_extensions/touhou/_extension.yml` (the shared revealjs config) may not take effect on the next render, because Quarto bakes those values into each deck's `.quarto/idx` cache and reuses it for fast incremental rebuilds. The compiled `_site/index.html` then keeps re-emitting the old value no matter how many times you restart `quarto preview` — the source config looks right but the behavior doesn't change.
 
 Symptom seen once: flipping `preview-links: auto` → `false` correctly set reveal's `previewLinks: false`, but Quarto's separate `previewLinksAuto` (the fullscreen link-preview handler that produces the "Unable to load iframe … x-frame-options" overlay when a slide links to an external site like GitHub) stayed `true` from cache, so external links kept opening in a failing iframe instead of a new tab.
 
-Fix: force a clean render of the affected deck(s) — `rm -rf slides/<deck>/.quarto slides/<deck>/_site && (cd slides/<deck> && quarto render)`. If the option lives in `_shared.yml`, it affects all three decks, so clear and re-render **all** of `slides/*/`. Verify with `grep -o "previewLinksAuto': [a-z]*" slides/<deck>/_site/index.html`. Content-only edits (qmd/scss) don't hit this — only shared **format metadata** does.
+Fix: force a clean render of the affected deck(s) — `rm -rf slides/<deck>/.quarto slides/<deck>/_site && (cd slides/<deck> && quarto render)`. If the option lives in `_shared.yml` or the extension, it affects all three decks, so clear and re-render **all** of `slides/*/`. Verify with `grep -o "previewLinksAuto': [a-z]*" slides/<deck>/_site/index.html`. Content-only edits (qmd/scss) don't hit this — only shared **format metadata** does.
 
 ## Gitignore behavior
 

@@ -23,10 +23,6 @@ metadata-files:
   - ../_shared.yml
 
 format:
-  revealjs:
+  touhou-revealjs:
     include-in-header:
       - resources/_header.html
-      - ../styles/practice-timer.html
-    include-after-body:
-      - ../styles/control-buttons.html
-      - ../styles/print-footer.html

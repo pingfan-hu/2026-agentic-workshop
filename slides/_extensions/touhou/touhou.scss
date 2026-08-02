@@ -680,12 +680,15 @@ th { font-size: 24px; }
 }
 
 // === Containers ===
+// No width here on purpose: the theme provides the look (border, colors,
+// shadow), but width belongs to the usage site — decks set it inline
+// (style="width: 500px") or in their own css (e.g. max-width: 90%). A fixed
+// theme width silently overrode every deck-level banner width.
 .centered-container {
   text-align: center;
   color: #FF5733;
   border: 2px solid #333;
   padding: 10px;
-  width: 300px;
   margin: 0 auto;
   border-radius: 8px;
   background-color: #f9f9f9;
@@ -697,7 +700,6 @@ th { font-size: 24px; }
   color: $navy;
   border: 2px solid $teal-link;
   padding: 10px;
-  width: 300px;
   margin: 0 auto;
   border-radius: 8px;
   background-color: rgba(248, 247, 240, 0.15);
@@ -1252,6 +1254,15 @@ html.reveal-print .slide-menu-button {
 //   still move the .present highlight and Esc/Enter exit as usual.
 $overview-scale: 0.24;
 
+// Thumbnail card dimensions. The reveal stage is 1050x700 (3:2), but decks are
+// presented on 16:9 screens where the stage sits letterboxed in the middle of
+// the viewport — so the thumbnail card is 16:9 (700 * 16/9 ≈ 1244) with the
+// 1050 stage centered via horizontal padding. A thumbnail then looks exactly
+// like the live slide does on screen, cream side margins included.
+$ov-card-w: 1244px;
+$ov-card-h: 700px;
+$ov-pad-x: 97px; // ($ov-card-w - 1050px stage width) / 2
+
 .reveal.overview {
   // The 3D perspective is pointless once the strip transforms are gone.
   perspective: none;
@@ -1266,8 +1277,8 @@ $overview-scale: 0.24;
     transform: none !important;
     zoom: 1 !important;
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, calc(1050px * #{$overview-scale}));
-    grid-auto-rows: calc(700px * #{$overview-scale});
+    grid-template-columns: repeat(auto-fill, calc(#{$ov-card-w} * #{$overview-scale}));
+    grid-auto-rows: calc(#{$ov-card-h} * #{$overview-scale});
     // Tall row gap hosts the slide-number labels. Each number hangs just below
     // its own thumbnail (see the ::after below), so most of this gap reads as
     // space ABOVE the next row, visually binding each number to its slide.
@@ -1298,15 +1309,20 @@ $overview-scale: 0.24;
     // Beats the inline display:none reveal puts on slides beyond its lazy-load
     // view distance, so every slide shows in the grid.
     display: block !important;
-    width: 1050px !important;
-    height: 700px !important;
+    // 16:9 card, with the 1050px stage centered by the side padding (border-box
+    // keeps the content box at exactly 1050px, so content lays out identically
+    // to the live slide).
+    width: $ov-card-w !important;
+    height: $ov-card-h !important;
+    padding: 0 $ov-pad-x !important;
+    box-sizing: border-box !important;
     // Replaces reveal's inline translate3d strip placement with a plain scale;
-    // the negative margins collapse the layout box from 1050x700 down to the
-    // scaled 252x168 footprint so the grid and scroll height see thumbnails,
+    // the negative margins collapse the layout box from 1244x700 down to the
+    // scaled 299x168 footprint so the grid and scroll height see thumbnails,
     // not full-size slides.
     transform: scale($overview-scale) !important;
     transform-origin: top left !important;
-    margin: 0 calc(-1050px * (1 - #{$overview-scale})) calc(-700px * (1 - #{$overview-scale})) 0 !important;
+    margin: 0 calc(-#{$ov-card-w} * (1 - #{$overview-scale})) calc(-#{$ov-card-h} * (1 - #{$overview-scale})) 0 !important;
     // Reveal clips overview sections (overflow:hidden); un-clip so the slide
     // number can hang below the box. Safe here: slides are authored within the
     // 1050x700 stage (normal presentation mode never clips them either).
@@ -1344,8 +1360,8 @@ $overview-scale: 0.24;
       position: absolute;
       top: 0;
       left: 0;
-      width: 1050px;
-      height: 700px;
+      width: $ov-card-w;
+      height: $ov-card-h;
       z-index: 99;
     }
 
@@ -1379,11 +1395,22 @@ $overview-scale: 0.24;
   // Centered slides (the title slide has Reveal's .center class) are normally
   // pushed down by an inline top offset that reveal's overview CSS zeroes out,
   // so their thumbnails rendered top-flattened instead of matching the live
-  // slide. Emulate the vertical centering with flex.
+  // slide. Center with block-level align-content, NOT flex: a flex-column
+  // container turns inline-block children (e.g. two bare `.column` divs meant
+  // to sit side by side) into stacked flex items, reflowing the thumbnail away
+  // from the live layout.
   .slides > section.center {
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
+    align-content: center;
+  }
+
+  // Thumbnails always show the slide's FINAL state: force every fragment
+  // (incremental reveal) to its fully-revealed appearance, as the slide looks
+  // once all increments have played. Without this, fragment-only slides render
+  // as an empty card with just the header.
+  .fragment {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
   }
 
   // Overview shows the slide grid and NOTHING else: hide all deck chrome (the
@@ -1401,11 +1428,13 @@ $overview-scale: 0.24;
   }
 
   // The backgrounds layer still carries the old strip transforms; hide it. The
-  // only slide that relies on it is the title slide (transparent section over a
-  // navy data-background-color), so give that section a navy fill of its own
-  // while in overview. Higher specificity than the transparent override above.
+  // only slide that relies on it is a dark title slide (transparent section
+  // over a navy data-background-color), so give that section a navy fill of
+  // its own while in overview — scoped to .dark-centered so decks with a light
+  // title slide keep it light in the grid too. Higher specificity than the
+  // transparent override above.
   .backgrounds { display: none !important; }
-  #title-slide { background-color: $navy !important; }
+  #title-slide.dark-centered { background-color: $navy !important; }
 }
 
 // ---- Footer + slide number: scale with reveal's stage ----

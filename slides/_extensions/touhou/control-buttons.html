@@ -364,7 +364,28 @@ the overview grid) and parks it on the .slides scroll container. -->
       }, 80);
     }, { capture: true, passive: true });
 
-    Reveal.on('overviewshown', function () { sync(); refocus(); freezeFrames(true); });
+    // Reveal lazy-loads media: an <img> only gets its real src once its slide
+    // comes within viewDistance (3) of the current slide, so far-away
+    // thumbnails render with empty image boxes the first time overview opens.
+    // Overview shows EVERY slide at once, so eagerly load all slide images on
+    // entry. Images only — iframes keep lazy-loading (they can be heavy, run
+    // scripts, and are frozen while overview is open anyway). Idempotent:
+    // data-src is consumed on the first pass, and reveal never un-loads imgs.
+    function loadAllImages() {
+      var imgs = document.querySelectorAll('.reveal .slides img[data-src]');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        var srcset = img.getAttribute('data-srcset');
+        if (srcset) {
+          img.setAttribute('srcset', srcset);
+          img.removeAttribute('data-srcset');
+        }
+        img.setAttribute('src', img.getAttribute('data-src'));
+        img.removeAttribute('data-src');
+      }
+    }
+
+    Reveal.on('overviewshown', function () { loadAllImages(); sync(); refocus(); freezeFrames(true); });
     Reveal.on('overviewhidden', function () {
       sync();
       freezeFrames(false);
