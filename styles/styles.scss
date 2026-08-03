@@ -2255,10 +2255,10 @@ body.quarto-dark {
 // Each per-part page presents the standalone reveal.js deck full-bleed: the site
 // navbar stays pinned at the top and the deck (an iframe of slides/<deck>/) fills
 // the entire viewport beneath it. No window, no border, no button, no scroll, so
-// the page reads as "the slide, with the navbar on top". In portrait (viewport
-// taller than wide) the whole page rotates 90deg clockwise so the landscape deck
-// fills the tall screen; turning the phone to landscape drops the rotation and
-// the deck shows upright and full screen natively.
+// the page reads as "the slide, with the navbar on top". On a touch device held
+// upright the deck (not this page) rotates 90deg clockwise so the landscape
+// composition fills the tall screen; turning the phone to landscape drops the
+// rotation. A desktop window dragged narrow never rotates.
 
 // Height of the fixed site navbar (#quarto-header). The full-bleed deck starts
 // just below it. styles.js keeps this in sync with the real rendered navbar
@@ -2312,9 +2312,9 @@ body:has(.slide-embed) .footer {
 }
 
 // Portrait is handled INSIDE the deck, not here. The touhou-revealjs extension
-// rotates its own <body> 90deg on a portrait viewport (see "=== Orientation ==="
-// in slides/_extensions/touhou/touhou.scss), so every deck presents landscape on
-// its own, standalone or embedded. This page therefore stays upright: the navbar
+// rotates its own <body> 90deg on a portrait viewport whose primary pointer is a
+// finger (see "=== Orientation ===" in slides/_extensions/touhou/touhou.scss), so
+// every handheld presents landscape on its own, standalone or embedded. This page therefore stays upright: the navbar
 // keeps its normal position at the top of the phone and only the slide area
 // inside the iframe turns. Rotating the page here as well would double up and
 // land the deck back in portrait.
