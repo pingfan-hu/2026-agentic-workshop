@@ -844,9 +844,52 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
   }
 }
 
-// Hide the GW logo on very narrow viewports (phones in portrait) where the
-// navbar content otherwise wraps and overlaps the page below.
-@media (max-width: 575.98px) {
+// Hide the GW logo wherever the collapsed top row cannot fit it, so it is
+// omitted rather than wrapped. The logo carries -100px vertical margins (so it
+// does not inflate the bar), which means a wrapped logo does not push the bar
+// taller: it drops to a second row at the far left and hangs OVER the page
+// below, which is the bug this prevents.
+//
+// The threshold is not a device breakpoint, it is the width at which
+// `hamburger + site title + tools + logo` stops fitting on one line, so it moves
+// whenever the site title changes. Measured in WebKit against the current title
+// ("Agentic Workflows with Claude Code", which renders in full down to 540px
+// where the short-title swap below takes over): the row fits from 598px up and
+// wraps at 596px and under. 599.98 hides the logo through the whole broken band
+// with a little slack.
+//
+// To re-derive after a title change: serve _site, step the viewport down in 2px
+// increments, and compare `.navbar-gw-link`'s left edge against
+// `.quarto-navbar-tools`. In the row the logo sits to the RIGHT of the tools;
+// once wrapped it restarts at the left edge.
+@media (max-width: 599.98px) {
+  .navbar-gw-link { display: none !important; }
+}
+
+// Same rule for the OTHER width where the logo does not fit: the low end of the
+// EXPANDED nav. Above the 1100px collapse point the bar carries five nav links,
+// the tools, and the logo on one line, and the links come first, so the logo is
+// what runs past the right edge. It does not wrap there (the container has room
+// for no second row at that point), it simply slides off screen and clips, which
+// looks like the logo dissolving as the window narrows.
+//
+// Measured in WebKit on index.html: the full expanded row needs 1190px. From
+// 1188px down to the 1100px collapse point the logo overhangs the right edge by
+// a growing amount (90px at 1100). Hiding it through 1199.98 covers that band
+// with ~10px of slack.
+//
+// The logo therefore shows in three of the four states: collapsed with room
+// (600-1099), and expanded with room (1200+). It is omitted in the two bands
+// where it would be damaged. Nav links always win over the logo, since they are
+// the actual navigation. The alternative is to move the collapse point up to
+// 1200 so the logo never blinks out, at the cost of a hamburger on any window
+// between 1100 and 1200 where the links themselves fit fine.
+//
+// This band moves whenever a navbar LINK's text changes (adding "Working Safely
+// with Data and AI" is what pushed it out from under the old value). Re-derive
+// by stepping the viewport down and comparing `.navbar-gw-link`'s right edge to
+// the viewport width.
+@media (min-width: 1100px) and (max-width: 1199.98px) {
   .navbar-gw-link { display: none !important; }
 }
 
