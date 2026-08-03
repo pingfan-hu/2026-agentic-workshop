@@ -1,0 +1,364 @@
+```{r}
+#| label: codify-map
+#| message: false
+
+library(dplyr)
+library(plotly)
+library(htmlwidgets)
+
+ink   <- "#564232"
+teal  <- "#2C8475"
+amber <- "#FFB84D"
+bg    <- "#F8F7F0"
+
+states <- read.csv("data/state-population.csv") |>
+  mutate(hover = paste0(
+    "<b>", name, "</b><br>Population: ",
+    prettyNum(population, big.mark = ",")
+  ))
+
+map <- plot_geo(states, locationmode = "USA-states",
+                width = 980, height = 530) |>
+  add_trace(
+    locations = ~abb, z = ~log10(population),
+    hoverinfo = "none",
+    colorscale = list(list(0, "#DCEDE8"), list(1, "#1E5A4E")),
+    showscale = FALSE,
+    marker = list(line = list(color = bg, width = 1))
+  ) |>
+  add_trace(
+    locations = ~abb, z = rep(0, nrow(states)),
+    zmin = 0, zmax = 1,
+    colorscale = list(list(0, "rgba(0,0,0,0)"), list(1, "rgba(0,0,0,0)")),
+    showscale = FALSE, hoverinfo = "none",
+    marker = list(line = list(color = amber, width = 2.5))
+  ) |>
+  layout(
+    geo = list(
+      scope = "usa", bgcolor = "rgba(0,0,0,0)",
+      showland = FALSE, showlakes = FALSE, showsubunits = FALSE,
+      showframe = FALSE, showcoastlines = FALSE
+    )
+  )
+
+bar <- plot_ly(states, width = 980, height = 530) |>
+  add_bars(
+    x = ~population, y = ~abb, orientation = "h",
+    hovertext = ~hover, hoverinfo = "text",
+    marker = list(color = teal),
+    textposition = "outside", cliponaxis = FALSE,
+    textfont = list(family = "Maple Mono, monospace", size = 10, color = ink)
+  ) |>
+  layout(
+    xaxis = list(title = "", tickformat = "~s",
+                 range = c(0, 2e6),
+                 tickfont = list(size = 9), gridcolor = "#E8E4DA",
+                 zeroline = FALSE, fixedrange = TRUE),
+    yaxis = list(title = "", categoryorder = "array",
+                 categoryarray = list(), range = c(7.5, -0.5),
+                 tickfont = list(size = 10), fixedrange = TRUE)
+  )
+
+widget <- subplot(map, bar, nrows = 1, widths = c(0.70, 0.30),
+                  margin = 0.03, titleX = FALSE, titleY = FALSE) |>
+  layout(
+    paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+    showlegend = FALSE, dragmode = FALSE,
+    geo = list(domain = list(x = c(0, 0.70), y = c(0, 1))),
+    font = list(family = "Maple Mono, monospace", color = ink),
+    hoverlabel = list(
+      bgcolor = "#2C3E50",
+      font = list(family = "Maple Mono, monospace", color = "#F8F7F0")
+    ),
+    margin = list(l = 0, r = 40, t = 10, b = 20),
+    annotations = list(list(
+      text = "Click states on the map", xref = "paper", yref = "paper",
+      x = 0.86, y = 0.5, xanchor = "center", yanchor = "middle",
+      showarrow = FALSE,
+      font = list(family = "Maple Mono, monospace", size = 12, color = "#9B8EA0")
+    ))
+  ) |>
+  config(displayModeBar = FALSE)
+
+onRender(widget, "
+function(el, x, data) {
+  var OV = 1, BAR = 2, FLOOR = 2e6;
+  var sel = [];
+  var displayed = [];
+  var tag = null;
+  var yid = Object.keys(el.layout).filter(function(k) { return /^yaxis/.test(k); })[0];
+  var xid = Object.keys(el.layout).filter(function(k) { return /^xaxis/.test(k); })[0];
+
+  function fmt(p) {
+    return p >= 1e6 ? (p / 1e6).toFixed(1) + 'M' : Math.round(p / 1e3) + 'K';
+  }
+
+  function basePath(idx) {
+    var groups = el.querySelectorAll('g.trace.choropleth');
+    return groups[0] ? groups[0].querySelectorAll('path')[idx] : null;
+  }
+
+  function overlayPath(idx) {
+    var groups = el.querySelectorAll('g.trace.choropleth');
+    return groups[1] ? groups[1].querySelectorAll('path')[idx] : null;
+  }
+
+  function fadeIn(node, shift) {
+    node.style.opacity = 0;
+    node.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+    if (shift) { node.style.transform = 'translateY(4px)'; }
+    requestAnimationFrame(function() { requestAnimationFrame(function() {
+      node.style.opacity = 1;
+      if (shift) { node.style.transform = 'translateY(0)'; }
+    }); });
+  }
+
+  function removeTag() {
+    if (!tag) { return; }
+    var t = tag;
+    tag = null;
+    t.style.opacity = 0;
+    setTimeout(function() { if (t.parentNode) { t.parentNode.removeChild(t); } }, 220);
+  }
+
+  function showTag(pathEl, name, pop) {
+    removeTag();
+    var L = pathEl.getTotalLength();
+    if (!L) { return; }
+    var best = pathEl.getPointAtLength(0);
+    var bestScore = best.x - best.y;
+    for (var i = 1; i <= 120; i++) {
+      var p = pathEl.getPointAtLength(L * i / 120);
+      if (p.x - p.y > bestScore) { bestScore = p.x - p.y; best = p; }
+    }
+    best = {x: best.x - 7, y: best.y + 7};
+
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = pathEl.ownerSVGElement;
+    var svgs = el.querySelectorAll('.svg-container > svg.main-svg');
+    var topSvg = svgs.length ? svgs[svgs.length - 1] : svg;
+    var pt = svg.createSVGPoint();
+    pt.x = best.x; pt.y = best.y;
+    best = pt.matrixTransform(pathEl.getCTM());
+    tag = document.createElementNS(NS, 'g');
+    tag.setAttribute('pointer-events', 'none');
+
+    var rect = document.createElementNS(NS, 'rect');
+    var tri = document.createElementNS(NS, 'polygon');
+    var t1 = document.createElementNS(NS, 'text');
+    var t2 = document.createElementNS(NS, 'text');
+    t1.textContent = name;
+    t2.textContent = 'Population: ' + pop.toLocaleString('en-US');
+    [t1, t2].forEach(function(t) {
+      t.setAttribute('font-family', 'Maple Mono, monospace');
+      t.setAttribute('font-size', '11');
+    });
+    t1.setAttribute('font-weight', 'bold');
+    t1.setAttribute('fill', '#FFB84D');
+    t2.setAttribute('fill', '#F8F7F0');
+
+    tag.appendChild(rect);
+    tag.appendChild(tri);
+    tag.appendChild(t1);
+    tag.appendChild(t2);
+    topSvg.appendChild(tag);
+
+    var w = Math.max(t1.getBBox().width, t2.getBBox().width) + 16;
+    var h = 38;
+    var svgW = parseFloat(topSvg.getAttribute('width')) || 980;
+    var bx = best.x + 12, by = best.y - 12 - h;
+    if (bx + w > svgW - 4) { bx = svgW - 4 - w; }
+    if (by < 2) { by = 2; }
+
+    rect.setAttribute('x', bx); rect.setAttribute('y', by);
+    rect.setAttribute('width', w); rect.setAttribute('height', h);
+    rect.setAttribute('rx', 4);
+    rect.setAttribute('fill', '#2C3E50');
+    rect.setAttribute('fill-opacity', '0.95');
+    tri.setAttribute('points',
+      best.x + ',' + best.y + ' ' +
+      (bx + 3) + ',' + (by + h) + ' ' +
+      (bx + 16) + ',' + (by + h));
+    tri.setAttribute('fill', '#2C3E50');
+    tri.setAttribute('fill-opacity', '0.95');
+    t1.setAttribute('x', bx + 8); t1.setAttribute('y', by + 15);
+    t2.setAttribute('x', bx + 8); t2.setAttribute('y', by + 31);
+    fadeIn(tag, true);
+  }
+
+  function chosen() {
+    return sel.map(function(a) { return data.abb.indexOf(a); })
+      .map(function(i) {
+        return {abb: data.abb[i], name: data.name[i],
+                pop: data.population[i], hover: data.hover[i]};
+      })
+      .sort(function(a, b) { return b.pop - a.pop; });
+  }
+
+  function axisMax(list) {
+    return Math.max(FLOOR, (list.length ? list[0].pop : 0) * 1.25);
+  }
+
+  function restyleOverlay(fadeIdx) {
+    Plotly.restyle(el, {
+      locations: [sel.slice()],
+      z: [sel.map(function() { return 0; })]
+    }, [OV]).then(function() {
+      if (fadeIdx == null) { return; }
+      var p = overlayPath(fadeIdx);
+      if (p) { fadeIn(p, false); }
+    });
+  }
+
+  function slotRelayout(list) {
+    var re = {'annotations[0].visible': list.length === 0};
+    re[yid + '.categoryarray'] = list.map(function(c) { return c.abb; });
+    re[yid + '.range'] = [Math.max(list.length, 8) - 0.5, -0.5];
+    return Plotly.relayout(el, re);
+  }
+
+  function animateBars(xVals, list, dur) {
+    var lay = {};
+    lay[xid] = {range: [0, axisMax(list)]};
+    return Plotly.animate(el, {
+      data: [{x: xVals}], traces: [BAR], layout: lay
+    }, {
+      transition: {duration: dur, easing: 'cubic-in-out'},
+      frame: {duration: dur, redraw: false}
+    }).then(null, function() {});
+  }
+
+  function addState(abb) {
+    sel.push(abb);
+    restyleOverlay(sel.length - 1);
+    var list = chosen();
+    displayed = list;
+    Plotly.restyle(el, {
+      x: [list.map(function(c) { return c.abb === abb ? 0 : c.pop; })],
+      y: [list.map(function(c) { return c.abb; })],
+      hovertext: [list.map(function(c) { return c.hover; })],
+      text: [list.map(function(c) { return c.abb === abb ? '' : fmt(c.pop); })]
+    }, [BAR]);
+    slotRelayout(list);
+    animateBars(list.map(function(c) { return c.pop; }), list, 400).then(function() {
+      Plotly.restyle(el, {text: [list.map(function(c) { return fmt(c.pop); })]}, [BAR]);
+    });
+  }
+
+  function removeState(abb) {
+    var ovIdx = sel.indexOf(abb);
+    var p = overlayPath(ovIdx);
+    if (p) { p.style.transition = 'opacity 0.25s ease'; p.style.opacity = 0; }
+    sel.splice(ovIdx, 1);
+    setTimeout(function() { restyleOverlay(null); }, 250);
+
+    var listNew = displayed.filter(function(c) { return c.abb !== abb; });
+    Plotly.restyle(el, {
+      text: [displayed.map(function(c) { return c.abb === abb ? '' : fmt(c.pop); })]
+    }, [BAR]);
+    var shrunk = displayed.map(function(c) { return c.abb === abb ? 0 : c.pop; });
+    animateBars(shrunk, listNew, 350).then(function() {
+      Plotly.restyle(el, {
+        x: [listNew.map(function(c) { return c.pop; })],
+        y: [listNew.map(function(c) { return c.abb; })],
+        hovertext: [listNew.map(function(c) { return c.hover; })],
+        text: [listNew.map(function(c) { return fmt(c.pop); })]
+      }, [BAR]);
+      slotRelayout(listNew);
+      displayed = listNew;
+    });
+  }
+
+  el.on('plotly_hover', function(d) {
+    var pt = d.points[0];
+    if (pt.data.type !== 'choropleth') { return; }
+    var idx = data.abb.indexOf(pt.location);
+    if (idx < 0) { return; }
+    var bp = basePath(idx);
+    if (bp) {
+      bp.style.transition = 'fill-opacity 0.25s ease';
+      bp.style.fillOpacity = 0.75;
+    }
+    var groups = el.querySelectorAll('g.trace.choropleth');
+    var grp = groups[pt.curveNumber];
+    if (!grp) { return; }
+    var pathEl = grp.querySelectorAll('path')[pt.pointNumber];
+    if (!pathEl) { return; }
+    showTag(pathEl, data.name[idx], data.population[idx]);
+  });
+
+  el.on('plotly_unhover', function(d) {
+    removeTag();
+    var pt = d.points && d.points[0];
+    if (pt && pt.data.type === 'choropleth') {
+      var idx = data.abb.indexOf(pt.location);
+      var bp = idx > -1 ? basePath(idx) : null;
+      if (bp) { bp.style.fillOpacity = 1; }
+    }
+  });
+
+  el.on('plotly_click', function(d) {
+    var pt = d.points[0];
+    var abb = pt.data.type === 'choropleth'
+      ? pt.location
+      : (displayed.filter(function(c) { return c.abb === pt.y; })[0] || {}).abb;
+    if (!abb) { return; }
+    if (sel.indexOf(abb) === -1) { addState(abb); } else { removeState(abb); }
+  });
+
+  function resetAll() {
+    if (!sel.length) { return; }
+    var groups = el.querySelectorAll('g.trace.choropleth');
+    if (groups[1]) {
+      Array.prototype.forEach.call(groups[1].querySelectorAll('path'), function(p) {
+        p.style.transition = 'opacity 0.25s ease';
+        p.style.opacity = 0;
+      });
+    }
+    sel = [];
+    setTimeout(function() { restyleOverlay(null); }, 250);
+    Plotly.restyle(el, {text: [displayed.map(function() { return ''; })]}, [BAR]);
+    animateBars(displayed.map(function() { return 0; }), [], 350).then(function() {
+      Plotly.restyle(el, {x: [[]], y: [[]], hovertext: [[]], text: [[]]}, [BAR]);
+      slotRelayout([]);
+      displayed = [];
+    });
+  }
+
+  var btn = document.createElement('button');
+  btn.setAttribute('aria-label', 'Reset selection');
+  var iNS = 'http://www.w3.org/2000/svg';
+  var icon = document.createElementNS(iNS, 'svg');
+  icon.setAttribute('viewBox', '0 0 24 24');
+  icon.setAttribute('width', '20');
+  icon.setAttribute('height', '20');
+  icon.setAttribute('fill', 'none');
+  icon.setAttribute('stroke', '#2C8475');
+  icon.setAttribute('stroke-width', '2');
+  icon.setAttribute('stroke-linecap', 'round');
+  icon.setAttribute('stroke-linejoin', 'round');
+  var ip1 = document.createElementNS(iNS, 'path');
+  ip1.setAttribute('d', 'M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8');
+  var ip2 = document.createElementNS(iNS, 'path');
+  ip2.setAttribute('d', 'M3 3v5h5');
+  icon.appendChild(ip1);
+  icon.appendChild(ip2);
+  btn.appendChild(icon);
+  btn.style.cssText = 'position:absolute;left:12px;top:12px;z-index:5;' +
+    'width:38px;height:38px;padding:0;display:flex;' +
+    'align-items:center;justify-content:center;' +
+    'background:#FFFFFF;border:1px solid #BCDFC0;' +
+    'border-radius:10px;cursor:pointer;box-shadow:0 2px 6px rgba(44,132,117,0.15);';
+  btn.addEventListener('mouseenter', function() { btn.style.background = '#E7F2EF'; });
+  btn.addEventListener('mouseleave', function() { btn.style.background = '#FFFFFF'; });
+  btn.addEventListener('click', resetAll);
+  el.style.position = 'relative';
+  el.appendChild(btn);
+
+  restyleOverlay(null);
+  Plotly.restyle(el, {x: [[]], y: [[]], hovertext: [[]], text: [[]]}, [BAR]);
+  slotRelayout([]);
+}
+", data = list(abb = states$abb, name = states$name,
+               population = states$population, hover = states$hover))
+```

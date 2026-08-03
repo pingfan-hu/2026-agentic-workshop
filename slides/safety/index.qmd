@@ -55,6 +55,14 @@ title-slide-attributes:
 
 {{< include resources/fake-vs-real.qmd >}}
 
+## Example: [Map of USA]{.teal} {.light-centered .center}
+
+{{< include resources/codify-map.qmd >}}
+
+## Example: [Map of Australia]{.blue} {.light-centered .center}
+
+{{< include resources/codify-map-au.qmd >}}
+
 ## Thank you {.dark-centered .center}
 
 {{< include resources/closing.qmd >}}
