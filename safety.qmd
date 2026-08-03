@@ -1,5 +1,5 @@
 ---
-title: "Data Safety with AI"
+title: "Working Safely with Data and AI"
 toc: false
 grid:
   sidebar-width: 0px
@@ -10,7 +10,7 @@ grid:
 <div class="slide-embed">
   <iframe
     src="slides/safety/"
-    title="Data Safety with AI slides"
+    title="Working Safely with Data and AI slides"
     allowfullscreen
     loading="lazy">
   </iframe>

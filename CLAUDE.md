@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A Quarto **website** hosting the landing surface for a three-part workshop, with each part embedding a Quarto **revealjs** slide deck via `<iframe>`. The parent website and the per-deck slide projects are nested but separate Quarto projects, glued together by a post-render hook.
 
-- Three workshop parts: **Agentic Basics**, **Skill Usage and Design**, **Data Safety with AI**
+- Three workshop parts: **Agentic Basics**, **Skill Usage and Design**, **Working Safely with Data and AI**
 - Four top-level content pages: `installation.qmd` (pre-workshop setup) plus three slide pages (`basics.qmd`, `skills.qmd`, `safety.qmd`)
 - Deployed to GitHub Pages via `.github/workflows/quarto-publish.yml` on push to `main`
 
@@ -48,7 +48,7 @@ Navbar order is the source of truth (`_quarto.yml` → `website.navbar.left`):
 | 0. Installation | `installation.qmd` | Pre-workshop setup — three sections (Essentials, Agents, Software) pulled in from `resources/essentials.qmd`, `resources/agents.qmd`, and `resources/software.qmd` |
 | 1. Agentic Basics | `basics.qmd` | iframes `slides/basics/` |
 | 2. Skill Usage and Design | `skills.qmd` | iframes `slides/skills/` |
-| 3. Data Safety with AI | `safety.qmd` | iframes `slides/safety/` |
+| 3. Working Safely with Data and AI | `safety.qmd` | iframes `slides/safety/` |
 
 Slide page filenames and their deck directories under `slides/` share the same short names (`basics`, `skills`, `safety`). The iframe `src` attribute inside each slide page is the source of truth — if you rename a deck directory, update the iframe `src`/`href` in the corresponding qmd to match.
 

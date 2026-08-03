@@ -45,7 +45,7 @@ website:
         text: 2. Skill Usage and Design
       - icon: shield-check
         href: safety.qmd
-        text: 3. Data Safety with AI
+        text: 3. Working Safely with Data and AI
 
     tools:
       - icon: github

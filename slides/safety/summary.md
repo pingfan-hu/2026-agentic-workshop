@@ -1,4 +1,4 @@
-# Data Safety with AI: Quick Summary
+# Working Safely with Data and AI: Quick Summary
 
 - **Use AI agents wisely**: AI agents are inevitable in data science. There's no way that we can avoid AI agents, so we need to use them wisely.
 

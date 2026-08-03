@@ -1,17 +1,13 @@
 ---
-pagetitle: "Data Safety with AI"
-title: "[Data Safety with AI]{.amber}"
+pagetitle: "Working Safely with Data and AI"
+title: "[Working Safely with Data and AI]{.amber}"
 title-slide-attributes:
   data-background-color: "#2C3E50"
   class: dark-centered
   style: "text-align:left; background-image: url(figs/banner.png);"
 ---
 
-## Recap {.light-centered .center}
-
-{{< include resources/recap.qmd >}}
-
-## Today {.dark-centered .center}
+## Roadmap {.dark-centered .center}
 
 {{< include resources/roadmap.qmd >}}
 
@@ -51,73 +47,13 @@ title-slide-attributes:
 
 {{< include resources/gain-checks.qmd >}}
 
-## You [will]{.teal} use agents {.light-centered .center}
-
-{{< include resources/inevitable.qmd >}}
-
-## The [script]{.teal}, not the [result]{.coral} {.light-centered .center}
-
-{{< include resources/scripts-not-results.qmd >}}
-
-## What the agent hands back {.light-centered .center}
-
-{{< include resources/deliverables.qmd >}}
-
-## A structure you can audit {.light-centered .center}
-
-{{< include resources/file-structure.qmd >}}
-
-## Every stage, same rule {.light-centered .center}
-
-{{< include resources/every-stage.qmd >}}
-
-## Some data can [never]{.coral} leave {.light-centered .center}
+## Protect your [sensitive data]{.coral} {.light-centered .center}
 
 {{< include resources/sensitive-data.qmd >}}
 
-## Leaks happen [quietly]{.coral} {.light-centered .center}
-
-{{< include resources/leak-paths.qmd >}}
-
-## The [fake-data]{.teal} workflow {.light-centered .center}
-
-{{< include resources/fake-data.qmd >}}
-
-## Same structure, [fake]{.teal} content {.light-centered .center}
+## Use <a class="brand-pill brand-pill--charlatan" href="https://docs.ropensci.org/charlatan/" target="_blank" rel="noopener">charlatan</a> to generate fake data {.light-centered .center}
 
 {{< include resources/fake-vs-real.qmd >}}
-
-## More shields {.light-centered .center}
-
-{{< include resources/more-shields.qmd >}}
-
-## The principle {.dark-centered .center}
-
-{{< include resources/structure-quote.qmd >}}
-
-## [Co-pilot]{.teal}, not [autopilot]{.coral} {.light-centered .center}
-
-{{< include resources/copilot.qmd >}}
-
-## Your name on the results {.light-centered .center}
-
-{{< include resources/own-everything.qmd >}}
-
-## The hand-craft test {.light-centered .center}
-
-{{< include resources/handcraft-test.qmd >}}
-
-## How it goes [wrong]{.coral} {.light-centered .center}
-
-{{< include resources/bad-example.qmd >}}
-
-## Three violations, one chat {.light-centered .center}
-
-{{< include resources/violations.qmd >}}
-
-## Three takeaways {.light-centered .center}
-
-{{< include resources/takeaways.qmd >}}
 
 ## Thank you {.dark-centered .center}
 

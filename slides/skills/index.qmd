@@ -7,7 +7,7 @@ title-slide-attributes:
   style: "text-align:left; background-image: url(figs/banner.png);"
 ---
 
-## Today {.dark-centered .center}
+## Roadmap {.dark-centered .center}
 
 {{< include resources/roadmap.qmd >}}
 

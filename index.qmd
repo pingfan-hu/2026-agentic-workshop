@@ -42,6 +42,6 @@ grid:
 
 {{< include resources/part-2-overview.qmd >}}
 
-## Part 3: [Data Safety with AI](safety.qmd)
+## Part 3: [Working Safely with Data and AI](safety.qmd)
 
 {{< include resources/part-3-overview.qmd >}}

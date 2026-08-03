@@ -11,7 +11,7 @@ title-slide-attributes:
 
 {{< include resources/about.qmd >}}
 
-## Today {.dark-centered .center}
+## Roadmap {.dark-centered .center}
 
 {{< include resources/roadmap.qmd >}}
 

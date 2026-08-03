@@ -125,4 +125,4 @@ One conceptual point to close on. A skill is not for the agent's benefit. The ag
 
 ### Up next _(slide: Up next)_
 
-Hand-off to Part 3, **Data Safety with AI**: where AI helps a data-science workflow, where it quietly hurts, and how to keep the data scientist in the loop as the gatekeeper.
+Hand-off to Part 3, **Working Safely with Data and AI**: where AI helps a data-science workflow, where it quietly hurts, and how to keep the data scientist in the loop as the gatekeeper.
