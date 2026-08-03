@@ -70,7 +70,7 @@ widget <- subplot(map, bar, nrows = 1, widths = c(0.70, 0.30),
       bgcolor = "#2C3E50",
       font = list(family = "Maple Mono, monospace", color = "#F8F7F0")
     ),
-    margin = list(l = 0, r = 40, t = 10, b = 20),
+    margin = list(l = 0, r = 40, t = 10, b = 20, autoexpand = FALSE),
     annotations = list(list(
       text = "Click states on the map", xref = "paper", yref = "paper",
       x = 0.86, y = 0.5, xanchor = "center", yanchor = "middle",
@@ -306,6 +306,50 @@ function(el, x, data) {
     if (sel.indexOf(abb) === -1) { addState(abb); } else { removeState(abb); }
   });
 
+  function hitPath(cx, cy) {
+    var nodes = el.querySelectorAll(
+      'g.trace.choropleth, g.trace.choropleth path, g.trace.bars, g.trace.bars path');
+    var saved = [];
+    Array.prototype.forEach.call(nodes, function(n) {
+      saved.push([n, n.style.pointerEvents]);
+      n.style.pointerEvents = 'all';
+    });
+    var t = document.elementFromPoint(cx, cy);
+    saved.forEach(function(s) { s[0].style.pointerEvents = s[1]; });
+    return t;
+  }
+
+  el.addEventListener('click', function(e) {
+    if (!window.matchMedia('(orientation: portrait) and (pointer: coarse)').matches) { return; }
+    var t = hitPath(e.clientX, e.clientY);
+    if (!t || !t.closest || t.tagName !== 'path') { return; }
+    var grp = t.closest('g.trace.choropleth');
+    if (grp) {
+      var groups = Array.prototype.slice.call(el.querySelectorAll('g.trace.choropleth'));
+      var gi = groups.indexOf(grp);
+      var pi = Array.prototype.slice.call(grp.querySelectorAll('path')).indexOf(t);
+      if (gi < 0 || pi < 0) { return; }
+      var abb = gi === 0 ? data.abb[pi] : sel[pi];
+      if (!abb) { return; }
+      if (sel.indexOf(abb) === -1) {
+        var idx = data.abb.indexOf(abb);
+        var bp = basePath(idx);
+        if (bp) { showTag(bp, data.name[idx], data.population[idx]); }
+        addState(abb);
+      } else {
+        removeTag();
+        removeState(abb);
+      }
+      return;
+    }
+    var pointG = t.closest('g.point');
+    if (pointG && t.closest('g.trace.bars')) {
+      var pts = Array.prototype.slice.call(el.querySelectorAll('g.trace.bars g.point'));
+      var idx2 = pts.indexOf(pointG);
+      if (idx2 > -1 && displayed[idx2]) { removeState(displayed[idx2].abb); }
+    }
+  });
+
   function resetAll() {
     if (!sel.length) { return; }
     var groups = el.querySelectorAll('g.trace.choropleth');
@@ -354,16 +398,6 @@ function(el, x, data) {
   btn.addEventListener('click', resetAll);
   el.style.position = 'relative';
   el.appendChild(btn);
-
-  setInterval(function() {
-    var fl = el._fullLayout;
-    if (!fl) { return; }
-    if (fl.width !== 980 || fl.height !== 530) {
-      el.style.width = '980px';
-      el.style.height = '530px';
-      Plotly.relayout(el, {width: 980, height: 530});
-    }
-  }, 2000);
 
   restyleOverlay(null);
   Plotly.restyle(el, {x: [[]], y: [[]], hovertext: [[]], text: [[]]}, [BAR]);
