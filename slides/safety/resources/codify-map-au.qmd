@@ -359,6 +359,16 @@ function(el, x, data) {
   el.style.position = 'relative';
   el.appendChild(btn);
 
+  setInterval(function() {
+    var fl = el._fullLayout;
+    if (!fl) { return; }
+    if (fl.width !== 980 || fl.height !== 530) {
+      el.style.width = '980px';
+      el.style.height = '530px';
+      Plotly.relayout(el, {width: 980, height: 530});
+    }
+  }, 2000);
+
   restyleOverlay(null);
   Plotly.restyle(el, {x: [[]], y: [[]], hovertext: [[]], text: [[]]}, [BAR]);
   slotRelayout([]);
