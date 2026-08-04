@@ -17,18 +17,20 @@ grid:
 
 {{< include resources/authors.qmd >}}
 
-<hr>
-
 ```{=html}
 <div class="affiliation">
- <a class="affiliation-logo-link" href="https://trustworthyai.gwu.edu" target="_blank" rel="noopener">
+ <a class="affiliation-card" href="https://trustworthyai.gwu.edu" target="_blank" rel="noopener">
   <img src="images/gw-tai-logo.png" alt="GW TAI Logo" class="affiliation-logo">
+  <span class="affiliation-text">The George Washington University</span>
  </a>
- <span class="affiliation-text">The George Washington University</span>
 </div>
 ```
 
-<hr>
+<div class="soft-divider"></div>
+
+{{< include resources/suggested-reading.qmd >}}
+
+<div class="soft-divider"></div>
 
 ## Part 0: [Installation](installation.qmd)
 
