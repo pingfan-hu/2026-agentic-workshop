@@ -56,12 +56,14 @@ main.content h2 {
   padding: 10px 20px;
   border-radius: 12px;
   text-decoration: none;
+  // Hover is tint-only (no lift); pre-promote so the :active press doesn't
+  // repaint siblings on first click (see CLAUDE.md hover-shake note).
+  will-change: transform;
   transition: background-color 0.15s ease, transform 0.15s ease;
 
   &:hover {
     background-color: rgba(1, 61, 91, 0.06);
     text-decoration: none;
-    transform: translateY(-2px);
   }
 
   &:active {
@@ -69,11 +71,18 @@ main.content h2 {
   }
 }
 
+// The logo always sits on a cream chip matching the light-mode page
+// background: invisible in light mode, and in dark mode it surfaces as a
+// badge that keeps the navy lettering legible. Baking the padding into both
+// modes means switching themes never shifts the surrounding layout.
 .affiliation-logo {
-  height: 48px;
+  height: 60px; // border-box: 48px logo + 6px chip padding top/bottom
   width: auto;
   display: block;
   flex-shrink: 0;
+  background: #F8F7F0;
+  border-radius: 10px;
+  padding: 6px 9px;
 }
 
 // Same type voice as .auth-name above it.
@@ -171,12 +180,14 @@ main.content h2 {
   padding: 8px 12px;
   border-radius: 12px;
   text-decoration: none;
+  // Hover is tint-only (no lift); pre-promote so the :active press doesn't
+  // repaint siblings on first click (see CLAUDE.md hover-shake note).
+  will-change: transform;
   transition: background-color 0.15s ease, transform 0.15s ease;
 
   &:hover {
     background-color: rgba(1, 61, 91, 0.06);
     text-decoration: none;
-    transform: translateY(-2px);
   }
 
   &:active {
@@ -2166,6 +2177,12 @@ body.quarto-dark {
   .auth-card:hover { background-color: rgba(125, 165, 189, 0.12); }
   .auth-image { border-color: #384A57; }
   .auth-name { color: #A4C9DC; }
+
+  // Affiliation: the logo's cream chip is defined in the base rule (always
+  // present, so theme switches never shift layout); only text and hover tint
+  // need dark overrides, matching .auth-name / .auth-card.
+  .affiliation-card:hover { background-color: rgba(125, 165, 189, 0.12); }
+  .affiliation-text { color: #A4C9DC; }
 
   :not(pre) > code { background-color: rgba(255, 255, 255, 0.1); }
 
