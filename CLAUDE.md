@@ -62,8 +62,7 @@ Slide page filenames and their deck directories under `slides/` share the same s
 - `slides/_shared.yml` — workshop-level metadata shared across decks: author, footer text (under `format: touhou-revealjs:`), execute settings.
 - `slides/<deck>/_quarto.yml` — `project:` + `resources: figs/` + `metadata-files: [../_shared.yml]` + `format: touhou-revealjs`. ~10 lines (basics adds `include-in-header: resources/_header.html` for its deck-specific embedded-site JS).
 - `slides/<deck>/index.qmd` — front matter (`pagetitle`, `title`, **per-deck** `title-slide-attributes` for the banner image), then slide content.
-- `slides/<deck>/figs/banner.png` — round PNG (transparent corners) used as the title slide's `data-background-image`. See "Title slide & banner mechanics".
-- `slides/<deck>/SCRIPTS.md` — speaker script for the deck, organized into the same three sections as `resources/part-N-overview.qmd`. Source for slide content. Present for the `skills` and `safety` decks; the `basics` deck currently has none.
+- `slides/<deck>/figs/banner.png` — round PNG (transparent corners) used as the title slide's `data-background-image`. See "Title slide & banner mechanics". The `figs/` dir also holds any deck-local copies of shared images (headshots, logos): decks are nested projects and cannot reference the parent `images/` dir, so copy assets in.
 - `styles/styles.scss` — parent **website** styles. All component CSS lives here (see "Component CSS conventions") — never inline `<style>` blocks in qmd files.
 - `styles/styles.js` — parent-website JS entry, loaded via `include-after-body` in `_quarto.yml` alongside the Lucide icons CDN. Touch this for landing-page behavior or icon rendering changes.
 - `images/` — parent website static assets, registered as a Quarto resource in `_quarto.yml` so it's copied into `_site/` as-is. `images/software/` holds the app icons used by `resources/software.qmd`; `images/{pingfan-hu,john-helveston}.png` are the author headshots.
@@ -93,7 +92,7 @@ Hover effects on cards or in-card links must not visibly shift the surrounding c
 1. **`transform: translateY(-Npx)` on hover.** On retina displays the transform promotes the hovered element to a new GPU compositor layer, which forces a subpixel repaint of its siblings inside the same card. The whole card appears to "shake" for a frame. Fix: drop the hover transform — use only `box-shadow` and/or `background-color` changes to signal hover. A press transform on `:active` is fine (momentary).
 2. **First-time layer promotion on `opacity` transition.** Same root cause: when the opacity transition starts, the browser creates the layer on the fly. Pre-promote with `will-change: opacity, transform;` (and optionally `backface-visibility: hidden;`) so the layer exists before hover.
 
-Both `.instructor-link` (about slide) and `.tool-link` (s1-three-tools slide) in `slides/_extensions/touhou/touhou.scss` follow this pattern. When adding a new hoverable element, default to: no hover transform, `box-shadow`/`background`/`color` changes only, `will-change` pre-set, `:active` for the click press.
+`.instructor-link` (about slide), `.tool-link` (s1-three-tools slide), `.tool-card` (practice cards), and `.thanks-card` / `.logo-chip` (safety thank-you slide: whole-card links with a blue hover tint on a dark slide) in `slides/_extensions/touhou/touhou.scss` all follow this pattern. When adding a new hoverable element, default to: no hover transform, `box-shadow`/`background`/`color` changes only, `will-change` pre-set, `:active` for the click press.
 
 ## Quarto theme overrides
 
@@ -109,14 +108,14 @@ Each deck has a navy title slide with a circular banner image on the right. Thre
 
 The banner image path lives in each deck's `index.qmd` (inline `style`); the shared size/position live once in `slides/_extensions/touhou/touhou.scss` under `#title-slide`. To resize or reposition the banner for all decks, edit that `#title-slide` rule; to swap the image for one deck, edit that deck's inline `style`.
 
-## Speaker scripts → slide content
+## Slide content conventions
 
-A deck's `SCRIPTS.md` (speaker script) and its `index.qmd` (slide content) evolve together (the `skills` and `safety` decks have a `SCRIPTS.md`; `basics` does not):
+There are no speaker scripts (the per-deck `SCRIPTS.md` files were removed); each deck's `index.qmd` plus its `resources/*.qmd` partials are the single source of truth.
 
-- `SCRIPTS.md` is the source of truth for what to *say*; structured into the three sections defined in `resources/part-N-overview.qmd`
-- `index.qmd` is the slide deck; bullets/short paragraphs that match the script
-- Pacing target: ~25 minutes per part, ~25–29 slides each. Section dividers use `.dark-centered`, content slides use `.light-centered` or default
-- Visual punctuation: dramatic quote slides also use `.dark-centered` for contrast
+- Pacing target: ~25 minutes per part, ~19-26 slides each. Content slides use `.light-centered` or default; `.dark-centered` is reserved for the title slide, the roadmap, practice slides, and punctuation/closing slides (quotes, thank-you)
+- **Roadmaps**: every deck's roadmap is exactly three bars (icon tile + title only, no subtitles, no header line). The three titles and Lucide icons must stay in sync with the matching home-page part cards in `resources/part-{1,2,3}-overview.qmd`
+- **Practice slides**: dark amber panels with a `practice-timer`. Basics and skills number theirs (`— practice 01 —`); safety has a single unnumbered practice (`— practice —`, 20 minutes)
+- Quote/closing slides put `margin-top:1.1em` on the first content block so the title breathes; roadmaps use the same gap on the bar stack
 
 ## Project hooks
 
