@@ -4,16 +4,16 @@
  </div>
  <div class="section-grid section-grid-3">
   <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="file-code"></i></div>
-   <div class="section-label">Scripts, Not Results</div>
+   <div class="section-card-icon"><i data-lucide="workflow"></i></div>
+   <div class="section-label">Pipelines vs One-offs</div>
   </div>
   <div class="section-card">
    <div class="section-card-icon"><i data-lucide="shield-check"></i></div>
-   <div class="section-label">Keep Real Data Out</div>
+   <div class="section-label">Protect Your Data</div>
   </div>
   <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="plane"></i></div>
-   <div class="section-label">You Are the Pilot</div>
+   <div class="section-card-icon"><i data-lucide="map"></i></div>
+   <div class="section-label">Map Project Example</div>
   </div>
  </div>
 </div>

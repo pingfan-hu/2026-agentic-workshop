@@ -63,6 +63,18 @@ title-slide-attributes:
 
 {{< include resources/codify-map-au.qmd >}}
 
-## Thank you {.dark-centered .center}
+## &nbsp; {.dark-centered .center}
+
+{{< include resources/practice.qmd >}}
+
+## Final [takeaways]{.teal} {.light-centered .center}
+
+{{< include resources/takeaways.qmd >}}
+
+## You make the difference {.dark-centered .center}
 
 {{< include resources/closing.qmd >}}
+
+## Thank you for joining us {.dark-centered .center}
+
+{{< include resources/thank-you.qmd >}}

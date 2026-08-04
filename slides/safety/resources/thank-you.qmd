@@ -1,0 +1,41 @@
+```{=html}
+<div style="width:88%;margin:0 auto;">
+
+ <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0.95em;align-items:stretch;margin-top:1.1em;">
+
+  <a class="thanks-card" href="http://pingfanhu.com" target="_blank" rel="noopener">
+   <div style="display:flex;align-items:center;gap:0.65em;margin-bottom:0.55em;">
+    <div style="width:2.6em;height:2.6em;border-radius:50%;background-image:url('figs/pingfan-hu.png');flex-shrink:0;background-size:cover;background-position:center;border:1.5px solid #DCE9FA;box-shadow:0 3px 10px rgba(58,125,201,0.15);"></div>
+    <div style="font-size:0.85em;font-weight:700;color:#2C3E50;white-space:nowrap;">Pingfan Hu</div>
+   </div>
+   <div style="font-size:0.55em;color:#564232;line-height:1.55;margin-bottom:0.55em;">
+    PhD Candidate, EMSE<br>
+    Systems Engineering
+   </div>
+   <span class="instructor-link instructor-link--blue" style="margin-top:auto;">pingfanhu.com</span>
+  </a>
+
+  <a class="thanks-card" href="https://www.jhelvy.com" target="_blank" rel="noopener">
+   <div style="display:flex;align-items:center;gap:0.65em;margin-bottom:0.55em;">
+    <div style="width:2.6em;height:2.6em;border-radius:50%;background-image:url('figs/john-helveston.png');flex-shrink:0;background-size:cover;background-position:center;border:1.5px solid #FEF5E7;box-shadow:0 3px 10px rgba(196,136,26,0.15);"></div>
+    <div style="font-size:0.85em;font-weight:700;color:#2C3E50;white-space:nowrap;">Dr. John Helveston</div>
+   </div>
+   <div style="font-size:0.55em;color:#564232;line-height:1.55;margin-bottom:0.55em;">
+    Associate Professor, EMSE<br>
+    Director, Data Analytics
+   </div>
+   <span class="instructor-link instructor-link--gold" style="margin-top:auto;">jhelvy.com</span>
+  </a>
+
+ </div>
+
+ <div style="width:55%;height:2px;margin:1.1em auto 0;border-radius:999px;background:linear-gradient(90deg,transparent,rgba(196,195,232,0.45),transparent);"></div>
+
+ <div style="margin-top:1.1em;display:flex;justify-content:center;">
+  <a class="logo-chip" href="https://trustworthyai.gwu.edu" target="_blank" rel="noopener">
+   <img src="figs/gw-tai-logo.png" alt="GW Trustworthy AI Initiative" style="height:1.6em;display:block;">
+  </a>
+ </div>
+
+</div>
+```

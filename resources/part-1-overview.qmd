@@ -4,16 +4,16 @@
  </div>
  <div class="section-grid section-grid-3">
   <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="git-compare-arrows"></i></div>
-   <div class="section-label">What is an Agent?</div>
+   <div class="section-card-icon"><i data-lucide="bot"></i></div>
+   <div class="section-label">Agent Basics &amp; Setup</div>
   </div>
   <div class="section-card">
    <div class="section-card-icon"><i data-lucide="globe"></i></div>
    <div class="section-label">Website Example</div>
   </div>
   <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="terminal"></i></div>
-   <div class="section-label">Basic Agentic Commands</div>
+   <div class="section-card-icon"><i data-lucide="sparkles"></i></div>
+   <div class="section-label">Agentic Skill Basics</div>
   </div>
  </div>
 </div>

@@ -229,6 +229,58 @@ body.reveal-viewport {
     }
   }
 
+  // Thank-you slide: whole presenter card + logo chip are clickable links on a
+  // dark slide. Shaded cream fill (not pure white) to soften contrast against
+  // the navy background; hover brightens fill + shadow only (no translate),
+  // will-change pre-promotes the layer, :active gives the momentary press.
+  .thanks-card {
+    display: flex;
+    flex-direction: column;
+    background: #EFECE1;
+    border-radius: 16px;
+    padding: 1em 1.1em 1.1em;
+    text-align: left;
+    color: inherit !important;
+    text-decoration: none !important;
+    cursor: pointer;
+    will-change: transform;
+    backface-visibility: hidden;
+    transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.1s ease;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2);
+
+    &:active {
+      transform: scale(0.985);
+    }
+
+    // Hover tints blue on every card (a pure-white hover reads as a
+    // barely-visible flash against the navy slide).
+    &:hover {
+      background: #E3EEFA;
+      box-shadow: 0 12px 30px rgba(123, 181, 240, 0.35);
+    }
+  }
+
+  .logo-chip {
+    display: flex;
+    align-items: center;
+    background: #EFECE1;
+    border-radius: 12px;
+    padding: 0.45em 0.7em;
+    cursor: pointer;
+    will-change: transform;
+    backface-visibility: hidden;
+    transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.1s ease;
+
+    &:hover {
+      background: #E3EEFA;
+      box-shadow: 0 8px 22px rgba(123, 181, 240, 0.4);
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+
   // Whole-card link (practice tool cards). The entire card is the clickable
   // target — no text underline. Hover brightens the card's amber border + fill
   // and lifts it with a shadow; the press is a momentary scale on :active.
