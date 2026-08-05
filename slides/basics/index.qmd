@@ -15,13 +15,13 @@ title-slide-attributes:
 
 {{< include resources/roadmap.qmd >}}
 
-## Assistants vs Agents {.light-centered .center}
+## Chat vs Agent {.light-centered .center}
 
 {{< include resources/two-terms.qmd >}}
 
-## &nbsp; {.light-centered .center}
+## [Agentic Workflow]{style="color:#3A7DC9;"} {.light-centered .center}
 
-{{< include resources/agent-equation.qmd >}}
+{{< include resources/model-harness-loop.qmd >}}
 
 ## &nbsp; {.dark-centered .center .practice}
 
