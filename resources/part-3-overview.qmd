@@ -4,16 +4,16 @@
  </div>
  <div class="section-grid section-grid-3">
   <div class="section-card">
+   <div class="section-card-icon"><i data-lucide="github"></i></div>
+   <div class="section-label">Use GitHub</div>
+  </div>
+  <div class="section-card">
    <div class="section-card-icon"><i data-lucide="workflow"></i></div>
-   <div class="section-label">Pipelines vs One-offs</div>
+   <div class="section-label">Code-Based Pipelines</div>
   </div>
   <div class="section-card">
    <div class="section-card-icon"><i data-lucide="shield-check"></i></div>
-   <div class="section-label">Protect Your Data</div>
-  </div>
-  <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="map"></i></div>
-   <div class="section-label">Map Project Example</div>
+   <div class="section-label">Protect Sensitive Data</div>
   </div>
  </div>
 </div>

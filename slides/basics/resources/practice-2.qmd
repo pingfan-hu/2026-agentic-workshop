@@ -1,47 +1,50 @@
 ```{=html}
 <div style="width:92%;margin:0 auto;text-align:left;position:relative;">
 
- <div class="practice-timer" data-minutes="20"></div>
+ <div class="practice-timer" data-minutes="25"></div>
 
- <div style="background:rgba(255,184,77,0.08);border-left:6px solid #FFB84D;border-radius:0 16px 16px 0;padding:1.7em 2.1em 1.8em;">
+ <div style="background:rgba(255,184,77,0.08);border-left:6px solid #FFB84D;border-radius:0 16px 16px 0;padding:1.25em 2.1em 1.35em;">
 
   <div style="font-family:'Maple Mono',monospace;font-size:0.82em;color:#FFB84D;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.55em;">— practice 02 —</div>
 
-  <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:1em;letter-spacing:-0.01em;white-space:nowrap;">
-   Build a small multi-page website.
+  <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:0.75em;letter-spacing:-0.01em;white-space:nowrap;">
+   Build and publish a small website.
   </div>
 
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.8em;">
+  <div style="display:flex;flex-direction:column;gap:0.45em;">
 
-   <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.75em 0.9em 0.85em;">
-    <div style="display:flex;align-items:center;gap:0.5em;margin-bottom:0.5em;">
-     <div style="width:1.45em;height:1.45em;border-radius:0.4em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="file-code" style="width:0.82em;height:0.82em;stroke-width:1.8;"></i></div>
-     <div style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#FFB84D;letter-spacing:0.16em;">STEP 01</div>
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="folder-plus" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 01</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Make a <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">my-site</code> folder, open it in Positron, run <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">claude</code> in Terminal.</div>
     </div>
-    <div style="font-size:0.55em;color:#F8F7F0;line-height:1.5;">Launch <code style="font-family:'Maple Mono',monospace;font-size:0.95em;color:#FFB84D;">claude</code>. Ask for <strong>one</strong> HTML page + its CSS.</div>
    </div>
 
-   <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.75em 0.9em 0.85em;">
-    <div style="display:flex;align-items:center;gap:0.5em;margin-bottom:0.5em;">
-     <div style="width:1.45em;height:1.45em;border-radius:0.4em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="eye" style="width:0.82em;height:0.82em;stroke-width:1.8;"></i></div>
-     <div style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#FFB84D;letter-spacing:0.16em;">STEP 02</div>
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="file-code" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 02</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Ask for <strong>one</strong> HTML page + its CSS, then iterate on the look.</div>
     </div>
-    <div style="font-size:0.55em;color:#F8F7F0;line-height:1.5;">Open <code style="font-family:'Maple Mono',monospace;font-size:0.95em;color:#FFB84D;">index.html</code>. Iterate on the look.</div>
    </div>
 
-   <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.75em 0.9em 0.85em;">
-    <div style="display:flex;align-items:center;gap:0.5em;margin-bottom:0.5em;">
-     <div style="width:1.45em;height:1.45em;border-radius:0.4em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="link" style="width:0.82em;height:0.82em;stroke-width:1.8;"></i></div>
-     <div style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#FFB84D;letter-spacing:0.16em;">STEP 03</div>
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="link" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 03</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Add more HTML pages and link them together.</div>
     </div>
-    <div style="font-size:0.55em;color:#F8F7F0;line-height:1.5;">Add more pages, <strong>linked</strong> so you can click between them.</div>
    </div>
 
-  </div>
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="rocket" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 04</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Publish your site to <a class="brand-pill brand-pill--netlify" href="https://www.netlify.com" target="_blank" rel="noopener" style="font-size:0.9em;">Netlify</a>.</div>
+    </div>
+   </div>
 
-  <div style="display:flex;align-items:center;justify-content:center;gap:0.55em;width:fit-content;max-width:100%;margin:1.2em auto 0;background:#F7F3EA;border:1px solid #E7DCC8;border-radius:999px;padding:0.5em 1.2em;font-size:0.5em;line-height:1.35;color:#6F6470;text-align:left;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,0.22);">
-   <i data-lucide="share-2" style="width:1.3em;height:1.3em;stroke-width:1.8;color:#C4881A;flex:none;"></i>
-   <span><span style="color:#2C3E50;font-weight:700;">Happy with your homepage?</span> Drop the link in the chat so everyone can see it.</span>
   </div>
 
  </div>

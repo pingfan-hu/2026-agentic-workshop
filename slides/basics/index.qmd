@@ -27,10 +27,6 @@ title-slide-attributes:
 
 {{< include resources/practice-1.qmd >}}
 
-## Where you launch matters {.light-centered .center}
-
-{{< include resources/two-directories.qmd >}}
-
 ## Open your workspace {.light-centered .center}
 
 {{< include resources/setup.qmd >}}
@@ -83,18 +79,6 @@ title-slide-attributes:
 
 {{< include resources/basic-commands.qmd >}}
 
-## Skills {.light-centered .center}
-
-{{< include resources/skills.qmd >}}
-
-## Installing skills {.light-centered .center}
-
-{{< include resources/install-skills.qmd >}}
-
-## Build your skill {.light-centered .center}
-
-{{< include resources/website-to-skill.qmd >}}
-
 ## &nbsp; {.dark-centered .center .practice}
 
 {{< include resources/practice-3.qmd >}}
@@ -102,7 +86,3 @@ title-slide-attributes:
 ## Three takeaways {.light-centered .center}
 
 {{< include resources/takeaways.qmd >}}
-
-## One More Thing... {.dark-centered .center}
-
-{{< include resources/hardest-skill.qmd >}}

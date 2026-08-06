@@ -1,30 +1,30 @@
 ```{=html}
-<div style="width:82%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.3em 1.2em;border-radius:18px;display:flex;flex-direction:column;gap:0.85em;">
+<div style="width:78%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.1em 1.1em;border-radius:18px;display:flex;flex-direction:column;gap:0.6em;">
 
- <!-- step 1: GitHub repo (orange) -->
- <div style="display:grid;grid-template-columns:1.9em 2.6em 1fr;gap:0.85em;align-items:center;background:#FFFFFF;border-radius:13px;border:1px solid rgba(224,123,57,0.22);padding:0.75em 1em;box-shadow:0 6px 18px rgba(224,123,57,0.12);text-align:left;">
-  <div style="width:1.9em;height:1.9em;border-radius:50%;background:linear-gradient(135deg,#F3A24C,#E07B39);color:#FFFFFF;font-family:'Maple Mono',monospace;font-weight:700;font-size:0.62em;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(224,123,57,0.32);">1</div>
-  <div style="width:2.6em;height:2.6em;border-radius:0.62em;background:linear-gradient(135deg,#F3A24C,#E07B39);display:flex;align-items:center;justify-content:center;color:#FFFFFF;box-shadow:0 5px 14px rgba(224,123,57,0.28);"><i data-lucide="folder-git-2" style="width:1.4em;height:1.4em;stroke-width:1.9;"></i></div>
+ <!-- step 1: local skills folder (orange) -->
+ <div style="display:grid;grid-template-columns:1.5em 1.9em 1fr;gap:0.7em;align-items:center;background:#FFFFFF;border-radius:12px;border:1px solid rgba(224,123,57,0.22);padding:0.55em 1em;box-shadow:0 6px 18px rgba(224,123,57,0.12);text-align:left;">
+  <div style="width:1.5em;height:1.5em;border-radius:50%;background:#FBEEE8;border:1px solid #EFC9AE;color:#E07B39;font-family:'Maple Mono',monospace;font-weight:700;font-size:0.55em;display:flex;align-items:center;justify-content:center;">1</div>
+  <div style="width:1.9em;height:1.9em;border-radius:0.5em;background:#FBEEE8;border:1px solid #EFC9AE;display:flex;align-items:center;justify-content:center;color:#E07B39;"><i data-lucide="folder-plus" style="width:0.95em;height:0.95em;stroke-width:1.9;"></i></div>
   <div>
-   <div style="font-size:0.64em;font-weight:700;color:#2C3E50;line-height:1.25;">Create a GitHub repo for your skills</div>
+   <div style="font-size:0.6em;font-weight:700;color:#2C3E50;line-height:1.25;">In <code style="font-family:'Maple Mono',monospace;font-size:0.95em;background:#FBEEE8;color:#B0603F;padding:0.05em 0.35em;border-radius:5px;">my-site</code>, create a <code style="font-family:'Maple Mono',monospace;font-size:0.95em;background:#FBEEE8;color:#B0603F;padding:0.05em 0.35em;border-radius:5px;">.claude/skills/</code> folder</div>
   </div>
  </div>
 
- <!-- step 2: open in Positron (blue) -->
- <div style="display:grid;grid-template-columns:1.9em 2.6em 1fr;gap:0.85em;align-items:center;background:#FFFFFF;border-radius:13px;border:1px solid rgba(58,125,201,0.22);padding:0.75em 1em;box-shadow:0 6px 18px rgba(58,125,201,0.1);text-align:left;">
-  <div style="width:1.9em;height:1.9em;border-radius:50%;background:linear-gradient(135deg,#5A97D8,#3A7DC9);color:#FFFFFF;font-family:'Maple Mono',monospace;font-weight:700;font-size:0.62em;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(58,125,201,0.3);">2</div>
-  <div role="img" aria-label="Positron" style="width:2.6em;height:2.6em;background-image:url(figs/positron-icon.png);background-size:contain;background-repeat:no-repeat;background-position:center;filter:drop-shadow(0 4px 10px rgba(58,125,201,0.28));"></div>
+ <!-- step 2: add SKILL.md (blue) -->
+ <div style="display:grid;grid-template-columns:1.5em 1.9em 1fr;gap:0.7em;align-items:center;background:#FFFFFF;border-radius:12px;border:1px solid rgba(58,125,201,0.22);padding:0.55em 1em;box-shadow:0 6px 18px rgba(58,125,201,0.1);text-align:left;">
+  <div style="width:1.5em;height:1.5em;border-radius:50%;background:#DCE9FA;border:1px solid #A6C4EA;color:#3A7DC9;font-family:'Maple Mono',monospace;font-weight:700;font-size:0.55em;display:flex;align-items:center;justify-content:center;">2</div>
+  <div style="width:1.9em;height:1.9em;border-radius:0.5em;background:#DCE9FA;border:1px solid #A6C4EA;display:flex;align-items:center;justify-content:center;color:#3A7DC9;"><i data-lucide="file-plus-2" style="width:0.95em;height:0.95em;stroke-width:1.9;"></i></div>
   <div>
-   <div style="font-size:0.64em;font-weight:700;color:#2C3E50;line-height:1.25;">Open the path in Positron</div>
+   <div style="font-size:0.6em;font-weight:700;color:#2C3E50;line-height:1.25;">Add <code style="font-family:'Maple Mono',monospace;font-size:0.95em;background:#EAF1FB;color:#234E80;padding:0.05em 0.35em;border-radius:5px;">my-skill/SKILL.md</code> inside it</div>
   </div>
  </div>
 
- <!-- step 3: launch Claude Code (teal) -->
- <div style="display:grid;grid-template-columns:1.9em 2.6em 1fr;gap:0.85em;align-items:center;background:#FFFFFF;border-radius:13px;border:1px solid rgba(44,132,117,0.22);padding:0.75em 1em;box-shadow:0 6px 18px rgba(44,132,117,0.1);text-align:left;">
-  <div style="width:1.9em;height:1.9em;border-radius:50%;background:linear-gradient(135deg,#3DA890,#2C8475);color:#FFFFFF;font-family:'Maple Mono',monospace;font-weight:700;font-size:0.62em;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(44,132,117,0.3);">3</div>
-  <div style="width:2.6em;height:2.6em;border-radius:0.62em;background:linear-gradient(135deg,#3DA890,#2C8475);display:flex;align-items:center;justify-content:center;color:#FFFFFF;box-shadow:0 5px 14px rgba(44,132,117,0.26);"><i data-lucide="bot" style="width:1.4em;height:1.4em;stroke-width:1.9;"></i></div>
+ <!-- step 3: relaunch Claude Code (teal) -->
+ <div style="display:grid;grid-template-columns:1.5em 1.9em 1fr;gap:0.7em;align-items:center;background:#FFFFFF;border-radius:12px;border:1px solid rgba(44,132,117,0.22);padding:0.55em 1em;box-shadow:0 6px 18px rgba(44,132,117,0.1);text-align:left;">
+  <div style="width:1.5em;height:1.5em;border-radius:50%;background:#E5F2EE;border:1px solid #BCDFC0;color:#2C8475;font-family:'Maple Mono',monospace;font-weight:700;font-size:0.55em;display:flex;align-items:center;justify-content:center;">3</div>
+  <div style="width:1.9em;height:1.9em;border-radius:0.5em;background:#E5F2EE;border:1px solid #BCDFC0;display:flex;align-items:center;justify-content:center;color:#2C8475;"><i data-lucide="bot" style="width:0.95em;height:0.95em;stroke-width:1.9;"></i></div>
   <div>
-   <div style="font-size:0.64em;font-weight:700;color:#2C3E50;line-height:1.25;">Launch Claude Code in Positron</div>
+   <div style="font-size:0.6em;font-weight:700;color:#2C3E50;line-height:1.25;">Relaunch <code style="font-family:'Maple Mono',monospace;font-size:0.95em;background:#E5F2EE;color:#1E5E52;padding:0.05em 0.35em;border-radius:5px;">claude</code> and it picks the skill up</div>
   </div>
  </div>
 

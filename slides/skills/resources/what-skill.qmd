@@ -2,10 +2,10 @@
 <div style="width:90%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.1em 1em 1.2em;border-radius:18px;">
 
  <!-- T-bar: the definition -->
- <div style="background:#FCEEEC;border:1px solid #F3D4CC;border-radius:14px;padding:0.5em 0.95em;display:flex;align-items:center;gap:0.8em;box-shadow:0 4px 16px rgba(212,95,71,0.1);text-align:left;">
-  <div style="width:1.9em;height:1.9em;border-radius:0.5em;background:#FFFFFF;border:1px solid #F0C5BA;display:flex;align-items:center;justify-content:center;color:#D45F47;flex-shrink:0;"><i data-lucide="package" style="width:1em;height:1em;stroke-width:1.8;"></i></div>
+ <div style="background:#FCEEEC;border:1px solid #F3D4CC;border-radius:14px;padding:0.32em 0.95em;display:flex;align-items:center;gap:0.8em;box-shadow:0 4px 16px rgba(212,95,71,0.1);text-align:left;">
+  <div style="width:1.55em;height:1.55em;border-radius:0.45em;background:#FFFFFF;border:1px solid #F0C5BA;display:flex;align-items:center;justify-content:center;color:#D45F47;flex-shrink:0;"><i data-lucide="package" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
   <div style="flex:1;">
-   <div style="font-size:0.62em;font-weight:700;color:#2C3E50;line-height:1.25;">A <span style="color:#2C8475;">slash command</span> that wraps a reusable, multi-step process.</div>
+   <div style="font-size:0.62em;font-weight:700;color:#2C3E50;line-height:1.25;">A <span style="color:#2C8475;">slash command</span> that contains <span style="color:#3A7DC9;">norms, patterns, and full workflows</span>.</div>
   </div>
  </div>
 

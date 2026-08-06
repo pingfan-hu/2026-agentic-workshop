@@ -11,9 +11,7 @@ title-slide-attributes:
 
 {{< include resources/roadmap.qmd >}}
 
-## Use agents [wisely]{.teal} {.light-centered .center}
-
-{{< include resources/use-wisely.qmd >}}
+## Use GitHub {.divider-teal .center}
 
 ## Use <a class="brand-pill brand-pill--github" href="https://github.com" target="_blank" rel="noopener">GitHub</a> {.light-centered .center}
 
@@ -23,11 +21,17 @@ title-slide-attributes:
 
 {{< include resources/github-advanced.qmd >}}
 
-## Pipeline: [Data Viz]{.teal} based on [raw data]{.coral} {.light-centered .center}
+## Code-Based Pipelines {.divider-blue .center}
+
+## One-off [artifacts]{.coral} can fail badly {.light-centered .center}
+
+{{< include resources/africa-fail.qmd >}}
+
+## Build the [code]{.teal}, not the [artifact]{.coral} {.light-centered .center}
 
 {{< include resources/pipeline-example.qmd >}}
 
-## Pipeline: [Data Viz]{.teal} based on [raw data]{.coral} {.light-centered .center}
+## Build the [code]{.teal}, not the [artifact]{.coral} {.light-centered .center}
 
 {{< include resources/pipeline-result.qmd >}}
 
@@ -47,14 +51,6 @@ title-slide-attributes:
 
 {{< include resources/gain-checks.qmd >}}
 
-## Protect your [sensitive data]{.coral} {.light-centered .center}
-
-{{< include resources/sensitive-data.qmd >}}
-
-## Use <a class="brand-pill brand-pill--charlatan" href="https://docs.ropensci.org/charlatan/" target="_blank" rel="noopener">charlatan</a> to generate fake data {.light-centered .center}
-
-{{< include resources/fake-vs-real.qmd >}}
-
 ## Example: [Map of USA]{.teal} {.light-centered .center}
 
 {{< include resources/codify-map.qmd >}}
@@ -62,6 +58,16 @@ title-slide-attributes:
 ## Example: [Map of Australia]{.blue} {.light-centered .center}
 
 {{< include resources/codify-map-au.qmd >}}
+
+## Protect Sensitive Data {.divider-purple .center}
+
+## Protect your [sensitive data]{.coral} {.light-centered .center}
+
+{{< include resources/sensitive-data.qmd >}}
+
+## Use <a class="brand-pill brand-pill--charlatan" href="https://docs.ropensci.org/charlatan/" target="_blank" rel="noopener">charlatan</a> or <a class="brand-pill brand-pill--faker" href="https://github.com/joke2k/faker" target="_blank" rel="noopener">faker</a> to generate fake data {.light-centered .center}
+
+{{< include resources/fake-vs-real.qmd >}}
 
 ## &nbsp; {.dark-centered .center}
 
@@ -74,6 +80,10 @@ title-slide-attributes:
 ## You make the difference {.dark-centered .center}
 
 {{< include resources/closing.qmd >}}
+
+## One More Thing... {.dark-centered .center}
+
+{{< include resources/hardest-skill.qmd >}}
 
 ## Thank you for joining us {.dark-centered .center}
 

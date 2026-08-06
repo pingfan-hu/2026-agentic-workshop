@@ -253,10 +253,10 @@ body.reveal-viewport {
     }
 
     // Hover tints blue on every card (a pure-white hover reads as a
-    // barely-visible flash against the navy slide).
+    // barely-visible flash against the navy slide). Tint only, no glow: the
+    // resting shadow stays as is.
     &:hover {
       background: #E3EEFA;
-      box-shadow: 0 12px 30px rgba(123, 181, 240, 0.35);
     }
   }
 
@@ -273,11 +273,34 @@ body.reveal-viewport {
 
     &:hover {
       background: #E3EEFA;
-      box-shadow: 0 8px 22px rgba(123, 181, 240, 0.4);
     }
 
     &:active {
       transform: scale(0.97);
+    }
+
+    // Full-width organization band (thank-you slide): spans the same width as
+    // the presenter-card grid above it. An interim tone between the cream
+    // presenter cards and the navy slide: a translucent cream wash over the
+    // navy (the dark-slide card idiom), so the org card reads as a different
+    // kind of card. The logo keeps its own small cream chip in the markup so
+    // the lockup's navy lettering stays legible on the dark band.
+    &--band {
+      width: 100%;
+      box-sizing: border-box;
+      justify-content: center;
+      gap: 0.9em;
+      background: rgba(248, 247, 240, 0.1);
+      border: 1px solid rgba(248, 247, 240, 0.14);
+      border-radius: 16px;
+
+      // Tint only, no glow. Quarto's reveal theme sets `.reveal a:hover
+      // { border: none }`, which would drop the 1px border and shift the
+      // band by a pixel; re-assert it here (same fix as .brand-pill).
+      &:hover {
+        background: rgba(123, 181, 240, 0.18);
+        border: 1px solid rgba(248, 247, 240, 0.14);
+      }
     }
   }
 
@@ -418,6 +441,54 @@ body.reveal-viewport {
         -webkit-mask: none;
         mask: none;
       }
+    }
+
+    &--faker {
+      // Python package name in mono, matching charlatan's treatment.
+      font-family: 'Maple Mono', monospace;
+      font-weight: 700;
+      font-size: 0.66em;
+      color: $code-color !important;
+      &:hover { color: $code-color !important; }
+
+      // Theater-masks glyph as the mark, full color, so no currentColor mask
+      // (same approach as the Waza ninja emoji below).
+      &::before {
+        content: "🎭";
+        background: none;
+        -webkit-mask: none;
+        mask: none;
+        width: auto;
+        height: auto;
+        font-size: 1.05em;
+        line-height: 1;
+      }
+    }
+
+    &--netlify {
+      // Service name in mono, matching charlatan's treatment, but tuned for
+      // the dark practice panel: a translucent wash instead of the solid white
+      // capsule, no shadow, and side margins so the pill breathes between the
+      // surrounding words. Sized inline at the call site.
+      font-family: 'Maple Mono', monospace;
+      font-weight: 700;
+      font-size: 0.66em;
+      margin: 0 0.35em;
+      padding: 0.24em 0.65em;
+      background: rgba(248, 247, 240, 0.1);
+      border: 1px solid rgba(248, 247, 240, 0.24);
+      box-shadow: none;
+      color: #05BDBA !important;
+      &:hover {
+        background: rgba(248, 247, 240, 0.18);
+        border: 1px solid rgba(248, 247, 240, 0.24);
+        box-shadow: none;
+        color: #05BDBA !important;
+      }
+
+      // Netlify diamond mark (simpleicons.org), painted in Netlify teal.
+      &::before { background: #05BDBA; }
+      --brand-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.49 19.04h-.23L5.13 17.9v-.23l1.73-1.71h1.2l.15.15v1.2ZM5.13 6.31V6.1l1.13-1.14h.23l1.73 1.71v1.2l-.15.15h-1.2Zm9.96 9.09h-1.65l-.14-.13v-3.83c0-.68-.27-1.2-1.1-1.23-.42 0-.9 0-1.43.02l-.07.08v4.96l-.14.14H9.9l-.14-.14V9.35l.14-.13h3.7a2.6 2.6 0 0 1 2.61 2.6v3.45ZM5.76 13.36H.14L0 13.22v-1.67l.14-.14h5.62l.14.14v1.67zm18.1 0h-5.62l-.14-.14v-1.67l.14-.14h5.62l.14.14v1.67zM11.05 6.55V1.64l.14-.14h1.65l.14.14v4.9l-.14.14h-1.65zm0 15.81v-4.9l.14-.14h1.65l.14.13v4.91l-.14.14h-1.65z'/%3E%3C/svg%3E");
     }
 
     &--waza {
@@ -758,7 +829,7 @@ body.reveal-viewport {
   }
 
   // Overrides for dark slide headings and code
-  .dark-centered {
+  .dark-centered, .divider-teal, .divider-blue, .divider-purple {
     h1, h2, h3, h4, h5, h6 { color: $light-bg !important; }
     code { color: $amber !important; }
   }
@@ -795,6 +866,27 @@ body.reveal-viewport {
 
 .dark-centered {
   background-color: $navy !important;
+  color: $light-bg !important;
+  text-align: center;
+}
+
+// Plain-background section dividers: a bare `## Title {.divider-teal .center}`
+// heading with no body renders as a full-bleed colored slide, one color per
+// main idea of a deck.
+.divider-teal {
+  background-color: #2C8475 !important;
+  color: $light-bg !important;
+  text-align: center;
+}
+
+.divider-blue {
+  background-color: #3A7DC9 !important;
+  color: $light-bg !important;
+  text-align: center;
+}
+
+.divider-purple {
+  background-color: #5654A2 !important;
   color: $light-bg !important;
   text-align: center;
 }

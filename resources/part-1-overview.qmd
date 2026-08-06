@@ -12,8 +12,8 @@
    <div class="section-label">Website Example</div>
   </div>
   <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="sparkles"></i></div>
-   <div class="section-label">Agentic Skill Basics</div>
+   <div class="section-card-icon"><i data-lucide="terminal"></i></div>
+   <div class="section-label">Claude Code Essentials</div>
   </div>
  </div>
 </div>

@@ -11,17 +11,13 @@ title-slide-attributes:
 
 {{< include resources/roadmap.qmd >}}
 
-## [Without]{.coral} vs [with]{.teal} a skill {.light-centered .center}
-
-{{< include resources/motivation.qmd >}}
-
-## [Without]{.coral} vs [with]{.teal} a skill {.light-centered .center}
-
-{{< include resources/motivation-image.qmd >}}
-
 ## What is a skill? {.light-centered .center}
 
 {{< include resources/what-skill.qmd >}}
+
+## [Without]{.coral} vs [with]{.teal} a skill {.light-centered .center}
+
+{{< include resources/motivation.qmd >}}
 
 ## Skill usage example: the <a class="brand-pill brand-pill--waza" href="https://github.com/tw93/Waza" target="_blank" rel="noopener">Waza</a> plugin {.light-centered .center}
 
@@ -43,31 +39,7 @@ title-slide-attributes:
 
 {{< include resources/skill-authoring.qmd >}}
 
-## Create symlinks {.light-centered .center}
-
-{{< include resources/link-skills.qmd >}}
-
-## More sophisticated skills {.dark-centered .center}
-
-{{< include resources/sophisticated-skills.qmd >}}
-
-## Skill for a full pipeline {.light-centered .center}
-
-{{< include resources/case-pipeline.qmd >}}
-
-## Skill for multi-agents {.light-centered .center}
-
-{{< include resources/case-models.qmd >}}
-
-## Skill for a same topic {.light-centered .center}
-
-{{< include resources/case-subsections.qmd >}}
-
-## &nbsp; {.dark-centered .center .practice}
-
-{{< include resources/practice-2.qmd >}}
-
-## &nbsp; {.light-centered .center}
+## &nbsp; {.dark-centered .center}
 
 {{< include resources/determinism.qmd >}}
 
@@ -79,7 +51,23 @@ title-slide-attributes:
 
 {{< include resources/seasoning.qmd >}}
 
-## Skills, in summary {.dark-centered .center}
+## More sophisticated skills {.dark-centered .center}
+
+{{< include resources/sophisticated-skills.qmd >}}
+
+## Skill for a [full pipeline]{.blue} {.light-centered .center}
+
+{{< include resources/case-pipeline.qmd >}}
+
+## Skill for [multi-agents]{.teal} {.light-centered .center}
+
+{{< include resources/case-models.qmd >}}
+
+## &nbsp; {.dark-centered .center .practice}
+
+{{< include resources/practice-2.qmd >}}
+
+## Skills, in summary {.light-centered .center}
 
 {{< include resources/takeaways.qmd >}}
 

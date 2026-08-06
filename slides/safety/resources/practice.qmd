@@ -3,64 +3,46 @@
 
  <div class="practice-timer" data-minutes="20"></div>
 
- <div style="background:rgba(255,184,77,0.08);border-left:6px solid #FFB84D;border-radius:0 16px 16px 0;padding:1.3em 2em 1.35em;">
+ <div style="background:rgba(255,184,77,0.08);border-left:6px solid #FFB84D;border-radius:0 16px 16px 0;padding:1.25em 2.1em 1.35em;">
 
   <div style="font-family:'Maple Mono',monospace;font-size:0.82em;color:#FFB84D;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.55em;">— practice —</div>
 
-  <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:1em;letter-spacing:-0.01em;">
-   Codify a workflow, then reproduce it.
+  <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:0.75em;letter-spacing:-0.01em;white-space:nowrap;">
+   Reproduce a real chart with Python.
   </div>
 
-  <div style="display:flex;flex-direction:column;gap:0.6em;">
+  <div style="display:flex;flex-direction:column;gap:0.45em;">
 
-   <div style="display:flex;align-items:center;gap:1em;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.7em 1em;">
-    <div style="display:flex;align-items:center;gap:0.45em;flex:0 0 5em;">
-     <i data-lucide="folder-open" style="width:1em;height:1em;stroke-width:2;color:#FFB84D;"></i>
-     <span style="font-size:0.56em;font-weight:700;color:#FFD27F;">Set up</span>
-    </div>
-    <div style="font-size:0.5em;color:#C9C4BC;line-height:1.5;">
-     Create a project and open it in Positron.
-     <div style="font-family:'Maple Mono',monospace;font-size:0.82em;color:#9B8EA0;margin-top:0.25em;">Optionally, you can use GitHub to create a repository, which traces your file editing.</div>
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="globe" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 01</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Open <a href="https://ourworldindata.org/population-growth" target="_blank" rel="noopener" style="color:#FFB84D;font-weight:700;">ourworldindata.org/population-growth</a> and look at the world population chart.</div>
     </div>
    </div>
 
-   <div style="display:flex;flex-direction:column;gap:0.45em;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.7em 1em;">
-    <div style="display:flex;align-items:center;gap:1em;">
-     <div style="display:flex;align-items:center;gap:0.45em;flex:0 0 5em;">
-      <i data-lucide="workflow" style="width:1em;height:1em;stroke-width:2;color:#FFB84D;"></i>
-      <span style="font-size:0.56em;font-weight:700;color:#FFD27F;">Codify</span>
-     </div>
-     <div style="font-size:0.5em;color:#C9C4BC;line-height:1.5;">Build our map, or any project you like.</div>
-    </div>
-    <div style="display:flex;align-items:center;justify-content:center;gap:0.32em;">
-      <div style="display:flex;align-items:center;gap:0.3em;background:rgba(123,181,240,0.12);border:1px solid rgba(123,181,240,0.45);border-radius:999px;padding:0.22em 0.5em;">
-       <i data-lucide="folder-tree" style="width:0.6em;height:0.6em;color:#7BB5F0;stroke-width:1.9;flex-shrink:0;"></i>
-       <span style="font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;white-space:nowrap;color:#7BB5F0;">read dir</span>
-      </div>
-      <i data-lucide="arrow-right" style="width:0.6em;height:0.6em;color:#9B8EA0;stroke-width:2.2;flex-shrink:0;"></i>
-      <div style="display:flex;align-items:center;gap:0.3em;background:rgba(255,155,133,0.12);border:1px solid rgba(255,155,133,0.45);border-radius:999px;padding:0.22em 0.5em;">
-       <i data-lucide="database" style="width:0.6em;height:0.6em;color:#FF9B85;stroke-width:1.9;flex-shrink:0;"></i>
-       <span style="font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;white-space:nowrap;color:#FF9B85;">prep data</span>
-      </div>
-      <i data-lucide="arrow-right" style="width:0.6em;height:0.6em;color:#9B8EA0;stroke-width:2.2;flex-shrink:0;"></i>
-      <div style="display:flex;align-items:center;gap:0.3em;background:rgba(157,154,224,0.12);border:1px solid rgba(157,154,224,0.45);border-radius:999px;padding:0.22em 0.5em;">
-       <i data-lucide="file-code" style="width:0.6em;height:0.6em;color:#9D9AE0;stroke-width:1.9;flex-shrink:0;"></i>
-       <span style="font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;white-space:nowrap;color:#9D9AE0;">write code</span>
-      </div>
-      <i data-lucide="arrow-right" style="width:0.6em;height:0.6em;color:#9B8EA0;stroke-width:2.2;flex-shrink:0;"></i>
-      <div style="display:flex;align-items:center;gap:0.3em;background:rgba(93,212,188,0.12);border:1px solid rgba(93,212,188,0.45);border-radius:999px;padding:0.22em 0.5em;">
-       <i data-lucide="chart-column" style="width:0.6em;height:0.6em;color:#5DD4BC;stroke-width:1.9;flex-shrink:0;"></i>
-       <span style="font-family:'Maple Mono',monospace;font-size:0.4em;font-weight:700;white-space:nowrap;color:#5DD4BC;">build output</span>
-      </div>
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="file-code" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 02</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Back in your <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">my-site</code> session, ask Claude to pull the data and write a <strong>Python script</strong> that rebuilds the figure. Ask for the <strong>code</strong>, not the picture.</div>
     </div>
    </div>
 
-   <div style="display:flex;align-items:center;gap:1em;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.7em 1em;">
-    <div style="display:flex;align-items:center;gap:0.45em;flex:0 0 5em;">
-     <i data-lucide="recycle" style="width:1em;height:1em;stroke-width:2;color:#FFB84D;"></i>
-     <span style="font-size:0.56em;font-weight:700;color:#FFD27F;">Reproduce</span>
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="play" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 03</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Run the script, compare against the original, and iterate until it matches.</div>
     </div>
-    <div style="font-size:0.5em;color:#C9C4BC;line-height:1.5;">Based on the working instance, propagate to a new one.</div>
+   </div>
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="rocket" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">BONUS</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Add your chart to a <strong>new page</strong> of your site and republish it.</div>
+    </div>
    </div>
 
   </div>

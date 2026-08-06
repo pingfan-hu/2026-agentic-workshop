@@ -3,38 +3,38 @@
 
  <div class="practice-timer" data-minutes="20"></div>
 
- <div style="background:rgba(255,184,77,0.08);border-left:6px solid #FFB84D;border-radius:0 16px 16px 0;padding:1.7em 2.1em 1.8em;">
+ <div style="background:rgba(255,184,77,0.08);border-left:6px solid #FFB84D;border-radius:0 16px 16px 0;padding:1.25em 2.1em 1.35em;">
 
   <div style="font-family:'Maple Mono',monospace;font-size:0.82em;color:#FFB84D;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.55em;">— practice 02 —</div>
 
-  <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:1.1em;letter-spacing:-0.01em;">
-   Build and test your own skill.
+  <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:0.75em;letter-spacing:-0.01em;">
+   Build a <code style="font-family:'Maple Mono',monospace;font-size:0.95em;color:#FFB84D;">/publish-website</code> skill for your site.
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8em;">
+  <div style="display:flex;flex-direction:column;gap:0.45em;">
 
-   <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.7em 0.85em;">
-    <div style="display:flex;align-items:center;gap:0.45em;margin-bottom:0.35em;">
-     <i data-lucide="folder-git-2" style="width:1em;height:1em;stroke-width:2;color:#FFB84D;"></i>
-     <span style="font-size:0.56em;font-weight:700;color:#FFD27F;">Create repo</span>
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="hammer" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Author</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">In <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">my-site/.claude/skills/</code>, create <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">publish-website/SKILL.md</code> from the template.</div>
     </div>
-    <div style="font-size:0.5em;color:#C9C4BC;line-height:1.5;">Stores your skills and the symlink shell command.</div>
    </div>
 
-   <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.7em 0.85em;">
-    <div style="display:flex;align-items:center;gap:0.45em;margin-bottom:0.35em;">
-     <i data-lucide="hammer" style="width:1em;height:1em;stroke-width:2;color:#FFB84D;"></i>
-     <span style="font-size:0.56em;font-weight:700;color:#FFD27F;">Author a skill</span>
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="list-checks" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Teach it</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Ask Claude to write down the <strong>exact steps</strong> it used to publish your site to Netlify, plus a quick check of pages and links first.</div>
     </div>
-    <div style="font-size:0.5em;color:#C9C4BC;line-height:1.5;">Make one that matches your own needs.</div>
    </div>
 
-   <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:12px;padding:0.7em 0.85em;">
-    <div style="display:flex;align-items:center;gap:0.45em;margin-bottom:0.35em;">
-     <i data-lucide="play" style="width:1em;height:1em;stroke-width:2;color:#FFB84D;"></i>
-     <span style="font-size:0.56em;font-weight:700;color:#FFD27F;">Load and test</span>
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="play" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Test</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Change something on your site, run <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/publish-website</code>, and confirm the update is live.</div>
     </div>
-    <div style="font-size:0.5em;color:#C9C4BC;line-height:1.5;">Load it in your agent session and try it out.</div>
    </div>
 
   </div>

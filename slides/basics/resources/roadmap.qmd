@@ -18,9 +18,9 @@
   </div>
 
   <div style="display:flex;align-items:center;gap:1.1em;background:rgba(255,184,77,0.08);border-left:5px solid #FFB84D;border-radius:0 12px 12px 0;padding:0.8em 1.1em;">
-   <div style="width:1.9em;height:1.9em;border-radius:0.5em;background:rgba(255,184,77,0.16);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="sparkles" style="width:0.95em;height:0.95em;stroke-width:2;"></i></div>
+   <div style="width:1.9em;height:1.9em;border-radius:0.5em;background:rgba(255,184,77,0.16);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="terminal" style="width:0.95em;height:0.95em;stroke-width:2;"></i></div>
    <div style="flex:1;">
-    <div style="font-size:0.7em;font-weight:700;color:#F8F7F0;line-height:1.2;">Agentic Skill Basics</div>
+    <div style="font-size:0.7em;font-weight:700;color:#F8F7F0;line-height:1.2;">Claude Code Essentials</div>
    </div>
   </div>
 

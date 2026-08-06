@@ -1,0 +1,81 @@
+/* Shared stylesheet: every page of the site links this one file. */
+
+:root {
+  --bg: #FAF7F2;
+  --text: #2C3E50;
+  --accent: #2C8475;
+  --highlight: #FFB84D;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--accent);
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+main section {
+  margin: 2em 0;
+}
+
+/* Nav: identical on every page, one link per page of the site. */
+nav {
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 2em;
+}
+
+nav ul {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1em 1rem;
+  list-style: none;
+  display: flex;
+  gap: 1.5em;
+}
+
+nav a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Callout: use sparingly, for one highlight per page at most. */
+.callout {
+  background: #FFF3DC;
+  border-left: 5px solid var(--highlight);
+  padding: 0.75em 1em;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Footer: identical on every page. */
+footer {
+  border-top: 2px solid var(--accent);
+  margin-top: 3em;
+  padding: 1.5em 1rem;
+  text-align: center;
+  font-size: 0.85em;
+}

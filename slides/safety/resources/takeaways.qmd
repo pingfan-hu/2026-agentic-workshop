@@ -4,7 +4,7 @@
  <div style="display:flex;flex-direction:column;gap:0.55em;text-align:left;">
 
   <div style="background:#FFFFFF;border:1px solid #F0DDB4;border-radius:14px;padding:0.85em 1em;display:grid;grid-template-columns:2.6em 1fr;gap:0.95em;align-items:center;box-shadow:0 4px 14px rgba(196,136,26,0.1);">
-   <div style="width:2.4em;height:2.4em;border-radius:50%;background:linear-gradient(135deg,#C4881A,#FFB84D);color:#F8F7F0;display:flex;align-items:center;justify-content:center;"><i data-lucide="file-code" style="width:1.1em;height:1.1em;stroke-width:2;"></i></div>
+   <div style="width:2.4em;height:2.4em;border-radius:50%;background:#FEF5E7;border:1px solid #F0DDB4;color:#C4881A;display:flex;align-items:center;justify-content:center;"><i data-lucide="file-code" style="width:1.1em;height:1.1em;stroke-width:2;"></i></div>
    <div>
     <div style="font-size:0.72em;font-weight:700;color:#C4881A;margin-bottom:0.15em;">Codify your workflow</div>
     <div style="font-size:0.55em;color:#564232;line-height:1.45;">Coded steps make your work stable and reproducible.</div>
@@ -12,7 +12,7 @@
   </div>
 
   <div style="background:#FFFFFF;border:1px solid #A6C4EA;border-radius:14px;padding:0.85em 1em;display:grid;grid-template-columns:2.6em 1fr;gap:0.95em;align-items:center;box-shadow:0 4px 14px rgba(58,125,201,0.1);">
-   <div style="width:2.4em;height:2.4em;border-radius:50%;background:linear-gradient(135deg,#3A7DC9,#2C5F9E);color:#F8F7F0;display:flex;align-items:center;justify-content:center;"><i data-lucide="lightbulb" style="width:1.1em;height:1.1em;stroke-width:2;"></i></div>
+   <div style="width:2.4em;height:2.4em;border-radius:50%;background:#DCE9FA;border:1px solid #A6C4EA;color:#3A7DC9;display:flex;align-items:center;justify-content:center;"><i data-lucide="lightbulb" style="width:1.1em;height:1.1em;stroke-width:2;"></i></div>
    <div>
     <div style="font-size:0.72em;font-weight:700;color:#3A7DC9;margin-bottom:0.15em;">Think on your own</div>
     <div style="font-size:0.55em;color:#564232;line-height:1.45;">Agents naturally don't have points and don't converge into concrete results.</div>
@@ -20,7 +20,7 @@
   </div>
 
   <div style="background:#FFFFFF;border:1px solid #C7C1E5;border-radius:14px;padding:0.85em 1em;display:grid;grid-template-columns:2.6em 1fr;gap:0.95em;align-items:center;box-shadow:0 4px 14px rgba(86,84,162,0.1);">
-   <div style="width:2.4em;height:2.4em;border-radius:50%;background:linear-gradient(135deg,#5654A2,#3F3D7E);color:#F8F7F0;display:flex;align-items:center;justify-content:center;"><i data-lucide="search-check" style="width:1.1em;height:1.1em;stroke-width:2;"></i></div>
+   <div style="width:2.4em;height:2.4em;border-radius:50%;background:#EEEDF8;border:1px solid #C7C1E5;color:#5654A2;display:flex;align-items:center;justify-content:center;"><i data-lucide="search-check" style="width:1.1em;height:1.1em;stroke-width:2;"></i></div>
    <div>
     <div style="font-size:0.72em;font-weight:700;color:#5654A2;margin-bottom:0.15em;">Understand what you build</div>
     <div style="font-size:0.55em;color:#564232;line-height:1.45;">You still judge the data, the scripts, and the output.</div>

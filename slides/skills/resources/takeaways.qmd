@@ -1,39 +1,23 @@
 ```{=html}
-<div style="width:80%;margin:0 auto;text-align:left;">
+<div style="width:82%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.2em 1em;border-radius:18px;">
 
- <div style="display:flex;flex-direction:column;gap:0.65em;">
+ <div style="display:flex;flex-direction:column;gap:0.55em;text-align:left;">
 
-  <div style="display:flex;align-items:center;gap:1.1em;background:rgba(157,154,224,0.08);border-left:5px solid #9D9AE0;border-radius:0 12px 12px 0;padding:0.8em 1.1em;">
-   <div style="width:1.9em;height:1.9em;border-radius:0.5em;background:rgba(157,154,224,0.16);display:flex;align-items:center;justify-content:center;color:#9D9AE0;flex-shrink:0;"><i data-lucide="file-text" style="width:0.95em;height:0.95em;stroke-width:2;"></i></div>
-   <div style="flex:1;">
-    <div style="font-size:0.68em;font-weight:700;color:#F8F7F0;line-height:1.2;">Start minimal</div>
-    <div style="font-size:0.45em;color:#9B8EA0;line-height:1.45;margin-top:0.3em;">One <code style="font-family:'Maple Mono',monospace;color:#9D9AE0;">SKILL.md</code> is enough to begin.</div>
-   </div>
+  <div style="background:#FFFFFF;border:1px solid #C7C1E5;border-radius:12px;padding:0.55em 1em;display:grid;grid-template-columns:1.9em 1fr;gap:0.8em;align-items:center;box-shadow:0 4px 14px rgba(86,84,162,0.1);">
+   <div style="width:1.9em;height:1.9em;border-radius:50%;background:#EEEDF8;border:1px solid #C7C1E5;color:#5654A2;display:flex;align-items:center;justify-content:center;"><i data-lucide="file-text" style="width:0.95em;height:0.95em;stroke-width:2;"></i></div>
+   <div style="font-size:0.62em;font-weight:700;color:#5654A2;line-height:1.25;">Start minimal: one <code style="font-family:'Maple Mono',monospace;font-size:0.95em;">SKILL.md</code> is enough.</div>
   </div>
 
-  <div style="display:flex;align-items:center;gap:1.1em;background:rgba(93,212,188,0.08);border-left:5px solid #5DD4BC;border-radius:0 12px 12px 0;padding:0.8em 1.1em;">
-   <div style="width:1.9em;height:1.9em;border-radius:0.5em;background:rgba(93,212,188,0.16);display:flex;align-items:center;justify-content:center;color:#5DD4BC;flex-shrink:0;"><i data-lucide="anchor" style="width:0.95em;height:0.95em;stroke-width:2;"></i></div>
-   <div style="flex:1;">
-    <div style="font-size:0.68em;font-weight:700;color:#F8F7F0;line-height:1.2;">Pin the deterministic parts</div>
-    <div style="font-size:0.45em;color:#9B8EA0;line-height:1.45;margin-top:0.3em;">Templates and scripts keep what must hold still.</div>
-   </div>
+  <div style="background:#FFFFFF;border:1px solid #BCDFC0;border-radius:12px;padding:0.55em 1em;display:grid;grid-template-columns:1.9em 1fr;gap:0.8em;align-items:center;box-shadow:0 4px 14px rgba(44,132,117,0.1);">
+   <div style="width:1.9em;height:1.9em;border-radius:50%;background:#E5F2EE;border:1px solid #BCDFC0;color:#2C8475;display:flex;align-items:center;justify-content:center;"><i data-lucide="anchor" style="width:0.95em;height:0.95em;stroke-width:2;"></i></div>
+   <div style="font-size:0.62em;font-weight:700;color:#2C8475;line-height:1.25;">Pin the deterministic parts with <span style="color:#D45F47;">templates</span> and <span style="color:#D45F47;">scripts</span>.</div>
   </div>
 
-  <div style="display:flex;align-items:center;gap:1.1em;background:rgba(255,184,77,0.08);border-left:5px solid #FFB84D;border-radius:0 12px 12px 0;padding:0.8em 1.1em;">
-   <div style="width:1.9em;height:1.9em;border-radius:0.5em;background:rgba(255,184,77,0.16);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="layers" style="width:0.95em;height:0.95em;stroke-width:2;"></i></div>
-   <div style="flex:1;">
-    <div style="font-size:0.68em;font-weight:700;color:#F8F7F0;line-height:1.2;">Bundle workflows</div>
-    <div style="font-size:0.45em;color:#9B8EA0;line-height:1.45;margin-top:0.3em;">One skill can hold many abilities under one theme.</div>
-   </div>
+  <div style="background:#FFFFFF;border:1px solid #F0DDB4;border-radius:12px;padding:0.55em 1em;display:grid;grid-template-columns:1.9em 1fr;gap:0.8em;align-items:center;box-shadow:0 4px 14px rgba(196,136,26,0.1);">
+   <div style="width:1.9em;height:1.9em;border-radius:50%;background:#FEF5E7;border:1px solid #F0DDB4;color:#C4881A;display:flex;align-items:center;justify-content:center;"><i data-lucide="layers" style="width:0.95em;height:0.95em;stroke-width:2;"></i></div>
+   <div style="font-size:0.62em;font-weight:700;color:#C4881A;line-height:1.25;">Bundle <span style="color:#3A7DC9;">full pipeline</span> or <span style="color:#3A7DC9;">multi-agents</span> for complicated jobs.</div>
   </div>
 
-  <div style="display:flex;align-items:center;gap:1.1em;background:rgba(123,181,240,0.08);border-left:5px solid #7BB5F0;border-radius:0 12px 12px 0;padding:0.8em 1.1em;">
-   <div style="width:1.9em;height:1.9em;border-radius:0.5em;background:rgba(123,181,240,0.16);display:flex;align-items:center;justify-content:center;color:#7BB5F0;flex-shrink:0;"><i data-lucide="bot" style="width:0.95em;height:0.95em;stroke-width:2;"></i></div>
-   <div style="flex:1;">
-    <div style="font-size:0.68em;font-weight:700;color:#F8F7F0;line-height:1.2;">Nest other agents</div>
-    <div style="font-size:0.45em;color:#9B8EA0;line-height:1.45;margin-top:0.3em;">Delegate the task your agent is weak at.</div>
-   </div>
-  </div>
 
  </div>
 

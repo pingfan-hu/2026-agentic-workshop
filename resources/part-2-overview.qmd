@@ -1,15 +1,15 @@
 <div class="section-outer section-orange">
  <div class="section-header">
-  <span class="section-header-text">In this section, we will discuss how to use, install, and author skills for agentic workflows.</span>
+  <span class="section-header-text">In this section, we will discuss what skills are and how to use and author them.</span>
  </div>
  <div class="section-grid section-grid-3">
   <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="play"></i></div>
-   <div class="section-label">Using Skills</div>
+   <div class="section-card-icon"><i data-lucide="package"></i></div>
+   <div class="section-label">What Skills Are</div>
   </div>
   <div class="section-card">
-   <div class="section-card-icon"><i data-lucide="download"></i></div>
-   <div class="section-label">Installing Skills</div>
+   <div class="section-card-icon"><i data-lucide="play"></i></div>
+   <div class="section-label">Using Skills</div>
   </div>
   <div class="section-card">
    <div class="section-card-icon"><i data-lucide="pencil-ruler"></i></div>

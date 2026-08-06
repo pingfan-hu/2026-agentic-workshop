@@ -48,7 +48,7 @@
   <!-- 8 · build HTML (coral) — today's focus -->
   <div style="position:relative;background:linear-gradient(160deg,#FCEEEC,#FAE0DA);border:1.5px solid #ED9684;border-radius:14px;padding:0.85em 0.55em;text-align:center;box-shadow:0 12px 26px rgba(212,95,71,0.28);display:flex;flex-direction:column;align-items:center;gap:0.5em;">
    <div style="position:absolute;top:0;left:50%;transform:translate(-50%,-50%);font-family:'Maple Mono',monospace;font-size:0.34em;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#FFFFFF;background:linear-gradient(135deg,#E0735A,#D45F47);padding:0.4em 0.85em;border-radius:999px;box-shadow:0 4px 12px rgba(212,95,71,0.4);white-space:nowrap;">today's focus</div>
-   <div style="width:2.2em;height:2.2em;border-radius:0.55em;background:linear-gradient(135deg,#E0735A,#D45F47);display:flex;align-items:center;justify-content:center;color:#FFFFFF;box-shadow:0 4px 12px rgba(212,95,71,0.35);"><i data-lucide="file-code" style="width:1.1em;height:1.1em;stroke-width:1.9;"></i></div>
+   <div style="width:2.2em;height:2.2em;border-radius:0.55em;background:#FFFFFF;border:1px solid #F0C5BA;display:flex;align-items:center;justify-content:center;color:#D45F47;"><i data-lucide="file-code" style="width:1.1em;height:1.1em;stroke-width:1.9;"></i></div>
    <div style="font-size:0.52em;font-weight:800;color:#C0432C;line-height:1.25;">Build HTML</div>
   </div>
 

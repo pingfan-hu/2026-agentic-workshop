@@ -8,7 +8,7 @@
    <div style="width:2.2em;height:2.2em;border-radius:0.55em;background:#FCEEEC;border:1px solid #F0C5BA;display:flex;align-items:center;justify-content:center;color:#D45F47;flex-shrink:0;"><i data-lucide="folder-plus" style="width:1em;height:1em;stroke-width:1.8;"></i></div>
    <div style="flex:1;">
     <div style="font-size:0.62em;font-weight:700;color:#D45F47;margin-bottom:0.12em;">Create a folder</div>
-    <div style="font-size:0.46em;color:#6F6470;line-height:1.4;">Choose a place on your computer and create a new folder. Name it however you like, without spaces.</div>
+    <div style="font-size:0.46em;color:#6F6470;line-height:1.4;">On your Desktop, create a new folder called <code style="font-family:'Maple Mono',monospace;font-size:0.95em;background:#FCEEEC;color:#D45F47;padding:0.05em 0.35em;border-radius:5px;">my-site</code>. This one folder is your project for the whole workshop.</div>
    </div>
   </div>
 
