@@ -33,7 +33,7 @@
 
    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;text-align:center;">
     <div style="width:85%;box-sizing:border-box;background:#FFFFFF;border:1px solid #C8E6C9;border-radius:12px;padding:0.75em 1.1em;box-shadow:0 4px 14px rgba(44,132,117,0.1);">
-     <div style="font-size:0.52em;color:#7A8C86;line-height:1.7;font-family:'Maple Mono',monospace;">Use the <span style="color:#2C8475;font-weight:700;background:#E5F2EE;padding:0.05em 0.4em;border-radius:5px;">/build-webpage</span> skill<br>to add a page that matches your site.</div>
+     <div style="font-size:0.52em;color:#7A8C86;line-height:1.7;font-family:'Maple Mono',monospace;">Use the <span style="color:#2C8475;font-weight:700;background:#E5F2EE;padding:0.05em 0.4em;border-radius:5px;">/build-webpage</span> skill<br>to add a page in its saved design.</div>
     </div>
    </div>
   </div>
