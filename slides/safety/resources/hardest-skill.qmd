@@ -7,7 +7,7 @@
    Your success is determined by your <span style="color:#FFB84D;font-style:normal;font-weight:700;">ability to speak</span>, your <span style="color:#FFB84D;font-style:normal;font-weight:700;">ability to write</span>, and the <span style="color:#FFB84D;font-style:normal;font-weight:700;">quality of your ideas</span> — in that order.
   </div>
   <div style="margin-top:0.7em;text-align:right;font-family:'Maple Mono',monospace;font-size:0.55em;color:#9B8EA0;">
-   — Patrick Winston, MIT
+   — Patrick Winston, MIT, 2018
   </div>
  </div>
 

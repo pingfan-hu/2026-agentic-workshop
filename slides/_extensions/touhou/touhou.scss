@@ -366,6 +366,17 @@ body.reveal-viewport {
     &--gold { color: #C4881A !important; &:hover { color: #C4881A !important; } }
   }
 
+  // Quarto's reveal theme darkens every link hover toward #236257, which is
+  // unreadable against dark slide fills. On dark sections, brighten the
+  // hover toward mint instead so the link stays legible. Kept ABOVE the pill
+  // rules so equally-specific pill hover colors still win the cascade.
+  .dark-centered a:hover,
+  .divider-teal a:hover,
+  .divider-blue a:hover,
+  .divider-purple a:hover {
+    color: #7FE0C8 !important;
+  }
+
   // Brand pill: inline logo-plus-wordmark hyperlink, sized to sit inside a
   // slide title ("Use [GitHub]"). The mark is a CSS mask on ::before, painted
   // with currentColor, so each brand only needs a modifier with its own
@@ -942,14 +953,21 @@ body.reveal-viewport {
   }
 
   // Links keep their hyperlink identity, just recolored for the dark field:
-  // amber at rest, brighter amber on hover.
+  // amber at rest, and the shared dark-surface mint on hover.
   .footer a {
     color: $amber !important;
 
     &:hover {
-      color: #FFD9A0 !important;
+      color: #7FE0C8 !important;
     }
   }
+}
+
+// Footer links follow the same dark-surface hover rule as in-slide links:
+// while any dark slide is active, hover brightens to mint. The footer lives
+// outside the sections, so match on the active slide via :has.
+.reveal:has(.slides section.present.dark-centered) .footer a:hover {
+  color: #7FE0C8 !important;
 }
 
 // Divider headings lay out as one centered row: icon tile left, title right.

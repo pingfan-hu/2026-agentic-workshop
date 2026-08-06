@@ -16,7 +16,7 @@
    <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="sparkles" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
-     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 01</div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Initialize</div>
      <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Back in your <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">my-site</code> session, run <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/init</code>. Open the <strong>CLAUDE.md</strong> it wrote, read it, and add one rule of your own.</div>
     </div>
    </div>
@@ -24,7 +24,7 @@
    <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="gauge" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
-     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 02</div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Tune</div>
      <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Run <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/model</code> and <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/effort</code> to see your options. Ask for a <strong>small</strong> tweak at low effort.</div>
     </div>
    </div>
@@ -32,7 +32,7 @@
    <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="map" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
-     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 03</div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Plan</div>
      <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;"><strong>Shift + Tab</strong> into <strong>Plan mode</strong>. Ask for a bigger change at high effort, and read the plan before you approve.</div>
     </div>
    </div>
@@ -40,7 +40,7 @@
    <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="eraser" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
-     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;">STEP 04</div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Reset</div>
      <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Run <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/compact</code> and keep going. Then <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/clear</code> and ask "what am I working on?" to see what <strong>CLAUDE.md</strong> saved.</div>
     </div>
    </div>

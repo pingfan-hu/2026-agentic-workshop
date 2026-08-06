@@ -65,21 +65,17 @@ title-slide-attributes:
 
 {{< include resources/sensitive-data.qmd >}}
 
-## [Synthetic Data]{.teal} to Agents {.light-centered .center}
+## [Real]{.coral} vs [Fake]{.teal} {.light-centered .center}
 
 {{< include resources/fake-vs-real.qmd >}}
 
-## &nbsp; {.dark-centered .center}
+## &nbsp; {.dark-centered .center .practice}
 
 {{< include resources/practice.qmd >}}
 
 ## Final [takeaways]{.teal} {.light-centered .center}
 
 {{< include resources/takeaways.qmd >}}
-
-## You make the difference {.dark-centered .center}
-
-{{< include resources/closing.qmd >}}
 
 ## One More Thing... {.dark-centered .center}
 

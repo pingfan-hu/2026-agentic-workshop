@@ -2,10 +2,10 @@
 <div style="width:90%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1em 1em 1.2em;border-radius:18px;">
 
  <div style="display:grid;grid-template-columns:auto auto;column-gap:0.8em;row-gap:0.55em;align-items:center;justify-items:start;width:fit-content;margin:0 auto;">
-  <a class="brand-pill brand-pill--charlatan" href="https://github.com/ropensci/charlatan/" target="_blank" rel="noopener" style="width:10.5em;"><span class="pill-lang"><img src="figs/r-logo.svg" alt="R"></span><span class="pill-pkg">charlatan</span></a>
-  <span style="font-family:'Maple Mono',monospace;font-size:0.48em;color:#2C3E50;white-space:nowrap;"><span style="color:#276DC3;font-weight:700;">charlatan::</span>ch_generate("name", "job", n = 1200)</span>
   <a class="brand-pill brand-pill--faker" href="https://github.com/joke2k/faker" target="_blank" rel="noopener" style="width:10.5em;"><span class="pill-lang"><img src="figs/python-logo.svg" alt="Python"></span><span class="pill-pkg">faker</span></a>
   <span style="font-family:'Maple Mono',monospace;font-size:0.48em;color:#2C3E50;white-space:nowrap;">fake = <span style="color:#C4881A;font-weight:700;">Faker()</span>; fake.name(); fake.job()</span>
+  <a class="brand-pill brand-pill--charlatan" href="https://github.com/ropensci/charlatan/" target="_blank" rel="noopener" style="width:10.5em;"><span class="pill-lang"><img src="figs/r-logo.svg" alt="R"></span><span class="pill-pkg">charlatan</span></a>
+  <span style="font-family:'Maple Mono',monospace;font-size:0.48em;color:#2C3E50;white-space:nowrap;"><span style="color:#276DC3;font-weight:700;">charlatan::</span>ch_generate("name", "job", n = 1200)</span>
  </div>
 
  <!-- divider -->
