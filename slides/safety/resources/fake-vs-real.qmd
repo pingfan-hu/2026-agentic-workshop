@@ -1,16 +1,15 @@
 ```{=html}
 <div style="width:90%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1em 1em 1.2em;border-radius:18px;">
 
- <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.7em;margin-bottom:1.3em;">
-  <div style="background:#FFFFFF;border:1px solid #D4D3EE;border-radius:12px;padding:0.55em 0.9em;display:flex;align-items:center;justify-content:center;gap:0.6em;box-shadow:0 4px 14px rgba(86,84,162,0.08);">
-   <span style="font-family:'Maple Mono',monospace;font-size:0.38em;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#FFFFFF;background:#5654A2;padding:0.28em 0.65em;border-radius:999px;flex-shrink:0;">R</span>
-   <span style="font-family:'Maple Mono',monospace;font-size:0.48em;color:#2C3E50;white-space:nowrap;"><span style="color:#5654A2;font-weight:700;">charlatan::</span>ch_generate("name", "job", n = 1200)</span>
-  </div>
-  <div style="background:#FFFFFF;border:1px solid #D4D3EE;border-radius:12px;padding:0.55em 0.9em;display:flex;align-items:center;justify-content:center;gap:0.6em;box-shadow:0 4px 14px rgba(86,84,162,0.08);">
-   <span style="font-family:'Maple Mono',monospace;font-size:0.38em;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#FFFFFF;background:#3A7DC9;padding:0.28em 0.65em;border-radius:999px;flex-shrink:0;">Python</span>
-   <span style="font-family:'Maple Mono',monospace;font-size:0.48em;color:#2C3E50;white-space:nowrap;">fake = <span style="color:#3A7DC9;font-weight:700;">Faker()</span>; fake.name(); fake.job()</span>
-  </div>
+ <div style="display:grid;grid-template-columns:auto auto;column-gap:0.8em;row-gap:0.55em;align-items:center;justify-items:start;width:fit-content;margin:0 auto;">
+  <a class="brand-pill brand-pill--charlatan" href="https://github.com/ropensci/charlatan/" target="_blank" rel="noopener" style="width:10.5em;"><span class="pill-lang"><img src="figs/r-logo.svg" alt="R"></span><span class="pill-pkg">charlatan</span></a>
+  <span style="font-family:'Maple Mono',monospace;font-size:0.48em;color:#2C3E50;white-space:nowrap;"><span style="color:#276DC3;font-weight:700;">charlatan::</span>ch_generate("name", "job", n = 1200)</span>
+  <a class="brand-pill brand-pill--faker" href="https://github.com/joke2k/faker" target="_blank" rel="noopener" style="width:10.5em;"><span class="pill-lang"><img src="figs/python-logo.svg" alt="Python"></span><span class="pill-pkg">faker</span></a>
+  <span style="font-family:'Maple Mono',monospace;font-size:0.48em;color:#2C3E50;white-space:nowrap;">fake = <span style="color:#C4881A;font-weight:700;">Faker()</span>; fake.name(); fake.job()</span>
  </div>
+
+ <!-- divider -->
+ <div style="height:1px;background:linear-gradient(90deg,transparent,#C4C3E8,transparent);margin:0.9em 0 1.1em;"></div>
 
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9em;align-items:stretch;">
 
