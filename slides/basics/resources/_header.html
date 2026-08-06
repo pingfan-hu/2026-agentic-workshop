@@ -37,7 +37,65 @@ window.wireSiteScroll = function(f) {
       });
     }
   } catch (err) {}
+  // A fresh document (first load or in-site navigation) needs the scroll lock
+  // and its wheel forwarder re-applied; see lockSiteScroll below.
+  if (window.lockSiteScroll) lockSiteScroll();
 };
+
+// ---- One scrollable site at a time ----
+// Safari's compositor latches trackpad scroll gestures onto the last iframe
+// that scrolled, even after Reveal moves to a different slide (the previous
+// iframe stays in the DOM, merely hidden). Symptom: only the first embedded
+// site you scroll ever scrolls; the ones on the other slides feel dead. This
+// is the same disease the overview-mode code in control-buttons.html fights,
+// and the same cure works: keep every embedded page except the current
+// slide's physically unscrollable, and forward any wheel that WebKit still
+// routes into a hidden page over to the embedded page on the current slide.
+window.lockSiteScroll = function () {
+  if (!(window.Reveal && Reveal.isReady && Reveal.isReady())) return;
+  // Overview mode runs its own freeze in control-buttons.html; stay out.
+  if (Reveal.isOverview && Reveal.isOverview()) return;
+  var current = Reveal.getCurrentSlide();
+  document.querySelectorAll('.reveal .slides iframe').forEach(function (f) {
+    try {
+      var w = f.contentWindow, d = w.document;
+      var active = !!(current && current.contains(f));
+      d.documentElement.style.overflow = active ? '' : 'hidden';
+      if (d.body) d.body.style.overflow = active ? '' : 'hidden';
+      // A hidden iframe holding focus keeps swallowing keys and gestures.
+      if (!active && d.activeElement && d.activeElement.blur) d.activeElement.blur();
+      if (!d.__navForward) {
+        d.__navForward = function (e) {
+          if (!(window.Reveal && Reveal.getCurrentSlide)) return;
+          if (Reveal.isOverview && Reveal.isOverview()) return;
+          var cur = Reveal.getCurrentSlide();
+          if (!cur || cur.contains(f)) return; // the live frame scrolls natively
+          var t = cur.querySelector('iframe');
+          if (t && t.contentWindow) {
+            // deltaMode 1 means lines, not pixels; approximate a line as 40px.
+            var dy = e.deltaMode === 1 ? e.deltaY * 40 : e.deltaY;
+            try { t.contentWindow.scrollBy(0, dy); } catch (err) { return; }
+            e.preventDefault();
+          }
+        };
+        d.addEventListener('wheel', d.__navForward, { capture: true, passive: false });
+      }
+    } catch (err) { /* not loaded yet; wireSiteScroll re-runs this on load */ }
+  });
+};
+
+// Reveal loads after this header script; poll until it is ready, then keep
+// the lock in sync with navigation. The overviewhidden re-lock is deferred a
+// tick so it runs after control-buttons.html restores its overview freeze.
+(function pollLock(budget) {
+  if (window.Reveal && Reveal.isReady && Reveal.isReady()) {
+    lockSiteScroll();
+    Reveal.on('slidechanged', function () { lockSiteScroll(); });
+    Reveal.on('overviewhidden', function () { setTimeout(lockSiteScroll, 0); });
+    return;
+  }
+  if (budget > 0) setTimeout(function () { pollLock(budget - 1); }, 100);
+})(120);
 
 // Click a file row in the structure tree to load that page in the sibling
 // preview iframe. wireSiteScroll() (the iframe's onload) then updates the fake
