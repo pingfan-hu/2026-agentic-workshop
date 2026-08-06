@@ -31,7 +31,7 @@ title-slide-attributes:
 
 {{< include resources/setup.qmd >}}
 
-## Agents can do almost anything {.light-centered .center}
+## Agents can do almost anything with your [files]{.coral} {.light-centered .center}
 
 {{< include resources/agent-capabilities.qmd >}}
 

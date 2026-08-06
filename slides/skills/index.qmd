@@ -31,11 +31,11 @@ title-slide-attributes:
 
 {{< include resources/practice-1.qmd >}}
 
-## Let's create a skill! {.light-centered .center}
+## The anatomy of a skill {.light-centered .center}
 
 {{< include resources/skill-setup.qmd >}}
 
-## Let's create a skill! {.light-centered .center}
+## The anatomy of a skill {.light-centered .center}
 
 {{< include resources/skill-authoring.qmd >}}
 

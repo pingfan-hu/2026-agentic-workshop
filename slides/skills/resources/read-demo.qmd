@@ -38,7 +38,7 @@
   </div>
 
   <div id="read-skill-prompt-text" style="font-size:0.56em;color:#2C3E50;line-height:1.7;font-family:'Georgia',serif;">
-   Use the <code style="font-family:'Maple Mono',monospace;color:#137A6E;">/read</code> skill to read through the url of this <span style="color:#5654A2;font-weight:600;">Wikipedia article</span> and summarize the <span style="color:#5654A2;font-weight:600;">takeaways</span>: https://en.wikipedia.org/wiki/George_Washington_University
+   Use the <code style="font-family:'Maple Mono',monospace;color:#137A6E;">/read</code> skill to read through this <span style="color:#5654A2;font-weight:600;">Wikipedia article</span> and summarize the <span style="color:#5654A2;font-weight:600;">takeaways</span>: https://en.wikipedia.org/wiki/George_Washington_University
   </div>
 
  </div>
