@@ -3,13 +3,13 @@
   <span class="section-header-text">Before the workshop, install the tools below to follow along hands-on.</span>
  </div>
  <div class="section-grid section-grid-3">
-  <a class="section-card" href="installation.html#essentials">
+  <a class="section-card" href="preparation.html#essentials">
    <div class="section-card-icon"><i data-lucide="package-check"></i></div>
    <div class="section-label">Essentials</div>
   </a>
-  <a class="section-card" href="installation.html#agents">
-   <div class="section-card-icon"><i data-lucide="bot"></i></div>
-   <div class="section-label">Agents</div>
+  <a class="section-card" href="preparation.html#alternatives">
+   <div class="section-card-icon"><i data-lucide="arrow-left-right"></i></div>
+   <div class="section-label">Alternatives</div>
   </a>
   <a class="section-card" href="software.html#software">
    <span class="section-card-badge">Extensive</span>

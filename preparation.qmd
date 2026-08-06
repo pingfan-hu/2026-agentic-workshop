@@ -1,5 +1,5 @@
 ---
-title: "Installation"
+title: "Preparation"
 description: "The essential apps and CLI agents to install before the workshop."
 toc: false
 grid:
@@ -13,25 +13,23 @@ The bare minimum needed to follow the workshop hands-on.
 
 {{< include resources/essentials.qmd >}}
 
+::: {.agents-disclaimer}
+Note: Claude Code requires a paid subscription, so sign up for at least a [Claude Pro](https://claude.ai/login?plan=pro){target="_blank" rel="noopener"} account before the workshop.
+:::
+
 ```{=html}
 <div class="soft-divider"></div>
 ```
 
-## Agents
+## Alternatives
 
-Install one of these 3 AI agents (or all of them if you want to collaborate across platforms):
+Prefer other tools? These agents and IDEs work for the workshop too:
 
-{{< include resources/agents.qmd >}}
+{{< include resources/alternatives.qmd >}}
 
 ::: {.agents-disclaimer}
 Note: See GW IT's list of [approved AI tools](https://it.gwu.edu/ai-tools-status){target="_blank" rel="noopener"} for more information.
 :::
-
-## IDEs
-
-Install an IDE based on your preference:
-
-{{< include resources/ides.qmd >}}
 
 ```{=html}
 <div class="soft-divider"></div>

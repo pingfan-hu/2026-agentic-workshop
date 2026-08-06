@@ -197,14 +197,14 @@ document.addEventListener('click', function (e) {
   poll(120); // in case the lazy iframe already finished loading
 })();
 
-// ---- Navbar: Installation split dropdown ("Full List" flyout) ----
-// Quarto's native `menu:` would turn the whole Installation item into a
+// ---- Navbar: Preparation split dropdown ("Full List" flyout) ----
+// Quarto's native `menu:` would turn the whole Preparation item into a
 // dropdown toggle, killing its link. Instead, inject a small caret button to
 // the right of the pill; clicking it opens a floating pill linking to the
-// recommended software page. The Installation link itself keeps working.
+// recommended software page. The Preparation link itself keeps working.
 (function () {
   function init() {
-    var link = document.querySelector('nav.navbar .navbar-nav .nav-link[href$="installation.html"]');
+    var link = document.querySelector('nav.navbar .navbar-nav .nav-link[href$="preparation.html"]');
     if (!link) return;
     var li = link.closest('.nav-item');
     if (!li || li.querySelector('.nav-flyout-toggle')) return;
@@ -213,7 +213,7 @@ document.addEventListener('click', function (e) {
     var btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'nav-flyout-toggle';
-    btn.setAttribute('aria-label', 'More installation pages');
+    btn.setAttribute('aria-label', 'More preparation pages');
     btn.setAttribute('aria-expanded', 'false');
     // Inline Lucide "chevron-down" SVG so it does not depend on lucide.createIcons() timing.
     btn.innerHTML =
@@ -225,8 +225,8 @@ document.addEventListener('click', function (e) {
     menu.className = 'nav-flyout';
     var item = document.createElement('a');
     item.className = 'nav-flyout-item';
-    // Derive from the Installation href so it resolves under any deploy subpath.
-    item.href = link.getAttribute('href').replace('installation.html', 'software.html');
+    // Derive from the Preparation href so it resolves under any deploy subpath.
+    item.href = link.getAttribute('href').replace('preparation.html', 'software.html');
     item.textContent = 'Software';
     menu.appendChild(item);
 

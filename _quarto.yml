@@ -35,8 +35,8 @@ website:
         href: index.qmd
         text: Home
       - icon: box-seam
-        href: installation.qmd
-        text: 0. Installation
+        href: preparation.qmd
+        text: 0. Preparation
       - icon: mortarboard
         href: basics.qmd
         text: 1. Agentic Basics

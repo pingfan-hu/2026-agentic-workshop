@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 A Quarto **website** hosting the landing surface for a three-part workshop, with each part embedding a Quarto **revealjs** slide deck via `<iframe>`. The parent website and the per-deck slide projects are nested but separate Quarto projects, glued together by a post-render hook.
 
 - Three workshop parts: **Agentic Basics**, **Skill Usage and Design**, **Working Safely with Data and AI**
-- Four top-level content pages: `installation.qmd` (pre-workshop setup) plus three slide pages (`basics.qmd`, `skills.qmd`, `safety.qmd`)
+- Four top-level content pages: `preparation.qmd` (pre-workshop setup) plus three slide pages (`basics.qmd`, `skills.qmd`, `safety.qmd`)
 - Deployed to GitHub Pages via `.github/workflows/quarto-publish.yml` on push to `main`
 
 ## Build / preview
@@ -44,8 +44,8 @@ Navbar order is the source of truth (`_quarto.yml` → `website.navbar.left`):
 
 | Page | File | Role |
 |---|---|---|
-| Home | `index.qmd` | Landing — author cards (`resources/authors.qmd`), GW affiliation, four Part-N section grids (`resources/part-{0,1,2,3}-overview.qmd`; Part 0 links to the installation page) |
-| 0. Installation | `installation.qmd` | Pre-workshop setup — three sections (Essentials, Agents, Software) pulled in from `resources/essentials.qmd`, `resources/agents.qmd`, and `resources/software.qmd` |
+| Home | `index.qmd` | Landing — author cards (`resources/authors.qmd`), GW affiliation, suggested-reading row (`resources/suggested-reading.qmd`, inside Part 0), four Part-N section grids (`resources/part-{0,1,2,3}-overview.qmd`; Part 0 links to the preparation page) |
+| 0. Preparation | `preparation.qmd` | Pre-workshop setup — two sections (Essentials, Alternatives) pulled in from `resources/essentials.qmd` and `resources/alternatives.qmd` (both use the `.altgroup-*` titled-halves layout: Essentials has one full-size card per Agent/IDE half, Alternatives four small cards split 2+2), plus a button to `software.qmd` |
 | 1. Agentic Basics | `basics.qmd` | iframes `slides/basics/` |
 | 2. Skill Usage and Design | `skills.qmd` | iframes `slides/skills/` |
 | 3. Working Safely with Data and AI | `safety.qmd` | iframes `slides/safety/` |
@@ -54,7 +54,7 @@ Slide page filenames and their deck directories under `slides/` share the same s
 
 ### Body-width override on slide pages
 
-`basics.qmd`, `skills.qmd`, `safety.qmd` each set `grid: { sidebar-width: 0px, body-width: 1200px, margin-width: 0px }` so the iframe stretches past Quarto's 800px default. `index.qmd` and `installation.qmd` use the same override without `body-width` (default 800px is fine for them).
+`basics.qmd`, `skills.qmd`, `safety.qmd` each set `grid: { sidebar-width: 0px, body-width: 1200px, margin-width: 0px }` so the iframe stretches past Quarto's 800px default. `index.qmd` and `preparation.qmd` use the same override without `body-width` (default 800px is fine for them).
 
 ## Shared assets
 
@@ -79,7 +79,8 @@ For tables, card grids, author cards, etc.:
 - Mobile breakpoint is `@media (max-width: 640px)` (used consistently across all components).
 
 Current component families in `styles/styles.scss`:
-- `.swtbl-*` — two-column tables in `resources/agents.qmd` and `resources/software.qmd` (icon + name on left, description on right, with a head/body layout that flips on mobile)
+- `.swtbl-*` — two-column table in `resources/recommended-software.qmd` (icon + name on left, description on right, with a head/body layout that flips on mobile)
+- `.altgroup-*` / `.esscard-*` — grouped card rows on the preparation page (`resources/essentials.qmd` and `resources/alternatives.qmd`): two titled halves with a soft vertical divider, cards with icon tile + name + description
 - `.auth-*` — author headshot cards in `resources/authors.qmd`
 - `.section-*` — colored Part-N section grids in `resources/part-{0,1,2,3}-overview.qmd`
 - `.slide-embed*` — iframe wrapper used by the three slide pages

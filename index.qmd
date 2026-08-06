@@ -28,11 +28,9 @@ grid:
 
 <div class="soft-divider"></div>
 
+## Part 0: [Preparation](preparation.qmd)
+
 {{< include resources/suggested-reading.qmd >}}
-
-<div class="soft-divider"></div>
-
-## Part 0: [Installation](installation.qmd)
 
 {{< include resources/part-0-overview.qmd >}}
 
