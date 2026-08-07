@@ -1760,7 +1760,9 @@ $section-themes: (
   margin: 1.5rem 0;
 }
 
-.altgroup + .altgroup {
+// Anchored to the cards container (not the whole group) so the divider
+// centers on the cards, excluding the title above them.
+.altgroup + .altgroup .altgroup-cards {
   position: relative;
 
   &::before {
@@ -1823,20 +1825,15 @@ $section-themes: (
 }
 
 @media (max-width: 640px) {
-  // Groups stack; the divider turns horizontal between them.
+  // Groups stack; the second group's title already separates them, so drop
+  // the divider entirely.
   .altgroup-row {
     grid-template-columns: 1fr;
     gap: 30px;
   }
 
-  .altgroup + .altgroup::before {
-    left: 18%;
-    right: 18%;
-    top: -15px;
-    bottom: auto;
-    width: auto;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #C8DAE8, transparent);
+  .altgroup + .altgroup .altgroup-cards::before {
+    display: none;
   }
 }
 
@@ -2384,10 +2381,7 @@ body.quarto-dark {
 
   // Grouped card rows
   .altgroup-title { color: #7DA5BD; }
-  .altgroup + .altgroup::before { background: linear-gradient(180deg, transparent, #384A57, transparent); }
-  @media (max-width: 640px) {
-    .altgroup + .altgroup::before { background: linear-gradient(90deg, transparent, #384A57, transparent); }
-  }
+  .altgroup + .altgroup .altgroup-cards::before { background: linear-gradient(180deg, transparent, #384A57, transparent); }
 
   // Section grid
   .section-outer { border-color: #7DA5BD; }
