@@ -1,0 +1,53 @@
+::::: {.instl}
+
+:::: {.instl-step}
+::: {.instl-title}
+Open a terminal inside Positron
+:::
+From the menu bar, choose `Terminal › New Terminal`. A panel opens along the bottom of the window. Everything below happens in that panel, so you never need to leave Positron.
+::::
+
+:::: {.instl-step}
+::: {.instl-title}
+Paste the line for your computer, then press Enter
+:::
+::: {.instl-os}
+macOS
+:::
+```bash
+curl -fsSL https://claude.ai/install.sh | bash
+```
+::: {.instl-os}
+Windows
+:::
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+::::
+
+:::: {.instl-step}
+::: {.instl-title}
+Close that terminal, then open a new one
+:::
+Use the trash icon on the terminal panel, then `Terminal › New Terminal` again. This step matters: the installer teaches your computer where `claude` lives, and only a freshly opened terminal knows about it.
+::::
+
+:::: {.instl-step}
+::: {.instl-title}
+Check that it worked
+:::
+Type `claude --version` and press Enter. You should see a version number such as `2.1.211 (Claude Code)`. If you instead see `command not found`, the new terminal from step 3 is what fixes it nine times out of ten.
+::::
+
+:::: {.instl-step}
+::: {.instl-title}
+Log in
+:::
+Type `claude` and press Enter. A browser window opens: sign in with the Claude account you paid for above. You only do this once.
+::::
+
+:::::
+
+::: {.instl-note}
+Never used a terminal before? Anthropic has a [step-by-step terminal guide](https://code.claude.com/docs/en/terminal-guide) written for exactly that. You will need macOS 13 or newer, or Windows 10 or newer. If you get stuck, come a few minutes early and we will sort it out with you.
+:::

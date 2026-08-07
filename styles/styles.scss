@@ -1041,9 +1041,9 @@ nav.navbar {
   padding: 0.2rem 0.55rem !important;
 }
 
-// ---- Navbar: Preparation split dropdown ("Full List" flyout) ----
-// The caret button and flyout are injected by styles.js next to the
-// Preparation nav link (see "Preparation split dropdown" there).
+// ---- Navbar: Setup split dropdown ("Full List" flyout) ----
+// The caret button and flyout are injected by styles.js next to the Setup nav
+// link (see "Setup split dropdown" there).
 .navbar-nav .nav-item.nav-split {
   position: relative;
   display: flex;
@@ -1100,9 +1100,14 @@ nav.navbar {
   position: absolute;
   top: calc(100% + 6px);
   left: 0;
-  // Stop short of the caret (22px + 2px margin) so the drawer pill has exactly
-  // the width and position of the original nav pill.
-  right: 24px;
+  right: auto;
+  // Grow to fit the label, but never narrower than the nav pill itself (the
+  // pill's width minus the caret's 22px + 2px margin). A label shorter than
+  // the pill still reads as a drawer pulled straight out of it; a longer one
+  // ("Optional Software") extends rightward instead of being clipped by the
+  // overflow:hidden that produces the drawer effect.
+  width: max-content;
+  min-width: calc(100% - 24px);
   padding-bottom: 12px;
   overflow: hidden;
   pointer-events: none;
@@ -1173,6 +1178,7 @@ nav.navbar {
     top: 50%;
     left: calc(100% + 6px);
     right: auto;
+    min-width: 0;
     transform: translateY(-50%);
     // Symmetric vertical padding: shadow room above and below without skewing
     // the translateY(-50%) centering against the pill row.
@@ -1435,6 +1441,17 @@ a.section-card {
   line-height: 1.4;
 }
 
+// Optional second line under the label (Part 0's two cards use it to carry the
+// software blurb and the article title). Neutral color in every theme variant,
+// so it reads as supporting text rather than a second heading.
+.section-card-desc {
+  font-family: 'TsangerJinKai', serif;
+  font-size: 0.85em;
+  color: #5A6570;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
 // Persistent "this is a link" cue on clickable cards: a small arrow-up-right
 // beside the label. Lucide strokes with currentColor, so it inherits the
 // label's theme color in every variant and in dark mode with no extra rules.
@@ -1502,7 +1519,14 @@ a.section-card:hover .section-card-arrow { opacity: 1; }
   .section-card-icon {
     margin-bottom: 0;
     align-self: center;
+    grid-column: 1;
+    grid-row: 1 / -1;
   }
+
+  // Keep the label + optional desc stacked in the second column beside the icon
+  // instead of wrapping under it.
+  .section-label,
+  .section-card-desc { grid-column: 2; }
 
   // Mobile: cards are short horizontal rows, so center the badge vertically
   // against the row's right edge.
@@ -1551,109 +1575,6 @@ $section-themes: (
       .section-card { border-bottom-color: $border-soft; }
     }
   }
-}
-
-// ---- Suggested Reading ----
-// Slim clickable row above the Part 0 grid on the homepage
-// (resources/suggested-reading.qmd). Blue theme to match the Part 0 section.
-
-.reading-row {
-  display: grid;
-  grid-template-columns: 48px 1fr auto;
-  align-items: center;
-  gap: 0 14px;
-  margin: 1em 0;
-  padding: 14px 18px;
-  border: 1.5px solid #2471A3;
-  border-radius: 14px;
-  background: #F8F7F0;
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  transition: background 0.15s ease;
-  will-change: transform;
-
-  &:hover {
-    background: #D4E8F4;
-    text-decoration: none;
-
-    .reading-icon { background: #F8F7F0; }
-  }
-
-  &:active {
-    transform: scale(0.99);
-    background: #C7E0F0;
-  }
-
-  &:focus-visible {
-    outline: 2px solid #2471A3;
-    outline-offset: -2px;
-  }
-}
-
-.reading-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-  background: #EBF5FB;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-
-  svg {
-    width: 22px;
-    height: 22px;
-    color: #2471A3;
-    stroke-width: 1.8;
-  }
-}
-
-.reading-body {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-
-.reading-kicker {
-  font-family: 'Maple Mono', monospace;
-  font-size: 0.62em;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #8B9298;
-  line-height: 1.3;
-}
-
-.reading-title {
-  font-family: 'Maple Mono', monospace;
-  font-size: 0.85em;
-  font-weight: bold;
-  color: #2471A3;
-  line-height: 1.4;
-}
-
-.reading-desc {
-  font-family: 'TsangerJinKai', serif;
-  font-size: 0.85em;
-  color: #5A6570;
-  line-height: 1.4;
-}
-
-.reading-ext svg {
-  width: 16px;
-  height: 16px;
-  color: #A9CCE3;
-  stroke-width: 1.8;
-}
-
-@media (max-width: 640px) {
-  .reading-row {
-    grid-template-columns: 48px 1fr;
-    padding: 14px;
-  }
-
-  .reading-ext { display: none; }
 }
 
 // ---- Soft Divider ----
@@ -1760,6 +1681,30 @@ $section-themes: (
   margin: 1.5rem 0;
 }
 
+// Three halves instead of two (Essentials: Agent / IDE / Hosting). The divider
+// rule below keys off `.altgroup + .altgroup`, so the extra group grows its own
+// divider with no further change. Narrower columns, so tighten the gap and the
+// card padding to keep the icon tile from crowding the name.
+.altgroup-row-3 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+
+  .altgroup + .altgroup .altgroup-cards::before { left: -16px; }
+
+  .esscard { padding: 24px 16px 22px; }
+  .esscard-foot { margin: auto -16px -22px; }
+  .esscard-desc { font-size: 0.82em; }
+}
+
+// A single untitled group spanning the full width (Alternatives). The cards
+// inside still auto-flow as columns, so two agents sit side by side at full
+// page width instead of being squeezed into one half.
+.altgroup-row-1 {
+  grid-template-columns: 1fr;
+
+  .altgroup-cards { gap: 24px; }
+}
+
 // Anchored to the cards container (not the whole group) so the divider
 // centers on the cards, excluding the title above them.
 .altgroup + .altgroup .altgroup-cards {
@@ -1834,6 +1779,109 @@ $section-themes: (
 
   .altgroup + .altgroup .altgroup-cards::before {
     display: none;
+  }
+}
+
+// ---- Install Steps ----
+// Numbered walkthrough on the setup page (resources/install-claude.qmd). The
+// step numbers come from a CSS counter rather than markup, so the partial stays
+// as plain fenced divs and its code blocks keep Quarto's copy button and the
+// language label added by styles.js. Renumbering is automatic if a step moves.
+
+.instl {
+  counter-reset: instl;
+  margin: 1.5rem 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.instl-step {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  column-gap: 16px;
+
+  // Number sits in column 1 and spans the step; everything authored inside the
+  // div flows down column 2.
+  &::before {
+    counter-increment: instl;
+    content: counter(instl);
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: start;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #013D5B;
+    color: #F8F7F0;
+    font-family: 'Maple Mono', monospace;
+    font-size: 0.92em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  > * { grid-column: 2; }
+
+  // Quarto's default block margins are tuned for body prose and leave the code
+  // block floating between steps; pull it back onto its own step.
+  div.sourceCode { margin: 6px 0 2px; }
+
+  > p {
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+}
+
+// Pandoc wraps the contents of a fenced div in a <p>, which would otherwise
+// contribute Bootstrap's 1rem paragraph margin on top of the spacing set here.
+.instl-title,
+.instl-os {
+  p { margin: 0; }
+}
+
+.instl-title {
+  font-family: 'Maple Mono', monospace;
+  font-size: 1.02em;
+  color: #013D5B;
+  margin-bottom: 5px;
+  padding-top: 4px;
+}
+
+// Which command belongs to which machine. Sits directly above its code block.
+.instl-os {
+  margin-top: 12px;
+  font-family: 'Maple Mono', monospace;
+  font-size: 0.74em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #47677C;
+}
+
+.instl-note {
+  margin: 0 0 1.5rem;
+  padding: 14px 18px;
+  border-left: 3px solid #C8DAE8;
+  border-radius: 0 8px 8px 0;
+  background: rgba(1, 61, 91, 0.04);
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: #47677C;
+
+  p:last-child { margin-bottom: 0; }
+}
+
+@media (max-width: 640px) {
+  .instl-step {
+    grid-template-columns: 28px 1fr;
+    column-gap: 12px;
+
+    &::before {
+      width: 28px;
+      height: 28px;
+      font-size: 0.82em;
+    }
   }
 }
 
@@ -2233,6 +2281,70 @@ $section-themes: (
   }
 }
 
+// ---- Free-option Callout ----
+// Tinted note on the setup page pointing at the free agent in Alternatives.
+// Louder than .agents-disclaimer on purpose: it is the answer to "do I have to
+// pay for this?", which is the first question people ask about the page.
+
+.freenote {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin: 1.25rem 0 0;
+  padding: 16px 20px;
+  border: 1px solid #BFE3E1;
+  border-left: 4px solid #2FA8A3;
+  border-radius: 12px;
+  background: #F1FAFA;
+}
+
+.freenote-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #DCF2F1;
+  color: #1F7D79;
+
+  // Pandoc wraps the icon span in a paragraph, whose default margin would
+  // knock it off center inside this flex tile.
+  p { margin: 0; display: flex; }
+
+  svg {
+    width: 17px;
+    height: 17px;
+    stroke-width: 2;
+  }
+}
+
+.freenote-body {
+  font-size: 0.9em;
+  line-height: 1.55;
+  color: #2F5560;
+
+  p { margin: 0; }
+
+  strong { color: #14565A; }
+
+  a {
+    color: #1F7D79;
+    font-weight: 600;
+    text-decoration: underline;
+
+    &:hover { color: #0E4C4A; }
+  }
+}
+
+@media (max-width: 640px) {
+  .freenote {
+    padding: 14px 16px;
+    gap: 11px;
+  }
+}
+
 // ---- Scroll Animations ----
 
 @media (prefers-reduced-motion: no-preference) {
@@ -2355,6 +2467,19 @@ body.quarto-dark {
 
   .soft-divider { background: linear-gradient(90deg, transparent, #384A57, transparent); }
 
+  // Install steps
+  .instl-step::before {
+    background: #A4C9DC;
+    color: #0B1B24;
+  }
+  .instl-title { color: #A4C9DC; }
+  .instl-os { color: #7DA5BD; }
+  .instl-note {
+    border-left-color: #384A57;
+    background: rgba(164, 201, 220, 0.06);
+    color: var(--bs-body-color);
+  }
+
   // Essential cards
   .esscard {
     background: #1e2433;
@@ -2407,6 +2532,7 @@ body.quarto-dark {
     svg { color: #A4C9DC; }
   }
   .section-label { color: #A4C9DC; }
+  .section-card-desc { color: #9AA7B4; }
   .section-card-badge {
     color: #94A6B4;
     background: #1F3340;
@@ -2416,28 +2542,6 @@ body.quarto-dark {
   @media (max-width: 720px) {
     .section-card { border-bottom-color: #384A57; }
   }
-
-  // Suggested Reading — dark mode
-  .reading-row {
-    border-color: #7DA5BD;
-    background: #1e2433;
-
-    &:hover {
-      background: #232b3e;
-      .reading-icon { background: #1e2433; }
-    }
-
-    &:active { background: #2A3447; }
-    &:focus-visible { outline-color: #7DA5BD; }
-  }
-  .reading-icon {
-    background: #1F3340;
-    svg { color: #A4C9DC; }
-  }
-  .reading-kicker { color: #94A6B4; }
-  .reading-title { color: #A4C9DC; }
-  .reading-desc { color: #9AA7B4; }
-  .reading-ext svg { color: #7DA5BD; }
 
   // Software Table — dark mode
   .swtbl-outer { border-color: #7DA5BD; }
@@ -2500,6 +2604,29 @@ body.quarto-dark {
       color: #7DA5BD;
 
       &:hover { color: #DCE6EE; }
+    }
+  }
+
+  .freenote {
+    background: #16333A;
+    border-color: #27565C;
+    border-left-color: #4FBDB6;
+  }
+
+  .freenote-icon {
+    background: #1E4750;
+    color: #6FD3CB;
+  }
+
+  .freenote-body {
+    color: #B7CDD3;
+
+    strong { color: #DCF2F1; }
+
+    a {
+      color: #6FD3CB;
+
+      &:hover { color: #A9E8E2; }
     }
   }
 

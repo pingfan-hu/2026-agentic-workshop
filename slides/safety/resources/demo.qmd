@@ -1,0 +1,56 @@
+```{=html}
+<div class="practice-box">
+
+ <div style="background:rgba(127,176,230,0.08);border-left:6px solid #7FB0E6;border-radius:0 16px 16px 0;padding:1.2em 2.1em 1.3em;">
+
+  <div style="font-family:'Maple Mono',monospace;font-size:0.82em;color:#7FB0E6;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5em;">— demo —</div>
+
+  <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:0.6em;letter-spacing:-0.01em;white-space:nowrap;">
+   Watch us rebuild this chart, with code.
+  </div>
+
+  <div style="display:flex;align-items:center;gap:0.7em;background:rgba(127,176,230,0.13);border:1px dashed rgba(127,176,230,0.5);border-radius:11px;padding:0.5em 0.9em;margin-bottom:0.55em;">
+   <i data-lucide="chart-line" style="width:0.9em;height:0.9em;stroke-width:2;color:#7FB0E6;flex-shrink:0;"></i>
+   <div style="font-size:0.46em;color:#C9C4BC;line-height:1.4;">
+    <span style="color:#7FB0E6;font-weight:700;">Life expectancy in Africa</span>, from
+    <a href="https://ourworldindata.org/grapher/life-expectancy?tab=map&amp;region=Africa" target="_blank" rel="noopener" style="font-family:'Maple Mono',monospace;font-size:1.05em;color:#A8CCF0;font-weight:700;">ourworldindata.org/grapher/life-expectancy</a>
+   </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:0.4em;">
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(127,176,230,0.2);border-radius:11px;padding:0.45em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(127,176,230,0.14);border:1px solid rgba(127,176,230,0.35);display:flex;align-items:center;justify-content:center;color:#7FB0E6;flex-shrink:0;"><i data-lucide="download" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#7FB0E6;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Get the data</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Claude downloads the CSV. We look at what it actually saved.</div>
+    </div>
+   </div>
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(127,176,230,0.2);border-radius:11px;padding:0.45em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(127,176,230,0.14);border:1px solid rgba(127,176,230,0.35);display:flex;align-items:center;justify-content:center;color:#7FB0E6;flex-shrink:0;"><i data-lucide="file-code" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#7FB0E6;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Ask for the code</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Not "make me a map" but "write an <strong>R script</strong> that makes the map."</div>
+    </div>
+   </div>
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(127,176,230,0.2);border-radius:11px;padding:0.45em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(127,176,230,0.14);border:1px solid rgba(127,176,230,0.35);display:flex;align-items:center;justify-content:center;color:#7FB0E6;flex-shrink:0;"><i data-lucide="refresh-cw" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#7FB0E6;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Prove it</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Change the year, rerun the <strong>same script</strong>. The map rebuilds itself.</div>
+    </div>
+   </div>
+
+  </div>
+
+  <div style="display:flex;align-items:center;gap:0.5em;margin-top:0.6em;padding-top:0.5em;border-top:1px solid rgba(127,176,230,0.22);">
+   <i data-lucide="coffee" style="width:0.8em;height:0.8em;stroke-width:2;color:#7FB0E6;flex-shrink:0;"></i>
+   <div style="font-size:0.46em;color:#C9C4BC;line-height:1.45;"><span style="color:#7FB0E6;font-weight:700;">Nothing to type.</span> Every step is written up on the workshop website.</div>
+  </div>
+
+ </div>
+
+</div>
+```

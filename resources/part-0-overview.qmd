@@ -1,20 +1,17 @@
 <div class="section-outer section-blue">
  <div class="section-header">
-  <span class="section-header-text">Before the workshop, install the tools below to follow along hands-on.</span>
+  <span class="section-header-text">Get set up before the workshop, and read up on what makes agentic coding work.</span>
  </div>
- <div class="section-grid section-grid-3">
-  <a class="section-card" href="preparation.html#essentials">
+ <div class="section-grid section-grid-2">
+  <a class="section-card" href="setup.html">
    <div class="section-card-icon"><i data-lucide="package-check"></i></div>
-   <div class="section-label">Essentials<span class="section-card-arrow"><i data-lucide="arrow-up-right"></i></span></div>
+   <div class="section-label">Setup<span class="section-card-arrow"><i data-lucide="arrow-up-right"></i></span></div>
+   <div class="section-card-desc">Install the tools to follow along hands-on</div>
   </a>
-  <a class="section-card" href="preparation.html#alternatives">
-   <div class="section-card-icon"><i data-lucide="arrow-left-right"></i></div>
-   <div class="section-label">Alternatives<span class="section-card-arrow"><i data-lucide="arrow-up-right"></i></span></div>
-  </a>
-  <a class="section-card" href="software.html#software">
-   <span class="section-card-badge">Extensive</span>
-   <div class="section-card-icon"><i data-lucide="app-window"></i></div>
-   <div class="section-label">Software<span class="section-card-arrow"><i data-lucide="arrow-up-right"></i></span></div>
+  <a class="section-card" href="https://www.anthropic.com/research/claude-code-expertise" target="_blank" rel="noopener">
+   <div class="section-card-icon"><i data-lucide="book-open"></i></div>
+   <div class="section-label">Suggested Reading<span class="section-card-arrow"><i data-lucide="arrow-up-right"></i></span></div>
+   <div class="section-card-desc">Agentic coding and persistent returns to expertise</div>
   </a>
  </div>
 </div>

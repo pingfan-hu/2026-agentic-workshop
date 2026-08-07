@@ -8,7 +8,7 @@ AI agents can read your files, write your code, and build your outputs. This wor
 
 ## What we will cover
 
-### Part 0: Preparation
+### Part 0: Setup
 
 Pre-workshop preparation so you can follow along hands-on: read a short Anthropic article on agentic coding, then install Claude Code (the AI agent), Positron (a data science IDE), and a few optional companions.
 
