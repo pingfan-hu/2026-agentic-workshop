@@ -26,7 +26,7 @@
    <div style="width:2.2em;height:2.2em;border-radius:0.55em;background:#FBEEE8;border:1px solid #EAC6B6;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" fill="#CC785C" xmlns="http://www.w3.org/2000/svg" style="width:1em;height:1em;display:block;"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg></div>
    <div style="flex:1;">
     <div style="font-size:0.62em;font-weight:700;color:#CC785C;margin-bottom:0.12em;">Launch Claude Code</div>
-    <div style="font-size:0.46em;color:#6F6470;line-height:1.4;">In Positron's terminal, type <code style="font-family:'Maple Mono',monospace;font-size:0.95em;background:#FBEEE8;color:#8A4B2F;padding:0.05em 0.35em;border-radius:5px;">claude</code> and press Enter.</div>
+    <div style="font-size:0.46em;color:#6F6470;line-height:1.4;">Open a terminal with <code style="font-family:'Maple Mono',monospace;font-size:0.95em;background:#FBEEE8;color:#8A4B2F;padding:0.05em 0.35em;border-radius:5px;">Terminal › New Terminal</code>, then type <code style="font-family:'Maple Mono',monospace;font-size:0.95em;background:#FBEEE8;color:#8A4B2F;padding:0.05em 0.35em;border-radius:5px;">claude</code> and press Enter. Everything happens in this one window.</div>
    </div>
   </div>
 

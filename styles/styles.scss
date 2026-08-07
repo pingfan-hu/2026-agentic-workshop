@@ -1773,6 +1773,109 @@ $section-themes: (
   }
 }
 
+// ---- Install Steps ----
+// Numbered walkthrough on the setup page (resources/install-claude.qmd). The
+// step numbers come from a CSS counter rather than markup, so the partial stays
+// as plain fenced divs and its code blocks keep Quarto's copy button and the
+// language label added by styles.js. Renumbering is automatic if a step moves.
+
+.instl {
+  counter-reset: instl;
+  margin: 1.5rem 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.instl-step {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  column-gap: 16px;
+
+  // Number sits in column 1 and spans the step; everything authored inside the
+  // div flows down column 2.
+  &::before {
+    counter-increment: instl;
+    content: counter(instl);
+    grid-column: 1;
+    grid-row: 1 / -1;
+    align-self: start;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #013D5B;
+    color: #F8F7F0;
+    font-family: 'Maple Mono', monospace;
+    font-size: 0.92em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  > * { grid-column: 2; }
+
+  // Quarto's default block margins are tuned for body prose and leave the code
+  // block floating between steps; pull it back onto its own step.
+  div.sourceCode { margin: 6px 0 2px; }
+
+  > p {
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+}
+
+// Pandoc wraps the contents of a fenced div in a <p>, which would otherwise
+// contribute Bootstrap's 1rem paragraph margin on top of the spacing set here.
+.instl-title,
+.instl-os {
+  p { margin: 0; }
+}
+
+.instl-title {
+  font-family: 'Maple Mono', monospace;
+  font-size: 1.02em;
+  color: #013D5B;
+  margin-bottom: 5px;
+  padding-top: 4px;
+}
+
+// Which command belongs to which machine. Sits directly above its code block.
+.instl-os {
+  margin-top: 12px;
+  font-family: 'Maple Mono', monospace;
+  font-size: 0.74em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #47677C;
+}
+
+.instl-note {
+  margin: 0 0 1.5rem;
+  padding: 14px 18px;
+  border-left: 3px solid #C8DAE8;
+  border-radius: 0 8px 8px 0;
+  background: rgba(1, 61, 91, 0.04);
+  font-size: 0.9em;
+  line-height: 1.6;
+  color: #47677C;
+
+  p:last-child { margin-bottom: 0; }
+}
+
+@media (max-width: 640px) {
+  .instl-step {
+    grid-template-columns: 28px 1fr;
+    column-gap: 12px;
+
+    &::before {
+      width: 28px;
+      height: 28px;
+      font-size: 0.82em;
+    }
+  }
+}
+
 // ---- Software Table ----
 
 .swtbl-outer {
@@ -2290,6 +2393,19 @@ body.quarto-dark {
   }
 
   .soft-divider { background: linear-gradient(90deg, transparent, #384A57, transparent); }
+
+  // Install steps
+  .instl-step::before {
+    background: #A4C9DC;
+    color: #0B1B24;
+  }
+  .instl-title { color: #A4C9DC; }
+  .instl-os { color: #7DA5BD; }
+  .instl-note {
+    border-left-color: #384A57;
+    background: rgba(164, 201, 220, 0.06);
+    color: var(--bs-body-color);
+  }
 
   // Essential cards
   .esscard {

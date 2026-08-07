@@ -17,6 +17,12 @@ The bare minimum needed to follow the workshop hands-on.
 Note: Claude Code requires a paid subscription, so sign up for at least a [Claude Pro](https://claude.ai/login?plan=pro){target="_blank" rel="noopener"} account before the workshop. Netlify is free and needs nothing installed: just create the account ahead of time so you can publish your site during the workshop.
 :::
 
+### Installing Claude Code
+
+Positron and Netlify are ordinary sign-up-and-download affairs. Claude Code is the one piece you install by typing a line, and you do it from inside Positron. Work through these five steps before the workshop so you arrive ready to build.
+
+{{< include resources/install-claude.qmd >}}
+
 ```{=html}
 <div class="soft-divider"></div>
 ```

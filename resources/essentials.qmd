@@ -3,13 +3,13 @@
  <div class="altgroup">
   <div class="altgroup-title">Agent</div>
   <div class="altgroup-cards">
-   <a class="esscard" href="https://claude.com/claude-code" target="_blank" rel="noopener">
+   <a class="esscard" href="https://claude.ai/login?plan=pro" target="_blank" rel="noopener">
     <span class="esscard-icon">
      <svg viewBox="0 0 24 24" fill="#CC785C" xmlns="http://www.w3.org/2000/svg" aria-label="Anthropic"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>
     </span>
     <span class="esscard-name">Claude Code</span>
-    <span class="esscard-desc">The AI coding agent we use throughout the workshop.</span>
-    <span class="esscard-foot">See more agent options below</span>
+    <span class="esscard-desc">The AI agent we use all workshop. It runs inside Positron's terminal, not in your browser and not as a separate app.</span>
+    <span class="esscard-foot">Start here: it needs a paid Claude plan</span>
    </a>
   </div>
  </div>
@@ -22,8 +22,8 @@
      <img src="images/software/positron-icon.png" alt="Positron" />
     </span>
     <span class="esscard-name">Positron</span>
-    <span class="esscard-desc">Data-science IDE built on VS Code, with side-by-side source and rendered output.</span>
-    <span class="esscard-foot">See more IDE options below</span>
+    <span class="esscard-desc">The one window you work in: your project files, a text editor, and the terminal where Claude runs.</span>
+    <span class="esscard-foot">Free download, no account needed</span>
    </a>
   </div>
  </div>
