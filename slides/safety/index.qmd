@@ -17,15 +17,27 @@ title-slide-attributes:
 
 {{< include resources/github-basics.qmd >}}
 
+## Audit what the [agent changed]{.teal} {.light-centered .center}
+
+{{< include resources/github-audit.qmd >}}
+
 ## <a class="brand-pill brand-pill--github" href="https://github.com" target="_blank" rel="noopener">GitHub</a> Extensive Features {.light-centered .center}
 
 {{< include resources/github-advanced.qmd >}}
 
 ## <span class="divider-icon"><i data-lucide="workflow"></i></span>Code-Based Pipelines {.divider-blue .center data-state="divider-slide"}
 
-## One-off [artifacts]{.coral} can fail badly {.light-centered .center}
+## Sometimes AI gets it [wrong]{.coral} {.light-centered .center}
 
-{{< include resources/usa-map.qmd >}}
+{{< include resources/africa-bad.qmd >}}
+
+## Every country was in the [wrong place]{.coral} 🤦 {.light-centered .center}
+
+{{< include resources/africa-good.qmd >}}
+
+## Build the map with [code]{.teal} {.light-centered .center}
+
+{{< include resources/africa-code.qmd >}}
 
 ## Build the [code]{.teal}, not the [artifact]{.coral} {.light-centered .center}
 
@@ -54,10 +66,6 @@ title-slide-attributes:
 ## Example: [Map of USA]{.teal} {.light-centered .center}
 
 {{< include resources/codify-map.qmd >}}
-
-## Example: [Map of Australia]{.blue} {.light-centered .center}
-
-{{< include resources/codify-map-au.qmd >}}
 
 ## <span class="divider-icon"><i data-lucide="shield-check"></i></span>Protect Sensitive Data {.divider-purple .center data-state="divider-slide"}
 
