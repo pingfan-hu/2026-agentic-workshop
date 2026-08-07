@@ -31,7 +31,7 @@
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(127,176,230,0.14);border:1px solid rgba(127,176,230,0.35);display:flex;align-items:center;justify-content:center;color:#7FB0E6;flex-shrink:0;"><i data-lucide="file-code" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
      <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#7FB0E6;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Ask for the code</div>
-     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Not "make me a map" but "write a <strong>Python script</strong> that makes the map."</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Not "make me a map" but "write an <strong>R script</strong> that makes the map."</div>
     </div>
    </div>
 

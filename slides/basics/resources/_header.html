@@ -80,6 +80,35 @@ window.lockSiteScroll = function () {
         };
         d.addEventListener('wheel', d.__navForward, { capture: true, passive: false });
       }
+      // Clicking inside an embedded site moves keyboard focus into the iframe,
+      // which swallows the deck's keyboard shortcuts. Mirror every keydown onto
+      // the parent document and let Reveal's own handler interpret it, so being
+      // focused inside an iframe is equivalent to being focused on the slide
+      // (arrows, O for overview, F for fullscreen, and anything added later).
+      // Keys Reveal consumes are suppressed in the embedded page; keys it
+      // ignores keep their native behavior there. Cmd/Ctrl combos are browser
+      // shortcuts and stay native, and typing in embedded form fields is exempt.
+      if (!d.__keyForward) {
+        d.__keyForward = function (e) {
+          var el = e.target;
+          if (el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable)) return;
+          if (e.metaKey || e.ctrlKey) return;
+          var clone = new KeyboardEvent(e.type, {
+            key: e.key, code: e.code,
+            shiftKey: e.shiftKey, altKey: e.altKey,
+            repeat: e.repeat, bubbles: true, cancelable: true
+          });
+          // Reveal reads the legacy keyCode field, which synthetic events lack.
+          var kc = e.keyCode, wh = e.which;
+          try {
+            Object.defineProperty(clone, 'keyCode', { get: function () { return kc; } });
+            Object.defineProperty(clone, 'which', { get: function () { return wh; } });
+          } catch (err2) {}
+          document.dispatchEvent(clone);
+          if (clone.defaultPrevented) e.preventDefault();
+        };
+        d.addEventListener('keydown', d.__keyForward, { capture: true });
+      }
     } catch (err) { /* not loaded yet; wireSiteScroll re-runs this on load */ }
   });
 };
