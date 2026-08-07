@@ -1,0 +1,56 @@
+```{=html}
+<div style="width:92%;margin:0 auto;text-align:left;position:relative;">
+
+ <div style="background:rgba(127,176,230,0.08);border-left:6px solid #7FB0E6;border-radius:0 16px 16px 0;padding:1.25em 2.1em 1.35em;">
+
+  <div style="font-family:'Maple Mono',monospace;font-size:0.82em;color:#7FB0E6;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.55em;">— demo —</div>
+
+  <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:0.75em;letter-spacing:-0.01em;white-space:nowrap;">
+   Watch us build the code, not the artifact.
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:0.45em;">
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(127,176,230,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(127,176,230,0.14);border:1px solid rgba(127,176,230,0.35);display:flex;align-items:center;justify-content:center;color:#7FB0E6;flex-shrink:0;"><i data-lucide="folder-plus" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#7FB0E6;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Set up</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">A fresh <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#7FB0E6;">my-pipeline</code> folder in Positron, with <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#7FB0E6;">data</code> and <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#7FB0E6;">output</code> inside it.</div>
+    </div>
+   </div>
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(127,176,230,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(127,176,230,0.14);border:1px solid rgba(127,176,230,0.35);display:flex;align-items:center;justify-content:center;color:#7FB0E6;flex-shrink:0;"><i data-lucide="globe" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#7FB0E6;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Get the data</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Claude downloads population data from <a href="https://ourworldindata.org/population-growth" target="_blank" rel="noopener" style="color:#A8CCF0;font-weight:700;">ourworldindata.org</a> into <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#7FB0E6;">data</code>. We look at what it actually saved.</div>
+    </div>
+   </div>
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(127,176,230,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(127,176,230,0.14);border:1px solid rgba(127,176,230,0.35);display:flex;align-items:center;justify-content:center;color:#7FB0E6;flex-shrink:0;"><i data-lucide="file-code" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#7FB0E6;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Ask for the code</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Not "make me a chart" but "write a <strong>Python script</strong> that makes the chart." Then Claude runs it.</div>
+    </div>
+   </div>
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(127,176,230,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(127,176,230,0.14);border:1px solid rgba(127,176,230,0.35);display:flex;align-items:center;justify-content:center;color:#7FB0E6;flex-shrink:0;"><i data-lucide="refresh-cw" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#7FB0E6;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Prove it</div>
+     <div style="font-size:0.55em;color:#F8F7F0;line-height:1.4;">Swap in a different dataset and rerun the <strong>same script</strong>. The figure rebuilds itself. That is the whole point.</div>
+    </div>
+   </div>
+
+  </div>
+
+  <div style="display:flex;align-items:center;gap:0.5em;margin-top:0.7em;padding-top:0.55em;border-top:1px solid rgba(127,176,230,0.22);">
+   <i data-lucide="coffee" style="width:0.8em;height:0.8em;stroke-width:2;color:#7FB0E6;flex-shrink:0;"></i>
+   <div style="font-size:0.46em;color:#C9C4BC;line-height:1.45;"><span style="color:#7FB0E6;font-weight:700;">Nothing to type right now.</span> Just watch. Every step is written up on the workshop website so you can walk through it yourself later.</div>
+  </div>
+
+ </div>
+
+</div>
+```

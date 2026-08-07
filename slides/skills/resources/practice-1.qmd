@@ -1,14 +1,14 @@
 ```{=html}
 <div style="width:92%;margin:0 auto;text-align:left;position:relative;">
 
- <div class="practice-timer" data-minutes="15"></div>
+ <div class="practice-timer" data-minutes="18"></div>
 
  <div style="background:rgba(255,184,77,0.08);border-left:6px solid #FFB84D;border-radius:0 16px 16px 0;padding:1.25em 2.1em 1.35em;">
 
-  <div style="font-family:'Maple Mono',monospace;font-size:0.82em;color:#FFB84D;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.55em;">— practice 01 —</div>
+  <div style="font-family:'Maple Mono',monospace;font-size:0.82em;color:#FFB84D;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.55em;">— practice —</div>
 
-  <div style="font-size:0.82em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:0.75em;letter-spacing:-0.01em;">
-   See what a skill changes on your site.
+  <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:0.75em;letter-spacing:-0.01em;">
+   Install our skills, use them, and put your site online.
   </div>
 
   <div style="display:flex;flex-direction:column;gap:0.45em;">
@@ -17,7 +17,7 @@
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="download" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
      <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Install</div>
-     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Back in your <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">my-site</code> session, ask Claude to copy <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">skills/build-webpage</code> from <a href="https://github.com/pingfan-hu/2026-agentic-workshop/tree/main/skills/build-webpage" target="_blank" rel="noopener" style="color:#FFD27F;font-weight:700;">our workshop repo</a> into <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">.claude/skills/</code>.</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">In your <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">my-site</code> session, ask Claude to copy both skills from <a href="https://github.com/pingfan-hu/2026-agentic-workshop/tree/main/skills" target="_blank" rel="noopener" style="color:#FFD27F;font-weight:700;">our workshop repo</a> into <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">.claude/skills/</code>, then restart <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">claude</code>.</div>
     </div>
    </div>
 
@@ -25,23 +25,31 @@
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="play" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
      <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Compare</div>
-     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Ask for a new page <strong>without</strong> the skill, then again <strong>with</strong> <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/build-webpage</code>. Spot the difference.</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Ask for a new page <strong>without</strong> the skill, then again with <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/build-webpage</code>. Spot the difference.</div>
     </div>
    </div>
 
    <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
-    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="pen-line" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="rocket" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
-     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Modify</div>
-     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Edit <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">SKILL.md</code>, add a page rule of your own (say, every page ends with a back-to-top link), and run it again.</div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Go live</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Run <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/publish-website</code> and do what it tells you. It walks you through <a href="https://app.netlify.com/drop" target="_blank" rel="noopener" style="color:#FFD27F;font-weight:700;">Netlify</a> one step at a time. We are not explaining it: <strong>let the skill teach you</strong>.</div>
+    </div>
+   </div>
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.8em;align-items:center;background:rgba(248,247,240,0.04);border:1px solid rgba(255,184,77,0.2);border-radius:11px;padding:0.48em 0.9em;">
+    <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="repeat" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Update it</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Change something on your site, run the skill again, and watch it take you down a different path the second time.</div>
     </div>
    </div>
 
   </div>
 
   <div style="display:flex;align-items:center;gap:0.5em;margin-top:0.7em;padding-top:0.55em;border-top:1px solid rgba(255,184,77,0.22);">
-   <i data-lucide="rocket" style="width:0.8em;height:0.8em;stroke-width:2;color:#FFB84D;flex-shrink:0;"></i>
-   <div style="font-size:0.46em;color:#C9C4BC;line-height:1.45;"><span style="color:#FFB84D;font-weight:700;">Finished early?</span> Add a second rule, then rewrite the <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">description</code> line and see if Claude still reaches for the skill on its own.</div>
+   <i data-lucide="pen-line" style="width:0.8em;height:0.8em;stroke-width:2;color:#FFB84D;flex-shrink:0;"></i>
+   <div style="font-size:0.46em;color:#C9C4BC;line-height:1.45;"><span style="color:#FFB84D;font-weight:700;">Finished early?</span> Open <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">build-webpage/SKILL.md</code>, add a rule of your own, and run it again. Then paste your live address in the chat.</div>
   </div>
 
  </div>

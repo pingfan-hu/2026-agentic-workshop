@@ -71,7 +71,7 @@ title-slide-attributes:
 
 ## &nbsp; {.dark-centered .center .practice}
 
-{{< include resources/practice.qmd >}}
+{{< include resources/demo.qmd >}}
 
 ## Final [takeaways]{.teal} {.light-centered .center}
 

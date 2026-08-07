@@ -27,10 +27,6 @@ title-slide-attributes:
 
 {{< include resources/read-demo.qmd >}}
 
-## &nbsp; {.dark-centered .center .practice}
-
-{{< include resources/practice-1.qmd >}}
-
 ## The anatomy of a skill {.light-centered .center}
 
 {{< include resources/skill-setup.qmd >}}
@@ -65,7 +61,7 @@ title-slide-attributes:
 
 ## &nbsp; {.dark-centered .center .practice}
 
-{{< include resources/practice-2.qmd >}}
+{{< include resources/practice-1.qmd >}}
 
 ## Skills, in summary {.light-centered .center}
 

@@ -67,6 +67,9 @@ Slide page filenames and their deck directories under `slides/` share the same s
 - `styles/styles.js` — parent-website JS entry, loaded via `include-after-body` in `_quarto.yml` alongside the Lucide icons CDN. Touch this for landing-page behavior or icon rendering changes.
 - `images/` — parent website static assets, registered as a Quarto resource in `_quarto.yml` so it's copied into `_site/` as-is. `images/software/` holds the app icons used by `resources/optional-software.qmd`; `images/{pingfan-hu,john-helveston}.png` are the author headshots.
 - `resources/*.qmd` — partials included into top-level pages via `{{< include >}}`. Excluded from the parent render list so they never render as standalone pages.
+- `skills/` — the workshop's own Claude Code skills, which attendees copy into their project's `.claude/skills/` during the Part 2 practice. They are **shipped for participants, not used by this repo**. Two of them:
+  - `build-webpage/` — adds one page in the bundled Tom Hanks example site's design (`template/` holds that example site and its stylesheet).
+  - `publish-website/` — checks the site, then walks the user through Netlify **by hand, drag and drop**. It must never install a CLI or deploy anything itself: attendees sign up for Netlify beforehand and do the upload in a browser, and the skill giving one step at a time is the whole lesson. It branches on a `SITE-URL.txt` it writes on first publish, because the Netlify Drop page creates a *new* site every time and updating an existing one happens on that site's Deploys tab instead.
 
 ## Component CSS conventions
 
@@ -116,8 +119,12 @@ There are no speaker scripts (the per-deck `SCRIPTS.md` files were removed); eac
 
 - Pacing target: ~25 minutes per part, ~19-26 slides each. Content slides use `.light-centered` or default; `.dark-centered` is reserved for the title slide, the roadmap, practice slides, and punctuation/closing slides (quotes, thank-you)
 - **Roadmaps**: every deck's roadmap is exactly three bars (icon tile + title only, no subtitles, no header line). The three titles and Lucide icons must stay in sync with the matching home-page part cards in `resources/part-{1,2,3}-overview.qmd`
-- **Practice slides**: dark amber panels with a `practice-timer`, and every one closes with a `Finished early?` stretch line above a hairline rule (so fast tables have somewhere to go). Basics and skills number theirs (`— practice 01 —`); safety has a single unnumbered practice (`— practice —`, 20 minutes)
-- **Checkpoint slide**: `slides/basics/resources/checkpoint.qmd` is the same panel anatomy in teal (`#6FC2B0`) rather than amber, labeled `— checkpoint —` with no timer. It is a 60-second "everyone type `claude`, thumbs up" room sync, deliberately not numbered as a practice so practices read as the fun part. Reuse the teal variant for any future non-practice room check
+- **Panel slides** all share one anatomy (left accent bar, uppercase kicker, headline, stacked icon cards, hairline footer line) and differ only by accent color and kicker. Three variants exist, and the color is what tells the room whether to type or to watch:
+  - **Practice** (amber `#FFB84D`, has a `practice-timer`): basics numbers its two (`— practice 01 —`, `— practice 02 —`); skills has a single unnumbered one (`— practice —`, 18 min). Each closes with a `Finished early?` stretch line so fast people have somewhere to go
+  - **Checkpoint** (teal `#6FC2B0`, no timer): `slides/basics/resources/checkpoint.qmd`, a 60-second "everyone type `claude`" sync, deliberately not numbered so practices read as the fun part
+  - **Demo** (blue `#7FB0E6`, no timer): `slides/safety/resources/demo.qmd`. Safety has **no hands-on practice at all** by design, since it is last in a 2-hour webinar. Cards describe what the instructor does, and the footer says outright that there is nothing to type
+- Panel slides keep the `.practice` class on their `## &nbsp;` header regardless of variant: that class hides the placeholder `h2` and positions the timer, so it is doing layout duty, not semantics
+- **Total practice time is a hard budget.** The workshop is 2 hours against ~55 content slides, so timers cannot drift upward without something else being cut. Current total is 38 min (20 + 10 basics, 18 skills)
 - Quote/closing slides put `margin-top:1.1em` on the first content block so the title breathes; roadmaps use the same gap on the bar stack
 
 ## Project hooks
