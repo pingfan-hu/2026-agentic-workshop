@@ -6,31 +6,31 @@
   <div style="font-family:'Maple Mono',monospace;font-size:0.82em;color:#6FC2B0;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.55em;">— checkpoint —</div>
 
   <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:0.9em;letter-spacing:-0.01em;white-space:nowrap;">
-   Everyone type <code style="font-family:'Maple Mono',monospace;font-size:0.95em;color:#6FC2B0;">claude</code>. Thumbs up when it answers.
+   Open your workspace. <span style="color:#6FC2B0;">Thumbs up</span> when Claude answers.
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0.8em;">
 
    <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(111,194,176,0.2);border-radius:12px;padding:0.6em 0.8em;">
     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#6FC2B0;letter-spacing:0.16em;margin-bottom:0.3em;text-transform:uppercase;">01</div>
-    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;">Open <strong>Positron</strong>.</div>
+    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;">On your Desktop, make a folder called<br><code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;white-space:nowrap;">my-site</code><br>This is your project for the whole workshop.</div>
    </div>
 
    <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(111,194,176,0.2);border-radius:12px;padding:0.6em 0.8em;">
     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#6FC2B0;letter-spacing:0.16em;margin-bottom:0.3em;text-transform:uppercase;">02</div>
-    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;">Open a terminal: <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;">Terminal › New Terminal</code>.</div>
+    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;"><strong>Open Positron.</strong> From inside it, choose<br><code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;">File › Open Folder…</code><br>and pick the folder you just made.</div>
    </div>
 
    <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(111,194,176,0.2);border-radius:12px;padding:0.6em 0.8em;">
     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#6FC2B0;letter-spacing:0.16em;margin-bottom:0.3em;text-transform:uppercase;">03</div>
-    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;">Type <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;">claude</code>, then ask it <em>"who are you?"</em></div>
+    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;"><strong>Start Claude Code:</strong> open a terminal with<br><code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;">Terminal › New Terminal</code><br>then type <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;white-space:nowrap;">claude</code> and ask it <em>"who are you?"</em></div>
    </div>
 
   </div>
 
   <div style="display:flex;align-items:center;gap:0.5em;margin-top:0.85em;padding-top:0.6em;border-top:1px solid rgba(111,194,176,0.22);">
    <i data-lucide="circle-help" style="width:0.8em;height:0.8em;stroke-width:2;color:#6FC2B0;flex-shrink:0;"></i>
-   <div style="font-size:0.46em;color:#C9C4BC;line-height:1.45;"><span style="color:#6FC2B0;font-weight:700;">Not working?</span> Post it in the Q&amp;A, then keep watching. Everything today is on the website, so you can set it up afterward and follow along now.</div>
+   <div style="font-size:0.46em;color:#C9C4BC;line-height:1.45;"><span style="color:#6FC2B0;font-weight:700;">Nothing installed yet?</span> Follow the <a href="https://pingfan-hu.github.io/2026-agentic-workshop/setup.html" target="_blank" rel="noopener" style="color:#8FD6C6;font-weight:700;">setup page</a>, or just watch for now. Everything today stays on the website, so you can catch up afterward.</div>
   </div>
 
  </div>

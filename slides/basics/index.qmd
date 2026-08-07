@@ -27,10 +27,6 @@ title-slide-attributes:
 
 {{< include resources/checkpoint.qmd >}}
 
-## Open your workspace {.light-centered .center}
-
-{{< include resources/setup.qmd >}}
-
 ## Agents can do almost anything with your [files]{.coral} {.light-centered .center}
 
 {{< include resources/agent-capabilities.qmd >}}
@@ -59,14 +55,6 @@ title-slide-attributes:
 
 {{< include resources/website-structure.qmd >}}
 
-## Know what you're building {.light-centered .center}
-
-{{< include resources/know-the-basics.qmd >}}
-
-## &nbsp; {.dark-centered .center .practice}
-
-{{< include resources/practice-1.qmd >}}
-
 ## The CLAUDE.md file {.light-centered .center}
 
 {{< include resources/claude-md.qmd >}}
@@ -81,7 +69,7 @@ title-slide-attributes:
 
 ## &nbsp; {.dark-centered .center .practice}
 
-{{< include resources/practice-2.qmd >}}
+{{< include resources/practice.qmd >}}
 
 ## Three takeaways {.light-centered .center}
 

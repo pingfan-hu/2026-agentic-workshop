@@ -658,6 +658,22 @@ body.reveal-viewport {
   // and the centering measures the box alone.
   section.practice > h2 { display: none; }
 
+  // Wrapper for the amber practice panels. Every size inside those partials is
+  // em-based, so the font-size here is a single knob that scales the whole
+  // panel: type, padding, gaps, and the timer tab together. Practice panels
+  // carry more cards than the checkpoint or demo variants and had grown past
+  // the 700px stage, where Reveal clips rather than scrolls. Shrink this
+  // further if a panel gains another card; do NOT start trimming the inline
+  // sizes one at a time, or the panels drift out of sync with each other.
+  // Checkpoint and demo panels are short enough to keep their own wrappers.
+  .practice-box {
+    position: relative;
+    width: 92%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 0.85em;
+  }
+
   // Practice countdown timer: a rectangular tab tucked fully INSIDE the
   // practice box's top-right corner (top:0 right:0 against the
   // position:relative width:92% wrapper in each practice partial, whose top

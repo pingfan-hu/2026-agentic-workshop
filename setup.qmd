@@ -17,6 +17,15 @@ The bare minimum needed to follow the workshop hands-on, in the order to get the
 Note: Claude Code requires a paid subscription, so sign up for at least a [Claude Pro](https://claude.ai/login?plan=pro){target="_blank" rel="noopener"} account before the workshop. Netlify is free and needs nothing installed: just create the account ahead of time so you can publish your site during the workshop.
 :::
 
+::: {.freenote}
+::: {.freenote-icon}
+[]{data-lucide="wallet"}
+:::
+::: {.freenote-body}
+**Don't want to pay?** [Gemini CLI](#alternatives) is free with a Google account and works the same way: a coding agent you run from Positron's terminal. Everything we demonstrate is Claude Code, so the commands and menus will not match exactly, but the ideas transfer. See [Alternatives](#alternatives) below.
+:::
+:::
+
 ### Installing Claude Code
 
 Positron and Netlify are ordinary sign-up-and-download affairs. Claude Code is the one piece you install by typing a line, and you do it from inside Positron. Work through these five steps before the workshop so you arrive ready to build.
@@ -29,7 +38,7 @@ Positron and Netlify are ordinary sign-up-and-download affairs. Claude Code is t
 
 ## Alternatives
 
-Other agents and IDEs exist and are good options. You may wish to use one of these instead if you're more comfortable with them, or if you already have an account with an alternative agent provider (e.g., OpenAI, Google), though the specifics of how to use them may differ from what is covered in the workshop with Claude Code.
+Claude Code is not the only agent that works this way. Both of these run in Positron's terminal exactly like Claude Code does, and **Gemini CLI is free** with an ordinary Google account. Use one of these if you already have an account with that provider, or if you would rather not pay for anything. The trade-off is that the workshop is taught in Claude Code, so slash commands, menus, and the way skills are installed will not line up exactly with what you see on screen.
 
 {{< include resources/alternatives.qmd >}}
 

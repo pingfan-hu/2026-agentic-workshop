@@ -1696,6 +1696,15 @@ $section-themes: (
   .esscard-desc { font-size: 0.82em; }
 }
 
+// A single untitled group spanning the full width (Alternatives). The cards
+// inside still auto-flow as columns, so two agents sit side by side at full
+// page width instead of being squeezed into one half.
+.altgroup-row-1 {
+  grid-template-columns: 1fr;
+
+  .altgroup-cards { gap: 24px; }
+}
+
 // Anchored to the cards container (not the whole group) so the divider
 // centers on the cards, excluding the title above them.
 .altgroup + .altgroup .altgroup-cards {
@@ -2272,6 +2281,70 @@ $section-themes: (
   }
 }
 
+// ---- Free-option Callout ----
+// Tinted note on the setup page pointing at the free agent in Alternatives.
+// Louder than .agents-disclaimer on purpose: it is the answer to "do I have to
+// pay for this?", which is the first question people ask about the page.
+
+.freenote {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin: 1.25rem 0 0;
+  padding: 16px 20px;
+  border: 1px solid #BFE3E1;
+  border-left: 4px solid #2FA8A3;
+  border-radius: 12px;
+  background: #F1FAFA;
+}
+
+.freenote-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #DCF2F1;
+  color: #1F7D79;
+
+  // Pandoc wraps the icon span in a paragraph, whose default margin would
+  // knock it off center inside this flex tile.
+  p { margin: 0; display: flex; }
+
+  svg {
+    width: 17px;
+    height: 17px;
+    stroke-width: 2;
+  }
+}
+
+.freenote-body {
+  font-size: 0.9em;
+  line-height: 1.55;
+  color: #2F5560;
+
+  p { margin: 0; }
+
+  strong { color: #14565A; }
+
+  a {
+    color: #1F7D79;
+    font-weight: 600;
+    text-decoration: underline;
+
+    &:hover { color: #0E4C4A; }
+  }
+}
+
+@media (max-width: 640px) {
+  .freenote {
+    padding: 14px 16px;
+    gap: 11px;
+  }
+}
+
 // ---- Scroll Animations ----
 
 @media (prefers-reduced-motion: no-preference) {
@@ -2531,6 +2604,29 @@ body.quarto-dark {
       color: #7DA5BD;
 
       &:hover { color: #DCE6EE; }
+    }
+  }
+
+  .freenote {
+    background: #16333A;
+    border-color: #27565C;
+    border-left-color: #4FBDB6;
+  }
+
+  .freenote-icon {
+    background: #1E4750;
+    color: #6FD3CB;
+  }
+
+  .freenote-body {
+    color: #B7CDD3;
+
+    strong { color: #DCF2F1; }
+
+    a {
+      color: #6FD3CB;
+
+      &:hover { color: #A9E8E2; }
     }
   }
 
