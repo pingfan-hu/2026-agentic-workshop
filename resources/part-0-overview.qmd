@@ -5,16 +5,16 @@
  <div class="section-grid section-grid-3">
   <a class="section-card" href="preparation.html#essentials">
    <div class="section-card-icon"><i data-lucide="package-check"></i></div>
-   <div class="section-label">Essentials</div>
+   <div class="section-label">Essentials<span class="section-card-arrow"><i data-lucide="arrow-up-right"></i></span></div>
   </a>
   <a class="section-card" href="preparation.html#alternatives">
    <div class="section-card-icon"><i data-lucide="arrow-left-right"></i></div>
-   <div class="section-label">Alternatives</div>
+   <div class="section-label">Alternatives<span class="section-card-arrow"><i data-lucide="arrow-up-right"></i></span></div>
   </a>
   <a class="section-card" href="software.html#software">
    <span class="section-card-badge">Extensive</span>
    <div class="section-card-icon"><i data-lucide="app-window"></i></div>
-   <div class="section-label">Software</div>
+   <div class="section-label">Software<span class="section-card-arrow"><i data-lucide="arrow-up-right"></i></span></div>
   </a>
  </div>
 </div>

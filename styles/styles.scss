@@ -1371,29 +1371,29 @@ div.quarto-about-trestles .about-entity .description {
   padding: 22px 16px;
   text-align: center;
   border-right: 1px solid #C8DAE8;
-  transition: background 0.15s ease, transform 0.15s ease;
 
   &:last-child { border-right: none; }
+}
+
+// Part 0 cards are links (Essentials / Agents / Software jump to the matching
+// preparation sections). Other parts' cards stay plain <div>s and get NO hover
+// reaction at all: only the anchor variant tints on hover, so reacting to the
+// pointer itself signals "this one is clickable".
+a.section-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  // Pre-promote so the momentary :active press doesn't repaint neighbors on
+  // first click (see CLAUDE.md hover-shake note).
+  will-change: transform;
 
   &:hover {
     background: #EDF2F6;
 
     .section-card-icon { background: #F8F7F0; }
+    .section-label { text-decoration: none; }
   }
-}
-
-// Part 0 cards are links (Essentials / Agents / Software jump to the matching
-// preparation sections). Other parts' cards stay plain <div>s, so the
-// clickable + press affordances are scoped to the anchor variant only.
-a.section-card {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-  // Pre-promote so the momentary :active press doesn't repaint neighbors on
-  // first click (see CLAUDE.md hover-shake note).
-  will-change: transform;
-
-  &:hover .section-label { text-decoration: none; }
 
   &:active {
     transform: scale(0.98);
@@ -1434,6 +1434,28 @@ a.section-card {
   color: #013D5B;
   line-height: 1.4;
 }
+
+// Persistent "this is a link" cue on clickable cards: a small arrow-up-right
+// beside the label. Lucide strokes with currentColor, so it inherits the
+// label's theme color in every variant and in dark mode with no extra rules.
+// Dimmed at rest, full strength on hover; will-change pre-promotes the layer
+// so the first opacity transition doesn't repaint siblings (hover-shake note).
+.section-card-arrow {
+  display: inline-flex;
+  vertical-align: -0.12em;
+  margin-left: 0.3em;
+  opacity: 0.55;
+  transition: opacity 0.15s ease;
+  will-change: opacity;
+
+  svg {
+    width: 0.85em;
+    height: 0.85em;
+    stroke-width: 2.4;
+  }
+}
+
+a.section-card:hover .section-card-arrow { opacity: 1; }
 
 // Small corner badge inside a card (e.g. "Extensive" on the Software card).
 // Lives INSIDE the card link, so it never affects the grid's height, the
@@ -1511,13 +1533,11 @@ $section-themes: (
     .section-header { background: $primary; }
     .section-grid   { border-top-color: $border-soft; }
 
-    .section-card {
-      border-right-color: $border-soft;
+    .section-card { border-right-color: $border-soft; }
 
-      &:hover {
-        background: $hover;
-        .section-card-icon { background: #F8F7F0; }
-      }
+    a.section-card:hover {
+      background: $hover;
+      .section-card-icon { background: #F8F7F0; }
     }
 
     .section-card-icon {
@@ -2376,15 +2396,12 @@ body.quarto-dark {
     background: #1e2433;
     border-top-color: #384A57;
   }
-  .section-card {
-    border-right-color: #384A57;
-
+  .section-card { border-right-color: #384A57; }
+  a.section-card {
     &:hover {
       background: #232b3e;
       .section-card-icon { background: #1e2433; }
     }
-  }
-  a.section-card {
     &:active {
       background: #2A3447;
       .section-card-icon { background: #2A4055; }
@@ -2525,12 +2542,11 @@ body.quarto-dark {
       .section-header { background: $border; }
       .section-grid   { border-top-color: $border; }
 
-      .section-card {
-        border-right-color: $border;
-        &:hover {
-          background: $hover;
-          .section-card-icon { background: #1e2433; }
-        }
+      .section-card { border-right-color: $border; }
+
+      a.section-card:hover {
+        background: $hover;
+        .section-card-icon { background: #1e2433; }
       }
 
       .section-card-icon {
