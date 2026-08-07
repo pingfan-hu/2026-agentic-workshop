@@ -39,6 +39,10 @@ title-slide-attributes:
 
 {{< include resources/africa-code.qmd >}}
 
+## Another Example: [Map of USA]{.teal} {.light-centered .center}
+
+{{< include resources/codify-map.qmd >}}
+
 ## Build the [code]{.teal}, not the [artifact]{.coral} {.light-centered .center}
 
 {{< include resources/pipeline-example.qmd >}}
@@ -62,10 +66,6 @@ title-slide-attributes:
 ## Enhanced by agents: [sanity checks]{.teal} {.light-centered .center}
 
 {{< include resources/gain-checks.qmd >}}
-
-## Example: [Map of USA]{.teal} {.light-centered .center}
-
-{{< include resources/codify-map.qmd >}}
 
 ## <span class="divider-icon"><i data-lucide="shield-check"></i></span>Protect Sensitive Data {.divider-purple .center data-state="divider-slide"}
 

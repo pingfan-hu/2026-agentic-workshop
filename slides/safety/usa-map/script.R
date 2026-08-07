@@ -1,6 +1,6 @@
-```{r}
-#| label: codify-map
-#| message: false
+# Map of USA: interactive state-population map with click-to-compare bars.
+# Reads data/state-population.csv and writes output/usa-map.html.
+# Run from this folder: Rscript script.R
 
 library(dplyr)
 library(plotly)
@@ -62,7 +62,7 @@ bar <- plot_ly(states, width = 980, height = 530) |>
 widget <- subplot(map, bar, nrows = 1, widths = c(0.70, 0.30),
                   margin = 0.03, titleX = FALSE, titleY = FALSE) |>
   layout(
-    paper_bgcolor = "rgba(0,0,0,0)", plot_bgcolor = "rgba(0,0,0,0)",
+    paper_bgcolor = bg, plot_bgcolor = "rgba(0,0,0,0)",
     showlegend = FALSE, dragmode = FALSE,
     geo = list(domain = list(x = c(0, 0.70), y = c(0, 1))),
     font = list(family = "Maple Mono, monospace", color = ink),
@@ -80,7 +80,7 @@ widget <- subplot(map, bar, nrows = 1, widths = c(0.70, 0.30),
   ) |>
   config(displayModeBar = FALSE)
 
-onRender(widget, "
+widget <- onRender(widget, "
 function(el, x, data) {
   var OV = 1, BAR = 2, FLOOR = 2e6;
   var sel = [];
@@ -405,10 +405,7 @@ function(el, x, data) {
 }
 ", data = list(abb = states$abb, name = states$name,
                population = states$population, hover = states$hover))
-```
 
-```{=html}
-<div style="margin-top:0.45em;text-align:center;">
- <a class="dl-pill" href="usa-map.zip" download><i data-lucide="download"></i>Download the source files</a>
-</div>
-```
+dir.create("output", showWarnings = FALSE)
+saveWidget(widget, "output/usa-map.html", selfcontained = TRUE,
+           title = "Map of USA")

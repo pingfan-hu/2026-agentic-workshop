@@ -4,6 +4,7 @@ project:
     - index.qmd
   resources:
     - figs/
+    - usa-map.zip
 
 metadata-files:
   - ../_shared.yml
