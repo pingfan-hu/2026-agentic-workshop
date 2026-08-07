@@ -18,19 +18,19 @@
 
    <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(111,194,176,0.2);border-radius:12px;padding:0.6em 0.8em;">
     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#6FC2B0;letter-spacing:0.16em;margin-bottom:0.3em;text-transform:uppercase;">02</div>
-    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;">In the <strong>Terminal</strong>, type <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;">claude</code>.</div>
+    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;">Open a terminal: <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;">Terminal › New Terminal</code>.</div>
    </div>
 
    <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(111,194,176,0.2);border-radius:12px;padding:0.6em 0.8em;">
     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#6FC2B0;letter-spacing:0.16em;margin-bottom:0.3em;text-transform:uppercase;">03</div>
-    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;">Ask it <em>"who are you?"</em> and see a reply.</div>
+    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;">Type <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;">claude</code>, then ask it <em>"who are you?"</em></div>
    </div>
 
   </div>
 
   <div style="display:flex;align-items:center;gap:0.5em;margin-top:0.85em;padding-top:0.6em;border-top:1px solid rgba(111,194,176,0.22);">
-   <i data-lucide="hand" style="width:0.8em;height:0.8em;stroke-width:2;color:#6FC2B0;flex-shrink:0;"></i>
-   <div style="font-size:0.46em;color:#C9C4BC;line-height:1.45;"><span style="color:#6FC2B0;font-weight:700;">Stuck?</span> Raise a hand and keep it up. We will come to you, and the room will wait.</div>
+   <i data-lucide="circle-help" style="width:0.8em;height:0.8em;stroke-width:2;color:#6FC2B0;flex-shrink:0;"></i>
+   <div style="font-size:0.46em;color:#C9C4BC;line-height:1.45;"><span style="color:#6FC2B0;font-weight:700;">Not working?</span> Post it in the Q&amp;A, then keep watching. Everything today is on the website, so you can set it up afterward and follow along now.</div>
   </div>
 
  </div>
