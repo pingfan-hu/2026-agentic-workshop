@@ -1041,9 +1041,9 @@ nav.navbar {
   padding: 0.2rem 0.55rem !important;
 }
 
-// ---- Navbar: Preparation split dropdown ("Full List" flyout) ----
-// The caret button and flyout are injected by styles.js next to the
-// Preparation nav link (see "Preparation split dropdown" there).
+// ---- Navbar: Setup split dropdown ("Full List" flyout) ----
+// The caret button and flyout are injected by styles.js next to the Setup nav
+// link (see "Setup split dropdown" there).
 .navbar-nav .nav-item.nav-split {
   position: relative;
   display: flex;
@@ -1100,9 +1100,14 @@ nav.navbar {
   position: absolute;
   top: calc(100% + 6px);
   left: 0;
-  // Stop short of the caret (22px + 2px margin) so the drawer pill has exactly
-  // the width and position of the original nav pill.
-  right: 24px;
+  right: auto;
+  // Grow to fit the label, but never narrower than the nav pill itself (the
+  // pill's width minus the caret's 22px + 2px margin). A label shorter than
+  // the pill still reads as a drawer pulled straight out of it; a longer one
+  // ("Optional Software") extends rightward instead of being clipped by the
+  // overflow:hidden that produces the drawer effect.
+  width: max-content;
+  min-width: calc(100% - 24px);
   padding-bottom: 12px;
   overflow: hidden;
   pointer-events: none;
@@ -1173,6 +1178,7 @@ nav.navbar {
     top: 50%;
     left: calc(100% + 6px);
     right: auto;
+    min-width: 0;
     transform: translateY(-50%);
     // Symmetric vertical padding: shadow room above and below without skewing
     // the translateY(-50%) centering against the pill row.
@@ -2332,28 +2338,6 @@ body.quarto-dark {
   @media (max-width: 720px) {
     .section-card { border-bottom-color: #384A57; }
   }
-
-  // Suggested Reading — dark mode
-  .reading-row {
-    border-color: #7DA5BD;
-    background: #1e2433;
-
-    &:hover {
-      background: #232b3e;
-      .reading-icon { background: #1e2433; }
-    }
-
-    &:active { background: #2A3447; }
-    &:focus-visible { outline-color: #7DA5BD; }
-  }
-  .reading-icon {
-    background: #1F3340;
-    svg { color: #A4C9DC; }
-  }
-  .reading-kicker { color: #94A6B4; }
-  .reading-title { color: #A4C9DC; }
-  .reading-desc { color: #9AA7B4; }
-  .reading-ext svg { color: #7DA5BD; }
 
   // Software Table — dark mode
   .swtbl-outer { border-color: #7DA5BD; }

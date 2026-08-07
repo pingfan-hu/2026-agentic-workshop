@@ -3,9 +3,9 @@
   <span class="section-header-text">Get set up before the workshop, and read up on what makes agentic coding work.</span>
  </div>
  <div class="section-grid section-grid-2">
-  <a class="section-card" href="preparation.html">
+  <a class="section-card" href="setup.html">
    <div class="section-card-icon"><i data-lucide="package-check"></i></div>
-   <div class="section-label">Software<span class="section-card-arrow"><i data-lucide="arrow-up-right"></i></span></div>
+   <div class="section-label">Setup<span class="section-card-arrow"><i data-lucide="arrow-up-right"></i></span></div>
    <div class="section-card-desc">Install the tools to follow along hands-on</div>
   </a>
   <a class="section-card" href="https://www.anthropic.com/research/claude-code-expertise" target="_blank" rel="noopener">

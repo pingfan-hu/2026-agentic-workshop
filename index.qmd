@@ -28,7 +28,7 @@ grid:
 
 <div class="soft-divider"></div>
 
-## Part 0: [Preparation](preparation.qmd)
+## Part 0: [Setup](setup.qmd)
 
 {{< include resources/part-0-overview.qmd >}}
 

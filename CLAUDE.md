@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 A Quarto **website** hosting the landing surface for a three-part workshop, with each part embedding a Quarto **revealjs** slide deck via `<iframe>`. The parent website and the per-deck slide projects are nested but separate Quarto projects, glued together by a post-render hook.
 
 - Three workshop parts: **Agentic Basics**, **Skill Usage and Design**, **Working Safely with Data and AI**
-- Four top-level content pages: `preparation.qmd` (pre-workshop setup) plus three slide pages (`basics.qmd`, `skills.qmd`, `safety.qmd`)
+- Four top-level content pages: `setup.qmd` (pre-workshop setup, with `optional-software.qmd` hanging off it) plus three slide pages (`basics.qmd`, `skills.qmd`, `safety.qmd`)
 - Deployed to GitHub Pages via `.github/workflows/quarto-publish.yml` on push to `main`
 
 ## Build / preview
@@ -44,8 +44,8 @@ Navbar order is the source of truth (`_quarto.yml` → `website.navbar.left`):
 
 | Page | File | Role |
 |---|---|---|
-| Home | `index.qmd` | Landing — author cards (`resources/authors.qmd`), GW affiliation, suggested-reading row (`resources/suggested-reading.qmd`, inside Part 0), four Part-N section grids (`resources/part-{0,1,2,3}-overview.qmd`; Part 0 links to the preparation page) |
-| 0. Preparation | `preparation.qmd` | Pre-workshop setup — two sections (Essentials, Alternatives) pulled in from `resources/essentials.qmd` and `resources/alternatives.qmd` (both use the `.altgroup-*` titled-halves layout: Essentials has one full-size card per Agent/IDE half, Alternatives four small cards split 2+2), plus a button to `software.qmd` |
+| Home | `index.qmd` | Landing: author cards (`resources/authors.qmd`), GW affiliation, four Part-N section grids (`resources/part-{0,1,2,3}-overview.qmd`). Part 0 is a two-card row: Setup (links to `setup.qmd`) and Suggested Reading (external Anthropic article) |
+| 0. Setup | `setup.qmd` | Pre-workshop setup — two sections (Essentials, Alternatives) pulled in from `resources/essentials.qmd` and `resources/alternatives.qmd` (both use the `.altgroup-*` titled-halves layout: Essentials has one full-size card per Agent/IDE half, Alternatives four small cards split 2+2), plus a button to `optional-software.qmd`. A caret button injected by `styles/styles.js` also hangs an "Optional Software" flyout off the navbar's Setup pill; it matches on `href$="setup.html"`, so renaming this page again means updating that selector |
 | 1. Agentic Basics | `basics.qmd` | iframes `slides/basics/` |
 | 2. Skill Usage and Design | `skills.qmd` | iframes `slides/skills/` |
 | 3. Working Safely with Data and AI | `safety.qmd` | iframes `slides/safety/` |
@@ -54,7 +54,7 @@ Slide page filenames and their deck directories under `slides/` share the same s
 
 ### Body-width override on slide pages
 
-`basics.qmd`, `skills.qmd`, `safety.qmd` each set `grid: { sidebar-width: 0px, body-width: 1200px, margin-width: 0px }` so the iframe stretches past Quarto's 800px default. `index.qmd` and `preparation.qmd` use the same override without `body-width` (default 800px is fine for them).
+`basics.qmd`, `skills.qmd`, `safety.qmd` each set `grid: { sidebar-width: 0px, body-width: 1200px, margin-width: 0px }` so the iframe stretches past Quarto's 800px default. `index.qmd` and `setup.qmd` use the same override without `body-width` (default 800px is fine for them).
 
 ## Shared assets
 
@@ -65,7 +65,7 @@ Slide page filenames and their deck directories under `slides/` share the same s
 - `slides/<deck>/figs/banner.png` — round PNG (transparent corners) used as the title slide's `data-background-image`. See "Title slide & banner mechanics". The `figs/` dir also holds any deck-local copies of shared images (headshots, logos): decks are nested projects and cannot reference the parent `images/` dir, so copy assets in.
 - `styles/styles.scss` — parent **website** styles. All component CSS lives here (see "Component CSS conventions") — never inline `<style>` blocks in qmd files.
 - `styles/styles.js` — parent-website JS entry, loaded via `include-after-body` in `_quarto.yml` alongside the Lucide icons CDN. Touch this for landing-page behavior or icon rendering changes.
-- `images/` — parent website static assets, registered as a Quarto resource in `_quarto.yml` so it's copied into `_site/` as-is. `images/software/` holds the app icons used by `resources/software.qmd`; `images/{pingfan-hu,john-helveston}.png` are the author headshots.
+- `images/` — parent website static assets, registered as a Quarto resource in `_quarto.yml` so it's copied into `_site/` as-is. `images/software/` holds the app icons used by `resources/optional-software.qmd`; `images/{pingfan-hu,john-helveston}.png` are the author headshots.
 - `resources/*.qmd` — partials included into top-level pages via `{{< include >}}`. Excluded from the parent render list so they never render as standalone pages.
 
 ## Component CSS conventions
@@ -79,8 +79,8 @@ For tables, card grids, author cards, etc.:
 - Mobile breakpoint is `@media (max-width: 640px)` (used consistently across all components).
 
 Current component families in `styles/styles.scss`:
-- `.swtbl-*` — two-column table in `resources/recommended-software.qmd` (icon + name on left, description on right, with a head/body layout that flips on mobile)
-- `.altgroup-*` / `.esscard-*` — grouped card rows on the preparation page (`resources/essentials.qmd` and `resources/alternatives.qmd`): two titled halves with a soft vertical divider, cards with icon tile + name + description
+- `.swtbl-*` — two-column table in `resources/optional-software.qmd` (icon + name on left, description on right, with a head/body layout that flips on mobile)
+- `.altgroup-*` / `.esscard-*` — grouped card rows on the setup page (`resources/essentials.qmd` and `resources/alternatives.qmd`): two titled halves with a soft vertical divider, cards with icon tile + name + description
 - `.auth-*` — author headshot cards in `resources/authors.qmd`
 - `.section-*` — colored Part-N section grids in `resources/part-{0,1,2,3}-overview.qmd`
 - `.slide-embed*` — iframe wrapper used by the three slide pages
