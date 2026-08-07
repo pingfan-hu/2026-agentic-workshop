@@ -8,7 +8,7 @@
   <div style="font-family:'Maple Mono',monospace;font-size:0.82em;color:#FFB84D;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.55em;">— practice 02 —</div>
 
   <div style="font-size:0.85em;font-weight:800;color:#F8F7F0;line-height:1.15;margin-bottom:0.75em;letter-spacing:-0.01em;">
-   Build a <code style="font-family:'Maple Mono',monospace;font-size:0.95em;color:#FFB84D;">/publish-website</code> skill for your site.
+   Build a <code style="font-family:'Maple Mono',monospace;font-size:0.95em;color:#FFB84D;">/publish-website</code> skill, then go live.
   </div>
 
   <div style="display:flex;flex-direction:column;gap:0.45em;">
@@ -25,7 +25,8 @@
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="list-checks" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
      <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Teach it</div>
-     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Fill in the workflow: check pages and links, then publish the folder to <a href="https://www.netlify.com" target="_blank" rel="noopener" style="color:#FFD27F;font-weight:700;">Netlify</a>. Let Claude work out the exact steps.</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Write the workflow in your own words. Something like:</div>
+     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFD27F;background:rgba(255,184,77,0.1);border-left:2px solid rgba(255,184,77,0.45);border-radius:0 6px 6px 0;padding:0.5em 0.75em;margin-top:0.35em;line-height:1.6;">1. Check that every page opens and every link works.<br>2. List the files I need to publish.<br>3. Walk me through uploading them to <a href="https://app.netlify.com/drop" target="_blank" rel="noopener" style="color:#FFD27F;font-weight:700;">Netlify</a> by hand, one step at a time.<br>Do not install anything and do not use a command-line tool.</div>
     </div>
    </div>
 
@@ -33,7 +34,7 @@
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="rocket" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
      <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Go live</div>
-     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Run <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/publish-website</code> and watch your site go live for the first time.</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Run <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/publish-website</code> and follow what it tells you. We are not explaining Netlify: <strong>let Claude teach you</strong>.</div>
     </div>
    </div>
 
@@ -41,10 +42,15 @@
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="repeat" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
      <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Test</div>
-     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Change something on your site, run it again, and confirm the update is live.</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Change something on your site, run the skill again, and confirm the update is live.</div>
     </div>
    </div>
 
+  </div>
+
+  <div style="display:flex;align-items:center;gap:0.5em;margin-top:0.7em;padding-top:0.55em;border-top:1px solid rgba(255,184,77,0.22);">
+   <i data-lucide="share-2" style="width:0.8em;height:0.8em;stroke-width:2;color:#FFB84D;flex-shrink:0;"></i>
+   <div style="font-size:0.46em;color:#C9C4BC;line-height:1.45;"><span style="color:#FFB84D;font-weight:700;">Finished early?</span> Drop your URL in the chat, open a neighbor's site, and steal an idea from it.</div>
   </div>
 
  </div>

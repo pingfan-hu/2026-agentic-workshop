@@ -45,7 +45,7 @@ Navbar order is the source of truth (`_quarto.yml` → `website.navbar.left`):
 | Page | File | Role |
 |---|---|---|
 | Home | `index.qmd` | Landing: author cards (`resources/authors.qmd`), GW affiliation, four Part-N section grids (`resources/part-{0,1,2,3}-overview.qmd`). Part 0 is a two-card row: Setup (links to `setup.qmd`) and Suggested Reading (external Anthropic article) |
-| 0. Setup | `setup.qmd` | Pre-workshop setup — two sections (Essentials, Alternatives) pulled in from `resources/essentials.qmd` and `resources/alternatives.qmd` (both use the `.altgroup-*` titled-halves layout: Essentials has one full-size card per Agent/IDE half, Alternatives four small cards split 2+2), plus a button to `optional-software.qmd`. A caret button injected by `styles/styles.js` also hangs an "Optional Software" flyout off the navbar's Setup pill; it matches on `href$="setup.html"`, so renaming this page again means updating that selector |
+| 0. Setup | `setup.qmd` | Pre-workshop setup — two sections (Essentials, Alternatives) pulled in from `resources/essentials.qmd` and `resources/alternatives.qmd` (both use the `.altgroup-*` titled-halves layout: Essentials is three halves via `.altgroup-row-3`, one full-size card each for Agent/IDE/Hosting; Alternatives is two halves with four small cards split 2+2), plus a button to `optional-software.qmd`. A caret button injected by `styles/styles.js` also hangs an "Optional Software" flyout off the navbar's Setup pill; it matches on `href$="setup.html"`, so renaming this page again means updating that selector |
 | 1. Agentic Basics | `basics.qmd` | iframes `slides/basics/` |
 | 2. Skill Usage and Design | `skills.qmd` | iframes `slides/skills/` |
 | 3. Working Safely with Data and AI | `safety.qmd` | iframes `slides/safety/` |
@@ -80,7 +80,7 @@ For tables, card grids, author cards, etc.:
 
 Current component families in `styles/styles.scss`:
 - `.swtbl-*` — two-column table in `resources/optional-software.qmd` (icon + name on left, description on right, with a head/body layout that flips on mobile)
-- `.altgroup-*` / `.esscard-*` — grouped card rows on the setup page (`resources/essentials.qmd` and `resources/alternatives.qmd`): two titled halves with a soft vertical divider, cards with icon tile + name + description
+- `.altgroup-*` / `.esscard-*` — grouped card rows on the setup page (`resources/essentials.qmd` and `resources/alternatives.qmd`): titled halves with a soft vertical divider, cards with icon tile + name + description. Two halves by default; `.altgroup-row-3` on the row makes it three (the divider keys off `.altgroup + .altgroup`, so extra halves need no further CSS)
 - `.auth-*` — author headshot cards in `resources/authors.qmd`
 - `.section-*` — colored Part-N section grids in `resources/part-{0,1,2,3}-overview.qmd`
 - `.slide-embed*` — iframe wrapper used by the three slide pages
@@ -115,7 +115,8 @@ There are no speaker scripts (the per-deck `SCRIPTS.md` files were removed); eac
 
 - Pacing target: ~25 minutes per part, ~19-26 slides each. Content slides use `.light-centered` or default; `.dark-centered` is reserved for the title slide, the roadmap, practice slides, and punctuation/closing slides (quotes, thank-you)
 - **Roadmaps**: every deck's roadmap is exactly three bars (icon tile + title only, no subtitles, no header line). The three titles and Lucide icons must stay in sync with the matching home-page part cards in `resources/part-{1,2,3}-overview.qmd`
-- **Practice slides**: dark amber panels with a `practice-timer`. Basics and skills number theirs (`— practice 01 —`); safety has a single unnumbered practice (`— practice —`, 20 minutes)
+- **Practice slides**: dark amber panels with a `practice-timer`, and every one closes with a `Finished early?` stretch line above a hairline rule (so fast tables have somewhere to go). Basics and skills number theirs (`— practice 01 —`); safety has a single unnumbered practice (`— practice —`, 20 minutes)
+- **Checkpoint slide**: `slides/basics/resources/checkpoint.qmd` is the same panel anatomy in teal (`#6FC2B0`) rather than amber, labeled `— checkpoint —` with no timer. It is a 60-second "everyone type `claude`, thumbs up" room sync, deliberately not numbered as a practice so practices read as the fun part. Reuse the teal variant for any future non-practice room check
 - Quote/closing slides put `margin-top:1.1em` on the first content block so the title breathes; roadmaps use the same gap on the bar stack
 
 ## Project hooks

@@ -14,7 +14,7 @@ The bare minimum needed to follow the workshop hands-on.
 {{< include resources/essentials.qmd >}}
 
 ::: {.agents-disclaimer}
-Note: Claude Code requires a paid subscription, so sign up for at least a [Claude Pro](https://claude.ai/login?plan=pro){target="_blank" rel="noopener"} account before the workshop.
+Note: Claude Code requires a paid subscription, so sign up for at least a [Claude Pro](https://claude.ai/login?plan=pro){target="_blank" rel="noopener"} account before the workshop. Netlify is free and needs nothing installed: just create the account ahead of time so you can publish your site during the workshop.
 :::
 
 ```{=html}

@@ -25,7 +25,7 @@ title-slide-attributes:
 
 ## &nbsp; {.dark-centered .center .practice}
 
-{{< include resources/practice-1.qmd >}}
+{{< include resources/checkpoint.qmd >}}
 
 ## Open your workspace {.light-centered .center}
 
@@ -65,7 +65,7 @@ title-slide-attributes:
 
 ## &nbsp; {.dark-centered .center .practice}
 
-{{< include resources/practice-2.qmd >}}
+{{< include resources/practice-1.qmd >}}
 
 ## The CLAUDE.md file {.light-centered .center}
 
@@ -81,7 +81,7 @@ title-slide-attributes:
 
 ## &nbsp; {.dark-centered .center .practice}
 
-{{< include resources/practice-3.qmd >}}
+{{< include resources/practice-2.qmd >}}
 
 ## Three takeaways {.light-centered .center}
 

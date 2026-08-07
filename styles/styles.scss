@@ -1681,6 +1681,21 @@ $section-themes: (
   margin: 1.5rem 0;
 }
 
+// Three halves instead of two (Essentials: Agent / IDE / Hosting). The divider
+// rule below keys off `.altgroup + .altgroup`, so the extra group grows its own
+// divider with no further change. Narrower columns, so tighten the gap and the
+// card padding to keep the icon tile from crowding the name.
+.altgroup-row-3 {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+
+  .altgroup + .altgroup .altgroup-cards::before { left: -16px; }
+
+  .esscard { padding: 24px 16px 22px; }
+  .esscard-foot { margin: auto -16px -22px; }
+  .esscard-desc { font-size: 0.82em; }
+}
+
 // Anchored to the cards container (not the whole group) so the divider
 // centers on the cards, excluding the title above them.
 .altgroup + .altgroup .altgroup-cards {
