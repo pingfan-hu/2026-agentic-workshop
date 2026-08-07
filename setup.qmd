@@ -9,7 +9,7 @@ grid:
 
 ## Essentials
 
-The bare minimum needed to follow the workshop hands-on.
+The bare minimum needed to follow the workshop hands-on, in the order to get them. Positron is the window everything else runs inside, so start there.
 
 {{< include resources/essentials.qmd >}}
 
