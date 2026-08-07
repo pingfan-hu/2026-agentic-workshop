@@ -30,8 +30,6 @@ grid:
 
 ## Part 0: [Preparation](preparation.qmd)
 
-{{< include resources/suggested-reading.qmd >}}
-
 {{< include resources/part-0-overview.qmd >}}
 
 ## Part 1: [Agentic Basics](basics.qmd)
