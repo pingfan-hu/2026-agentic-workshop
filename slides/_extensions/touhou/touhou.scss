@@ -1251,9 +1251,10 @@ body.reveal-viewport {
   padding: 0.4em 1.1em;
   text-decoration: none !important;
   box-shadow: 0 2px 6px rgba(44, 132, 117, 0.15);
-  will-change: background-color, color;
+  will-change: background-color, color, transform;
   backface-visibility: hidden;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.1s ease;
 
   svg { width: 1em; height: 1em; stroke-width: 2; }
 
@@ -1264,7 +1265,8 @@ body.reveal-viewport {
     box-shadow: 0 2px 6px rgba(44, 132, 117, 0.15);
   }
 
-  &:active { transform: translateY(1px); }
+  // Press effect matches `.cta-pill` (the "Download GitHub Desktop" button).
+  &:active { transform: scale(0.96); }
 }
 
 // ---- Inline "surveydown" links (case-subsections slide) ----
