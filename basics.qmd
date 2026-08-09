@@ -1,5 +1,6 @@
 ---
 title: "Agentic Basics"
+description: "Agent basics, a website example, and Claude Code essentials."
 toc: false
 grid:
   sidebar-width: 0px

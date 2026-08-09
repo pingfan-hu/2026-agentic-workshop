@@ -1,5 +1,6 @@
 ---
 title: "Skill Usage and Design"
+description: "What skills are, how to use them, how to write them."
 toc: false
 grid:
   sidebar-width: 0px

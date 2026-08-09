@@ -1,6 +1,6 @@
 ---
 title: "Setup"
-description: "The essential apps and CLI agents to install before the workshop."
+description: "The apps and agents to install before the workshop."
 toc: false
 grid:
   sidebar-width: 0px

@@ -1,5 +1,6 @@
 ---
 title: "Working Safely with Data and AI"
+description: "GitHub, code-based pipelines, and keeping data safe."
 toc: false
 grid:
   sidebar-width: 0px

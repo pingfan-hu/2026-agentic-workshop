@@ -1,5 +1,6 @@
 ---
 pagetitle: "2026 Summer Workshop"
+description: "Agentic Workflows with Claude Code, a hands-on workshop."
 open-graph:
   image: images/card.png
 toc: false

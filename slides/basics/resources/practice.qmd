@@ -33,7 +33,7 @@
     <div style="width:1.7em;height:1.7em;border-radius:0.42em;background:rgba(255,184,77,0.14);border:1px solid rgba(255,184,77,0.35);display:flex;align-items:center;justify-content:center;color:#FFB84D;flex-shrink:0;"><i data-lucide="undo-2" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
     <div>
      <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#FFB84D;letter-spacing:0.16em;margin-bottom:0.12em;text-transform:uppercase;">Break it, then take it back</div>
-     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Ask for something big. Don't like it? <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/rewind</code> to a checkpoint from before it, or <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/clear</code> if the chat gets muddled.</div>
+     <div style="font-size:0.5em;color:#F8F7F0;line-height:1.4;">Ask for something big. Don't like it? <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/rewind</code> to a checkpoint, or <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#FFB84D;">/clear</code> to start fresh.</div>
      <div style="display:flex;flex-wrap:wrap;gap:0.3em;margin-top:0.3em;">
       <span style="font-family:'Maple Mono',monospace;font-size:0.38em;color:#FFD27F;background:rgba(255,184,77,0.12);border:1px solid rgba(255,184,77,0.3);border-radius:999px;padding:0.25em 0.7em;">a menu bar on every page</span>
       <span style="font-family:'Maple Mono',monospace;font-size:0.38em;color:#FFD27F;background:rgba(255,184,77,0.12);border:1px solid rgba(255,184,77,0.3);border-radius:999px;padding:0.25em 0.7em;">a dark mode toggle</span>

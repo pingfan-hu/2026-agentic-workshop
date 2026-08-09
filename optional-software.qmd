@@ -1,6 +1,6 @@
 ---
 title: "Optional Software"
-description: "Suggested extras beyond the essentials that round out an agentic workflow. None of it is required."
+description: "Extras that round out an agentic workflow."
 toc: false
 grid:
   sidebar-width: 0px
