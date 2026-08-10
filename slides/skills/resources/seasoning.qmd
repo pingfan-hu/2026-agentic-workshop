@@ -5,15 +5,15 @@
  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.85em;">
   <div style="background:#FFFFFF;border-radius:14px;padding:0.5em;box-shadow:0 8px 22px rgba(44,62,80,0.12);border:1px solid #EFE6D6;">
    <div style="font-family:'Maple Mono',monospace;font-size:0.42em;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5654A2;text-align:center;padding:0.35em 0 0.5em;">Cooking Oil</div>
-   <img src="figs/cooking-oil.png" alt="Cooking oil" style="display:block;width:100%;height:auto;border-radius:9px;" />
+   <img src="figs/cooking-oil.png" alt="Cooking oil" style="display:block;width:100%;height:auto;max-width:none;max-height:none;margin:0;border:none;box-shadow:none;border-radius:9px;" />
   </div>
   <div style="background:#FFFFFF;border-radius:14px;padding:0.5em;box-shadow:0 8px 22px rgba(44,62,80,0.12);border:1px solid #EFE6D6;">
    <div style="font-family:'Maple Mono',monospace;font-size:0.42em;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5654A2;text-align:center;padding:0.35em 0 0.5em;">Light Soy Sauce</div>
-   <img src="figs/light-soy-sauce.png" alt="Light soy sauce" style="display:block;width:100%;height:auto;border-radius:9px;" />
+   <img src="figs/light-soy-sauce.png" alt="Light soy sauce" style="display:block;width:100%;height:auto;max-width:none;max-height:none;margin:0;border:none;box-shadow:none;border-radius:9px;" />
   </div>
   <div style="background:#FFFFFF;border-radius:14px;padding:0.5em;box-shadow:0 8px 22px rgba(44,62,80,0.12);border:1px solid #EFE6D6;">
    <div style="font-family:'Maple Mono',monospace;font-size:0.42em;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5654A2;text-align:center;padding:0.35em 0 0.5em;">Tomato Paste</div>
-   <img src="figs/tomato-paste.png" alt="Tomato paste" style="display:block;width:100%;height:auto;border-radius:9px;" />
+   <img src="figs/tomato-paste.png" alt="Tomato paste" style="display:block;width:100%;height:auto;max-width:none;max-height:none;margin:0;border:none;box-shadow:none;border-radius:9px;" />
   </div>
  </div>
 
