@@ -1,0 +1,139 @@
+// Content-specific styles for the safety deck. Three slides are covered: the
+// two clickable maps (resources/codify-map.qmd, resources/africa-code.qmd) and
+// the fake-vs-real slide's package pills (resources/fake-vs-real.qmd).
+//
+// Everything here names a particular slide's subject matter: two named R and
+// Python packages, one downloadable bundle, one plotly widget. Rules that
+// generalize (the .brand-pill chassis these variants extend, .practice-box,
+// the divider slides) stay in the touhou extension, which is shared with the
+// canonical copy and every other deck and is kept byte-identical across them.
+//
+// Wired up as a theme layer in slides/safety/_quarto.yml, not as a `css:`
+// entry, since a css file outside the nested deck project never gets copied
+// into its _site. Sass is compiled instead of copied, so the boundary is a
+// non-issue. That is also why the file needs the `scss:rules` marker below.
+
+/*-- scss:rules --*/
+
+// ---- Hand cursor over the clickable map shapes ----
+// Each widget's onRender JS toggles `.map-hot` on the plot container while
+// plotly reports a hover on a choropleth trace, i.e. exactly when a country or
+// state shape is under the pointer. Bars are clickable too but keep the plain
+// arrow on purpose: the map is what the room should be invited to click.
+// The `*` + `!important` reach is needed because plotly stacks its own hover
+// and drag layers over the shapes and sets their cursor with `cursor-*`
+// classes; whichever layer wins the hit test has to inherit the hand.
+.map-hot,
+.map-hot * {
+  cursor: pointer !important;
+}
+
+// The bar half of each widget is covered edge to edge by plotly's own drag
+// layer, which plotly stamps `cursor-pointer` on whenever `dragmode: false`.
+// That put a hand over the whole right-hand panel, bar or blank space alike,
+// which is the opposite of the signal above. Force it back to the arrow; it
+// outranks `.map-hot *` on specificity, and the map never hits this layer.
+.js-plotly-plot .nsewdrag {
+  cursor: default !important;
+}
+
+// ---- Download pill (USA map slide source bundle) ----
+// Scoped as `.reveal a.` so it beats Quarto's `.reveal a` color rules, which
+// otherwise darken the text on hover. Hover is an inversion fill (white pill
+// floods teal, text and icon flip to cream): colors only, identical metrics,
+// shadow re-asserted unchanged, per the no-shake hover rules.
+.reveal a.dl-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-family: "Maple Mono", monospace;
+  font-size: 0.45em;
+  font-weight: 700;
+  color: #2C8475 !important;
+  background: #FFFFFF;
+  border: 1px solid #BCDFC0;
+  border-radius: 999px;
+  padding: 0.4em 1.1em;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(44, 132, 117, 0.15);
+  will-change: background-color, color, transform;
+  backface-visibility: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.1s ease;
+
+  svg { width: 1em; height: 1em; stroke-width: 2; }
+
+  &:hover {
+    color: #F8F7F0 !important;
+    background: #2C8475;
+    border-color: #2C8475;
+    box-shadow: 0 2px 6px rgba(44, 132, 117, 0.15);
+  }
+
+  // Press effect matches `.cta-pill` (the "Download GitHub Desktop" button on
+  // the parent website), which lives in styles/styles.scss.
+  &:active { transform: scale(0.96); }
+}
+
+// ---- Package pills: charlatan (R) and Faker (Python) ----
+// Variants of the extension's `.brand-pill` chassis, naming the two fake-data
+// packages on resources/fake-vs-real.qmd. Content-specific (a package name, an
+// ecosystem color, that package's own logo), so they live here while the
+// chassis stays in the theme. Written with the full `.reveal .brand-pill--x`
+// selector because they are no longer nested inside the extension's `.reveal`
+// block: that keeps specificity identical to the base `.brand-pill` rules, and
+// this file loads after the extension in the deck's theme list, so the
+// variants still win the tie.
+
+.reveal .brand-pill--charlatan {
+  // Package name reads as inline code, so the wordmark takes the deck's
+  // mono face. Maple Mono sets wider than the title face, so the pill is
+  // a touch smaller to stay optically level with the surrounding words.
+  font-family: 'Maple Mono', monospace;
+  font-weight: 700;
+  font-size: 0.66em;
+  // R-ecosystem theme color (the R logo blue), shared with the
+  // `charlatan::` call on the fake-data slide. Needs !important plus the
+  // extra class to outrank `.brand-pill`'s purple, which is itself
+  // !important.
+  color: #276DC3 !important;
+  &:hover { color: #276DC3 !important; }
+
+  // The rOpenSci hex the package's own docs site uses as its logo
+  // (docs.ropensci.org/charlatan). Full color, so no currentColor mask:
+  // the ::before carries the artwork as an inline background-image and the
+  // hex ratio (240x283) is preserved by the slightly taller box.
+  &::before,
+  .pill-pkg::before {
+    width: 1.0em;
+    height: 1.18em;
+    background: url("data:image/png;base64,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") no-repeat center / contain;
+    -webkit-mask: none;
+    mask: none;
+  }
+}
+
+.reveal .brand-pill--faker {
+  // Python package name in mono, matching charlatan's treatment.
+  font-family: 'Maple Mono', monospace;
+  font-weight: 700;
+  font-size: 0.66em;
+  // Python-ecosystem theme color (dark readable take on Python's gold),
+  // shared with the `Faker()` call on the fake-data slide.
+  color: #C4881A !important;
+  &:hover { color: #C4881A !important; }
+
+  // Theater-masks glyph as the mark, full color, so no currentColor mask
+  // (same approach as `.brand-pill--waza`'s ninja emoji in the extension).
+  &::before,
+  .pill-pkg::before {
+    content: "🎭";
+    background: none;
+    -webkit-mask: none;
+    mask: none;
+    width: auto;
+    height: auto;
+    font-size: 1.05em;
+    line-height: 1;
+  }
+}

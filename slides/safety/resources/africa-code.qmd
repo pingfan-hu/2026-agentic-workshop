@@ -307,6 +307,7 @@ function(el, x, data) {
     if (pt.data.type !== 'choropleth') { return; }
     var idx = data.iso.indexOf(pt.location);
     if (idx < 0) { return; }
+    el.classList.add('map-hot');
     var bp = basePath(idx);
     if (bp) {
       bp.style.transition = 'fill-opacity 0.25s ease';
@@ -321,6 +322,7 @@ function(el, x, data) {
   });
 
   el.on('plotly_unhover', function(d) {
+    el.classList.remove('map-hot');
     removeTag();
     var pt = d.points && d.points[0];
     if (pt && pt.data.type === 'choropleth') {

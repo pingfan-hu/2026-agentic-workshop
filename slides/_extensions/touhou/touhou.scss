@@ -462,85 +462,6 @@ body.reveal-viewport {
       --brand-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z'/%3E%3C/svg%3E");
     }
 
-    &--charlatan {
-      // Package name reads as inline code, so the wordmark takes the deck's
-      // mono face. Maple Mono sets wider than the title face, so the pill is
-      // a touch smaller to stay optically level with the surrounding words.
-      font-family: 'Maple Mono', monospace;
-      font-weight: 700;
-      font-size: 0.66em;
-      // R-ecosystem theme color (the R logo blue), shared with the
-      // `charlatan::` call on the fake-data slide. Needs !important plus the
-      // extra class to outrank `.brand-pill`'s purple, which is itself
-      // !important.
-      color: #276DC3 !important;
-      &:hover { color: #276DC3 !important; }
-
-      // The rOpenSci hex the package's own docs site uses as its logo
-      // (docs.ropensci.org/charlatan). Full color, so no currentColor mask:
-      // the ::before carries the artwork as an inline background-image and the
-      // hex ratio (240x283) is preserved by the slightly taller box.
-      &::before,
-      .pill-pkg::before {
-        width: 1.0em;
-        height: 1.18em;
-        background: url("data:image/png;base64,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") no-repeat center / contain;
-        -webkit-mask: none;
-        mask: none;
-      }
-    }
-
-    &--faker {
-      // Python package name in mono, matching charlatan's treatment.
-      font-family: 'Maple Mono', monospace;
-      font-weight: 700;
-      font-size: 0.66em;
-      // Python-ecosystem theme color (dark readable take on Python's gold),
-      // shared with the `Faker()` call on the fake-data slide.
-      color: #C4881A !important;
-      &:hover { color: #C4881A !important; }
-
-      // Theater-masks glyph as the mark, full color, so no currentColor mask
-      // (same approach as the Waza ninja emoji below).
-      &::before,
-      .pill-pkg::before {
-        content: "🎭";
-        background: none;
-        -webkit-mask: none;
-        mask: none;
-        width: auto;
-        height: auto;
-        font-size: 1.05em;
-        line-height: 1;
-      }
-    }
-
-    &--netlify {
-      // Service name in mono, matching charlatan's treatment, but tuned for
-      // the dark practice panel: a translucent wash instead of the solid white
-      // capsule, no shadow, and side margins so the pill breathes between the
-      // surrounding words. Sized inline at the call site.
-      font-family: 'Maple Mono', monospace;
-      font-weight: 700;
-      font-size: 0.66em;
-      margin: 0 0.35em;
-      padding: 0.24em 0.65em;
-      background: rgba(248, 247, 240, 0.1);
-      border: 1px solid rgba(248, 247, 240, 0.24);
-      box-shadow: none;
-      color: #05BDBA !important;
-      &:hover {
-        background: rgba(248, 247, 240, 0.18);
-        border: 1px solid rgba(248, 247, 240, 0.24);
-        box-shadow: none;
-        color: #05BDBA !important;
-      }
-
-      // Netlify diamond mark (simpleicons.org), painted in Netlify teal.
-      &::before { background: #05BDBA; }
-      --brand-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.49 19.04h-.23L5.13 17.9v-.23l1.73-1.71h1.2l.15.15v1.2ZM5.13 6.31V6.1l1.13-1.14h.23l1.73 1.71v1.2l-.15.15h-1.2Zm9.96 9.09h-1.65l-.14-.13v-3.83c0-.68-.27-1.2-1.1-1.23-.42 0-.9 0-1.43.02l-.07.08v4.96l-.14.14H9.9l-.14-.14V9.35l.14-.13h3.7a2.6 2.6 0 0 1 2.61 2.6v3.45ZM5.76 13.36H.14L0 13.22v-1.67l.14-.14h5.62l.14.14v1.67zm18.1 0h-5.62l-.14-.14v-1.67l.14-.14h5.62l.14.14v1.67zM11.05 6.55V1.64l.14-.14h1.65l.14.14v4.9l-.14.14h-1.65zm0 15.81v-4.9l.14-.14h1.65l.14.13v4.91l-.14.14h-1.65z'/%3E%3C/svg%3E");
-    }
-
     &--waza {
       // The ninja emoji itself (light skin tone), full color, so no mask: the
       // ::before becomes a plain text glyph instead of a currentColor mask.
@@ -1230,43 +1151,6 @@ body.reveal-viewport {
   }
 
   &:active { background: rgba(255, 184, 77, 0.32); }
-}
-
-// ---- Download pill (USA map slide source bundle) ----
-// Scoped as `.reveal a.` so it beats Quarto's `.reveal a` color rules, which
-// otherwise darken the text on hover. Hover is an inversion fill (white pill
-// floods teal, text and icon flip to cream): colors only, identical metrics,
-// shadow re-asserted unchanged, per the no-shake hover rules.
-.reveal a.dl-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45em;
-  font-family: "Maple Mono", monospace;
-  font-size: 0.45em;
-  font-weight: 700;
-  color: #2C8475 !important;
-  background: #FFFFFF;
-  border: 1px solid #BCDFC0;
-  border-radius: 999px;
-  padding: 0.4em 1.1em;
-  text-decoration: none !important;
-  box-shadow: 0 2px 6px rgba(44, 132, 117, 0.15);
-  will-change: background-color, color, transform;
-  backface-visibility: hidden;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
-    transform 0.1s ease;
-
-  svg { width: 1em; height: 1em; stroke-width: 2; }
-
-  &:hover {
-    color: #F8F7F0 !important;
-    background: #2C8475;
-    border-color: #2C8475;
-    box-shadow: 0 2px 6px rgba(44, 132, 117, 0.15);
-  }
-
-  // Press effect matches `.cta-pill` (the "Download GitHub Desktop" button).
-  &:active { transform: scale(0.96); }
 }
 
 // ---- Inline "surveydown" links (case-subsections slide) ----
