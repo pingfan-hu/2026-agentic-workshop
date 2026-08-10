@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLAUDE.md — Tom Hanks website</title>
+  <link rel="stylesheet" href="s2-claude-md.css?v=4">
+</head>
+<body>
+<pre><span class="h1"># CLAUDE.md</span>
+
+This file provides guidance to Claude Code (claude.ai/code)
+when working with code in this repository.
+
+<span class="h2">## What this is</span>
+
+A static website introducing Tom Hanks. Plain HTML and CSS:
+no build step, no dependencies, no framework. Just open
+<span class="code">`tom-hanks.html`</span> in a browser, and refresh after every edit.
+
+<span class="h2">## Structure</span>
+
+<span class="file">tom-hanks.html</span>            main page: bio, then the film list
+<span class="file">forrest-gump.html</span>         one page per film, the same shape
+<span class="file">apollo-13.html</span>
+<span class="file">saving-private-ryan.html</span>
+<span class="file">cast-away.html</span>
+<span class="file">captain-phillips.html</span>
+<span class="file">styles.css</span>                every rule for every page
+
+<span class="code">`tom-hanks.html`</span> is the hub. Each film row links out to that
+film's page, and each film page links back with <span class="code">`.back-link`</span>
+in its <span class="code">`.topbar`</span>. A new film needs both directions wired, or
+the page exists but nothing reaches it.
+
+<span class="h2">## Conventions</span>
+
+<span class="mark">-</span> <span class="bold">One stylesheet.</span> Every page links <span class="code">`styles.css`</span>. Do not
+  add a <span class="code">`&lt;style&gt;`</span> block or a second CSS file: the pages drift
+  apart the moment styling goes page-local.
+<span class="mark">-</span> <span class="bold">Color lives in <span class="code">`:root`</span>:</span> <span class="code">`--accent`</span>, <span class="code">`--ink`</span>, <span class="code">`--muted`</span>,
+  <span class="code">`--surface`</span>, <span class="code">`--bg`</span>, <span class="code">`--line`</span>. Restyle the site by editing
+  those six values, never by hardcoding a hex inside a rule.
+<span class="mark">-</span> <span class="bold">Every page shares one skeleton:</span> <span class="code">`.hero`</span> (eyebrow,
+  title, tagline), <span class="code">`main`</span> with <span class="code">`.bio`</span> sections, then <span class="code">`footer`</span>.
+  Film pages add <span class="code">`.topbar`</span> above the hero.
+<span class="mark">-</span> The content column is capped at 760px in <span class="code">`.hero`</span>, <span class="code">`main`</span>,
+  <span class="code">`.topbar`</span>, and <span class="code">`footer`</span>. Change all four together or the
+  page goes ragged.
+
+<span class="h2">## Adding a film page</span>
+
+<span class="mark">1.</span> Copy <span class="code">`forrest-gump.html`</span> and rename it after the film,
+   lowercase with dashes.
+<span class="mark">2.</span> Update <span class="code">`&lt;title&gt;`</span>, the <span class="code">`.eyebrow`</span> year, the <span class="code">`h1`</span>, and the
+   <span class="code">`.tagline`</span> and <span class="code">`.bio`</span> copy. Leave the markup alone.
+<span class="mark">3.</span> Add a <span class="code">`.film-link`</span> row to the <span class="code">`.film-list`</span> in
+   <span class="code">`tom-hanks.html`</span>, in release-year order.
+</pre>
+</body>
+</html>

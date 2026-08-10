@@ -39,10 +39,6 @@ title-slide-attributes:
 
 {{< include resources/africa-code.qmd >}}
 
-## Another Example: [Map of USA]{.teal} {.light-centered .center}
-
-{{< include resources/codify-map.qmd >}}
-
 ## Build the [code]{.teal}, not the [artifact]{.coral} {.light-centered .center}
 
 {{< include resources/pipeline-example.qmd >}}
@@ -54,6 +50,10 @@ title-slide-attributes:
 ## Same workflow, [with]{.teal} or [without]{.coral} AI {.light-centered .center}
 
 {{< include resources/pipeline-ai.qmd >}}
+
+## Another Example: [Map of USA]{.teal} {.light-centered .center}
+
+{{< include resources/codify-map.qmd >}}
 
 ## Enhanced by agents: [writing code]{.teal} {.light-centered .center}
 

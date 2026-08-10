@@ -10,7 +10,7 @@
   </div>
 
   <div style="background:#FFFFFF;border:1px solid #C7C1E5;border-radius:12px;padding:0.75em 0.55em;box-shadow:0 6px 18px rgba(86,84,162,0.1);">
-   <div style="width:1.7em;height:1.7em;border-radius:0.45em;background:#EEEDF8;border:1px solid #C7C1E5;display:flex;align-items:center;justify-content:center;color:#5654A2;margin:0 auto 0.45em;"><i data-lucide="brain" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+   <div style="width:1.7em;height:1.7em;border-radius:0.45em;background:#EEEDF8;border:1px solid #C7C1E5;display:flex;align-items:center;justify-content:center;color:#5654A2;margin:0 auto 0.45em;"><i data-lucide="bot" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
    <div style="font-family:'Maple Mono',monospace;font-size:0.55em;font-weight:700;color:#5654A2;margin-bottom:0.3em;">/model</div>
    <div style="font-size:0.45em;color:#564232;line-height:1.4;">Switch the model</div>
   </div>

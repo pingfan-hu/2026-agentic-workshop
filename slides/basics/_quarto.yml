@@ -4,7 +4,6 @@ project:
     - index.qmd
   resources:
     - figs/
-    - resources/s2-html-example.html
     - resources/s2-html-example.css
     - resources/s2-html-example-1.html
     - resources/s2-html-example-2.html
@@ -12,6 +11,8 @@ project:
     - resources/s2-html-example-4.html
     - resources/s2-html-example-5.html
     - resources/s2-html-example-6.html
+    - resources/s2-claude-md.html
+    - resources/s2-claude-md.css
     - resources/s2-structure-example.css
     - resources/s2-structure-example-1.html
     - resources/s2-structure-example-2.html
@@ -25,3 +26,13 @@ format:
   touhou-revealjs:
     include-in-header:
       - resources/_header.html
+    # Content-specific deck styles, shared by every deck and kept with every other
+    # stylesheet in the repo's top-level styles/ dir. Added as a theme layer
+    # rather than via `css:` on purpose: theme sass is compiled into the deck's
+    # own stylesheet, so a file living outside this nested project works. A
+    # `css:` entry is only ever linked and copied, and Quarto copies neither
+    # across a project boundary. Listing the extension theme first is required
+    # because naming `theme` here replaces the extension's own value.
+    theme:
+      - _extensions/touhou/touhou.scss
+      - ../../styles/slides.scss

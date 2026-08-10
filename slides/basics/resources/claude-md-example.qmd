@@ -1,0 +1,53 @@
+```{=html}
+<div style="width:92%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.1em 1.05em 1.15em;border-radius:18px;">
+
+ <!-- two columns: the generated CLAUDE.md (left) | what each section is for (right) -->
+ <div style="display:grid;grid-template-columns:1.2fr 0.85fr;gap:1em;align-items:stretch;">
+
+  <!-- LEFT: the file itself, scrollable. The scroll is native inside the iframe
+       and is managed by lockSiteScroll() in resources/_header.html, exactly like
+       the two embedded-site slides earlier in this deck. -->
+  <div style="display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:#1E1E2E;box-shadow:0 8px 22px rgba(0,0,0,0.18);">
+   <div style="background:linear-gradient(180deg,#3A3950,#2A2940);padding:0.32em 0.7em;display:flex;align-items:center;gap:0.4em;">
+    <span style="width:0.5em;height:0.5em;border-radius:50%;background:#FF5F56;"></span>
+    <span style="width:0.5em;height:0.5em;border-radius:50%;background:#FFBD2E;"></span>
+    <span style="width:0.5em;height:0.5em;border-radius:50%;background:#27C93F;"></span>
+    <span style="margin-left:0.5em;font-family:'Maple Mono',monospace;font-size:0.42em;color:#9B8EA0;">tom-hanks-website/CLAUDE.md</span>
+    <span style="margin-left:auto;display:inline-flex;align-items:center;gap:0.3em;font-family:'Maple Mono',monospace;font-size:0.36em;color:#7FC4B3;"><i data-lucide="mouse-pointer-2" style="width:1em;height:1em;stroke-width:2;"></i>scroll</span>
+   </div>
+   <iframe src="resources/s2-claude-md.html?v=4" title="CLAUDE.md written by /init for the Tom Hanks website" onload="window.wireSiteScroll&&wireSiteScroll(this)" style="display:block;width:100%;max-width:100%;flex:1;min-height:300px;border:0;margin:0;background:#1E1E2E;"></iframe>
+  </div>
+
+  <!-- RIGHT: the skeleton of the file -->
+  <div style="display:flex;flex-direction:column;gap:0.4em;text-align:left;">
+   <div style="background:#FFFFFF;border-radius:10px;padding:0.45em 0.75em;box-shadow:0 4px 14px rgba(86,84,162,0.08);border:1px solid rgba(86,84,162,0.22);">
+    <div style="display:flex;align-items:center;gap:0.4em;margin-bottom:0.12em;"><i data-lucide="info" style="width:0.8em;height:0.8em;stroke-width:2;color:#5654A2;"></i><span style="font-family:'Maple Mono',monospace;font-size:0.48em;font-weight:700;color:#5654A2;">What this is</span></div>
+    <div style="font-size:0.42em;color:#564232;line-height:1.4;">What the project is, and how to run it.</div>
+   </div>
+   <div style="background:#FFFFFF;border-radius:10px;padding:0.45em 0.75em;box-shadow:0 4px 14px rgba(58,125,201,0.08);border:1px solid rgba(58,125,201,0.22);">
+    <div style="display:flex;align-items:center;gap:0.4em;margin-bottom:0.12em;"><i data-lucide="folder-tree" style="width:0.8em;height:0.8em;stroke-width:2;color:#3A7DC9;"></i><span style="font-family:'Maple Mono',monospace;font-size:0.48em;font-weight:700;color:#3A7DC9;">Structure</span></div>
+    <div style="font-size:0.42em;color:#564232;line-height:1.4;">The file map, and which page links to which.</div>
+   </div>
+   <div style="background:#FFFFFF;border-radius:10px;padding:0.45em 0.75em;box-shadow:0 4px 14px rgba(44,132,117,0.08);border:1px solid rgba(44,132,117,0.22);">
+    <div style="display:flex;align-items:center;gap:0.4em;margin-bottom:0.12em;"><i data-lucide="ruler" style="width:0.8em;height:0.8em;stroke-width:2;color:#2C8475;"></i><span style="font-family:'Maple Mono',monospace;font-size:0.48em;font-weight:700;color:#2C8475;">Conventions</span></div>
+    <div style="font-size:0.42em;color:#564232;line-height:1.4;">The rules that keep it coherent: one stylesheet, color only from <code style="font-family:'Maple Mono',monospace;color:#C4881A;">:root</code>.</div>
+   </div>
+   <div style="background:#FFFFFF;border-radius:10px;padding:0.45em 0.75em;box-shadow:0 4px 14px rgba(196,136,26,0.08);border:1px solid rgba(196,136,26,0.22);">
+    <div style="display:flex;align-items:center;gap:0.4em;margin-bottom:0.12em;"><i data-lucide="list-checks" style="width:0.8em;height:0.8em;stroke-width:2;color:#C4881A;"></i><span style="font-family:'Maple Mono',monospace;font-size:0.48em;font-weight:700;color:#C4881A;">Adding a film page</span></div>
+    <div style="font-size:0.42em;color:#564232;line-height:1.4;">The task you repeat, written as numbered steps.</div>
+   </div>
+  </div>
+
+ </div>
+
+ <!-- divider -->
+ <div style="height:1px;background:linear-gradient(90deg,transparent,#C4C3E8,transparent);margin:0.85em 0 0;"></div>
+
+ <!-- closing line -->
+ <div style="display:flex;align-items:center;justify-content:center;gap:0.55em;margin-top:0.7em;font-size:0.52em;color:#2C3E50;line-height:1.4;text-align:left;">
+  <i data-lucide="sparkles" style="width:1.1em;height:1.1em;stroke-width:2;color:#5654A2;flex-shrink:0;"></i>
+  <span>Use <code style="font-family:'Maple Mono',monospace;background:#EEEDF8;color:#5654A2;padding:0.05em 0.35em;border-radius:5px;">/init</code> to write or update your <code style="font-family:'Maple Mono',monospace;background:#FCEEEC;color:#D45F47;padding:0.05em 0.35em;border-radius:5px;">CLAUDE.md</code> file. You can also hand modify on your own.</span>
+ </div>
+
+</div>
+```

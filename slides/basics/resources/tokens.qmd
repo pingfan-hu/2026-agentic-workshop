@@ -1,0 +1,78 @@
+```{=html}
+<div style="width:90%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.15em 1.1em;border-radius:18px;font-size:0.95em;">
+
+ <!-- banner: the premise -->
+ <div style="display:flex;align-items:center;gap:0.7em;background:#FFFFFF;border:1px solid #F0DDB4;border-radius:14px;padding:0.42em 1em;box-shadow:0 8px 24px rgba(196,136,26,0.16),0 2px 6px rgba(44,62,80,0.06);text-align:left;">
+  <div style="width:1.85em;height:1.85em;border-radius:0.5em;background:#FEF5E7;border:1px solid #F0DDB4;display:flex;align-items:center;justify-content:center;color:#C4881A;flex-shrink:0;"><i data-lucide="coins" style="width:0.95em;height:0.95em;stroke-width:1.8;"></i></div>
+  <div style="font-size:0.62em;color:#2C3E50;line-height:1.35;">Everything the agent does is paid for in <span style="color:#C4881A;font-weight:700;">tokens</span>.</div>
+ </div>
+
+ <div style="height:1px;background:linear-gradient(90deg,transparent,#C4C3E8,transparent);margin:0.8em 0 0;"></div>
+
+ <!-- what they buy -->
+ <div style="margin-top:0.9em;text-align:left;">
+  <div style="font-family:'Maple Mono',monospace;font-size:0.42em;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9B8EA0;margin-bottom:0.5em;">Spent on</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.7em;">
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.6em;align-items:center;background:#FFFFFF;border:1px solid rgba(86,84,162,0.22);border-radius:12px;padding:0.5em 0.7em;box-shadow:0 5px 16px rgba(86,84,162,0.12);">
+    <div style="width:1.7em;height:1.7em;border-radius:0.45em;background:#EEEDF8;border:1px solid #C7C1E5;display:flex;align-items:center;justify-content:center;color:#5654A2;"><i data-lucide="bot" style="width:0.9em;height:0.9em;stroke-width:1.8;"></i></div>
+    <div style="font-size:0.5em;font-weight:700;color:#2C3E50;line-height:1.2;">Thinking</div>
+   </div>
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.6em;align-items:center;background:#FFFFFF;border:1px solid rgba(44,132,117,0.22);border-radius:12px;padding:0.5em 0.7em;box-shadow:0 5px 16px rgba(44,132,117,0.12);">
+    <div style="width:1.7em;height:1.7em;border-radius:0.45em;background:#E5F2EE;border:1px solid #BCDFC0;display:flex;align-items:center;justify-content:center;color:#2C8475;"><i data-lucide="hammer" style="width:0.9em;height:0.9em;stroke-width:1.8;"></i></div>
+    <div style="font-size:0.5em;font-weight:700;color:#2C3E50;line-height:1.2;">Running tools</div>
+   </div>
+
+   <div style="display:grid;grid-template-columns:1.7em 1fr;gap:0.6em;align-items:center;background:#FFFFFF;border:1px solid rgba(58,125,201,0.22);border-radius:12px;padding:0.5em 0.7em;box-shadow:0 5px 16px rgba(58,125,201,0.12);">
+    <div style="width:1.7em;height:1.7em;border-radius:0.45em;background:#DCE9FA;border:1px solid #A6C4EA;display:flex;align-items:center;justify-content:center;color:#3A7DC9;"><i data-lucide="pen-line" style="width:0.9em;height:0.9em;stroke-width:1.8;"></i></div>
+    <div style="font-size:0.5em;font-weight:700;color:#2C3E50;line-height:1.2;">Writing code</div>
+   </div>
+
+  </div>
+ </div>
+
+ <!-- the two refill clocks: block count IS the visual, 5 short vs 7 long -->
+ <div style="margin-top:1em;text-align:left;">
+  <div style="font-family:'Maple Mono',monospace;font-size:0.42em;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9B8EA0;margin-bottom:0.5em;">Refilled on a clock</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.85em;">
+
+   <div style="background:#FFFFFF;border:1px solid rgba(196,136,26,0.22);border-radius:12px;padding:0.6em 0.85em 0.7em;box-shadow:0 6px 18px rgba(196,136,26,0.12);">
+    <div style="display:flex;align-items:center;gap:0.55em;">
+     <div style="width:1.7em;height:1.7em;border-radius:0.45em;background:#FEF5E7;border:1px solid #F0DDB4;display:flex;align-items:center;justify-content:center;color:#C4881A;flex-shrink:0;"><i data-lucide="timer" style="width:0.9em;height:0.9em;stroke-width:1.8;"></i></div>
+     <div style="font-size:0.52em;font-weight:700;color:#2C3E50;line-height:1.2;">Every 5 hours</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.3em;margin-top:0.55em;">
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0DDB4;"></div>
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0DDB4;"></div>
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0DDB4;"></div>
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0DDB4;"></div>
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0DDB4;"></div>
+     <i data-lucide="refresh-cw" style="width:0.6em;height:0.6em;stroke-width:2.2;color:#C4881A;flex-shrink:0;margin-left:0.15em;"></i>
+    </div>
+    <div style="font-size:0.44em;color:#7A6E6A;line-height:1.35;margin-top:0.45em;">Starts at your first message, then resets</div>
+   </div>
+
+   <div style="background:#FFFFFF;border:1px solid rgba(212,95,71,0.22);border-radius:12px;padding:0.6em 0.85em 0.7em;box-shadow:0 6px 18px rgba(212,95,71,0.12);">
+    <div style="display:flex;align-items:center;gap:0.55em;">
+     <div style="width:1.7em;height:1.7em;border-radius:0.45em;background:#FCEEEC;border:1px solid #F0C5BA;display:flex;align-items:center;justify-content:center;color:#D45F47;flex-shrink:0;"><i data-lucide="calendar-days" style="width:0.9em;height:0.9em;stroke-width:1.8;"></i></div>
+     <div style="font-size:0.52em;font-weight:700;color:#2C3E50;line-height:1.2;">Every 7 days</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:0.3em;margin-top:0.55em;">
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0C5BA;"></div>
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0C5BA;"></div>
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0C5BA;"></div>
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0C5BA;"></div>
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0C5BA;"></div>
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0C5BA;"></div>
+     <div style="flex:1;height:0.52em;border-radius:3px;background:#F0C5BA;"></div>
+     <i data-lucide="refresh-cw" style="width:0.6em;height:0.6em;stroke-width:2.2;color:#D45F47;flex-shrink:0;margin-left:0.15em;"></i>
+    </div>
+    <div style="font-size:0.44em;color:#7A6E6A;line-height:1.35;margin-top:0.45em;">A weekly cap sitting on top of the 5-hour one</div>
+   </div>
+
+  </div>
+ </div>
+
+</div>
+```

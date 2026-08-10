@@ -1,0 +1,59 @@
+```{=html}
+<div style="width:90%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.3em 1.1em;border-radius:18px;font-size:0.96em;">
+
+ <!-- banner: the mechanism -->
+ <div style="display:flex;align-items:center;gap:0.7em;background:#FFFFFF;border:1px solid #C7C1E5;border-radius:14px;padding:0.42em 1em;box-shadow:0 8px 24px rgba(86,84,162,0.16),0 2px 6px rgba(44,62,80,0.06);text-align:left;">
+  <div style="width:1.85em;height:1.85em;border-radius:0.5em;background:#EEEDF8;border:1px solid #C7C1E5;display:flex;align-items:center;justify-content:center;color:#5654A2;flex-shrink:0;"><i data-lucide="history" style="width:0.95em;height:0.95em;stroke-width:1.8;"></i></div>
+  <div style="font-size:0.62em;color:#2C3E50;line-height:1.35;">Every question re-reads the <span style="color:#5654A2;font-weight:700;">whole conversation</span>, not just your last line.</div>
+ </div>
+
+ <!-- the meter -->
+ <div style="margin-top:1.4em;">
+
+  <div style="display:flex;height:1.15em;border-radius:999px;overflow:hidden;border:1px solid #D8D2DE;box-shadow:0 4px 14px rgba(44,62,80,0.1);">
+   <div style="flex:60;background:linear-gradient(90deg,#BCDFC0,#7FC4B3);"></div>
+   <div style="flex:20;background:#F7D79A;"></div>
+   <div style="flex:20;background:#F0A891;"></div>
+  </div>
+
+  <!-- Same flex ratios as the bar above, so each label centers on its own zone. -->
+  <div style="display:flex;margin-top:0.5em;text-align:center;">
+   <div style="flex:60;">
+    <div style="font-family:'Maple Mono',monospace;font-size:0.42em;font-weight:700;color:#2C8475;letter-spacing:0.08em;">0 TO 60%</div>
+    <div style="font-size:0.48em;color:#564232;line-height:1.35;margin-top:0.15em;">Room to think</div>
+   </div>
+   <div style="flex:20;">
+    <div style="font-family:'Maple Mono',monospace;font-size:0.42em;font-weight:700;color:#C4881A;letter-spacing:0.08em;">60 TO 80%</div>
+    <div style="font-size:0.48em;color:#564232;line-height:1.35;margin-top:0.15em;">Slower, pricier</div>
+   </div>
+   <div style="flex:20;">
+    <div style="font-family:'Maple Mono',monospace;font-size:0.42em;font-weight:700;color:#D45F47;letter-spacing:0.08em;">80 TO 100%</div>
+    <div style="font-size:0.48em;color:#564232;line-height:1.35;margin-top:0.15em;">Hard stop at 100%</div>
+   </div>
+  </div>
+
+ </div>
+
+ <!-- the two consequences -->
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.85em;margin-top:1.15em;">
+
+  <div style="display:grid;grid-template-columns:1.9em 1fr;gap:0.7em;align-items:center;background:#FFFFFF;border:1px solid rgba(196,136,26,0.22);border-radius:12px;padding:0.6em 0.85em;box-shadow:0 6px 18px rgba(196,136,26,0.12);text-align:left;">
+   <div style="width:1.9em;height:1.9em;border-radius:0.48em;background:#FEF5E7;border:1px solid #F0DDB4;display:flex;align-items:center;justify-content:center;color:#C4881A;"><i data-lucide="message-circle" style="width:0.95em;height:0.95em;stroke-width:1.8;"></i></div>
+   <div style="font-size:0.5em;color:#2C3E50;line-height:1.35;">A tiny question pays for it all</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.9em 1fr;gap:0.7em;align-items:center;background:#FFFFFF;border:1px solid rgba(44,132,117,0.22);border-radius:12px;padding:0.6em 0.85em;box-shadow:0 6px 18px rgba(44,132,117,0.12);text-align:left;">
+   <div style="width:1.9em;height:1.9em;border-radius:0.48em;background:#E5F2EE;border:1px solid #BCDFC0;display:flex;align-items:center;justify-content:center;color:#2C8475;"><i data-lucide="recycle" style="width:0.95em;height:0.95em;stroke-width:1.8;"></i></div>
+   <div style="font-size:0.5em;color:#2C3E50;line-height:1.35;">Start fresh early, not at 99%</div>
+  </div>
+
+ </div>
+
+ <div style="height:1px;background:linear-gradient(90deg,transparent,#C4C3E8,transparent);margin:1.1em 0 0;"></div>
+
+ <div style="margin-top:0.9em;text-align:center;">
+  <a class="link-pill" href="https://github.com/tw93/waza#statusline" target="_blank" rel="noopener"><i data-lucide="puzzle"></i>Install the statusline plugin for your agent<i data-lucide="arrow-up-right"></i></a>
+ </div>
+
+</div>
+```

@@ -11,7 +11,7 @@ metadata-files:
 
 format:
   touhou-revealjs:
-    # Styles for the two interactive plotly maps, kept with every other
+    # Content-specific deck styles, shared by every deck and kept with every other
     # stylesheet in the repo's top-level styles/ dir. Added as a theme layer
     # rather than via `css:` on purpose: theme sass is compiled into the deck's
     # own stylesheet, so a file living outside this nested project works. A
@@ -20,4 +20,4 @@ format:
     # because naming `theme` here replaces the extension's own value.
     theme:
       - _extensions/touhou/touhou.scss
-      - ../../styles/safety-slides.scss
+      - ../../styles/slides.scss

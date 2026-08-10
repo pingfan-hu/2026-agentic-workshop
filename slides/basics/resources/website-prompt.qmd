@@ -10,13 +10,13 @@
     <div style="width:1.8em;height:1.8em;border-radius:0.45em;background:#DCE9FA;border:1px solid #A6C4EA;display:flex;align-items:center;justify-content:center;color:#3A7DC9;"><i data-lucide="message-square-quote" style="width:0.9em;height:0.9em;stroke-width:1.8;"></i></div>
     <div style="font-family:'Maple Mono',monospace;font-size:0.5em;color:#3A7DC9;letter-spacing:0.1em;text-transform:uppercase;">Example prompt</div>
    </div>
-   <button class="copy-prompt-btn" aria-label="Copy prompt" onclick="var b=this;navigator.clipboard.writeText(document.getElementById('second-prompt-text').innerText.trim()).then(function(){var l=b.querySelector('.copy-label');l.textContent='Copied!';setTimeout(function(){l.textContent='Copy';},1500);});">
+   <button class="copy-prompt-btn" aria-label="Copy prompt" onclick="var b=this;navigator.clipboard.writeText(document.getElementById('website-prompt-text').innerText.trim()).then(function(){var l=b.querySelector('.copy-label');l.textContent='Copied!';setTimeout(function(){l.textContent='Copy';},1500);});">
     <i data-lucide="copy" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i><span class="copy-label">Copy</span>
    </button>
   </div>
 
-  <div id="second-prompt-text" style="font-size:0.54em;color:#2C3E50;line-height:1.7;font-family:'Georgia',serif;">
-   For each notable film on the <span style="color:#137A6E;font-weight:600;">Tom Hanks</span> page, create its own HTML page. Then link everything together: make each film on the main page clickable so it opens that film's page, and add a "Back to <span style="color:#137A6E;font-weight:600;">Tom Hanks</span>" button at the top of every film page. Reuse the same <code style="font-family:'Maple Mono',monospace;color:#C4881A;">styles.css</code> so all pages match.
+  <div id="website-prompt-text" style="font-size:0.52em;color:#2C3E50;line-height:1.7;font-family:'Georgia',serif;">
+   Create a website introducing <span style="color:#137A6E;font-weight:600;">Tom Hanks</span>, a famous movie star in the United States. Give him a main page, then give each of his notable films its own page. Make each film on the main page clickable so it opens that film's page, and add a "Back to <span style="color:#137A6E;font-weight:600;">Tom Hanks</span>" button at the top of every film page. Put all styling in one shared <code style="font-family:'Maple Mono',monospace;color:#C4881A;">styles.css</code> file so every page matches.
   </div>
 
  </div>
@@ -25,7 +25,7 @@
 
  <div style="display:flex;align-items:center;justify-content:center;gap:0.6em;max-width:88%;margin:0.85em auto 0;font-size:0.46em;line-height:1.5;color:#6F6470;text-align:left;">
   <i data-lucide="lightbulb" style="width:1.5em;height:1.5em;stroke-width:1.8;color:#137A6E;flex:none;"></i>
-  <span><span style="color:#137A6E;font-weight:600;">Tom Hanks is only one example.</span><br>Replace the name with anyone you like, the same person you chose before.</span>
+  <span><span style="color:#137A6E;font-weight:600;">Tom Hanks is only one example.</span><br>Replace the name with anyone you admire: a movie star, an athlete, a scientist, anyone famous.</span>
  </div>
 
 </div>

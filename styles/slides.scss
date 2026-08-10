@@ -1,19 +1,35 @@
-// Content-specific styles for the safety deck. Three slides are covered: the
-// two clickable maps (resources/codify-map.qmd, resources/africa-code.qmd) and
-// the fake-vs-real slide's package pills (resources/fake-vs-real.qmd).
+// Content-specific styles for the slide decks, all of them, in one file.
 //
 // Everything here names a particular slide's subject matter: two named R and
-// Python packages, one downloadable bundle, one plotly widget. Rules that
-// generalize (the .brand-pill chassis these variants extend, .practice-box,
-// the divider slides) stay in the touhou extension, which is shared with the
-// canonical copy and every other deck and is kept byte-identical across them.
+// Python packages, one downloadable bundle, one plotly widget, one third-party
+// plugin link. Rules that generalize (the .brand-pill chassis these variants
+// extend, .practice-box, the divider slides) stay in the touhou extension,
+// which is shared with the canonical copy and every other deck and is kept
+// byte-identical across them.
 //
-// Wired up as a theme layer in slides/safety/_quarto.yml, not as a `css:`
-// entry, since a css file outside the nested deck project never gets copied
-// into its _site. Sass is compiled instead of copied, so the boundary is a
-// non-issue. That is also why the file needs the `scss:rules` marker below.
+// Wired up as a theme layer in each deck's _quarto.yml, not as a `css:` entry,
+// since a css file outside the nested deck project never gets copied into its
+// _site. Sass is compiled instead of copied, so the boundary is a non-issue.
+// That is also why the file needs the `scss:rules` marker below.
+//
+// This is deliberately NOT merged into styles/styles.scss, and the reason is
+// not class-name collisions (renaming would not help). styles.scss is the
+// parent *website* theme, and a deck is a separate document from a separate
+// Quarto project, so a shared file would have to be compiled into both sides.
+// Measured cost of doing that, on the basics deck: +64% deck CSS (70,696 ->
+// 115,794 bytes) and 135 dead website-component rules, plus three things no
+// rename can fix, because they are not classes: `body { font-family: ...
+// serif }` and `a:hover { text-decoration: underline }` are bare element
+// selectors, and `$code-color` is an scss:defaults variable that overrides the
+// deck theme's own. Every deck loads this one file instead; unused rules here
+// are inert, which is the whole reason one shared deck stylesheet is safe
+// while one shared site-and-deck stylesheet is not.
 
 /*-- scss:rules --*/
+
+// =====================================================================
+// Safety deck
+// =====================================================================
 
 // ---- Hand cursor over the clickable map shapes ----
 // Each widget's onRender JS toggles `.map-hot` on the plot container while
@@ -136,4 +152,56 @@
     font-size: 1.05em;
     line-height: 1;
   }
+}
+
+// =====================================================================
+// Basics deck
+// =====================================================================
+
+// ---- Link pill (Waza statusline, on the context slide) ----
+// Same chassis as `.dl-pill` in styles/safety-slides.scss (identical metrics,
+// inversion hover, 0.96 press), in purple rather than teal, and carrying a
+// trailing `arrow-up-right` instead of a leading `download`: this one opens an
+// external page, it does not hand you a file, and the icons have to say so.
+// Scoped as `.reveal a.` so it beats Quarto's `.reveal a` color rules, which
+// otherwise darken the text on hover.
+.reveal a.link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: "Maple Mono", monospace;
+  font-size: 0.48em;
+  font-weight: 700;
+  color: #5654A2 !important;
+  background: #FFFFFF;
+  border: 1px solid #C7C1E5;
+  border-radius: 999px;
+  padding: 0.4em 1.1em;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(86, 84, 162, 0.15);
+  will-change: background-color, color, transform;
+  backface-visibility: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+    transform 0.1s ease;
+
+  svg { width: 1em; height: 1em; stroke-width: 2; }
+
+  // The external-link arrow is the last child, set a shade smaller and nudged
+  // out so it reads as a marker on the pill's edge, not as a second subject.
+  svg:last-child {
+    width: 0.85em;
+    height: 0.85em;
+    margin-left: 0.05em;
+    opacity: 0.8;
+  }
+
+  &:hover {
+    color: #F8F7F0 !important;
+    background: #5654A2;
+    border-color: #5654A2;
+    box-shadow: 0 2px 6px rgba(86, 84, 162, 0.15);
+  }
+
+  // Press effect matches `.dl-pill` and the parent site's `.cta-pill`.
+  &:active { transform: scale(0.96); }
 }

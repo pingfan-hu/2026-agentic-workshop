@@ -1,0 +1,77 @@
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/maple-mono@5.2.5/index.min.css');
+
+/* Dark code page shown inside the Mac window on the CLAUDE.md example slide.
+   Palette matches the SKILL.md window in the skills deck (skill-authoring.qmd). */
+
+html {
+  background: #1E1E2E;
+  /* Literal colors: custom properties don't resolve in scrollbar styling */
+  scrollbar-color: #4A4860 #1E1E2E;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1E1E2E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4A4860;
+  border-radius: 999px;
+  border: 2px solid #1E1E2E;
+}
+
+body {
+  margin: 0;
+  padding: 0.9rem 0.85rem 1.2rem;
+  background: #1E1E2E;
+  color: #B8B2C0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The source is hard-wrapped to 62 columns and sized so those columns fill the
+   window edge to edge. Measured, not guessed: the iframe lays out at 544px, so
+   `pre` gets 517px after the padding above (the vertical scrollbar is an
+   overlay and costs no layout width), and Maple Mono advances exactly 0.6em,
+   i.e. 8.11px at the size below. 62 x 8.11 = 503px of 517px, which leaves one
+   column of slack. Capacity is 63; rewrapping wider than that means sizing
+   down, and vice versa, so keep the wrap width and this size in sync.
+   pre-wrap is only a backstop, so an over-long line soft-wraps instead of
+   raising a horizontal scrollbar. */
+pre {
+  margin: 0;
+  font-family: 'Maple Mono', ui-monospace, monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* ---- Markdown token colors ---- */
+.h1,
+.h2 {
+  color: #FF6F8E;
+  font-weight: 700;
+}
+
+.bold {
+  color: #F8F7F0;
+  font-weight: 700;
+}
+
+.code {
+  color: #FFB84D;
+}
+
+.mark {
+  color: #5C6B80;
+}
+
+.file {
+  color: #69B4F0;
+}
+
+.note {
+  color: #27C93F;
+}

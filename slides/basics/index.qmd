@@ -35,17 +35,9 @@ title-slide-attributes:
 
 {{< include resources/get-started.qmd >}}
 
-## Your First HTML Page {.light-centered .center}
+## Your First Website {.light-centered .center}
 
-{{< include resources/first-prompt.qmd >}}
-
-## Example Output: Single Page {.dark-centered .center}
-
-{{< include resources/html-result.qmd >}}
-
-## Some More HTML Pages {.light-centered .center}
-
-{{< include resources/second-prompt.qmd >}}
+{{< include resources/website-prompt.qmd >}}
 
 ## Example Output: A Full Website {.dark-centered .center}
 
@@ -55,17 +47,33 @@ title-slide-attributes:
 
 {{< include resources/website-structure.qmd >}}
 
-## The CLAUDE.md file {.light-centered .center}
+## The `CLAUDE.md`{.coral} file {.light-centered .center}
 
 {{< include resources/claude-md.qmd >}}
+
+## A `CLAUDE.md`{.coral} for our website {.light-centered .center}
+
+{{< include resources/claude-md-example.qmd >}}
 
 ## Four modes of Claude Code {.light-centered .center}
 
 {{< include resources/four-modes.qmd >}}
 
+## [Tokens]{.gold} are the currency {.light-centered .center}
+
+{{< include resources/tokens.qmd >}}
+
+## Mind your [context]{.teal} {.light-centered .center}
+
+{{< include resources/context.qmd >}}
+
 ## Basic commands {.light-centered .center}
 
 {{< include resources/basic-commands.qmd >}}
+
+## &nbsp; {.light-centered .center .practice}
+
+{{< include resources/compact-clear.qmd >}}
 
 ## &nbsp; {.dark-centered .center .practice}
 
