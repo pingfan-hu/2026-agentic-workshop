@@ -47,6 +47,12 @@ website:
         href: safety.qmd
         text: 3. Working Safely with Data and AI
 
+    right:
+      - icon: camera-video
+        href: https://gwu-edu.zoom.us/webinar/register/WN_eqLClVBTSpyi36N8iSUOBQ
+        text: Register
+        target: _blank
+
     tools:
       - icon: github
         href: https://github.com/pingfan-hu/2026-agentic-workshop

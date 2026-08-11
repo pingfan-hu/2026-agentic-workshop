@@ -529,6 +529,26 @@ table {
   border-radius: 26px;
 }
 
+// Registration CTA under the home hero title: same chassis, but in the
+// hero's orange accent so the one action on the page is its one warm
+// element. Defined after `.intro-btn` so the accent colors win the cascade.
+.hero-register {
+  // Inline-flex so the leading camera icon (same bi-camera-video as the
+  // navbar pill) sits on the text baseline with an even gap.
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-top: 1.05rem;
+  border-color: #ED6D46;
+  background: #FDEEE8;
+  color: #ED6D46;
+
+  &:hover {
+    background: #ED6D46;
+    color: #F8F7F0;
+  }
+}
+
 // ---- Link Table ----
 
 .lnk-outer {
@@ -879,18 +899,25 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
 // below, which is the bug this prevents.
 //
 // The threshold is not a device breakpoint, it is the width at which
-// `hamburger + site title + tools + logo` stops fitting on one line, so it moves
-// whenever the site title changes. Measured in WebKit against the current title
-// ("Agentic Workflows with Claude Code", which renders in full down to 540px
-// where the short-title swap below takes over): the row fits from 598px up and
-// wraps at 596px and under. 599.98 hides the logo through the whole broken band
-// with a little slack.
+// `hamburger + site title + Register pill + tools + logo` stops fitting on
+// one line, so it moves whenever the site title or the pill's label changes.
+// Measured in headless Chrome against the current title ("Agentic Workflows
+// with Claude Code"): the row fits from 726px up and wraps at 724px and
+// under. 733.98 hides the logo through the whole broken band with ~8px of
+// slack.
+//
+// Deliberately NOT re-shown in the 598-653 band where it would fit again
+// (the Register pill hides below 654, see the band after the collapsed-order
+// block, which frees enough room): a logo that blinks out, back in, and out
+// again as the window narrows reads as broken. Below 734 the collapsed bar
+// simply has no logo; the pill, being the call to action, outranks it, the
+// same way the nav links outrank both on desktop.
 //
 // To re-derive after a title change: serve _site, step the viewport down in 2px
 // increments, and compare `.navbar-gw-link`'s left edge against
 // `.quarto-navbar-tools`. In the row the logo sits to the RIGHT of the tools;
 // once wrapped it restarts at the left edge.
-@media (max-width: 599.98px) {
+@media (max-width: 733.98px) {
   .navbar-gw-link { display: none !important; }
 }
 
@@ -901,24 +928,36 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
 // for no second row at that point), it simply slides off screen and clips, which
 // looks like the logo dissolving as the window narrows.
 //
-// Measured in WebKit on index.html: the full expanded row needs 1190px. From
-// 1188px down to the 1100px collapse point the logo overhangs the right edge by
-// a growing amount (90px at 1100). Hiding it through 1199.98 covers that band
-// with ~10px of slack.
+// Measured in headless Chrome on index.html (2px steps, checking
+// `.navbar-container` scrollWidth > clientWidth): with the Register pill in
+// the bar, the full expanded row needs 1272px. From there down to the 1100px
+// collapse point the logo overhangs the right edge. Hiding it through 1279.98
+// covers that band with ~8px of slack.
 //
 // The logo therefore shows in three of the four states: collapsed with room
-// (600-1099), and expanded with room (1200+). It is omitted in the two bands
+// (600-1099), and expanded with room (1270+). It is omitted in the two bands
 // where it would be damaged. Nav links always win over the logo, since they are
-// the actual navigation. The alternative is to move the collapse point up to
-// 1200 so the logo never blinks out, at the cost of a hamburger on any window
-// between 1100 and 1200 where the links themselves fit fine.
+// the actual navigation. The alternative is to move the collapse point up so
+// the logo never blinks out, at the cost of a hamburger on windows where the
+// links themselves fit fine.
 //
 // This band moves whenever a navbar LINK's text changes (adding "Working Safely
-// with Data and AI" is what pushed it out from under the old value). Re-derive
-// by stepping the viewport down and comparing `.navbar-gw-link`'s right edge to
-// the viewport width.
-@media (min-width: 1100px) and (max-width: 1199.98px) {
+// with Data and AI" pushed it once, the Register pill pushed it again).
+// Re-derive by stepping the viewport down and comparing `.navbar-gw-link`'s
+// right edge to the viewport width.
+@media (min-width: 1100px) and (max-width: 1279.98px) {
   .navbar-gw-link { display: none !important; }
+}
+
+// Same policy one layer down: WITHOUT the logo the expanded row (links +
+// Register pill + tools) needs 1200px, measured the same way. Between the
+// 1100px collapse point and 1200px the Register pill is what overflows, so it
+// yields in that band exactly like the logo does: nav links always win, and
+// registration stays reachable through the homepage hero button. Hiding
+// through 1207.98 leaves ~8px of slack. Collapsed widths are unaffected (the
+// pill lives inside the hamburger dropdown there).
+@media (min-width: 1100px) and (max-width: 1207.98px) {
+  .navbar-nav .nav-item:has(.nav-link[href*="zoom.us"]) { display: none !important; }
 }
 
 // ---- Custom 1100px collapse breakpoint ----
@@ -957,11 +996,25 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
 // and drops them below the open menu (900 > the menu's 5). That was an extra state.
 @media (max-width: 1099.98px) {
   .navbar-brand-container { order: 2 !important; }               // title
+  // Register pill in the top row, left of the tools (same slot as on
+  // desktop). It carries the auto left margin that pushes the right-side
+  // group to the edge; when a narrower band hides it (see below), the tools
+  // take the auto margin back.
+  .navbar-register-link {
+    // !important: the base `display: none` sits LATER in the file (in the
+    // Register pill section), so it would win this tie by source order. The
+    // narrow hide band after this block also uses !important and still wins
+    // over this rule, again by source order.
+    display: inline-flex !important;
+    order: 3;
+    margin-left: auto;
+    margin-right: 12px;
+  }
   .navbar-gw-link {
-    order: 4 !important;                 // GW logo, right of tools
+    order: 5 !important;                 // GW logo, right of tools
     margin-left: 12px !important;        // tools↔GW gap == the hamburger↔title gap
   }
-  .navbar-container > .navbar-collapse { order: 5 !important; }  // dropdown always wraps below
+  .navbar-container > .navbar-collapse { order: 6 !important; }  // dropdown always wraps below
 
   .navbar-toggler {
     order: 1 !important;                 // hamburger, far left
@@ -976,12 +1029,13 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
   }
 
   .quarto-navbar-tools {
-    order: 3 !important;                 // GitHub + theme toggle
-    // Push the tools + GW logo to the right edge. Quarto's container uses
-    // `justify-content: space-between`, which would otherwise strand the tools mid-bar;
-    // an auto left margin absorbs the free space so the tools sit flush against the GW
-    // logo, and the title stays hard against the hamburger on the left.
-    margin-left: auto !important;
+    order: 4 !important;                 // GitHub + theme toggle
+    // The free space between the title and the right-side group is absorbed
+    // by the Register pill's auto margin above; the band that hides the pill
+    // hands `margin-left: auto` back to the tools (Quarto's container uses
+    // `justify-content: space-between`, which would otherwise strand them
+    // mid-bar).
+    margin-left: 0 !important;
   }
 
   // Flatten the brand's vertical padding so the title row is as short as the desktop
@@ -991,6 +1045,27 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
+}
+
+// ---- Collapsed top-row Register pill: show/hide bands ----
+// Measured in headless Chrome like the logo band above: WITHOUT the logo, the
+// collapsed row `hamburger + title + Register pill + tools` fits from 650px
+// up and wraps at 648px and under. Hiding the pill through 653.98 leaves ~4px
+// of slack. Below that the tools take back the auto left margin the pill was
+// carrying, and registration stays reachable through the hamburger dropdown
+// and the homepage hero button. These two rules must stay AFTER the
+// collapsed-order block above: they override its equally-specific
+// `margin-left` and `display` at equal weight by source order.
+@media (max-width: 653.98px) {
+  .navbar-register-link { display: none !important; }
+  .quarto-navbar-tools { margin-left: auto !important; }
+}
+
+// While the top-row pill is visible (654 up to the 1100px collapse point),
+// hide the dropdown copy so an open hamburger menu doesn't offer Register
+// twice. Below 654 the dropdown copy is the only one and stays.
+@media (min-width: 654px) and (max-width: 1099.98px) {
+  .navbar-nav .nav-item:has(.nav-link[href*="zoom.us"]) { display: none !important; }
 }
 
 nav.navbar {
@@ -1039,6 +1114,71 @@ nav.navbar {
 
 .navbar-nav .nav-link {
   padding: 0.2rem 0.55rem !important;
+}
+
+// ---- Navbar: Register pill ----
+// The Zoom registration link (`navbar.right` in _quarto.yml), dressed as a
+// bordered pill so it reads as the bar's one call to action while keeping
+// the bar's monochrome hover language. The selector keys off the zoom.us
+// href, the same way styles.js keys the Setup flyout off setup.html.
+.navbar-nav .nav-link[href*="zoom.us"] {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  padding: 0.2rem 0.85rem !important;
+  // Breathing OUTSIDE the pill: without it the GitHub tool's hover chip
+  // nearly touches the pill's right border.
+  margin-right: 0.6rem;
+  // In the collapsed dropdown, nav links are block-level and stretch to the
+  // full menu width, which would drag the pill border across the whole row.
+  // Shrink to the label instead; in the expanded row this is a no-op.
+  width: fit-content;
+  // Pre-promote so the :active press creates its layer up front.
+  will-change: transform;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+
+  // Press effect matching `.navbar-gw-link` (flash + momentary scale).
+  &:active {
+    background-color: rgba(255, 255, 255, 0.30);
+    transform: scale(0.96);
+  }
+}
+
+// Top-row twin of the pill for the COLLAPSED navbar. Below 1100px the real
+// nav item lives inside the hamburger dropdown, which wastes the top row's
+// free space, so styles.js injects this sibling copy into .navbar-container
+// (the same pattern as .navbar-gw-link). Hidden by default: the collapsed
+// block below shows it in the widths where it fits, and hides the dropdown
+// copy while this one is visible.
+.navbar-register-link {
+  display: none;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  padding: 0.2rem 0.85rem;
+  color: var(--bs-navbar-color, rgba(255, 255, 255, 0.8));
+  text-decoration: none;
+  white-space: nowrap;
+  will-change: transform;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+
+  i { margin-right: 0.4em; }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: var(--bs-navbar-hover-color, #FFFFFF);
+    text-decoration: none;
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, 0.30);
+    transform: scale(0.96);
+  }
 }
 
 // ---- Navbar: Setup split dropdown ("Full List" flyout) ----
@@ -2383,6 +2523,16 @@ body.quarto-dark {
 
     &:hover {
       background: #7DA5BD;
+      color: #111;
+    }
+  }
+
+  .hero-register {
+    border-color: #F08A66;
+    color: #F08A66;
+
+    &:hover {
+      background: #F08A66;
       color: #111;
     }
   }
