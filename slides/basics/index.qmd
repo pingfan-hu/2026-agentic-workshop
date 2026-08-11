@@ -55,13 +55,21 @@ title-slide-attributes:
 
 {{< include resources/claude-md-example.qmd >}}
 
-## Four modes of Claude Code {.light-centered .center}
+## Four [modes]{.rose} of Claude Code {.light-centered .center}
 
 {{< include resources/four-modes.qmd >}}
+
+## Match the [model]{.coral} to the [mode]{.rose} {.light-centered .center}
+
+{{< include resources/model-for-modes.qmd >}}
 
 ## [Tokens]{.gold} are the currency {.light-centered .center}
 
 {{< include resources/tokens.qmd >}}
+
+## [Token]{.gold} saving example: the <a class="brand-pill brand-pill--caveman" href="https://github.com/JuliusBrussee/caveman" target="_blank" rel="noopener">Caveman</a> plugin {.light-centered .center}
+
+{{< include resources/caveman.qmd >}}
 
 ## Mind your [context]{.teal} {.light-centered .center}
 

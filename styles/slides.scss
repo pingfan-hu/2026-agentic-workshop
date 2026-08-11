@@ -158,6 +158,23 @@
 // Basics deck
 // =====================================================================
 
+// ---- Caveman brand pill (title link on the caveman slide) ----
+// Emoji glyph as the mark, full color, so no currentColor mask (same
+// approach as `.brand-pill--waza`'s ninja emoji in the extension).
+.reveal .brand-pill--caveman {
+  &::before,
+  .pill-pkg::before {
+    content: "🪨";
+    background: none;
+    -webkit-mask: none;
+    mask: none;
+    width: auto;
+    height: auto;
+    font-size: 1.05em;
+    line-height: 1;
+  }
+}
+
 // ---- Link pill (Waza statusline, on the context slide) ----
 // Same chassis as `.dl-pill` in styles/safety-slides.scss (identical metrics,
 // inversion hover, 0.96 press), in purple rather than teal, and carrying a

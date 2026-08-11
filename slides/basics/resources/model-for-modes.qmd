@@ -1,0 +1,46 @@
+```{=html}
+<div style="width:90%;margin:0 auto;background-image:radial-gradient(circle,#E0DBE5 0.6px,transparent 0.6px);background-size:18px 18px;padding:1.5em 1em;border-radius:18px;">
+
+ <div style="display:flex;align-items:center;justify-content:center;gap:0.45em;margin-bottom:1em;">
+  <span style="font-size:0.55em;color:#564232;">Use</span> <span style="font-family:'Maple Mono',monospace;font-size:0.55em;font-weight:700;color:#5654A2;background:#FFFFFF;border:1px solid #C4C3E8;border-bottom:2.5px solid #C4C3E8;border-radius:6px;padding:0.3em 0.75em;">/model</span>
+  <span style="font-size:0.55em;color:#564232;">to switch the model at any time</span>
+ </div>
+
+ <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:0.7em;align-items:stretch;">
+
+  <div style="background:#FFFFFF;border:1px solid #A6C4EA;border-radius:14px;padding:0.9em 1em;text-align:left;box-shadow:0 6px 22px rgba(58,125,201,0.1);">
+   <div style="display:flex;align-items:center;gap:0.5em;margin-bottom:0.55em;">
+    <div style="width:1.8em;height:1.8em;border-radius:0.45em;background:#DCE9FA;border:1px solid #A6C4EA;display:flex;align-items:center;justify-content:center;color:#3A7DC9;"><i data-lucide="map" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div style="font-size:0.78em;font-weight:700;color:#3A7DC9;">Plan mode</div>
+   </div>
+   <div style="display:inline-flex;align-items:center;gap:0.4em;background:#DCE9FA;border:1px solid #A6C4EA;border-radius:8px;padding:0.3em 0.65em;margin-bottom:0.5em;">
+    <i data-lucide="bot" style="width:0.85em;height:0.85em;stroke-width:1.8;color:#3A7DC9;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.58em;font-weight:700;color:#3A7DC9;">Opus</span>
+   </div>
+   <div style="font-size:0.55em;color:#564232;line-height:1.5;margin-bottom:0.4em;">Let the stronger model do the hard thinking and shape the plan.</div>
+   <div style="display:flex;flex-wrap:wrap;gap:0.2em;"><code style="font-family:'Maple Mono',monospace;font-size:0.5em;background:#DCE9FA;padding:0.15em 0.4em;border-radius:4px;color:#3A7DC9;">smarter, pricier</code></div>
+  </div>
+
+  <div style="display:flex;align-items:center;justify-content:center;color:#9B8EA0;"><i data-lucide="arrow-right" style="width:1.1em;height:1.1em;stroke-width:2;"></i></div>
+
+  <div style="background:#FFFFFF;border:1px solid #BCDFC0;border-radius:14px;padding:0.9em 1em;text-align:left;box-shadow:0 6px 22px rgba(44,132,117,0.1);">
+   <div style="display:flex;align-items:center;gap:0.5em;margin-bottom:0.55em;">
+    <div style="width:1.8em;height:1.8em;border-radius:0.45em;background:#E5F2EE;border:1px solid #BCDFC0;display:flex;align-items:center;justify-content:center;color:#2C8475;"><i data-lucide="hammer" style="width:0.85em;height:0.85em;stroke-width:1.8;"></i></div>
+    <div style="font-size:0.78em;font-weight:700;color:#2C8475;">Implementation</div>
+   </div>
+   <div style="display:inline-flex;align-items:center;gap:0.4em;background:#E5F2EE;border:1px solid #BCDFC0;border-radius:8px;padding:0.3em 0.65em;margin-bottom:0.5em;">
+    <i data-lucide="bot" style="width:0.85em;height:0.85em;stroke-width:1.8;color:#2C8475;"></i>
+    <span style="font-family:'Maple Mono',monospace;font-size:0.58em;font-weight:700;color:#2C8475;">Sonnet</span>
+   </div>
+   <div style="font-size:0.55em;color:#564232;line-height:1.5;margin-bottom:0.4em;">Once the plan is approved, a faster model can carry it out.</div>
+   <div style="display:flex;flex-wrap:wrap;gap:0.2em;"><code style="font-family:'Maple Mono',monospace;font-size:0.5em;background:#E5F2EE;padding:0.15em 0.4em;border-radius:4px;color:#2C8475;">faster, cheaper</code></div>
+  </div>
+
+ </div>
+
+ <div style="height:1px;background:linear-gradient(90deg,transparent,#C4C3E8,transparent);margin:1em 0 0;"></div>
+
+ <div style="font-size:0.52em;color:#7A6E6A;line-height:1.4;margin-top:0.7em;">Spend the heavy thinking on the plan, so the implementation becomes easy.</div>
+
+</div>
+```
