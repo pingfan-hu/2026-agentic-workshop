@@ -23,7 +23,7 @@
 
    <div style="background:rgba(248,247,240,0.04);border:1px solid rgba(111,194,176,0.2);border-radius:12px;padding:0.6em 0.8em;">
     <div style="font-family:'Maple Mono',monospace;font-size:0.42em;color:#6FC2B0;letter-spacing:0.16em;margin-bottom:0.3em;text-transform:uppercase;">03</div>
-    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;"><strong>Start Claude Code:</strong> open a terminal with<br><code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;">Terminal › New Terminal</code><br>then type <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;white-space:nowrap;">claude</code> and ask it <em>"who are you?"</em></div>
+    <div style="font-size:0.5em;color:#F8F7F0;line-height:1.45;"><strong>Start Claude Code:</strong> open a terminal with<br><code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;">Terminal › New Terminal</code><br>then type <code style="font-family:'Maple Mono',monospace;font-size:0.92em;color:#6FC2B0;white-space:nowrap;">claude</code></em></div>
    </div>
 
   </div>

@@ -47,6 +47,10 @@ title-slide-attributes:
 
 {{< include resources/website-structure.qmd >}}
 
+## Steering with [slash commands]{.rose} {.light-centered .center}
+
+{{< include resources/basic-commands.qmd >}}
+
 ## The `CLAUDE.md`{.coral} file {.light-centered .center}
 
 {{< include resources/claude-md.qmd >}}
@@ -75,13 +79,13 @@ title-slide-attributes:
 
 {{< include resources/context.qmd >}}
 
-## Basic commands {.light-centered .center}
-
-{{< include resources/basic-commands.qmd >}}
-
 ## &nbsp; {.light-centered .center .practice}
 
 {{< include resources/compact-clear.qmd >}}
+
+## Steering with [slash commands]{.rose} {.light-centered .center}
+
+{{< include resources/basic-commands.qmd >}}
 
 ## &nbsp; {.dark-centered .center .practice}
 
