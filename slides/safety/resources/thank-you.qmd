@@ -24,7 +24,7 @@
     Associate Professor, EMSE<br>
     Director, Data Analytics
    </div>
-   <span class="instructor-link instructor-link--gold" style="margin-top:auto;">jhelvy.com</span>
+   <span class="instructor-link instructor-link--blue" style="margin-top:auto;">jhelvy.com</span>
   </a>
 
  </div>
