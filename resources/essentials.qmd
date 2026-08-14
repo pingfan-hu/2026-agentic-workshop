@@ -17,7 +17,7 @@
  <div class="altgroup">
   <div class="altgroup-title">Agent</div>
   <div class="altgroup-cards">
-   <a class="esscard" href="https://claude.ai/login?plan=pro" target="_blank" rel="noopener">
+   <a class="esscard" href="https://code.claude.com/docs/en/quickstart#step-1-install-claude-code" target="_blank" rel="noopener">
     <span class="esscard-icon">
      <svg viewBox="0 0 24 24" fill="#CC785C" xmlns="http://www.w3.org/2000/svg" aria-label="Anthropic"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>
     </span>
