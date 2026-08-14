@@ -533,7 +533,7 @@ table {
 // hero's orange accent so the one action on the page is its one warm
 // element. Defined after `.intro-btn` so the accent colors win the cascade.
 .hero-register {
-  // Inline-flex so the leading camera icon (same bi-camera-video as the
+  // Inline-flex so the leading YouTube icon (same bi-youtube as the
   // navbar pill) sits on the text baseline with an even gap.
   display: inline-flex;
   align-items: center;
@@ -542,6 +542,10 @@ table {
   border-color: #ED6D46;
   background: #FDEEE8;
   color: #ED6D46;
+
+  // The bi-youtube glyph fills less of its 1em box than most Bootstrap
+  // icons, so at the label's font-size it reads undersized next to the text.
+  i { font-size: 1.3em; }
 
   &:hover {
     background: #ED6D46;
@@ -899,17 +903,18 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
 // below, which is the bug this prevents.
 //
 // The threshold is not a device breakpoint, it is the width at which
-// `hamburger + site title + Register pill + tools + logo` stops fitting on
+// `hamburger + site title + Recording pill + tools + logo` stops fitting on
 // one line, so it moves whenever the site title or the pill's label changes.
 // Measured in headless Chrome against the current title ("Agentic Workflows
-// with Claude Code"): the row fits from 726px up and wraps at 724px and
-// under. 733.98 hides the logo through the whole broken band with ~8px of
-// slack.
+// with Claude Code") and pill label ("Recording" + bi-youtube, 12px wider
+// than the original "Register" + bi-camera-video): the row fits from 738px
+// up and wraps at 736px and under. 745.98 hides the logo through the whole
+// broken band with ~8px of slack.
 //
-// Deliberately NOT re-shown in the 598-653 band where it would fit again
-// (the Register pill hides below 654, see the band after the collapsed-order
+// Deliberately NOT re-shown in the 598-665 band where it would fit again
+// (the Recording pill hides below 666, see the band after the collapsed-order
 // block, which frees enough room): a logo that blinks out, back in, and out
-// again as the window narrows reads as broken. Below 734 the collapsed bar
+// again as the window narrows reads as broken. Below 746 the collapsed bar
 // simply has no logo; the pill, being the call to action, outranks it, the
 // same way the nav links outrank both on desktop.
 //
@@ -917,7 +922,7 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
 // increments, and compare `.navbar-gw-link`'s left edge against
 // `.quarto-navbar-tools`. In the row the logo sits to the RIGHT of the tools;
 // once wrapped it restarts at the left edge.
-@media (max-width: 733.98px) {
+@media (max-width: 745.98px) {
   .navbar-gw-link { display: none !important; }
 }
 
@@ -929,35 +934,36 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
 // looks like the logo dissolving as the window narrows.
 //
 // Measured in headless Chrome on index.html (2px steps, checking
-// `.navbar-container` scrollWidth > clientWidth): with the Register pill in
-// the bar, the full expanded row needs 1272px. From there down to the 1100px
-// collapse point the logo overhangs the right edge. Hiding it through 1279.98
+// `.navbar-container` scrollWidth > clientWidth): with the Recording pill in
+// the bar, the full expanded row needs 1284px. From there down to the 1100px
+// collapse point the logo overhangs the right edge. Hiding it through 1291.98
 // covers that band with ~8px of slack.
 //
 // The logo therefore shows in three of the four states: collapsed with room
-// (600-1099), and expanded with room (1270+). It is omitted in the two bands
+// (746-1099), and expanded with room (1292+). It is omitted in the two bands
 // where it would be damaged. Nav links always win over the logo, since they are
 // the actual navigation. The alternative is to move the collapse point up so
 // the logo never blinks out, at the cost of a hamburger on windows where the
 // links themselves fit fine.
 //
 // This band moves whenever a navbar LINK's text changes (adding "Working Safely
-// with Data and AI" pushed it once, the Register pill pushed it again).
+// with Data and AI" pushed it once, the Register pill pushed it again, and the
+// Recording relabel a third time).
 // Re-derive by stepping the viewport down and comparing `.navbar-gw-link`'s
 // right edge to the viewport width.
-@media (min-width: 1100px) and (max-width: 1279.98px) {
+@media (min-width: 1100px) and (max-width: 1291.98px) {
   .navbar-gw-link { display: none !important; }
 }
 
 // Same policy one layer down: WITHOUT the logo the expanded row (links +
-// Register pill + tools) needs 1200px, measured the same way. Between the
-// 1100px collapse point and 1200px the Register pill is what overflows, so it
+// Recording pill + tools) needs 1212px, measured the same way. Between the
+// 1100px collapse point and 1212px the Recording pill is what overflows, so it
 // yields in that band exactly like the logo does: nav links always win, and
-// registration stays reachable through the homepage hero button. Hiding
-// through 1207.98 leaves ~8px of slack. Collapsed widths are unaffected (the
+// the recording stays reachable through the homepage hero button. Hiding
+// through 1219.98 leaves ~8px of slack. Collapsed widths are unaffected (the
 // pill lives inside the hamburger dropdown there).
-@media (min-width: 1100px) and (max-width: 1207.98px) {
-  .navbar-nav .nav-item:has(.nav-link[href*="zoom.us"]) { display: none !important; }
+@media (min-width: 1100px) and (max-width: 1219.98px) {
+  .navbar-nav .nav-item:has(.nav-link[href*="youtube.com"]) { display: none !important; }
 }
 
 // ---- Custom 1100px collapse breakpoint ----
@@ -996,13 +1002,13 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
 // and drops them below the open menu (900 > the menu's 5). That was an extra state.
 @media (max-width: 1099.98px) {
   .navbar-brand-container { order: 2 !important; }               // title
-  // Register pill in the top row, left of the tools (same slot as on
+  // Recording pill in the top row, left of the tools (same slot as on
   // desktop). It carries the auto left margin that pushes the right-side
   // group to the edge; when a narrower band hides it (see below), the tools
   // take the auto margin back.
   .navbar-register-link {
     // !important: the base `display: none` sits LATER in the file (in the
-    // Register pill section), so it would win this tie by source order. The
+    // Recording pill section), so it would win this tie by source order. The
     // narrow hide band after this block also uses !important and still wins
     // over this rule, again by source order.
     display: inline-flex !important;
@@ -1031,7 +1037,7 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
   .quarto-navbar-tools {
     order: 4 !important;                 // GitHub + theme toggle
     // The free space between the title and the right-side group is absorbed
-    // by the Register pill's auto margin above; the band that hides the pill
+    // by the Recording pill's auto margin above; the band that hides the pill
     // hands `margin-left: auto` back to the tools (Quarto's container uses
     // `justify-content: space-between`, which would otherwise strand them
     // mid-bar).
@@ -1047,25 +1053,25 @@ body.quarto-dark nav.sidebar.sidebar-navigation:not(.rollup) { background-color:
   }
 }
 
-// ---- Collapsed top-row Register pill: show/hide bands ----
+// ---- Collapsed top-row Recording pill: show/hide bands ----
 // Measured in headless Chrome like the logo band above: WITHOUT the logo, the
-// collapsed row `hamburger + title + Register pill + tools` fits from 650px
-// up and wraps at 648px and under. Hiding the pill through 653.98 leaves ~4px
+// collapsed row `hamburger + title + Recording pill + tools` fits from 662px
+// up and wraps at 660px and under. Hiding the pill through 665.98 leaves ~4px
 // of slack. Below that the tools take back the auto left margin the pill was
-// carrying, and registration stays reachable through the hamburger dropdown
+// carrying, and the recording stays reachable through the hamburger dropdown
 // and the homepage hero button. These two rules must stay AFTER the
 // collapsed-order block above: they override its equally-specific
 // `margin-left` and `display` at equal weight by source order.
-@media (max-width: 653.98px) {
+@media (max-width: 665.98px) {
   .navbar-register-link { display: none !important; }
   .quarto-navbar-tools { margin-left: auto !important; }
 }
 
-// While the top-row pill is visible (654 up to the 1100px collapse point),
-// hide the dropdown copy so an open hamburger menu doesn't offer Register
-// twice. Below 654 the dropdown copy is the only one and stays.
-@media (min-width: 654px) and (max-width: 1099.98px) {
-  .navbar-nav .nav-item:has(.nav-link[href*="zoom.us"]) { display: none !important; }
+// While the top-row pill is visible (666 up to the 1100px collapse point),
+// hide the dropdown copy so an open hamburger menu doesn't offer Recording
+// twice. Below 666 the dropdown copy is the only one and stays.
+@media (min-width: 666px) and (max-width: 1099.98px) {
+  .navbar-nav .nav-item:has(.nav-link[href*="youtube.com"]) { display: none !important; }
 }
 
 nav.navbar {
@@ -1116,12 +1122,12 @@ nav.navbar {
   padding: 0.2rem 0.55rem !important;
 }
 
-// ---- Navbar: Register pill ----
-// The Zoom registration link (`navbar.right` in _quarto.yml), dressed as a
+// ---- Navbar: Recording pill ----
+// The YouTube recording link (`navbar.right` in _quarto.yml), dressed as a
 // bordered pill so it reads as the bar's one call to action while keeping
-// the bar's monochrome hover language. The selector keys off the zoom.us
+// the bar's monochrome hover language. The selector keys off the youtube.com
 // href, the same way styles.js keys the Setup flyout off setup.html.
-.navbar-nav .nav-link[href*="zoom.us"] {
+.navbar-nav .nav-link[href*="youtube.com"] {
   border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 999px;
   padding: 0.2rem 0.85rem !important;

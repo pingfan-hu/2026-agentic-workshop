@@ -48,9 +48,9 @@ website:
         text: 3. Working Safely with Data and AI
 
     right:
-      - icon: camera-video
-        href: https://gwu-edu.zoom.us/webinar/register/WN_eqLClVBTSpyi36N8iSUOBQ
-        text: Register
+      - icon: youtube
+        href: https://www.youtube.com/watch?v=kX1bzUHZWqc
+        text: Recording
         target: _blank
 
     tools:

@@ -284,8 +284,8 @@ document.addEventListener('click', function (e) {
   }
 })();
 
-// ---- Register pill (collapsed-navbar top row) ----
-// Below 1100px the real Register nav item folds into the hamburger dropdown,
+// ---- Recording pill (collapsed-navbar top row) ----
+// Below 1100px the real Recording nav item folds into the hamburger dropdown,
 // leaving the top row's free space unused. Inject a sibling copy into
 // .navbar-container (same pattern as the GW logo above); CSS decides at which
 // widths it shows and hides the dropdown copy while it does.
@@ -295,14 +295,14 @@ document.addEventListener('click', function (e) {
     if (!container || container.querySelector('.navbar-register-link')) return;
     var link = document.createElement('a');
     link.className = 'navbar-register-link';
-    link.href = 'https://gwu-edu.zoom.us/webinar/register/WN_eqLClVBTSpyi36N8iSUOBQ';
+    link.href = 'https://www.youtube.com/watch?v=kX1bzUHZWqc';
     link.target = '_blank';
     link.rel = 'noopener';
     var icon = document.createElement('i');
-    icon.className = 'bi bi-camera-video';
+    icon.className = 'bi bi-youtube';
     icon.setAttribute('aria-hidden', 'true');
     link.appendChild(icon);
-    link.appendChild(document.createTextNode('Register'));
+    link.appendChild(document.createTextNode('Recording'));
     container.appendChild(link);
   }
   if (document.readyState === 'loading') {

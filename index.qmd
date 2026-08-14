@@ -13,7 +13,7 @@ grid:
 <header class="home-hero">
  <p class="home-hero-kicker">2026 Summer Workshop</p>
  <h1 class="home-hero-title">Agentic Workflows with <span class="home-hero-accent">Claude Code</span></h1>
- <a class="intro-btn intro-btn-wide hero-register" href="https://gwu-edu.zoom.us/webinar/register/WN_eqLClVBTSpyi36N8iSUOBQ" target="_blank" rel="noopener"><i class="bi bi-camera-video"></i>Register for the Webinar</a>
+ <a class="intro-btn intro-btn-wide hero-register" href="https://www.youtube.com/watch?v=kX1bzUHZWqc" target="_blank" rel="noopener"><i class="bi bi-youtube"></i>Watch the Recording</a>
 </header>
 ```
 
