@@ -26,5 +26,5 @@ How to work with agents as a data scientist without losing control: build pipeli
 
 ## Instructors
 
-- [Pingfan Hu](https://pingfanhu.com), PhD Candidate, Engineering Management and Systems Engineering, GW
+- [Pingfan Hu](https://pingfan.org), PhD Candidate, Engineering Management and Systems Engineering, GW
 - [Dr. John Helveston](https://www.jhelvy.com), Associate Professor, Engineering Management and Systems Engineering, GW

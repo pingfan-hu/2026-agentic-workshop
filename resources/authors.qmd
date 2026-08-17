@@ -1,6 +1,6 @@
 ```{=html}
 <div class="auth-row">
- <a class="auth-card" href="https://pingfanhu.com" target="_blank" rel="noopener">
+ <a class="auth-card" href="https://pingfan.org" target="_blank" rel="noopener">
   <img class="auth-image" src="images/pingfan-hu.png" alt="Pingfan Hu" />
   <span class="auth-name">Pingfan Hu</span>
  </a>

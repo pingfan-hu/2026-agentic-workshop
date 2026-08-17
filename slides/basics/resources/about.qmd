@@ -12,7 +12,7 @@
     PhD Candidate, EMSE<br>
     Systems Engineering
    </div>
-   <a class="instructor-link instructor-link--blue" href="http://pingfanhu.com" target="_blank" rel="noopener" style="margin-top:auto;">pingfanhu.com ↗</a>
+   <a class="instructor-link instructor-link--blue" href="https://pingfan.org" target="_blank" rel="noopener" style="margin-top:auto;">pingfan.org ↗</a>
   </div>
 
   <div style="display:flex;flex-direction:column;background:#FFFFFF;border-radius:16px;padding:1em 1.1em 1.1em;box-shadow:0 6px 22px rgba(196,136,26,0.1);text-align:left;">
