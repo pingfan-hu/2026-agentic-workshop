@@ -1,0 +1,11 @@
+```{=html}
+<div class="home-band">
+ <p class="band-kicker">Featured In</p>
+ <div class="featured-row">
+  <a class="featured-pill" href="https://engineering.gwu.edu/building-website-just-few-minutes" target="_blank" rel="noopener"><i data-lucide="university"></i>GW Engineering</a>
+  <a class="featured-pill" href="https://emse.engineering.gwu.edu/building-website-just-few-minutes" target="_blank" rel="noopener"><i data-lucide="university"></i>GW EMSE</a>
+  <a class="featured-pill" href="https://trustworthyai.gwu.edu/building-website-just-few-minutes" target="_blank" rel="noopener"><i data-lucide="university"></i>GW TAI</a>
+  <a class="featured-pill" href="https://rdmweekly.substack.com/p/rdm-weekly-issue-058" target="_blank" rel="noopener"><i class="bi bi-substack"></i>RDM Weekly</a>
+ </div>
+</div>
+```

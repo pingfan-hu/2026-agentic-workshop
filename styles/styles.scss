@@ -41,65 +41,56 @@ main.content h2 {
   padding-bottom: 0;
 }
 
-.affiliation {
+// ---- Featured In ----
+
+// Recognition band (a .home-band like the two above it): one row of pill
+// links to the pages that spotlighted the workshop. Pills borrow the
+// .intro-btn chassis a size down, with a hairline border so the band reads
+// as a footnote, not a call to action.
+.featured-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 0 0 0.75rem;
+  gap: 10px;
 }
 
-// Logo + university name as ONE clickable card, sharing the .auth-card
-// hover/press vocabulary so the presenter band reads as a single unit.
-.affiliation-card {
+.featured-pill {
   display: inline-flex;
   align-items: center;
-  gap: 18px;
-  padding: 10px 20px;
-  border-radius: 12px;
+  gap: 0.4em;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #C8DAE8;
+  color: #013D5B;
+  font-family: 'Maple Mono', monospace;
+  font-size: 0.8em;
   text-decoration: none;
   // Hover is tint-only (no lift); pre-promote so the :active press doesn't
   // repaint siblings on first click (see CLAUDE.md hover-shake note).
   will-change: transform;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+
+  // Leading category icon: Lucide `university` on the three GW pages,
+  // Bootstrap's Substack glyph on the newsletter. Sized to match each other
+  // (one is an inline svg, the other a font icon).
+  svg {
+    width: 0.95em;
+    height: 0.95em;
+    stroke-width: 2.2;
+  }
+
+  .bi {
+    font-size: 0.95em;
+    line-height: 1;
+  }
 
   &:hover {
     background-color: rgba(1, 61, 91, 0.06);
+    border-color: #013D5B;
     text-decoration: none;
   }
 
-  &:active {
-    transform: scale(0.97);
-  }
-}
-
-// The logo always sits on a cream chip matching the light-mode page
-// background: invisible in light mode, and in dark mode it surfaces as a
-// badge that keeps the navy lettering legible. Baking the padding into both
-// modes means switching themes never shifts the surrounding layout.
-.affiliation-logo {
-  height: 60px; // border-box: 48px logo + 6px chip padding top/bottom
-  width: auto;
-  display: block;
-  flex-shrink: 0;
-  background: #F8F7F0;
-  border-radius: 10px;
-  padding: 6px 9px;
-}
-
-// Same type voice as .auth-name above it.
-.affiliation-text {
-  font-family: 'Maple Mono', monospace;
-  font-size: 0.95em;
-  color: #013D5B;
-}
-
-@media (max-width: 640px) {
-  // Stack the lockup: logo on top, name centered beneath, so the long
-  // university name never wraps into a ragged left-aligned block.
-  .affiliation-card {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-  }
+  &:active { transform: scale(0.96); }
 }
 
 // ---- Home Hero ----
@@ -137,6 +128,28 @@ main.content h2 {
   }
 }
 
+// GW TAI mark riding inline on the kicker line: the workshop belongs to the
+// initiative, so the mark travels with the page label instead of getting a
+// band of its own lower down. The image is the cropped two-tone GW/TAI box
+// (no wordmark), fully opaque, so it reads on both themes without a chip.
+// Hover is a fade, not a lift (see CLAUDE.md hover-shake note).
+.home-hero-logo {
+  display: inline-flex;
+  will-change: opacity;
+  transition: opacity 0.15s ease;
+
+  img {
+    height: 26px;
+    width: auto;
+    display: block;
+    border-radius: 3px;
+  }
+
+  &:hover { opacity: 0.8; }
+
+  &:active { opacity: 0.65; }
+}
+
 .home-hero-title {
   margin: 0;
   font-size: 2.3rem;
@@ -146,6 +159,25 @@ main.content h2 {
 
 .home-hero-accent {
   color: #ED6D46;
+}
+
+// The accent words double as a link to the Claude Code install guide.
+// Hover brightens the orange (deepening it read as muddy brick on the cream
+// page); click gives the same momentary press as the site's pills.
+// Inline-block so the transform applies, pre-promoted so the press never
+// repaints the rest of the title (see CLAUDE.md hover-shake note).
+a.home-hero-accent {
+  text-decoration: none;
+  display: inline-block;
+  will-change: transform;
+  transition: color 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    color: #FF8552;
+    text-decoration: none;
+  }
+
+  &:active { transform: scale(0.97); }
 }
 
 @media (max-width: 640px) {
@@ -158,7 +190,44 @@ main.content h2 {
     &::after { width: 28px; }
   }
 
+  .home-hero-logo img { height: 22px; }
+
   .home-hero-title { font-size: 1.6rem; }
+}
+
+// ---- Home Bands ----
+
+// Modules under the hero (instructor cards, featured-in) share one wrapper
+// that owns the vertical rhythm: a uniform top margin per band, none on the
+// inner components. A band that needs a label adds a .band-kicker, whose
+// hairlines double as a divider, so the modules stay boxless. The instructor
+// band is kicker-less by design: the headshots explain themselves.
+.home-band {
+  margin: 2.1rem 0 0;
+  text-align: center;
+}
+
+// Same voice as .home-hero-kicker, a size down: the hero names the page,
+// the band kickers name its modules.
+.band-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0 0 1rem;
+  font-family: 'Maple Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #5B7C93;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 1px;
+    width: 36px;
+    background: #C8DAE8;
+  }
 }
 
 // ---- Authors ----
@@ -168,7 +237,8 @@ main.content h2 {
   justify-content: center;
   align-items: flex-start;
   gap: 48px;
-  margin: 1.5rem 0 0.5rem;
+  // Spacing comes from the .home-band wrapper.
+  margin: 0;
   flex-wrap: wrap;
 }
 
@@ -2533,6 +2603,10 @@ body.quarto-dark {
     }
   }
 
+  // On the dark page the hover brightens instead of deepens: a darker
+  // orange would sink into the navy background.
+  a.home-hero-accent:hover { color: #F5A98F; }
+
   .hero-register {
     border-color: #F08A66;
     color: #F08A66;
@@ -2547,11 +2621,24 @@ body.quarto-dark {
   .auth-image { border-color: #384A57; }
   .auth-name { color: #A4C9DC; }
 
-  // Affiliation: the logo's cream chip is defined in the base rule (always
-  // present, so theme switches never shift layout); only text and hover tint
-  // need dark overrides, matching .auth-name / .auth-card.
-  .affiliation-card:hover { background-color: rgba(125, 165, 189, 0.12); }
-  .affiliation-text { color: #A4C9DC; }
+  // Home bands: same hairline/text swaps as the hero kicker above, and the
+  // featured pills get the same tint-only hover as the cards around them.
+  .band-kicker {
+    color: #7DA5BD;
+
+    &::before,
+    &::after { background: #384A57; }
+  }
+
+  .featured-pill {
+    border-color: #384A57;
+    color: #A4C9DC;
+
+    &:hover {
+      background-color: rgba(125, 165, 189, 0.12);
+      border-color: #7DA5BD;
+    }
+  }
 
   :not(pre) > code { background-color: rgba(255, 255, 255, 0.1); }
 

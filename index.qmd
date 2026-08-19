@@ -11,22 +11,15 @@ grid:
 
 ```{=html}
 <header class="home-hero">
- <p class="home-hero-kicker">2026 Summer Workshop</p>
- <h1 class="home-hero-title">Agentic Workflows with <span class="home-hero-accent">Claude Code</span></h1>
+ <p class="home-hero-kicker"><a class="home-hero-logo" href="https://trustworthyai.gwu.edu" target="_blank" rel="noopener"><img src="images/gw-tai-mark.png" alt="GW Trustworthy AI Initiative"></a>2026 Summer Workshop</p>
+ <h1 class="home-hero-title">Agentic Workflows with <a class="home-hero-accent" href="https://code.claude.com/docs/en/quickstart#step-1-install-claude-code" target="_blank" rel="noopener">Claude Code</a></h1>
  <a class="intro-btn intro-btn-wide hero-register" href="https://www.youtube.com/watch?v=kX1bzUHZWqc" target="_blank" rel="noopener"><i class="bi bi-youtube"></i>Watch the Recording</a>
 </header>
 ```
 
 {{< include resources/authors.qmd >}}
 
-```{=html}
-<div class="affiliation">
- <a class="affiliation-card" href="https://trustworthyai.gwu.edu" target="_blank" rel="noopener">
-  <img src="images/gw-tai-logo.png" alt="GW TAI Logo" class="affiliation-logo">
-  <span class="affiliation-text">The George Washington University</span>
- </a>
-</div>
-```
+{{< include resources/featured.qmd >}}
 
 <div class="soft-divider"></div>
 
